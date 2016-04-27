@@ -196,7 +196,7 @@ echo "@media all
 							font-size: .7em;
 						}
 
-					header nav .fa, header .menu .fa
+					header nav > .fa
 					{
 						display: none;
 					}
@@ -602,7 +602,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				width: 100%;
 			}
 
-				header nav .fa, header .menu .fa
+				header nav > .fa
 				{"
 					.render_css(array('property' => 'color', 'value' => 'nav_color'))
 					."display: block;
@@ -612,24 +612,24 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					top: 1em;
 				}
 
-					header nav .fa-close, header .menu .fa-close
-					{
-						visibility: hidden;
-					}
-
-					header nav ul > li, header .menu ul > li
+					header nav .fa-close
 					{
 						display: none;
 					}
 
-						header nav.open .fa-bars, header .menu.open .fa-bars
+					header nav.is_mobile_ready ul > li
+					{
+						display: none;
+					}
+
+						header nav.open .fa-bars
 						{
-							visibility: hidden;
+							display: none;
 						}
 
-						header nav.open .fa-close, header .menu.open .fa-close
+						header nav.open .fa-close
 						{
-							visibility: visible;
+							display: block;
 						}
 
 				header nav ul

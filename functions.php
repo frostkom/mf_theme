@@ -493,7 +493,7 @@ if(!function_exists('get_menu_theme'))
 
 				if($wp_menu != '')
 				{
-					$out .= "<nav id='primary_nav'>
+					$out .= "<nav id='primary_nav' class='is_mobile_ready'>
 						<i class='fa fa-bars'></i>
 						<i class='fa fa-close'></i>"
 						.$wp_menu

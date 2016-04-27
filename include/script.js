@@ -13,24 +13,18 @@ document.createElement("mf-wrapper");
 
 jQuery(function($)
 {
+	//Mobile nav
 	function toggle_menu(dom_obj)
 	{
 		dom_obj.parent('nav').siblings('#site_logo').toggleClass('hide_if_mobile');
-		dom_obj.parent('nav').find('div > ul > li').toggleClass('show_page_item');
+		dom_obj.parent('nav').find('ul > li').toggleClass('show_page_item');
 	}
 
-	$('header nav .fa-bars').on('click', function()
+	$('header nav > .fa').on('click', function()
 	{
 		toggle_menu($(this));
 
-		$(this).parent('nav, .menu').addClass('open');
-	});
-
-	$('header nav .fa-close').on('click', function()
-	{
-		toggle_menu($(this));
-
-		$(this).parent('nav, .menu').removeClass('open');
+		$(this).parent('nav').toggleClass('open');
 	});
 
 	//Slide nav
