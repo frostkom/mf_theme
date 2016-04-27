@@ -92,4 +92,4 @@ if(!isset($_GET['clean']))
 
 			echo "<mf-content>
 				<div>
-					<main>";
+					<div id='main'>";

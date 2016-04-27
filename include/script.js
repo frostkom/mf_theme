@@ -4,10 +4,10 @@ document.createElement("mf-wrapper");
 	document.createElement("mf-slide-nav");
 	document.createElement("mf-pre-content");
 	document.createElement("mf-content");
-		document.createElement("main");
+		//document.createElement("main");
 			document.createElement("article");
 			document.createElement("section");
-		document.createElement("aside");
+		//document.createElement("aside");
 		document.createElement("mf-pre-footer");
 	document.createElement("footer");
 

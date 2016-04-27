@@ -11,15 +11,15 @@
 
 if(!isset($_GET['clean']))
 {
-						echo "</main>";
+						echo "</div>";
 
 						if(is_active_sidebar('widget_sidebar'))
 						{
-							echo "<aside>";
+							echo "<div id='aside'>";
 
 								dynamic_sidebar('widget_sidebar');
 
-							echo "</aside>";
+							echo "</div>";
 						}
 }
 

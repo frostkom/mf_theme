@@ -22,7 +22,7 @@ echo "@media all
 		display: none;
 	}
 
-	html, body, header, nav, mf-pre-content, mf-content, article, section, aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
+	html, body, header, nav, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
 	{
 		margin: 0;
 		padding: 0;
@@ -33,12 +33,12 @@ echo "@media all
 		overflow-y: scroll;
 	}
 
-	body, header, nav, mf-pre-content, mf-content, article, section, aside, mf-pre-footer, footer, div, ol, ul, li, form, input, textarea, button, a, iframe, h1, h2, h3, h4, h5
+	body, header, nav, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, textarea, button, a, iframe, h1, h2, h3, h4, h5
 	{
 		box-sizing: border-box;
 	}
 
-	header, nav, mf-pre-content, mf-content, article, section, aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
+	header, nav, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
 	{
 		display: block;
 	}
@@ -384,18 +384,18 @@ echo "@media all
 										.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
 									."}
 
-				aside
+				aside, #aside
 				{"
 					.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
 					.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
 				."}
 
-					aside ul, aside ol
+					aside ul, aside ol, #aside ul, #aside ol
 					{
 						list-style-position: inside;
 					}
 
-						aside p a, aside ul a, aside ol a
+						aside p a, aside ul a, aside ol a, #aside p a, #aside ul a, #aside ol a
 						{
 							border-bottom: 2px solid transparent;"
 							.render_css(array('property' => 'color', 'value' => 'article_url_color'))
@@ -540,17 +540,17 @@ $flex_content = "mf-content > div
 		width: 100%;
 	}
 
-	main
+	main, #main
 	{
-		-webkit-box-flex: 2;
-		-webkit-flex: 2;
-		-ms-flex: 2;
-		flex: 2;
+		-webkit-box-flex: 2 1 auto;
+		-webkit-flex: 2 1 auto;
+		-ms-flex: 2 1 auto;
+		flex: 2 1 auto;
 		padding-right: 0;
 		max-width: 100%;
 	}
 
-	aside
+	aside, #aside
 	{
 		margin-left: 2%;
 		-webkit-box-flex: 1 0 28%;
@@ -755,7 +755,7 @@ echo "@media print
 		width: auto;
 	}
 
-	header, mf-pre-content, aside, mf-pre-footer, footer
+	header, mf-pre-content, aside, #aside, mf-pre-footer, footer
 	{
 		display: none;
 	}
