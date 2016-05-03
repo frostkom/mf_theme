@@ -1,4 +1,4 @@
-document.createElement("mf-wrapper");
+//document.createElement("mf-wrapper");
 	document.createElement("header");
 		document.createElement("nav");
 	document.createElement("mf-slide-nav");
@@ -14,15 +14,9 @@ document.createElement("mf-wrapper");
 jQuery(function($)
 {
 	//Mobile nav
-	function toggle_menu(dom_obj)
+	$('body').on('click', 'header nav > .fa', function()
 	{
-		dom_obj.parent('nav').siblings('#site_logo').toggleClass('hide_if_mobile');
-		dom_obj.parent('nav').find('ul > li').toggleClass('show_page_item');
-	}
-
-	$('header nav > .fa').on('click', function()
-	{
-		toggle_menu($(this));
+		$(this).parent('nav').siblings('#site_logo').toggleClass('hide_if_mobile');
 
 		$(this).parent('nav').toggleClass('open');
 	});
@@ -47,12 +41,12 @@ jQuery(function($)
 		return false;
 	}
 
-	$('#slide_nav').on('click', function()
+	$('body').on('click', '#slide_nav', function()
 	{
 		show_menu();
 	});
 
-	$('mf-slide-nav').on('click', function(e)
+	$('body').on('click', 'mf-slide-nav', function(e)
 	{
 		var dom_obj = $(e.target);
 
@@ -90,7 +84,7 @@ jQuery(function($)
 	}
 
 	//Load more
-	$('#load_more').on('click', function()
+	$('body').on('click', '#load_more', function()
 	{
 		var self = $(this);
 

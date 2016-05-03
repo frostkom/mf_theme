@@ -51,7 +51,7 @@ if(!isset($_GET['clean']))
 				}
 }
 
-		echo "</mf-wrapper>";
+		echo "</div>";
 
 		list($options_params, $options) = get_params();
 
@@ -59,8 +59,6 @@ if(!isset($_GET['clean']))
 		$template_url = get_bloginfo('template_url');
 
 		mf_enqueue_script('script_theme', $template_url."/include/script.js", array('template_url' => $template_url, 'header_fixed' => $header_fixed));
-
-		list($options_params, $options) = get_params();
 
 		if(isset($options['body_history']) && $options['body_history'] == 2)
 		{

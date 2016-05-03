@@ -632,6 +632,11 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							display: block;
 						}
 
+						header nav.open ul > li
+						{
+							display: block;
+						}
+
 				header nav ul
 				{
 					min-height: 3em;
@@ -648,11 +653,6 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						header nav > div > ul > li:last-of-type
 						{
 							border-radius: 0 0 1em 1em;
-						}
-
-						nav .show_page_item
-						{
-							display: block;
 						}
 
 						header nav a:hover, header nav li.current_page_item > a

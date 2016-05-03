@@ -477,7 +477,7 @@ if(!function_exists('get_menu_theme'))
 		{
 			if(in_array($type, array('', 'secondary', 'both')))
 			{
-				$wp_menu = wp_nav_menu(array('theme_location' => 'secondary', 'menu' => 'Secondary', 'fallback_cb' => false, 'echo' => false));
+				$wp_menu = wp_nav_menu(array('theme_location' => 'secondary', 'menu' => 'Secondary', 'container' => "div", 'fallback_cb' => false, 'echo' => false));
 
 				if($wp_menu != '')
 				{
@@ -489,7 +489,7 @@ if(!function_exists('get_menu_theme'))
 
 			if(in_array($type, array('', 'main', 'both')))
 			{
-				$wp_menu = wp_nav_menu(array('theme_location' => 'primary', 'menu' => 'Main', 'echo' => false));
+				$wp_menu = wp_nav_menu(array('theme_location' => 'primary', 'menu' => 'Main', 'container' => "div", 'echo' => false));
 
 				if($wp_menu != '')
 				{
