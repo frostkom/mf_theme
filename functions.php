@@ -36,187 +36,15 @@ if(!function_exists('options_theme'))
 {
 	function options_theme()
 	{
-		add_theme_page(__('Theme Options', 'lang_theme'), __('Theme Options', 'lang_theme'), 'edit_theme_options', 'theme_options', 'theme_options_do_page');
+		add_theme_page(__('Theme Options', 'lang_theme'), __('Theme Options', 'lang_theme'), 'edit_theme_options', 'theme_options', 'options_page_theme');
 	}
 }
 
-if(!function_exists('theme_options_do_page'))
+if(!function_exists('options_page_theme'))
 {
-	function theme_options_do_page()
+	function options_page_theme()
 	{
-		global $done_text, $error_text;
-
-		$strFileName = check_var('strFileName');
-		$strThemeFileContent = isset($_REQUEST['strThemeFileContent']) ? $_REQUEST['strThemeFileContent'] : "";
-
-		echo "<div class='wrap'>
-			<h2>".__('Theme Options', 'lang_theme')."</h2>";
-
-			list($upload_path, $upload_url) = get_uploads_folder("mf_theme");
-
-			$dir_exists = true;
-
-			if(!is_dir($upload_path))
-			{
-				if(!mkdir($upload_path, 0755, true))
-				{
-					$dir_exists = false;
-				}
-			}
-
-			if($dir_exists == false)
-			{
-				$error_text = __("Could not create a folder in uploads. Please add the correct rights for the script to create a new subfolder", 'lang_theme');
-			}
-
-			else
-			{
-				$error_text = $done_text = "";
-
-				if(isset($_POST['btnThemeBackup']))
-				{
-					list($options_params, $options) = get_params();
-
-					if(count($options) > 0)
-					{
-						$file = "mf_theme_".date("YmdHi").".json";
-
-						$success = set_file_content(array('file' => $upload_path.$file, 'mode' => 'a', 'content' => json_encode($options)));
-
-						if($success == true)
-						{
-							$done_text = __("The theme settings were backed up", 'lang_theme');
-						}
-
-						else
-						{
-							$error_text = __("It was not possible to backup the theme settings", 'lang_theme');
-						}
-					}
-
-					else
-					{
-						$error_text = __("There were no theme settings to save", 'lang_theme');
-					}
-				}
-
-				else if(isset($_REQUEST['btnThemeRestore']))
-				{
-					if($strFileName != '')
-					{
-						$strThemeFileContent = get_file_content(array('file' => $upload_path.$strFileName));
-					}
-
-					/*else
-					{
-						$strThemeFileContent = stripslashes(str_replace(array("\\", '"'), array("", "'"), $strThemeFileContent));
-					}*/
-
-					if($strThemeFileContent != '')
-					{
-						$json = json_decode($strThemeFileContent, true);
-
-						if(is_array($json))
-						{
-							foreach($json as $key => $value)
-							{
-								if($value != '')
-								{
-									set_theme_mod($key, $value);
-								}
-							}
-
-							$done_text = __("The restore was successful", 'lang_theme');
-
-							$strThemeFileContent = "";
-						}
-
-						else
-						{
-							$error_text = __("There is something wrong with the source to restore", 'lang_theme')." (".var_export($json, true).")"; //".htmlspecialchars($strThemeFileContent)."
-						}
-					}
-				}
-
-				else if(isset($_GET['btnThemeDelete']))
-				{
-					$strFileName = check_var('strFileName');
-
-					$error_text = sprintf(__("Time to delete %s don't you think?", 'lang_theme'), $strFileName);
-
-					//unlink($upload_path.$file);
-				}
-
-				echo get_notification();
-
-				global $globals;
-
-				$globals['mf_theme_files'] = array();
-
-				get_file_info(array('path' => $upload_path, 'callback' => "get_previous_backups"));
-
-				$count_temp = count($globals['mf_theme_files']);
-
-				if($count_temp > 0)
-				{
-					echo "<table class='widefat striped'>";
-
-						$arr_header[] = __("Name", 'lang_theme');
-						$arr_header[] = __("Date", 'lang_theme');
-
-						echo show_table_header($arr_header)
-						."<tbody>";
-
-							for($i = 0; $i < $count_temp; $i++)
-							{
-								echo "<tr>
-									<td>"
-										.$globals['mf_theme_files'][$i]['name']
-										."<div class='row-actions'>
-											<a href='".$upload_url.$globals['mf_theme_files'][$i]['name']."'>".__("Download", 'lang_theme')."</a>
-											 | <a href='".admin_url("themes.php?page=theme_options&btnThemeRestore&strFileName=".$globals['mf_theme_files'][$i]['name'])."'>".__("Restore", 'lang_theme')."</a>
-											 | <a href='".admin_url("themes.php?page=theme_options&btnThemeDelete&strFileName=".$globals['mf_theme_files'][$i]['name'])."'>".__("Delete", 'lang_theme')."</a>
-										</div>
-									</td>
-									<td>".date("Y-m-d H:i", $globals['mf_theme_files'][$i]['time'])."</td>
-								</tr>";
-							}
-
-						echo "</tbody>
-					</table>
-					<br>";
-				}
-
-				else
-				{
-					echo "<p>".__("There are no previous backups", 'lang_theme')."</p>";
-				}
-
-				echo "<form method='post' action=''>"
-					.show_submit(array('name' => "btnThemeBackup", 'text' => __("Save New Backup", 'lang_theme')))
-				."</form>
-				<br>
-				<form method='post' action=''>"
-					.show_textarea(array('name' => 'strThemeFileContent', 'value' => stripslashes($strThemeFileContent)))
-					.show_submit(array('name' => "btnThemeRestore", 'text' => __("Restore Backup", 'lang_theme')))
-				."</form>";
-			}
-
-		echo "</div>";
-	}
-}
-
-if(!function_exists('get_previous_backups'))
-{
-	function get_previous_backups($data)
-	{
-		global $globals;
-
-		$globals['mf_theme_files'][] = array(
-			'dir' => $data['file'],
-			'name' => basename($data['file']), 
-			'time' => filemtime($data['file'])
-		);
+		echo get_options_page_theme_core(array('dir' => "mf_theme"));
 	}
 }
 
@@ -477,7 +305,7 @@ if(!function_exists('get_menu_theme'))
 		{
 			if(in_array($type, array('', 'secondary', 'both')))
 			{
-				$wp_menu = wp_nav_menu(array('theme_location' => 'secondary', 'menu' => 'Secondary', 'container' => "div", 'fallback_cb' => false, 'echo' => false));
+				$wp_menu = wp_nav_menu(array('theme_location' => 'secondary', 'menu' => 'Secondary', 'container' => "div", 'container_override' => false, 'fallback_cb' => false, 'echo' => false));
 
 				if($wp_menu != '')
 				{
@@ -489,13 +317,13 @@ if(!function_exists('get_menu_theme'))
 
 			if(in_array($type, array('', 'main', 'both')))
 			{
-				$wp_menu = wp_nav_menu(array('theme_location' => 'primary', 'menu' => 'Main', 'container' => "div", 'echo' => false));
+				$wp_menu = wp_nav_menu(array('theme_location' => 'primary', 'menu' => 'Main', 'container' => "div", 'container_override' => false, 'echo' => false));
 
 				if($wp_menu != '')
 				{
 					$out .= "<nav id='primary_nav' class='is_mobile_ready'>
-						<i class='fa fa-bars'></i>
-						<i class='fa fa-close'></i>"
+						<i class='fa fa-bars toggle_icon'></i>
+						<i class='fa fa-close toggle_icon'></i>"
 						.$wp_menu
 					."</nav>";
 				}

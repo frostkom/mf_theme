@@ -196,8 +196,9 @@ echo "@media all
 							font-size: .7em;
 						}
 
-					header nav > .fa
+					header nav > .toggle_icon
 					{
+						cursor: pointer;
 						display: none;
 					}
 
@@ -242,7 +243,7 @@ echo "@media all
 										padding: .7em;
 									}
 
-						#slide_nav .fa
+						#slide_nav > .fa
 						{
 							display: inline-block;
 							margin-left: .5em;
@@ -602,7 +603,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				width: 100%;
 			}
 
-				header nav > .fa
+				header nav > .toggle_icon
 				{"
 					.render_css(array('property' => 'color', 'value' => 'nav_color'))
 					."display: block;

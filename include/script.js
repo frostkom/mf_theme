@@ -14,7 +14,7 @@
 jQuery(function($)
 {
 	//Mobile nav
-	$('body').on('click', 'header nav > .fa', function()
+	$('body').on('click', 'header nav > .toggle_icon', function()
 	{
 		$(this).parent('nav').siblings('#site_logo').toggleClass('hide_if_mobile');
 
