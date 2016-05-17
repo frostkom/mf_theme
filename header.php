@@ -5,33 +5,13 @@
 
 global $page, $paged;
 
-//require_user_login();
-
 echo "<!DOCTYPE html>
 <html lang='".get_bloginfo('language')."'>
 	<head>
 		<meta charset='".get_bloginfo('charset')."'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<meta name='author' content='frostkom.se'>
-		<title>";
-
-			wp_title('|', true, 'right');
-
-			echo get_bloginfo('name');
-
-			$site_description = get_bloginfo('description', 'display');
-
-			if($site_description != '' && (is_home() || is_front_page()))
-			{
-				echo " | ".$site_description;
-			}
-
-			if($paged >= 2 || $page >= 2)
-			{
-				echo " | ".sprintf( __('Page %s', 'lang_theme'), max($paged, $page));
-			}
-
-		echo "</title>";
+		<title>".get_wp_title()."</title>";
 
 		enqueue_theme_fonts();
 
