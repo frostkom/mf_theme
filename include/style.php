@@ -66,7 +66,25 @@ echo "@media all
 		clear: both;
 	}
 
+	.aligncenter
+	{
+		margin: .5em 0 .5em 0;
+		text-align: center;
+	}
+
 	.alignleft
+	{
+		float: left;
+		margin: 0 .5em .5em 0;
+	}
+
+	.alignright
+	{
+		float: right;
+		margin: 0 0 .5em .5em;
+	}
+
+	/*.alignleft
 	{
 		float: left;
 	}
@@ -84,7 +102,7 @@ echo "@media all
 		img.alignright
 		{
 			margin: 0 0 1em 1em;
-		}
+		}*/
 
 	.edit_mode
 	{
