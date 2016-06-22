@@ -174,9 +174,8 @@ echo "@media all
 					.render_css(array('property' => 'padding', 'value' => 'logo_padding'))
 					."position: relative;
 					text-decoration: none;"
-					.render_css(array('property' => 'width', 'value' => 'logo_width'));
-					//."z-index: 1;
-				echo "}
+					.render_css(array('property' => 'width', 'value' => 'logo_width'))
+				."}
 
 					#site_logo span
 					{

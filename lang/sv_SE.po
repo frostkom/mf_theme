@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-04 11:31+0100\n"
+"POT-Creation-Date: 2016-06-22 11:39+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -22,9 +22,8 @@ msgid "Not Found"
 msgstr "Hittades inte"
 
 #: ../404.php:14
-#: ../../mf_parallax/404.php:11
-msgid "Apologies, but the page you requested could not be found. Perhaps searching will help."
-msgstr "Sorry, men sidan du letade efter kunde inte hittas. Kanske en sökning kan hjälpa dig."
+msgid "Apologies, but the page you requested could not be found. Perhaps searching will help"
+msgstr "Ursäkta, men sidan du letade efter kunde inte hittas. Kanske en sökning kan hjälpa dig"
 
 #: ../functions.php:19
 #: ../../mf_parallax/functions.php:18
@@ -376,12 +375,6 @@ msgstr "Läs mer"
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
 
-#: ../header.php:31
-#: ../../mf_parallax/header.php:28
-#, php-format
-msgid "Page %s"
-msgstr "Sida %s"
-
 #: ../index.php:56
 msgid "Edit post"
 msgstr "Redigera"
@@ -444,6 +437,10 @@ msgstr "Glid in från höger"
 #: ../include/classes.php:94
 msgid "Menu type"
 msgstr "Typ av meny"
+
+#: ../../mf_parallax/404.php:11
+msgid "Apologies, but the page you requested could not be found. Perhaps searching will help."
+msgstr "Sorry, men sidan du letade efter kunde inte hittas. Kanske en sökning kan hjälpa dig."
 
 #: ../../mf_parallax/functions.php:65
 msgid "Aside Image Max Width"
@@ -530,6 +527,9 @@ msgstr "Visa på sidan"
 #: ../../mf_parallax/functions.php:251
 msgid "Background Color"
 msgstr "Bakgrundsfärg"
+
+#~ msgid "Page %s"
+#~ msgstr "Sida %s"
 
 #~ msgid ""
 #~ "Could not create a folder in uploads. Please add the correct rights for "

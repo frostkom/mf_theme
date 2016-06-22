@@ -16,9 +16,9 @@ if(!function_exists('setup_theme'))
 		load_theme_textdomain('lang_theme', get_template_directory()."/lang");
 
 		register_nav_menus(array(
-			'primary' => __('Primary Navigation', 'lang_theme'),
-			'secondary' => __('Secondary Navigation', 'lang_theme'),
-			//'footer' => __('Footer Navigation', 'lang_theme')
+			'primary' => __("Primary Navigation", 'lang_theme'),
+			'secondary' => __("Secondary Navigation", 'lang_theme'),
+			//'footer' => __("Footer Navigation", 'lang_theme')
 		));
 
 		add_post_type_support('page', 'excerpt');
@@ -36,7 +36,7 @@ if(!function_exists('options_theme'))
 {
 	function options_theme()
 	{
-		add_theme_page(__('Theme Options', 'lang_theme'), __('Theme Options', 'lang_theme'), 'edit_theme_options', 'theme_options', 'options_page_theme');
+		add_theme_page(__("Theme Options", 'lang_theme'), __("Theme Options", 'lang_theme'), 'edit_theme_options', 'theme_options', 'options_page_theme');
 	}
 }
 
@@ -169,9 +169,9 @@ if(!function_exists('widgets_theme'))
 	function widgets_theme()
 	{
 		register_sidebar(array(
-			'name' => __('Header', 'lang_theme'),
+			'name' => __("Header", 'lang_theme'),
 			'id' => 'widget_header',
-			'description' => __('The widget area', 'lang_theme'),
+			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "",
 			'before_title' => '<div>',
 			'after_title' => '</div>',
@@ -179,9 +179,9 @@ if(!function_exists('widgets_theme'))
 		));
 
 		register_sidebar(array(
-			'name' => __('Slide menu', 'lang_theme'),
+			'name' => __("Slide menu", 'lang_theme'),
 			'id' => 'widget_slide',
-			'description' => __('The widget area', 'lang_theme'),
+			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "",
 			'before_title' => '',
 			'after_title' => '',
@@ -189,9 +189,9 @@ if(!function_exists('widgets_theme'))
 		));
 
 		register_sidebar(array(
-			'name' => __('Pre Content', 'lang_theme'),
+			'name' => __("Pre Content", 'lang_theme'),
 			'id' => 'widget_front',
-			'description' => __('The widget area', 'lang_theme'),
+			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => '<h3>',
 			'after_title' => '</h3>',
@@ -199,9 +199,9 @@ if(!function_exists('widgets_theme'))
 		));
 
 		register_sidebar(array(
-			'name' => __('Sidebar', 'lang_theme'),
+			'name' => __("Sidebar", 'lang_theme'),
 			'id' => 'widget_sidebar',
-			'description' => __('The widget area', 'lang_theme'),
+			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => '<h3>',
 			'after_title' => '</h3>',
@@ -209,9 +209,9 @@ if(!function_exists('widgets_theme'))
 		));
 
 		register_sidebar(array(
-			'name' => __('Pre Footer', 'lang_theme'),
+			'name' => __("Pre Footer", 'lang_theme'),
 			'id' => 'widget_pre_footer',
-			'description' => __('The widget area', 'lang_theme'),
+			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => '<h3>',
 			'after_title' => '</h3>',
@@ -219,9 +219,9 @@ if(!function_exists('widgets_theme'))
 		));
 
 		register_sidebar(array(
-			'name' => __('Footer', 'lang_theme'),
+			'name' => __("Footer", 'lang_theme'),
 			'id' => 'widget_footer',
-			'description' => __('The widget area', 'lang_theme'),
+			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => '<h3>',
 			'after_title' => '</h3>',
