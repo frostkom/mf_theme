@@ -33,7 +33,7 @@ echo "@media all
 		overflow-y: scroll;
 	}
 
-	body, header, nav, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, textarea, button, a, iframe, h1, h2, h3, h4, h5
+	body, header, nav, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
 	{
 		box-sizing: border-box;
 	}
