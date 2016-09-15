@@ -90,16 +90,15 @@ class widget_theme_menu extends WP_Widget
 			'slide' => __("Slide in from right", 'lang_theme'),
 		);
 
-		echo "<p>
-			<label for='".$this->get_field_id('theme_menu_type')."'>".__("Menu type", 'lang_theme')."</label>
-			<select name='".$this->get_field_name('theme_menu_type')."' id='".$this->get_field_id('theme_menu_type')."' class='widefat'>";
+		$arr_data = array();
 
-				foreach($arr_types as $key => $value)
-				{
-					echo "<option value='".$key."'".($key == $instance['theme_menu_type'] ? " selected" : "").">".$value."</option>";
-				}
+		foreach($arr_types as $key => $value)
+		{
+			$arr_data[$key] = $value;
+		}
 
-			echo "</select>
-		</p>";
+		echo "<p>"
+			.show_select(array('data' => $arr_data, 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'compare' => $instance['theme_menu_type'], 'xtra' => " class='widefat'"))
+		."</p>";
 	}
 }

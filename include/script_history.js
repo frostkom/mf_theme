@@ -36,7 +36,7 @@ jQuery(function($)
 				$('#body_history').fadeOut();
 			}
 		}
-		
+
 		function loadPage()
 		{
 			$('#body_history').fadeIn();
