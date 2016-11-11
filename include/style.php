@@ -750,7 +750,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 		header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div
 		{
 			margin: 0 auto;
-			width: ".$options['website_max_width']."px;
+			max-width: ".$options['website_max_width']."px;
 		}"
 		.$flex_content
 	."}";
