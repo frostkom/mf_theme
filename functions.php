@@ -157,7 +157,6 @@ if(!function_exists('widgets_theme'))
 		register_sidebar(array(
 			'name' => __("Header", 'lang_theme'),
 			'id' => 'widget_header',
-			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "",
 			'before_title' => '<div>',
 			'after_title' => '</div>',
@@ -167,7 +166,6 @@ if(!function_exists('widgets_theme'))
 		register_sidebar(array(
 			'name' => __("Slide menu", 'lang_theme'),
 			'id' => 'widget_slide',
-			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "",
 			'before_title' => '',
 			'after_title' => '',
@@ -177,7 +175,6 @@ if(!function_exists('widgets_theme'))
 		register_sidebar(array(
 			'name' => __("Pre Content", 'lang_theme'),
 			'id' => 'widget_front',
-			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => '<h3>',
 			'after_title' => '</h3>',
@@ -187,7 +184,6 @@ if(!function_exists('widgets_theme'))
 		register_sidebar(array(
 			'name' => __("Sidebar", 'lang_theme'),
 			'id' => 'widget_sidebar',
-			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => '<h3>',
 			'after_title' => '</h3>',
@@ -197,7 +193,6 @@ if(!function_exists('widgets_theme'))
 		register_sidebar(array(
 			'name' => __("Pre Footer", 'lang_theme'),
 			'id' => 'widget_pre_footer',
-			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => '<h3>',
 			'after_title' => '</h3>',
@@ -207,7 +202,6 @@ if(!function_exists('widgets_theme'))
 		register_sidebar(array(
 			'name' => __("Footer", 'lang_theme'),
 			'id' => 'widget_footer',
-			'description' => __("The widget area", 'lang_theme'),
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => '<h3>',
 			'after_title' => '</h3>',
