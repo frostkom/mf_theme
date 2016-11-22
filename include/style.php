@@ -84,26 +84,6 @@ echo "@media all
 		margin: 0 0 .5em .5em;
 	}
 
-	/*.alignleft
-	{
-		float: left;
-	}
-
-		img.alignleft
-		{
-			margin: 0 1em 1em 0;
-		}
-
-	.alignright
-	{
-		float: right;
-	}
-
-		img.alignright
-		{
-			margin: 0 0 1em 1em;
-		}*/
-
 	.edit_mode
 	{
 		background: #eee;
@@ -215,7 +195,6 @@ echo "@media all
 
 					header nav > .toggle_icon
 					{
-						cursor: pointer;
 						display: none;
 					}
 
@@ -401,6 +380,12 @@ echo "@media all
 									{"
 										.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
 									."}
+
+						article form button
+						{"
+							.render_css(array('property' => 'background', 'value' => 'nav_color_hover'))
+							."color: #fff;
+						}
 
 				aside, #aside
 				{"
@@ -621,10 +606,14 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			}
 
 				header nav > .toggle_icon
-				{"
+				{
+					border: .07em solid #666;
+					border-radius: .2em;"
 					.render_css(array('property' => 'color', 'value' => 'nav_color'))
-					."display: block;
+					."cursor: pointer;
+					display: block;
 					font-size: 1.4em;
+					padding: .1em .2em;
 					position: absolute;
 					right: 4%;
 					top: 1em;
