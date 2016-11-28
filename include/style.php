@@ -514,7 +514,7 @@ echo "@media all
 
 							footer a img.alignleft
 							{
-								border-radius: 10px;
+								border-radius: 50%;
 								max-width: 44%;
 							}
 
