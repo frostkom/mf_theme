@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-22 11:39+0100\n"
+"POT-Creation-Date: 2016-12-15 12:05+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -15,15 +15,6 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: ../..\n"
-
-#: ../404.php:12
-#: ../../mf_parallax/404.php:9
-msgid "Not Found"
-msgstr "Hittades inte"
-
-#: ../404.php:14
-msgid "Apologies, but the page you requested could not be found. Perhaps searching will help"
-msgstr "Ursäkta, men sidan du letade efter kunde inte hittas. Kanske en sökning kan hjälpa dig"
 
 #: ../functions.php:19
 #: ../../mf_parallax/functions.php:18
@@ -57,8 +48,8 @@ msgstr "Använd HTML5-historik"
 #: ../../mf_parallax/functions.php:57
 #: ../../mf_parallax/functions.php:70
 #: ../../mf_parallax/functions.php:123
-#: ../../mf_parallax/functions.php:236
-#: ../../mf_parallax/functions.php:241
+#: ../../mf_parallax/functions.php:219
+#: ../../mf_parallax/functions.php:224
 msgid "Background"
 msgstr "Bakgrund"
 
@@ -73,7 +64,7 @@ msgstr "Typsnitt"
 
 #: ../functions.php:63
 #: ../../mf_parallax/functions.php:59
-#: ../../mf_parallax/functions.php:246
+#: ../../mf_parallax/functions.php:229
 msgid "Text Color"
 msgstr "Textfärg"
 
@@ -93,7 +84,7 @@ msgstr "Storlek på text"
 
 #: ../functions.php:66
 #: ../../mf_parallax/functions.php:62
-#: ../../mf_parallax/functions.php:236
+#: ../../mf_parallax/functions.php:219
 msgid "Desktop"
 msgstr "Stora skärmar"
 
@@ -125,9 +116,9 @@ msgid "Padding"
 msgstr "Tomrum"
 
 #: ../functions.php:72
-#: ../functions.php:172
+#: ../functions.php:158
 #: ../../mf_parallax/functions.php:68
-#: ../../mf_parallax/functions.php:161
+#: ../../mf_parallax/functions.php:147
 msgid "Header"
 msgstr "Sidhuvud"
 
@@ -158,7 +149,7 @@ msgstr "Logga"
 #: ../../mf_parallax/functions.php:103
 #: ../../mf_parallax/functions.php:129
 #: ../../mf_parallax/functions.php:135
-#: ../../mf_parallax/functions.php:241
+#: ../../mf_parallax/functions.php:224
 msgid "Mobile"
 msgstr "Mobil"
 
@@ -230,8 +221,8 @@ msgid "Link Padding"
 msgstr "Tomrum runt länkar"
 
 #: ../functions.php:97
-#: ../functions.php:192
-#: ../../mf_parallax/functions.php:171
+#: ../functions.php:176
+#: ../../mf_parallax/functions.php:156
 msgid "Pre Content"
 msgstr "Före innehåll"
 
@@ -271,19 +262,19 @@ msgid "Article Link Color"
 msgstr "Färg på artikellänk"
 
 #: ../functions.php:119
-#: ../../mf_parallax/functions.php:214
+#: ../../mf_parallax/functions.php:197
 msgid "Aside"
 msgstr "Vid sidan"
 
 #: ../functions.php:124
-#: ../functions.php:212
+#: ../functions.php:194
 msgid "Pre Footer"
 msgstr "Före sidfot"
 
 #: ../functions.php:129
-#: ../functions.php:222
+#: ../functions.php:203
 #: ../../mf_parallax/functions.php:122
-#: ../../mf_parallax/functions.php:181
+#: ../../mf_parallax/functions.php:165
 msgid "Footer"
 msgstr "Sidfot"
 
@@ -328,50 +319,38 @@ msgstr "Anpassat"
 msgid "Custom CSS"
 msgstr "Anpassad CSS"
 
-#: ../functions.php:174
-#: ../functions.php:184
-#: ../functions.php:194
-#: ../functions.php:204
-#: ../functions.php:214
-#: ../functions.php:224
-#: ../../mf_parallax/functions.php:163
-#: ../../mf_parallax/functions.php:173
-#: ../../mf_parallax/functions.php:183
-msgid "The widget area"
-msgstr "Widget-område"
-
-#: ../functions.php:182
+#: ../functions.php:167
 msgid "Slide menu"
 msgstr "Glidmeny"
 
-#: ../functions.php:202
+#: ../functions.php:185
 msgid "Sidebar"
 msgstr "Sidokolumn"
 
-#: ../functions.php:251
-#: ../../mf_parallax/functions.php:277
+#: ../functions.php:231
+#: ../../mf_parallax/functions.php:260
 msgid "Site logo"
 msgstr "Logga för webbsidan"
 
-#: ../functions.php:256
-#: ../../mf_parallax/functions.php:282
+#: ../functions.php:236
+#: ../../mf_parallax/functions.php:265
 msgid "Site mobile logo"
 msgstr "Mobil logga"
 
-#: ../functions.php:284
+#: ../functions.php:264
 msgid "Search for"
 msgstr "Sök efter"
 
-#: ../functions.php:299
+#: ../functions.php:279
 msgid "Menu"
 msgstr "Meny"
 
-#: ../functions.php:389
+#: ../functions.php:369
 #: ../index.php:69
 msgid "Read More"
 msgstr "Läs mer"
 
-#: ../functions.php:408
+#: ../functions.php:388
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
 
@@ -434,13 +413,10 @@ msgstr "Huvud- och sekundär meny"
 msgid "Slide in from right"
 msgstr "Glid in från höger"
 
-#: ../include/classes.php:94
-msgid "Menu type"
+#: ../include/classes.php:101
+#, fuzzy
+msgid "Menu Type"
 msgstr "Typ av meny"
-
-#: ../../mf_parallax/404.php:11
-msgid "Apologies, but the page you requested could not be found. Perhaps searching will help."
-msgstr "Sorry, men sidan du letade efter kunde inte hittas. Kanske en sökning kan hjälpa dig."
 
 #: ../../mf_parallax/functions.php:65
 msgid "Aside Image Max Width"
@@ -508,25 +484,45 @@ msgstr "Storlek på citat"
 msgid "Aside paragraph size"
 msgstr "Textstorlek på paragraf i sidokolumn"
 
-#: ../../mf_parallax/functions.php:203
+#: ../../mf_parallax/functions.php:186
 msgid "Information"
 msgstr "Information"
 
-#: ../../mf_parallax/functions.php:209
+#: ../../mf_parallax/functions.php:192
 msgid "Heading"
 msgstr "Rubrik"
 
-#: ../../mf_parallax/functions.php:223
+#: ../../mf_parallax/functions.php:206
 msgid "Settings"
 msgstr "Inställningar"
 
-#: ../../mf_parallax/functions.php:229
+#: ../../mf_parallax/functions.php:212
 msgid "Show on page"
 msgstr "Visa på sidan"
 
-#: ../../mf_parallax/functions.php:251
+#: ../../mf_parallax/functions.php:234
 msgid "Background Color"
 msgstr "Bakgrundsfärg"
+
+#~ msgid "Not Found"
+#~ msgstr "Hittades inte"
+
+#~ msgid ""
+#~ "Apologies, but the page you requested could not be found. Perhaps "
+#~ "searching will help"
+#~ msgstr ""
+#~ "Ursäkta, men sidan du letade efter kunde inte hittas. Kanske en sökning "
+#~ "kan hjälpa dig"
+
+#~ msgid "The widget area"
+#~ msgstr "Widget-område"
+
+#~ msgid ""
+#~ "Apologies, but the page you requested could not be found. Perhaps "
+#~ "searching will help."
+#~ msgstr ""
+#~ "Sorry, men sidan du letade efter kunde inte hittas. Kanske en sökning kan "
+#~ "hjälpa dig."
 
 #~ msgid "Page %s"
 #~ msgstr "Sida %s"

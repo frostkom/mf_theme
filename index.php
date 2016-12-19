@@ -50,12 +50,12 @@ get_header();
 							.$post_title
 						.$post_url_end;
 
-						if(is_user_logged_in() && current_user_can('edit_post', $post_id))
+						/*if(is_user_logged_in() && current_user_can('edit_post', $post_id))
 						{
 							echo "<div class='edit_mode'>
 								<a href='".admin_url("post.php?post=".$post_id."&action=edit")."'>".__("Edit post", 'lang_theme')."</a>
 							</div>";
-						}
+						}*/
 
 					echo "</h1>";
 				}

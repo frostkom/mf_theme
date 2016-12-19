@@ -15,6 +15,21 @@ list($options_params, $options) = get_params();
 
 echo show_font_face($options_params, $options_fonts, $options);
 
+/*.edit_mode
+	{
+		background: #eee;
+		border: 1px solid #999;
+		display: none;
+		opacity: .7;
+		padding: 3px;
+		position: absolute;
+	}
+
+		article:hover .edit_mode
+		{
+			display: block;
+		}*/
+
 echo "@media all
 {
 	body:before
@@ -83,21 +98,6 @@ echo "@media all
 		float: right;
 		margin: 0 0 .5em .5em;
 	}
-
-	.edit_mode
-	{
-		background: #eee;
-		border: 1px solid #999;
-		display: none;
-		opacity: .7;
-		padding: 3px;
-		position: absolute;
-	}
-
-		article:hover > .edit_mode
-		{
-			display: block;
-		}
 
 	html
 	{"
