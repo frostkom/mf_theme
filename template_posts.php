@@ -8,8 +8,6 @@
 Template Name: Posts
 */
 
-wp_enqueue_style('style_custom_lists', plugin_dir_url(__FILE__)."style.css");
-
 get_header();
 
 	if(have_posts())
