@@ -17,7 +17,6 @@ get_header();
 	if(have_posts())
 	{
 		$options['heading_front_visible'] = get_theme_mod('heading_front_visible');
-
 		$post_amount = $wp_query->found_posts;
 		$show_h1 = $post_amount > 1 || $options['heading_front_visible'] == 2 || !is_front_page() ? true : false;
 
@@ -48,28 +47,34 @@ get_header();
 					echo "<h1>"
 						.$post_url_start
 							.$post_title
-						.$post_url_end;
+						.$post_url_end
+					."</h1>";
 
-						/*if(is_user_logged_in() && current_user_can('edit_post', $post_id))
-						{
-							echo "<div class='edit_mode'>
-								<a href='".admin_url("post.php?post=".$post_id."&action=edit")."'>".__("Edit post", 'lang_theme')."</a>
-							</div>";
-						}*/
+					$post_meta = apply_filters('the_content_meta', "", $post);
 
-					echo "</h1>";
+					echo ($post_meta != '' ? "<div class='meta'>".$post_meta."</div>" : "");
 				}
 
 				if($post_amount > 1)
 				{
-					echo "<section>
-						<p>".$post_excerpt."</p>
-						<p>"
-							.$post_url_start
-								.__("Read More", 'lang_theme')
-							.$post_url_end
-						."</p>
-					</section>";
+					echo "<section>";
+
+						if($post_excerpt != '')
+						{
+							echo "<p>".$post_excerpt."</p>
+							<p>"
+								.$post_url_start
+									.__("Read More", 'lang_theme')
+								.$post_url_end
+							."</p>";
+						}
+
+						else
+						{
+							echo $post_content;
+						}
+
+					echo "</section>";
 				}
 
 				else

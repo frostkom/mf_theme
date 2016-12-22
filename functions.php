@@ -7,7 +7,20 @@ add_action('widgets_init', 'widgets_theme');
 add_action('customize_register', 'customize_theme');
 add_action('admin_menu', 'options_theme');
 
+add_filter('the_content_meta', 'content_meta_theme', 1, 2);
+
 add_theme_support('post-thumbnails');
+add_theme_support('automatic-feed-links');
+
+function content_meta_theme($html, $post)
+{
+	if($post->post_type == 'post')
+	{
+		$html .= "<span class='date grey'>".format_date($post->post_date)."</span>";
+	}
+
+    return $html;
+}
 
 if(!function_exists('setup_theme'))
 {
@@ -107,9 +120,9 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "text", 'id' => "heading_size", 'title' => __("Size", 'lang_theme')." (H1)", 'default' => "2.2em");
 					$options_params[] = array('type' => "text", 'id' => "heading_weight", 'title' => __("Weight", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => "heading_margin", 'title' => __("Margin", 'lang_theme')." (H1)", 'default' => ".3em .5em .5em");
+					$options_params[] = array('type' => "text", 'id' => "heading_border_bottom", 'title' => __("Heading Border Bottom", 'lang_theme'));
 					$options_params[] = array('type' => "font", 'id' => "heading_font_h2", 'title' => __("Font", 'lang_theme')." (H2)");
 					$options_params[] = array('type' => "text", 'id' => "heading_size_h2", 'title' => __("Size", 'lang_theme')." (H2)");
-					$options_params[] = array('type' => "text", 'id' => "heading_border_bottom", 'title' => __("Heading Border Bottom", 'lang_theme'));
 					$options_params[] = array('type' => "text", 'id' => "section_size", 'title' => __("Size", 'lang_theme'), 'default' => "1.6em");
 					$options_params[] = array('type' => "text", 'id' => "section_line_height", 'title' => __("Line Height", 'lang_theme'), 'default' => "1.5");
 					$options_params[] = array('type' => "text", 'id' => "section_margin", 'title' => __("Content Margin", 'lang_theme'), 'default' => "0 0 2em 0");
@@ -330,16 +343,18 @@ if(!function_exists('get_more_posts'))
 
 		$i = 0;
 
-		foreach($result as $r)
+		foreach($result as $post)
 		{
-			$post_id = $r->ID;
-			$post_title = $r->post_title;
-			$post_excerpt = $r->post_excerpt;
-			$post_content = apply_filters('the_content', $r->post_content);
+			$post_id = $post->ID;
+			$post_title = $post->post_title;
+			$post_excerpt = $post->post_excerpt;
+			$post_content = apply_filters('the_content', $post->post_content);
 
 			if($i < $posts_per_page)
 			{
-				$post_url = get_permalink($r);
+				$post_url = get_permalink($post);
+
+				$post_meta = apply_filters('the_content_meta', "", $post);
 
 				$post_url_start = "<a href='".$post_url."'>";
 				$post_url_end = "</a>";
@@ -351,34 +366,41 @@ if(!function_exists('get_more_posts'))
 					$post_thumbnail = get_the_post_thumbnail($post_id);
 				}
 
-				$out .= "<li>
-					<div>".$post_thumbnail."</div>
-					<div>
-						<h1>"
-							.$post_url_start
-								.$post_title
-							.$post_url_end
-						."</h1>
-						<section>";
+				//$out .= "<li>";
+				$out .= "<article>";
 
-							if($post_excerpt != '')
-							{
-								$out .= "<p>".$post_excerpt."</p>
-								<p>"
-									.$post_url_start
-										.__("Read More", 'lang_theme')
-									.$post_url_end
-								."</p>";
-							}
+					if($post_thumbnail != '')
+					{
+						$out .= "<div class='image'>".$post_thumbnail."</div>";
+					}
 
-							else
-							{
-								$out .= $post_content;
-							}
+					$out .= "<h1>"
+						.$post_url_start
+							.$post_title
+						.$post_url_end
+					."</h1>"
+					.($post_meta != '' ? "<div class='meta'>".$post_meta."</div>" : "")
+					."<section>";
 
-						$out .= "</section>
-					</div>
-				</li>";
+						if($post_excerpt != '')
+						{
+							$out .= "<p>".$post_excerpt."</p>
+							<p>"
+								.$post_url_start
+									.__("Read More", 'lang_theme')
+								.$post_url_end
+							."</p>";
+						}
+
+						else
+						{
+							$out .= $post_content;
+						}
+
+					$out .= "</section>";
+
+				//$out .= "</li>";
+				$out .= "</article>";
 
 				$i++;
 			}

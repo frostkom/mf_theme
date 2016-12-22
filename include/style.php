@@ -15,21 +15,6 @@ list($options_params, $options) = get_params();
 
 echo show_font_face($options_params, $options_fonts, $options);
 
-/*.edit_mode
-	{
-		background: #eee;
-		border: 1px solid #999;
-		display: none;
-		opacity: .7;
-		padding: 3px;
-		position: absolute;
-	}
-
-		article:hover .edit_mode
-		{
-			display: block;
-		}*/
-
 echo "@media all
 {
 	body:before
@@ -107,12 +92,17 @@ echo "@media all
 
 	body
 	{"
-		.render_css(array('property' => 'background', 'value' => 'body_bg'))
+		.render_css(array('property' => 'background', 'value' => 'footer_bg'))
 		.render_css(array('property' => 'font-family', 'value' => 'body_font'))
 		.render_css(array('property' => 'color', 'value' => 'body_color'))
 		."position: relative;
 		text-align: left;
 	}
+
+	#wrapper
+	{"
+		.render_css(array('property' => 'background', 'value' => 'body_bg'))
+	."}
 
 		header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div
 		{"
@@ -345,6 +335,21 @@ echo "@media all
 							color: inherit;
 						}
 
+					article .meta
+					{"
+						.render_css(array('property' => 'font-size', 'value' => 'section_size'))
+					."}
+
+						article .date
+						{
+							background: #808080;
+							border-radius: .2em;
+							color: #fff;
+							display: inline-block;
+							margin-right: .5em;
+							padding: .25em .5em;
+						}
+
 					article h2
 					{"
 						.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
@@ -357,6 +362,12 @@ echo "@media all
 						.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
 						.render_css(array('property' => 'margin', 'value' => 'section_margin'))
 					."}
+
+						article + article
+						{
+							border-top: 1px solid #ccc;
+							padding-top: 1em;
+						}
 
 						article p, article ul, article ol, article form
 						{
@@ -390,20 +401,38 @@ echo "@media all
 				aside, #aside
 				{"
 					.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
+					.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
 					.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
 				."}
 
-					aside ul, aside ol, #aside ul, #aside ol
+					aside .widget, #aside .widget
 					{
-						list-style-position: inside;
+						background: #f8f8f8;
+						border: 1px solid #d8d8d8;
+						padding: 1em;
 					}
 
-						aside p a, aside ul a, aside ol a, #aside p a, #aside ul a, #aside ol a
+						aside .widget + .widget, #aside .widget + .widget
 						{
-							border-bottom: 2px solid transparent;"
-							.render_css(array('property' => 'color', 'value' => 'article_url_color'))
-							."text-decoration: none;
+							margin-top: 1em;
 						}
+
+						aside h3, #aside h3
+						{
+							margin-bottom: .5em;
+						}
+
+						aside ul, aside ol, #aside ul, #aside ol
+						{
+							list-style-position: inside;
+						}
+
+							aside p a, aside ul a, aside ol a, #aside p a, #aside ul a, #aside ol a
+							{
+								border-bottom: 2px solid transparent;"
+								.render_css(array('property' => 'color', 'value' => 'article_url_color'))
+								."text-decoration: none;
+							}
 
 		mf-pre-footer
 		{"
@@ -510,18 +539,7 @@ echo "@media all
 							footer .textwidget > a:hover, footer .vcard > a:hover
 							{"
 								.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
-							."}
-
-							footer a img.alignleft
-							{
-								border-radius: 50%;
-								max-width: 44%;
-							}
-
-								footer a:nth-of-type(2n + 1) img.alignleft
-								{
-									margin-right: 4%;
-								}";
+							."}";
 
 	if(isset($options['custom_css_all']) && $options['custom_css_all'] != '')
 	{
@@ -549,6 +567,7 @@ $flex_content = "mf-content > div
 		-webkit-flex: 2 1 auto;
 		-ms-flex: 2 1 auto;
 		flex: 2 1 auto;
+		overflow: hidden;
 		padding-right: 0;
 		max-width: 100%;
 	}

@@ -12,22 +12,27 @@ get_header();
 
 	if(have_posts())
 	{
-		echo "<article>";
+		while(have_posts())
+		{
+			the_post();
 
-			while(have_posts())
+			$post_id = $post->ID;
+			$post_title = $post->post_title;
+			$post_content = apply_filters('the_content', $post->post_content);
+
+			if($post_content != '')
 			{
-				the_post();
+				$post_meta = apply_filters('the_content_meta', "", $post);
 
-				$post_id = $post->ID;
-				$post_content = apply_filters('the_content', $post->post_content);
-
-				echo "<section>".$post_content."</section>";
+				echo "<article>
+					<h1>".$post_title."</h1>"
+					.($post_meta != '' ? "<div class='meta'>".$post_meta."</div>" : "")
+					."<section>".$post_content."</section>
+				</article>";
 			}
+		}
 
-			echo "<ul class='list_alternate'>"
-				.get_more_posts()
-			."</ul>
-		</article>";
+		echo get_more_posts();
 	}
 
 get_footer();
