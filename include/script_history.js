@@ -69,11 +69,15 @@ jQuery(function($)
 		{
 			var url = $(this).attr("href");
 
-			if(url.indexOf('#') > -1 || url.indexOf('wp-admin') > -1){}
-			else if(url.indexOf(document.domain) > -1 || url.indexOf(':') === -1)
+			if(url.indexOf('#') > -1 || url.indexOf('wp-admin') > -1)
+			{
+				//Do nothing
+			}
+
+			else if(url.indexOf(document.domain) > -1)
 			{
 				e.preventDefault();
-				
+
 				history.pushState({}, null, url);
 
 				requestContent(url);
@@ -81,7 +85,7 @@ jQuery(function($)
 				return false;
 			}
 
-			e.stopPropagation();
+			//e.stopPropagation();
 		});
 
 		$(document).on('submit', '.searchform', function()
