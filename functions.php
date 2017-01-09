@@ -226,6 +226,11 @@ if(!function_exists('widgets_theme'))
 	}
 }
 
+function is_clean()
+{
+	return (isset($_GET['clean']) ? " class='hide'" : "");
+}
+
 if(!function_exists('get_logo_theme'))
 {
 	function get_logo_theme($options = "")

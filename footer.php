@@ -9,47 +9,41 @@
  * @subpackage Theme
  */
 
-if(!isset($_GET['clean']))
-{
+					echo "</div>";
+
+					if(is_active_sidebar('widget_sidebar'))
+					{
+						echo "<div id='aside'".is_clean().">";
+
+							dynamic_sidebar('widget_sidebar');
+
 						echo "</div>";
+					}
 
-						if(is_active_sidebar('widget_sidebar'))
-						{
-							echo "<div id='aside'>";
+				echo "</div>
+			</mf-content>";
 
-								dynamic_sidebar('widget_sidebar');
+			if(is_active_sidebar('widget_pre_footer'))
+			{
+				echo "<mf-pre-footer>
+					<div>";
 
-							echo "</div>";
-						}
-}
+						dynamic_sidebar('widget_pre_footer');
 
 					echo "</div>
-				</mf-content>";
+				</mf-pre-footer>";
+			}
 
-				if(is_active_sidebar('widget_pre_footer'))
-				{
-					echo "<mf-pre-footer>
-						<div>";
+			if(is_active_sidebar('widget_footer'))
+			{
+				echo "<footer".is_clean().">
+					<div>";
 
-							dynamic_sidebar('widget_pre_footer');
+						dynamic_sidebar('widget_footer');
 
-						echo "</div>
-					</mf-pre-footer>";
-				}
-
-if(!isset($_GET['clean']))
-{
-				if(is_active_sidebar('widget_footer'))
-				{
-					echo "<footer>
-						<div>";
-
-							dynamic_sidebar('widget_footer');
-
-						echo "</div>
-					</footer>";
-				}
-}
+					echo "</div>
+				</footer>";
+			}
 
 		echo "</div>";
 
