@@ -338,7 +338,14 @@ echo "@media all
 					article .meta
 					{"
 						.render_css(array('property' => 'font-size', 'value' => 'section_size'))
-					."}
+						."opacity: .2;
+						transition: all 1s ease;
+					}
+
+						article:hover .meta
+						{
+							opacity: 1;
+						}
 
 						article .date
 						{
