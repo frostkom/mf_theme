@@ -54,11 +54,6 @@
 
 		mf_enqueue_script('script_theme', $template_url."/include/script.js", array('template_url' => $template_url, 'header_fixed' => $header_fixed));
 
-		if(isset($options['body_history']) && $options['body_history'] == 2)
-		{
-			mf_enqueue_script('script_theme_history', $template_url."/include/script_history.js", array('site_url' => get_site_url()));
-		}
-
 		wp_footer();
 
 	echo "</body>

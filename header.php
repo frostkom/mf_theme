@@ -15,15 +15,6 @@ echo "<!DOCTYPE html>
 
 		wp_enqueue_style('style', replace_stylesheet_url());
 
-		list($options_params, $options) = get_params();
-
-		if(isset($options['body_history']) && $options['body_history'] == 2)
-		{
-			$template_url = get_bloginfo('template_url');
-
-			wp_enqueue_style('style_theme_history', $template_url."/include/style_history.css");
-		}
-
 		wp_head();
 
 	echo "</head>
