@@ -11,10 +11,6 @@ echo "<!DOCTYPE html>
 		<meta name='author' content='frostkom.se'>
 		<title>".get_wp_title()."</title>";
 
-		enqueue_theme_fonts();
-
-		wp_enqueue_style('style', replace_stylesheet_url());
-
 		wp_head();
 
 	echo "</head>
