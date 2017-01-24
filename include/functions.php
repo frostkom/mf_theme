@@ -150,7 +150,10 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text",	'id' => "footer_bg", 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "text", 'id' => "footer_font_size", 'title' => __("Font size", 'lang_theme'), 'default' => "1.8em");
 				$options_params[] = array('type' => "color", 'id' => "footer_color", 'title' => __("Color", 'lang_theme'));
+				$options_params[] = array('type' => "text",	'id' => "footer_p_margin", 'title' => __("Paragraph/List Margin", 'lang_theme'), 'default' => "0 0 .5em");
 				$options_params[] = array('type' => "text",	'id' => "footer_a_bg", 'title' => __("Link Background", 'lang_theme'));
+				$options_params[] = array('type' => "text",	'id' => "footer_a_margin", 'title' => __("Link Margin", 'lang_theme'));
+				$options_params[] = array('type' => "text",	'id' => "footer_a_padding", 'title' => __("Link Padding", 'lang_theme'), 'default' => ".4em .6em");
 				$options_params[] = array('type' => "text", 'id' => "footer_margin", 'title' => __("Margin", 'lang_theme'), 'default' => "0 0 .3em");
 				$options_params[] = array('type' => "text", 'id' => "footer_padding", 'title' => __("Padding", 'lang_theme'), 'default' => "1em 2em");
 					$options_params[] = array('type' => "checkbox", 'id' => "footer_widget_flex", 'title' => __("Widget Flex", 'lang_theme'), 'default' => 2);

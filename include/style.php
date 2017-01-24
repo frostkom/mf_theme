@@ -68,20 +68,20 @@ echo "@media all
 
 	.aligncenter
 	{
-		margin: .5em 0 .5em 0;
+		margin: .5em 0;
 		text-align: center;
 	}
 
 	.alignleft
 	{
 		float: left;
-		margin: 0 .5em .5em 0;
+		margin: .5em 1em .5em 0;
 	}
 
 	.alignright
 	{
 		float: right;
-		margin: 0 0 .5em .5em;
+		margin: .5em 0 .5em 1em;
 	}
 
 	html
@@ -378,9 +378,13 @@ echo "@media all
 
 						article p, article ul, article ol, article form
 						{
-							clear: both;
 							margin-bottom: 1em;
 						}
+
+							article ul, article ol, article form
+							{
+								clear: both;
+							}
 
 							article ul, article ol
 							{
@@ -513,37 +517,23 @@ echo "@media all
 						footer ul
 						{
 							list-style: none;
-							margin-left: -.4em;
 						}
 
-							footer li a
-							{
-								border-radius: .3em;
-								display: block;
-								margin-bottom: .2em;
-								padding: .4em;
-							}
+						footer .widget p, footer .widget li
+						{"
+							.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
+						."}
 
-								footer li a:hover, footer li.current_page_item a
-								{"
-									.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
-								."}
-
-						footer .textwidget > a, footer .vcard > a
+						footer .widget a
 						{
-							display: block;"
+							border-radius: .5em;
+							display: inline-block;"
 							.render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
-							."margin-top: .5em;";
+							.render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
+							.render_css(array('property' => 'padding', 'value' => 'footer_a_padding'))
+						."}
 
-							if(isset($options['footer_a_bg']) && $options['footer_a_bg'] != '')
-							{
-								echo "border-radius: 5px;
-								padding: 2%;";
-							}
-
-						echo "}
-
-							footer .textwidget > a:hover, footer .vcard > a:hover
+							footer .widget a:hover, footer li.current_page_item a
 							{"
 								.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
 							."}";
