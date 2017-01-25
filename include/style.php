@@ -354,6 +354,7 @@ echo "@media all
 							color: #fff;
 							display: inline-block;
 							margin-right: .5em;
+							margin-bottom: 1em;
 							padding: .25em .5em;
 						}
 
@@ -527,7 +528,7 @@ echo "@media all
 						footer .widget a
 						{
 							border-radius: .5em;
-							display: inline-block;"
+							display: block;"
 							.render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
 							.render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
 							.render_css(array('property' => 'padding', 'value' => 'footer_a_padding'))

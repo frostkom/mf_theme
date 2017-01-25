@@ -5,13 +5,15 @@ if(!function_exists('head_theme'))
 	function head_theme()
 	{
 		enqueue_theme_fonts();
+		
+		$template_url = get_bloginfo('template_url');
 
-		wp_enqueue_style('style', replace_stylesheet_url());
+		//wp_enqueue_style('style', replace_stylesheet_url());
+		wp_enqueue_style('style', $template_url."/include/style.php");
 
 		list($options_params, $options) = get_params();
 
 		$header_fixed = isset($options['header_fixed']) && $options['header_fixed'] == 2 ? true : false;
-		$template_url = get_bloginfo('template_url');
 
 		mf_enqueue_script('script_theme', $template_url."/include/script.js", array('template_url' => $template_url, 'header_fixed' => $header_fixed));
 	}
