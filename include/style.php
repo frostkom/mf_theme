@@ -418,10 +418,10 @@ echo "@media all
 				."}
 
 					aside .widget, #aside .widget
-					{
-						background: #f8f8f8;
-						border: 1px solid #d8d8d8;
-						padding: 1em;
+					{"
+						.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
+						.render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
+						."padding: 1em;
 					}
 
 						aside .widget + .widget, #aside .widget + .widget

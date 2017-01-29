@@ -141,6 +141,8 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category' => __("Aside", 'lang_theme'), 'id' => "mf_theme_aside");
 				$options_params[] = array('type' => "text", 'id' => "aside_size", 'title' => __("Size", 'lang_theme'));
 				$options_params[] = array('type' => "text", 'id' => "aside_line_height", 'title' => __("Line Height", 'lang_theme'));
+				$options_params[] = array('type' => "text", 'id' => "aside_widget_background", 'title' => __("Widget Background", 'lang_theme'), 'placeholder' => $bg_placeholder, 'default' => "#f8f8f8"); //
+				$options_params[] = array('type' => "text", 'id' => "aside_widget_border", 'title' => __("Widget Border", 'lang_theme'), 'default' => "1px solid #d8d8d8"); //
 			$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Pre Footer", 'lang_theme'), 'id' => "mf_theme_pre_footer");
