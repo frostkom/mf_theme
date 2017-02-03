@@ -165,13 +165,16 @@ echo "@media all
 						padding: .5em;
 					}
 
-				header nav
-				{
-					clear: right;"
+				#primary_nav, #primary_nav
+				{"
+					.render_css(array('property' => 'background', 'value' => 'nav_bg'))
+					.render_css(array('property' => 'clear', 'value' => 'nav_clear'))
+					//."clear: right;"
 					.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
 					.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
-					."text-align: right;
-				}
+					.render_css(array('property' => 'text-align', 'value' => 'nav_align'))
+					//."text-align: right;
+				."}
 
 					#secondary_nav
 					{
@@ -183,48 +186,48 @@ echo "@media all
 							font-size: .7em;
 						}
 
-					header nav > .toggle_icon
+					#primary_nav > .toggle_icon
 					{
 						display: none;
 					}
 
-					header nav ul
+					#primary_nav ul
 					{
 						list-style: none;
 					}
 
-						header nav li
+						#primary_nav li
 						{
 							display: inline-block;
 							position: relative;
 						}
 
-							header nav a
+							#primary_nav a
 							{
 								display: block;"
 								.render_css(array('property' => 'color', 'value' => 'nav_color'))
 								.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
 							."}
 
-								header nav a:hover, header nav li.current_page_item > a
+								#primary_nav a:hover, #primary_nav li.current_page_item > a
 								{"
 									.render_css(array('prefix' => "border-bottom: 5px solid ", 'value' => 'nav_underline_color_hover'))
 									.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
 								."}
 
-								header nav li:hover > ul, header nav li.current-menu-item > ul, header nav li.current-menu-ancestor > ul
+								#primary_nav li:hover > ul, #primary_nav li.current-menu-item > ul, #primary_nav li.current-menu-ancestor > ul
 								{
 									display: block;
 								}
 
-								header nav li > ul
+								#primary_nav li > ul
 								{
 									display: none;
 									font-size: .8em;
 									white-space: nowrap;
 								}
 
-									header nav li > ul a
+									#primary_nav li > ul a
 									{
 										padding: .7em;
 									}
@@ -258,10 +261,9 @@ echo "@media all
 
 			mf-slide-nav > div
 			{
-				right: -30%;
-
-				background: #fff;
-				bottom: 0;"
+				right: -30%;"
+				.render_css(array('property' => 'background', 'value' => 'nav_bg'))
+				."bottom: 0;"
 				.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
 				.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
 				."padding: 2em;
@@ -614,7 +616,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				display: none;
 			}
 
-			header nav#primary_nav
+			#primary_nav#primary_nav
 			{
 				float: none;
 				margin: 0;
@@ -622,7 +624,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				width: 100%;
 			}
 
-				header nav > .toggle_icon
+				#primary_nav > .toggle_icon
 				{
 					border: .07em solid #666;
 					border-radius: .2em;"
@@ -636,55 +638,55 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					top: 1em;
 				}
 
-					header nav .fa-close
+					#primary_nav .fa-close
 					{
 						display: none;
 					}
 
-					header nav.is_mobile_ready ul > li
+					#primary_nav.is_mobile_ready ul > li
 					{
 						display: none;
 					}
 
-						header nav.open .fa-bars
+						#primary_nav.open .fa-bars
 						{
 							display: none;
 						}
 
-						header nav.open .fa-close
+						#primary_nav.open .fa-close
 						{
 							display: block;
 						}
 
-						header nav.open ul > li
+						#primary_nav.open ul > li
 						{
 							display: block;
 						}
 
-				header nav ul
+				#primary_nav ul
 				{
 					min-height: 3em;
 					margin: 0 auto;
 					width: 80%;
 				}
 
-					header nav > div > ul > li
+					#primary_nav > div > ul > li
 					{"
 						.render_css(array('property' => 'background', 'value' => 'header_bg'))
 						."display: none;
 					}
 
-						header nav > div > ul > li:last-of-type
+						#primary_nav > div > ul > li:last-of-type
 						{
 							border-radius: 0 0 1em 1em;
 						}
 
-						header nav a:hover, header nav li.current_page_item > a
+						#primary_nav a:hover, #primary_nav li.current_page_item > a
 						{
 							border-bottom: 0;
 						}
 
-							header nav ul .sub-menu
+							#primary_nav ul .sub-menu
 							{
 								display: block;
 							}
@@ -720,7 +722,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
 		."}
 
-			header nav li > ul
+			#primary_nav li > ul
 			{
 				background: rgba(0, 0, 0, .2);
 				border-radius: .3em;
@@ -729,7 +731,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				top: 4em;
 			}
 
-				header nav li > ul:before
+				#primary_nav li > ul:before
 				{
 					content: '';
 					position: absolute;

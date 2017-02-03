@@ -14,7 +14,7 @@
 jQuery(function($)
 {
 	//Mobile nav
-	$('body').on('click', 'header nav > .toggle_icon', function()
+	$(document).on('click', '#primary_nav > .toggle_icon', function()
 	{
 		$(this).parent('nav').siblings('#site_logo').toggleClass('hide_if_mobile');
 
@@ -41,12 +41,12 @@ jQuery(function($)
 		return false;
 	}
 
-	$('body').on('click', '#slide_nav', function()
+	$(document).on('click', '#slide_nav', function()
 	{
 		show_menu();
 	});
 
-	$('body').on('click', 'mf-slide-nav', function(e)
+	$(document).on('click', 'mf-slide-nav', function(e)
 	{
 		var dom_obj = $(e.target);
 
@@ -84,7 +84,7 @@ jQuery(function($)
 	}
 
 	//Load more
-	$('body').on('click', '#load_more', function()
+	$(document).on('click', '#load_more', function()
 	{
 		var self = $(this);
 

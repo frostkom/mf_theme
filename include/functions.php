@@ -108,12 +108,15 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Navigation", 'lang_theme'), 'id' => "mf_theme_navigation");
+				$options_params[] = array('type' => "text", 'id' => "nav_bg", 'title' => __("Background", 'lang_theme'));
+				$options_params[] = array('type' => "text", 'id' => "nav_clear", 'title' => __("Clear", 'lang_theme'), 'placeholder' => "left, right, both", 'default' => "right");
 				$options_params[] = array('type' => "font", 'id' => "nav_font", 'title' => __("Font", 'lang_theme'));
 				$options_params[] = array('type' => "text", 'id' => "nav_size", 'title' => __("Size", 'lang_theme'), 'default' => "2em");
+				$options_params[] = array('type' => "text", 'id' => "nav_align", 'title' => __("Align", 'lang_theme'), 'placeholder' => "left, right", 'default' => "right");
 				$options_params[] = array('type' => "color", 'id' => "nav_color", 'title' => __("Color", 'lang_theme'));
 					$options_params[] = array('type' => "color", 'id' => "nav_underline_color_hover", 'title' => __("Underline Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
 					$options_params[] = array('type' => "color", 'id' => "nav_color_hover", 'title' => __("Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
-				$options_params[] = array('type' => "text", 'id' => "nav_link_padding", 'title' => __("Link Padding", 'lang_theme'), 'default' => "30px 1em 20px");
+				$options_params[] = array('type' => "text", 'id' => "nav_link_padding", 'title' => __("Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
 			$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Pre Content", 'lang_theme'), 'id' => "mf_theme_front");
