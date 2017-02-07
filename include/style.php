@@ -165,15 +165,13 @@ echo "@media all
 						padding: .5em;
 					}
 
-				#primary_nav, #primary_nav
+				.theme_nav
 				{"
 					.render_css(array('property' => 'background', 'value' => 'nav_bg'))
 					.render_css(array('property' => 'clear', 'value' => 'nav_clear'))
-					//."clear: right;"
 					.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
 					.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
 					.render_css(array('property' => 'text-align', 'value' => 'nav_align'))
-					//."text-align: right;
 				."}
 
 					#secondary_nav
@@ -191,43 +189,43 @@ echo "@media all
 						display: none;
 					}
 
-					#primary_nav ul
+					.theme_nav ul
 					{
 						list-style: none;
 					}
 
-						#primary_nav li
+						.theme_nav li
 						{
 							display: inline-block;
 							position: relative;
 						}
 
-							#primary_nav a
+							.theme_nav a
 							{
 								display: block;"
 								.render_css(array('property' => 'color', 'value' => 'nav_color'))
 								.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
 							."}
 
-								#primary_nav a:hover, #primary_nav li.current_page_item > a
+								.theme_nav a:hover, .theme_nav li.current_page_item > a
 								{"
 									.render_css(array('prefix' => "border-bottom: 5px solid ", 'value' => 'nav_underline_color_hover'))
 									.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
 								."}
 
-								#primary_nav li:hover > ul, #primary_nav li.current-menu-item > ul, #primary_nav li.current-menu-ancestor > ul
+								.theme_nav li:hover > ul, .theme_nav li.current-menu-item > ul, .theme_nav li.current-menu-ancestor > ul
 								{
 									display: block;
 								}
 
-								#primary_nav li > ul
+								.theme_nav li > ul
 								{
 									display: none;
 									font-size: .8em;
 									white-space: nowrap;
 								}
 
-									#primary_nav li > ul a
+									.theme_nav li > ul a
 									{
 										padding: .7em;
 									}
@@ -616,7 +614,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				display: none;
 			}
 
-			#primary_nav#primary_nav
+			.theme_nav
 			{
 				float: none;
 				margin: 0;
@@ -663,30 +661,30 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							display: block;
 						}
 
-				#primary_nav ul
+				.theme_nav ul
 				{
 					min-height: 3em;
 					margin: 0 auto;
 					width: 80%;
 				}
 
-					#primary_nav > div > ul > li
+					.theme_nav > div > ul > li
 					{"
 						.render_css(array('property' => 'background', 'value' => 'header_bg'))
 						."display: none;
 					}
 
-						#primary_nav > div > ul > li:last-of-type
+						.theme_nav > div > ul > li:last-of-type
 						{
 							border-radius: 0 0 1em 1em;
 						}
 
-						#primary_nav a:hover, #primary_nav li.current_page_item > a
+						.theme_nav a:hover, .theme_nav li.current_page_item > a
 						{
 							border-bottom: 0;
 						}
 
-							#primary_nav ul .sub-menu
+							.theme_nav ul .sub-menu
 							{
 								display: block;
 							}
@@ -722,7 +720,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
 		."}
 
-			#primary_nav li > ul
+			.theme_nav li > ul
 			{
 				background: rgba(0, 0, 0, .2);
 				border-radius: .3em;
@@ -731,7 +729,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				top: 4em;
 			}
 
-				#primary_nav li > ul:before
+				.theme_nav li > ul:before
 				{
 					content: '';
 					position: absolute;

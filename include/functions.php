@@ -327,7 +327,7 @@ if(!function_exists('get_menu_theme'))
 
 				if($wp_menu != '')
 				{
-					$out .= "<nav id='secondary_nav'>"
+					$out .= "<nav id='secondary_nav' class='theme_nav'>"
 						.$wp_menu
 					."</nav>";
 				}
@@ -339,7 +339,7 @@ if(!function_exists('get_menu_theme'))
 
 				if($wp_menu != '')
 				{
-					$out .= "<nav id='primary_nav' class='is_mobile_ready'>
+					$out .= "<nav id='primary_nav' class='is_mobile_ready theme_nav'>
 						<i class='fa fa-bars toggle_icon'></i>
 						<i class='fa fa-close toggle_icon'></i>"
 						.$wp_menu
