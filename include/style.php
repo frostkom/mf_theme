@@ -141,16 +141,17 @@ echo "@media all
 					.render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
 					."font-weight: bold;"
 					.render_css(array('property' => 'color', 'value' => 'logo_color'))
-					.render_css(array('property' => 'padding', 'value' => 'logo_padding'))
+					.render_css(array('property' => 'margin', 'value' => 'logo_padding'))
 					."position: relative;
-					text-decoration: none;"
+					text-decoration: none;
+					transition: all .4s ease;"
 					.render_css(array('property' => 'max-width', 'value' => 'logo_width'))
 				."}
 
 					#site_logo span
 					{
 						display: block;
-						font-size: 0.4em;
+						font-size: .4em;
 					}
 
 				header .searchform
@@ -239,9 +240,13 @@ echo "@media all
 		mf-pre-content
 		{"
 			.render_css(array('property' => 'background', 'value' => 'front_bg'))
-			."overflow: hidden;"
-			.render_css(array('property' => 'padding', 'value' => 'front_padding'))
-		."}
+			."overflow: hidden;
+		}
+
+			mf-pre-content > div
+			{"
+				.render_css(array('property' => 'padding', 'value' => 'front_padding'))
+			."}
 
 		mf-slide-nav
 		{
@@ -449,24 +454,28 @@ echo "@media all
 		mf-pre-footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
-			."overflow: hidden;"
-			.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
-		."}
+			."overflow: hidden;
+		}
+
+			mf-pre-footer > div
+			{"
+				.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
+			."}
 
 		footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'footer_bg'))
-			.render_css(array('property' => 'font-size', 'value' => 'footer_font_size'))
-			."line-height: 1.5;"
+			//."line-height: 1.5;"
 			.render_css(array('property' => 'margin', 'value' => 'footer_margin'))
-			."overflow: hidden;"
-			.render_css(array('property' => 'padding', 'value' => 'footer_padding'))
-			."position: relative;
+			."overflow: hidden;
+			position: relative;
 			z-index: 1000;
 		}
 
 			footer > div
-			{";
+			{"
+				.render_css(array('property' => 'color', 'value' => 'footer_color'))
+				.render_css(array('property' => 'padding', 'value' => 'footer_padding'));
 
 				if(isset($options['footer_widget_flex']) && $options['footer_widget_flex'] == 2)
 				{
@@ -478,13 +487,9 @@ echo "@media all
 
 			echo "}
 
-				footer, footer a
-				{"
-					.render_css(array('property' => 'color', 'value' => 'footer_color'))
-				."}
-
 				footer .widget
 				{"
+					.render_css(array('property' => 'font-size', 'value' => 'footer_font_size'))
 					.render_css(array('property' => 'overflow', 'value' => 'footer_widget_overflow'))
 					.render_css(array('property' => 'padding', 'value' => 'footer_widget_padding'));
 
@@ -526,18 +531,34 @@ echo "@media all
 						."}
 
 						footer .widget a
-						{
-							border-radius: .5em;
-							display: block;"
-							.render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
-							.render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
-							.render_css(array('property' => 'padding', 'value' => 'footer_a_padding'))
+						{";
+
+							if(isset($options['footer_a_bg']) && $options['footer_a_bg'] != '')
+							{
+								echo "border-radius: .5em;"
+								.render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
+								."display: block;"
+								.render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
+								.render_css(array('property' => 'padding', 'value' => 'footer_a_padding'));
+							}
+
+							echo render_css(array('property' => 'color', 'value' => 'footer_color'))
 						."}
 
 							footer .widget a:hover, footer li.current_page_item a
-							{"
-								.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
-							."}";
+							{";
+
+								if(isset($options['footer_color_hover']) && $options['footer_color_hover'] != '')
+								{
+									echo render_css(array('property' => 'color', 'value' => 'footer_color_hover'));
+								}
+
+								else
+								{
+									echo render_css(array('property' => 'color', 'value' => 'nav_color_hover'));
+								}
+
+							echo "}";
 
 	if(isset($options['custom_css_all']) && $options['custom_css_all'] != '')
 	{
@@ -623,17 +644,20 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			}
 
 				#primary_nav > .toggle_icon
-				{
-					border: .07em solid #666;
-					border-radius: .2em;"
-					.render_css(array('property' => 'color', 'value' => 'nav_color'))
+				{"
+					/*."border: .07em solid #666;
+					border-radius: .2em;"*/
+					//.render_css(array('property' => 'color', 'value' => 'nav_color'))
+					.render_css(array('property' => 'color', 'value' => 'logo_color'))
 					."cursor: pointer;
-					display: block;
-					font-size: 1.4em;
-					padding: .1em .2em;
+					display: block;"
+					//."font-size: 1.4em;"
+					.render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
+					.render_css(array('property' => 'margin', 'value' => 'hamburger_margin'))
+					."padding: .1em .2em;
 					position: absolute;
-					right: 4%;
-					top: 1em;
+					right: 0;
+					top: 0;
 				}
 
 					#primary_nav .fa-close
