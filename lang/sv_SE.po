@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 12:16+0100\n"
+"POT-Creation-Date: 2017-02-09 10:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-1: ../..\n"
 
 #: ../index.php:67
-#: ../include/functions.php:412
+#: ../include/functions.php:428
 msgid "Read More"
 msgstr "Läs mer"
 
@@ -92,17 +92,18 @@ msgstr "Allmänt"
 
 #: ../include/functions.php:83
 #: ../include/functions.php:96
-#: ../include/functions.php:120
-#: ../include/functions.php:125
-#: ../include/functions.php:149
-#: ../include/functions.php:154
+#: ../include/functions.php:111
+#: ../include/functions.php:124
+#: ../include/functions.php:129
+#: ../include/functions.php:153
+#: ../include/functions.php:158
 msgid "Background"
 msgstr "Bakgrund"
 
 #: ../include/functions.php:84
-#: ../include/functions.php:111
-#: ../include/functions.php:128
-#: ../include/functions.php:133
+#: ../include/functions.php:113
+#: ../include/functions.php:132
+#: ../include/functions.php:137
 msgid "Font"
 msgstr "Typsnitt"
 
@@ -116,7 +117,7 @@ msgstr "Länkfärg"
 
 #: ../include/functions.php:87
 #: ../include/functions.php:88
-#: ../include/functions.php:155
+#: ../include/functions.php:159
 msgid "Font size"
 msgstr "Storlek på text"
 
@@ -134,15 +135,15 @@ msgstr "Mobil brytpunkt"
 
 #: ../include/functions.php:91
 #: ../include/functions.php:98
-#: ../include/functions.php:121
-#: ../include/functions.php:126
-#: ../include/functions.php:150
-#: ../include/functions.php:162
+#: ../include/functions.php:125
+#: ../include/functions.php:130
+#: ../include/functions.php:154
+#: ../include/functions.php:163
 msgid "Padding"
 msgstr "Tomrum"
 
 #: ../include/functions.php:94
-#: ../include/functions.php:185
+#: ../include/functions.php:190
 msgid "Header"
 msgstr "Sidhuvud"
 
@@ -161,7 +162,7 @@ msgstr "Logga"
 
 #: ../include/functions.php:100
 #: ../include/functions.php:107
-#: ../include/functions.php:173
+#: ../include/functions.php:178
 msgid "Mobile"
 msgstr "Mobil"
 
@@ -195,164 +196,182 @@ msgid "Navigation"
 msgstr "Navigation"
 
 #: ../include/functions.php:112
-#: ../include/functions.php:129
-#: ../include/functions.php:134
-#: ../include/functions.php:135
-#: ../include/functions.php:142
+msgid "Clear"
+msgstr ""
+
+#: ../include/functions.php:114
+#: ../include/functions.php:133
+#: ../include/functions.php:138
+#: ../include/functions.php:139
+#: ../include/functions.php:146
 msgid "Size"
 msgstr "Storlek"
 
-#: ../include/functions.php:113
 #: ../include/functions.php:115
-#: ../include/functions.php:156
+msgid "Align"
+msgstr ""
+
+#: ../include/functions.php:116
+#: ../include/functions.php:118
+#: ../include/functions.php:160
+#: ../include/functions.php:161
 msgid "Color"
 msgstr "Färg"
 
-#: ../include/functions.php:114
+#: ../include/functions.php:117
 msgid "Underline Color"
 msgstr "Färg på understrykning"
 
-#: ../include/functions.php:114
-#: ../include/functions.php:115
+#: ../include/functions.php:117
+#: ../include/functions.php:118
+#: ../include/functions.php:161
 msgid "Hover"
 msgstr "Mus över"
 
-#: ../include/functions.php:116
-#: ../include/functions.php:160
+#: ../include/functions.php:119
+#: ../include/functions.php:173
 msgid "Link Padding"
 msgstr "Tomrum runt länkar"
 
-#: ../include/functions.php:119
-#: ../include/functions.php:203
+#: ../include/functions.php:120
+msgid "Hamburger Margin"
+msgstr "Marginal på hamburgermeny"
+
+#: ../include/functions.php:123
+#: ../include/functions.php:217
 msgid "Pre Content"
 msgstr "Före innehåll"
 
-#: ../include/functions.php:124
+#: ../include/functions.php:128
 msgid "Content"
 msgstr "Innehåll"
 
-#: ../include/functions.php:127
+#: ../include/functions.php:131
 msgid "Show heading on front page"
 msgstr "Visa rubrik på startsida"
 
-#: ../include/functions.php:130
+#: ../include/functions.php:134
 msgid "Weight"
 msgstr "Vikt"
 
-#: ../include/functions.php:131
-#: ../include/functions.php:161
+#: ../include/functions.php:135
+#: ../include/functions.php:162
 msgid "Margin"
 msgstr "Marginal"
 
-#: ../include/functions.php:132
+#: ../include/functions.php:136
 msgid "Heading Border Bottom"
 msgstr "Kant på botten av rubrik"
 
-#: ../include/functions.php:136
-#: ../include/functions.php:143
+#: ../include/functions.php:140
+#: ../include/functions.php:147
 msgid "Line Height"
 msgstr "Radhöjd"
 
-#: ../include/functions.php:137
+#: ../include/functions.php:141
 msgid "Content Margin"
 msgstr "Marginal på innehåll"
 
-#: ../include/functions.php:138
+#: ../include/functions.php:142
 msgid "Article Link Color"
 msgstr "Färg på artikellänk"
 
-#: ../include/functions.php:141
+#: ../include/functions.php:145
 msgid "Aside"
 msgstr "Vid sidan"
 
-#: ../include/functions.php:144
+#: ../include/functions.php:148
 msgid "Widget Background"
 msgstr "Bakgrund på widget"
 
-#: ../include/functions.php:145
+#: ../include/functions.php:149
 msgid "Widget Border"
 msgstr "Kant runt widget"
 
-#: ../include/functions.php:148
-#: ../include/functions.php:221
+#: ../include/functions.php:152
+#: ../include/functions.php:235
 msgid "Pre Footer"
 msgstr "Före sidfot"
 
-#: ../include/functions.php:153
-#: ../include/functions.php:230
+#: ../include/functions.php:157
+#: ../include/functions.php:244
 msgid "Footer"
 msgstr "Sidfot"
 
-#: ../include/functions.php:157
-msgid "Paragraph/List Margin"
-msgstr "Marginal på paragraf"
-
-#: ../include/functions.php:158
-msgid "Link Background"
-msgstr "Bakgrund på länk"
-
-#: ../include/functions.php:159
-msgid "Link Margin"
-msgstr "Marginal på länkar"
-
-#: ../include/functions.php:163
+#: ../include/functions.php:164
 msgid "Widget Flex"
 msgstr ""
 
-#: ../include/functions.php:164
+#: ../include/functions.php:165
 msgid "Widget Overflow"
 msgstr ""
 
-#: ../include/functions.php:165
+#: ../include/functions.php:166
 msgid "Widget Padding"
 msgstr "Tomrum runt widget"
 
-#: ../include/functions.php:166
+#: ../include/functions.php:167
 msgid "Widget Heading Size"
 msgstr "Storlek på rubrik i widget"
 
-#: ../include/functions.php:167
+#: ../include/functions.php:168
 msgid "Widget Heading Margin"
 msgstr "Marginal på rubrik i widget"
 
-#: ../include/functions.php:168
+#: ../include/functions.php:169
 msgid "Widget Heading Text Transform"
 msgstr ""
 
+#: ../include/functions.php:170
+msgid "Paragraph/List Margin"
+msgstr "Marginal på paragraf"
+
 #: ../include/functions.php:171
+msgid "Link Background"
+msgstr "Bakgrund på länk"
+
+#: ../include/functions.php:172
+msgid "Link Margin"
+msgstr "Marginal på länkar"
+
+#: ../include/functions.php:176
 msgid "Custom"
 msgstr "Anpassat"
 
-#: ../include/functions.php:172
-#: ../include/functions.php:173
+#: ../include/functions.php:177
+#: ../include/functions.php:178
 msgid "Custom CSS"
 msgstr "Anpassad CSS"
 
-#: ../include/functions.php:194
+#: ../include/functions.php:199
+msgid "After Header"
+msgstr "Efter sidhuvud"
+
+#: ../include/functions.php:208
 msgid "Slide menu"
 msgstr "Glidmeny"
 
-#: ../include/functions.php:212
+#: ../include/functions.php:226
 msgid "Sidebar"
 msgstr "Sidokolumn"
 
-#: ../include/functions.php:266
+#: ../include/functions.php:282
 msgid "Site logo"
 msgstr "Logga för webbsidan"
 
-#: ../include/functions.php:271
+#: ../include/functions.php:287
 msgid "Site mobile logo"
 msgstr "Mobil logga"
 
-#: ../include/functions.php:299
+#: ../include/functions.php:315
 msgid "Search for"
 msgstr "Sök efter"
 
-#: ../include/functions.php:314
+#: ../include/functions.php:330
 msgid "Menu"
 msgstr "Meny"
 
-#: ../include/functions.php:432
+#: ../include/functions.php:448
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
 

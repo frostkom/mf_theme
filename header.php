@@ -37,6 +37,17 @@ echo "<!DOCTYPE html>
 				</div>
 			</header>";
 
+			if(is_active_sidebar('widget_after_header'))
+			{
+				echo "<mf-after-header".is_clean().">
+					<div>";
+
+						dynamic_sidebar('widget_after_header');
+
+					echo "</div>
+				</mf-after-header>";
+			}
+
 			if(is_active_sidebar('widget_slide'))
 			{
 				echo "<mf-slide-nav".is_clean().">

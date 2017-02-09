@@ -22,7 +22,7 @@ echo "@media all
 		display: none;
 	}
 
-	html, body, header, nav, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
+	html, body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
 	{
 		margin: 0;
 		padding: 0;
@@ -33,12 +33,12 @@ echo "@media all
 		overflow-y: scroll;
 	}
 
-	body, header, nav, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
+	body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
 	{
 		box-sizing: border-box;
 	}
 
-	header, nav, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
+	header, nav, mf-after-header, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
 	{
 		display: block;
 	}
@@ -104,7 +104,7 @@ echo "@media all
 		.render_css(array('property' => 'background', 'value' => 'body_bg'))
 	."}
 
-		header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div
+		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div
 		{"
 			.render_css(array('property' => 'padding', 'value' => 'main_padding'))
 			."position: relative;
@@ -236,6 +236,16 @@ echo "@media all
 							display: inline-block;
 							margin-left: .5em;
 						}
+
+		mf-after-header
+		{
+			
+		}
+
+			mf-after-header > div
+			{
+				
+			}
 
 		mf-pre-content
 		{"
@@ -777,7 +787,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 			content: 'desktop';
 		}
 
-		header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div
+		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div
 		{
 			margin: 0 auto;
 			max-width: ".$options['website_max_width']."px;
@@ -803,7 +813,7 @@ echo "@media print
 		width: auto;
 	}
 
-	header, mf-pre-content, aside, #aside, mf-pre-footer, footer
+	header, mf-after-header, mf-pre-content, aside, #aside, mf-pre-footer, footer
 	{
 		display: none;
 	}
