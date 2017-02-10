@@ -2,7 +2,7 @@
 
 class widget_theme_logo extends WP_Widget
 {
-	function widget_theme_logo()
+	function __construct()
 	{
 		$widget_ops = array(
 			'classname' => 'theme',
@@ -11,7 +11,7 @@ class widget_theme_logo extends WP_Widget
 
 		$control_ops = array('id_base' => 'theme-logo-widget');
 
-		$this->__construct('theme-logo-widget', __("Theme Logo", 'lang_theme'), $widget_ops, $control_ops);
+		parent::__construct('theme-logo-widget', __("Theme Logo", 'lang_theme'), $widget_ops, $control_ops);
 	}
 
 	function widget($args, $instance)
@@ -45,7 +45,7 @@ class widget_theme_logo extends WP_Widget
 
 class widget_theme_menu extends WP_Widget
 {
-	function widget_theme_menu()
+	function __construct()
 	{
 		$widget_ops = array(
 			'classname' => 'theme',
@@ -54,7 +54,7 @@ class widget_theme_menu extends WP_Widget
 
 		$control_ops = array('id_base' => 'theme-menu-widget');
 
-		$this->__construct('theme-menu-widget', __("Theme Menu", 'lang_theme'), $widget_ops, $control_ops);
+		parent::__construct('theme-menu-widget', __("Theme Menu", 'lang_theme'), $widget_ops, $control_ops);
 	}
 
 	function widget($args, $instance)

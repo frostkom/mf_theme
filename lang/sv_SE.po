@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-09 10:04+0100\n"
+"POT-Creation-Date: 2017-02-10 10:11+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -349,7 +349,7 @@ msgstr "Efter sidhuvud"
 
 #: ../include/functions.php:208
 msgid "Slide menu"
-msgstr "Glidmeny"
+msgstr "Sidomeny"
 
 #: ../include/functions.php:226
 msgid "Sidebar"
