@@ -122,6 +122,7 @@ if(!function_exists('get_params'))
 
 			$options_params[] = array('category' => __("Pre Content", 'lang_theme'), 'id' => 'mf_theme_front');
 				$options_params[] = array('type' => "text", 'id' => 'front_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
+				$options_params[] = array('type' => "color", 'id' => 'front_color', 'title' => __("Color", 'lang_theme'));
 				$options_params[] = array('type' => "text", 'id' => 'front_padding', 'title' => __("Padding", 'lang_theme'));
 			$options_params[] = array('category_end' => "");
 
@@ -132,13 +133,14 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "font", 'id' => 'heading_font', 'title' => __("Font", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_size', 'title' => __("Size", 'lang_theme')." (H1)", 'default' => "2.2em");
 					$options_params[] = array('type' => "text", 'id' => 'heading_weight', 'title' => __("Weight", 'lang_theme')." (H1)");
-					$options_params[] = array('type' => "text", 'id' => 'heading_margin', 'title' => __("Margin", 'lang_theme')." (H1)", 'default' => ".3em 0 .5em");
+					$options_params[] = array('type' => "text", 'id' => 'heading_margin', 'title' => __("Margin", 'lang_theme')." (H1)");
+					$options_params[] = array('type' => "text", 'id' => 'heading_padding', 'title' => __("Padding", 'lang_theme')." (H1)", 'default' => ".3em 0 .5em");
 					$options_params[] = array('type' => "text", 'id' => 'heading_border_bottom', 'title' => __("Heading Border Bottom", 'lang_theme'));
 					$options_params[] = array('type' => "font", 'id' => 'heading_font_h2', 'title' => __("Font", 'lang_theme')." (H2)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_size_h2', 'title' => __("Size", 'lang_theme')." (H2)");
 					$options_params[] = array('type' => "text", 'id' => 'section_size', 'title' => __("Size", 'lang_theme'), 'default' => "1.6em");
 					$options_params[] = array('type' => "text", 'id' => 'section_line_height', 'title' => __("Line Height", 'lang_theme'), 'default' => "1.5");
-					$options_params[] = array('type' => "text", 'id' => 'section_margin', 'title' => __("Content Margin", 'lang_theme'), 'default' => "0 0 2em 0");
+					$options_params[] = array('type' => "text", 'id' => 'section_margin', 'title' => __("Content Margin", 'lang_theme'), 'default' => "0 0 2em");
 					$options_params[] = array('type' => "color", 'id' => 'article_url_color', 'title' => __("Article Link Color", 'lang_theme'));
 			$options_params[] = array('category_end' => "");
 

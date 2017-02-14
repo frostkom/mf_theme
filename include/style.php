@@ -250,6 +250,7 @@ echo "@media all
 		mf-pre-content
 		{"
 			.render_css(array('property' => 'background', 'value' => 'front_bg'))
+			.render_css(array('property' => 'color', 'value' => 'front_color'))
 			."overflow: hidden;
 		}
 
@@ -257,6 +258,22 @@ echo "@media all
 			{"
 				.render_css(array('property' => 'padding', 'value' => 'front_padding'))
 			."}
+			
+				mf-pre-content h3
+				{"
+					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
+					.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
+					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
+					.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
+					.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
+				."}
+
+				mf-pre-content p
+				{"
+					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
+					.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
+					.render_css(array('property' => 'margin', 'value' => 'section_margin'))
+				."}
 
 		mf-slide-nav
 		{
@@ -342,8 +359,8 @@ echo "@media all
 						.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
 						.render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
 						.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
-						."padding-bottom: 1%;
-					}
+						.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
+					."}
 
 						article h1 a
 						{
