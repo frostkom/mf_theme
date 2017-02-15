@@ -678,11 +678,10 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					.render_css(array('property' => 'color', 'value' => 'logo_color'))
 					."cursor: pointer;
 					display: block;"
-					//."font-size: 1.4em;"
 					.render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
-					.render_css(array('property' => 'margin', 'value' => 'hamburger_margin'))
-					."padding: .1em .2em;
-					position: absolute;
+					."margin: .1em .2em;"
+					.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
+					."position: absolute;
 					right: 0;
 					top: 0;
 				}
