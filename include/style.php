@@ -86,7 +86,6 @@ echo "@media all
 
 	html
 	{"
-		."font-size: .625em;"
 		.render_css(array('property' => 'font-size', 'value' => 'body_font_size'))
 	."}
 
@@ -95,9 +94,9 @@ echo "@media all
 		.render_css(array('property' => 'background', 'value' => 'footer_bg'))
 		.render_css(array('property' => 'font-family', 'value' => 'body_font'))
 		.render_css(array('property' => 'color', 'value' => 'body_color'))
-		."position: relative;
-		text-align: left;
-	}
+		."position: relative;"
+		//."text-align: left;"
+	."}
 
 	#wrapper
 	{"
@@ -115,12 +114,15 @@ echo "@media all
 			.render_css(array('property' => 'background', 'value' => 'header_bg'))
 			.render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
 			."position: relative;
-		}
+		}";
 
-			header > div
-			{"
-				.render_css(array('property' => 'padding', 'value' => 'header_padding'))
-			."}";
+			if(isset($options['header_padding']) && $options['header_padding'] != '')
+			{
+				echo "header > div
+				{"
+					.render_css(array('property' => 'padding', 'value' => 'header_padding'))
+				."}";
+			}
 
 				if(isset($options['header_fixed']) && $options['header_fixed'] == 2)
 				{
@@ -237,29 +239,22 @@ echo "@media all
 							margin-left: .5em;
 						}
 
-		mf-after-header
-		{
-			
-		}
-
-			mf-after-header > div
-			{
-				
-			}
-
 		mf-pre-content
 		{"
 			.render_css(array('property' => 'background', 'value' => 'front_bg'))
 			.render_css(array('property' => 'color', 'value' => 'front_color'))
 			."overflow: hidden;
-		}
+		}";
 
-			mf-pre-content > div
-			{"
-				.render_css(array('property' => 'padding', 'value' => 'front_padding'))
-			."}
+			if(isset($options['front_padding']) && $options['front_padding'] != '')
+			{
+				echo "mf-pre-content > div
+				{"
+					.render_css(array('property' => 'padding', 'value' => 'front_padding'))
+				."}";
+			}
 			
-				mf-pre-content h3
+				echo "mf-pre-content h3
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
 					.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
@@ -277,11 +272,9 @@ echo "@media all
 
 		mf-slide-nav
 		{
-			display: none;
-
-			background: #000;
 			background: rgba(0, 0, 0, .3);
 			bottom: 0;
+			display: none;
 			left: 0;
 			position: absolute;
 			right: 0;
@@ -350,97 +343,95 @@ echo "@media all
 				.render_css(array('property' => 'padding', 'value' => 'content_padding'))
 			."}
 
-				article{}
+				article h1
+				{"
+					.render_css(array('property' => 'border-bottom', 'value' => 'heading_border_bottom'))
+					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
+					.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
+					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
+					.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
+					.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
+				."}
 
-					article h1
-					{"
-						.render_css(array('property' => 'border-bottom', 'value' => 'heading_border_bottom'))
-						.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
-						.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
-						.render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
-						.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
-						.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
-					."}
-
-						article h1 a
-						{
-							color: inherit;
-						}
-
-					article .meta
-					{"
-						.render_css(array('property' => 'font-size', 'value' => 'section_size'))
-						."opacity: .2;
-						transition: all 1s ease;
+					article h1 a
+					{
+						color: inherit;
 					}
 
-						article:hover .meta
+				article .meta
+				{"
+					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
+					."opacity: .2;
+					transition: all 1s ease;
+				}
+
+					article:hover .meta
+					{
+						opacity: 1;
+					}
+
+					article .date
+					{
+						background: #808080;
+						border-radius: .2em;
+						color: #fff;
+						display: inline-block;
+						margin-right: .5em;
+						margin-bottom: 1em;
+						padding: .25em .5em;
+					}
+
+				article h2
+				{"
+					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
+				."}
+
+				article section
+				{"
+					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
+					.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
+					.render_css(array('property' => 'margin', 'value' => 'section_margin'))
+				."}
+
+					article + article
+					{
+						border-top: 1px solid #ccc;
+						padding-top: 1em;
+					}
+
+					article p, article ul, article ol, article form
+					{
+						margin-bottom: 1em;
+					}
+
+						article ul, article ol, article form
 						{
-							opacity: 1;
+							clear: both;
 						}
 
-						article .date
+						article ul, article ol
 						{
-							background: #808080;
-							border-radius: .2em;
-							color: #fff;
-							display: inline-block;
-							margin-right: .5em;
-							margin-bottom: 1em;
-							padding: .25em .5em;
+							list-style-position: inside;
 						}
 
-					article h2
-					{"
-						.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
-						.render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
-					."}
-
-					article section
-					{"
-						.render_css(array('property' => 'font-size', 'value' => 'section_size'))
-						.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
-						.render_css(array('property' => 'margin', 'value' => 'section_margin'))
-					."}
-
-						article + article
-						{
-							border-top: 1px solid #ccc;
-							padding-top: 1em;
-						}
-
-						article p, article ul, article ol, article form
-						{
-							margin-bottom: 1em;
-						}
-
-							article ul, article ol, article form
+							article p a, article ul a, article ol a
 							{
-								clear: both;
+								border-bottom: 2px solid transparent;"
+								.render_css(array('property' => 'color', 'value' => 'article_url_color'))
+								."text-decoration: none;
 							}
 
-							article ul, article ol
-							{
-								list-style-position: inside;
-							}
+								article p a:hover, article ul a:hover, article ol a:hover
+								{"
+									.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
+								."}
 
-								article p a, article ul a, article ol a
-								{
-									border-bottom: 2px solid transparent;"
-									.render_css(array('property' => 'color', 'value' => 'article_url_color'))
-									."text-decoration: none;
-								}
-
-									article p a:hover, article ul a:hover, article ol a:hover
-									{"
-										.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
-									."}
-
-						article form button
-						{"
-							.render_css(array('property' => 'background', 'value' => 'nav_color_hover'))
-							."color: #fff;
-						}
+					article form button
+					{"
+						.render_css(array('property' => 'background', 'value' => 'nav_color_hover'))
+						."color: #fff;
+					}
 
 				aside, #aside
 				{"
@@ -482,17 +473,19 @@ echo "@media all
 		{"
 			.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
 			."overflow: hidden;
-		}
+		}";
 
-			mf-pre-footer > div
-			{"
-				.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
-			."}
+			if(isset($options['pre_footer_padding']) && $options['pre_footer_padding'] != '')
+			{
+				echo "mf-pre-footer > div
+				{"
+					.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
+				."}";
+			}
 
-		footer
+		echo "footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'footer_bg'))
-			//."line-height: 1.5;"
 			.render_css(array('property' => 'margin', 'value' => 'footer_margin'))
 			."overflow: hidden;
 			position: relative;
@@ -550,14 +543,17 @@ echo "@media all
 						footer ul
 						{
 							list-style: none;
+						}";
+
+						if(isset($options['footer_p_margin']) && $options['footer_p_margin'] != '')
+						{
+							echo "footer .widget p, footer .widget li
+							{"
+								.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
+							."}";
 						}
 
-						footer .widget p, footer .widget li
-						{"
-							.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
-						."}
-
-						footer .widget a
+						echo "footer .widget a
 						{";
 
 							if(isset($options['footer_a_bg']) && $options['footer_a_bg'] != '')
@@ -649,7 +645,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				}";
 			}
 
-			else
+			else if(isset($options['logo_width_mobile']) && $options['logo_width_mobile'] != '')
 			{
 				echo "#site_logo
 				{"
@@ -763,14 +759,17 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 		.show_if_mobile
 		{
 			display: none;
+		}";
+
+		if(isset($options['body_desktop_font_size']) && $options['body_desktop_font_size'] != '' && $options['body_desktop_font_size'] != $options['body_font_size'])
+		{
+			echo "html
+			{"
+				.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
+			."}";
 		}
 
-		html
-		{"
-			.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
-		."}
-
-			.theme_nav li > ul
+			echo ".theme_nav li > ul
 			{
 				background: rgba(0, 0, 0, .2);
 				border-radius: .3em;
