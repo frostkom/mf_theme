@@ -84,7 +84,7 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "font", 'id' => 'body_font', 'title' => __("Font", 'lang_theme'));
 				$options_params[] = array('type' => "color", 'id' => 'body_color', 'title' => __("Text Color", 'lang_theme'));
 				$options_params[] = array('type' => "color", 'id' => 'body_link_color', 'title' => __("Link Color", 'lang_theme'));
-				$options_params[] = array('type' => "text", 'id' => 'body_font_size', 'title' => __("Font size", 'lang_theme'), 'default' => "1.2vw", 'force_default' => true);
+				$options_params[] = array('type' => "text", 'id' => 'body_font_size', 'title' => __("Font size", 'lang_theme'), 'default' => "1.2vw"); //, 'force_default' => true
 				$options_params[] = array('type' => "text", 'id' => 'body_desktop_font_size', 'title' => __("Font size", 'lang_theme')." (".__("Desktop", 'lang_theme').")", 'default' => ".625em");
 				$options_params[] = array('type' => "number", 'id' => 'website_max_width', 'title' => __("Website Max Width", 'lang_theme'), 'default' => "1100");
 				$options_params[] = array('type' => "number", 'id' => 'mobile_breakpoint', 'title' => __("Mobile Breakpoint", 'lang_theme'), 'default' => "600");

@@ -28,11 +28,6 @@ echo "@media all
 		padding: 0;
 	}
 
-	html
-	{
-		overflow-y: scroll;
-	}
-
 	body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
 	{
 		box-sizing: border-box;
@@ -85,9 +80,11 @@ echo "@media all
 	}
 
 	html
-	{"
+	{
+		font-size: .625em;"
 		.render_css(array('property' => 'font-size', 'value' => 'body_font_size'))
-	."}
+		."overflow-y: scroll;
+	}
 
 	body
 	{"
