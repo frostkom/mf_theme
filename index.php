@@ -16,9 +16,9 @@ get_header();
 
 	if(have_posts())
 	{
-		$options['heading_front_visible'] = get_theme_mod('heading_front_visible');
 		$post_amount = $wp_query->found_posts;
-		$show_h1 = $post_amount > 1 || $options['heading_front_visible'] == 2 || !is_front_page() ? true : false;
+
+		//$show_h1 = $post_amount > 1 || is_heading_front_visible() || !is_front_page() ? true : false;
 
 		while(have_posts())
 		{
@@ -42,7 +42,7 @@ get_header();
 
 			echo "<article>";
 
-				if($show_h1 == true)
+				if($post_amount > 1 || is_heading_front_visible() || !is_front_page()) //$show_h1 == true
 				{
 					echo "<h1>"
 						.$post_url_start

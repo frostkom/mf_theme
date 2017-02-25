@@ -1,11 +1,21 @@
 <?php
 
+if(!function_exists('is_heading_front_visible'))
+{
+	function is_heading_front_visible()
+	{
+		$options['heading_front_visible'] = get_theme_mod('heading_front_visible');
+
+		return $options['heading_front_visible'] == 2;
+	}
+}
+
 if(!function_exists('head_theme'))
 {
 	function head_theme()
 	{
 		enqueue_theme_fonts();
-		
+
 		$template_url = get_bloginfo('template_url');
 
 		wp_enqueue_style('style', $template_url."/include/style.php");
@@ -101,7 +111,7 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "font", 'id' => 'logo_font', 'title' => __("Logo Font", 'lang_theme'));
 					$options_params[] = array('type' => "text", 'id' => 'logo_font_size', 'title' => __("Logo Font Size", 'lang_theme'), 'default' => "3em");
 					$options_params[] = array('type' => "color", 'id' => 'logo_color', 'title' => __("Logo Color", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'logo_padding', 'title' => __("Logo Padding", 'lang_theme'), 'default' => '20px 0');
+					$options_params[] = array('type' => "text", 'id' => 'logo_padding', 'title' => __("Logo Padding", 'lang_theme'), 'default' => '.6em 0 0');
 					$options_params[] = array('type' => "text", 'id' => 'logo_width', 'title' => __("Logo Width", 'lang_theme'), 'default' => '14em');
 					$options_params[] = array('type' => "text", 'id' => 'logo_width_mobile', 'title' => __("Logo Width", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'default' => '20em');
 			$options_params[] = array('category_end' => "");
@@ -116,6 +126,7 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "color", 'id' => 'nav_underline_color_hover', 'title' => __("Underline Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
 					$options_params[] = array('type' => "color", 'id' => 'nav_color_hover', 'title' => __("Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
 				$options_params[] = array('type' => "text", 'id' => 'nav_link_padding', 'title' => __("Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
+				$options_params[] = array('type' => "text", 'id' => 'hamburger_font_size', 'title' => __("Hamburger Font Size", 'lang_theme'), 'default' => "3em");
 				$options_params[] = array('type' => "text", 'id' => 'hamburger_margin', 'title' => __("Hamburger Margin", 'lang_theme'), 'default' => "1em .8em");
 			$options_params[] = array('category_end' => "");
 

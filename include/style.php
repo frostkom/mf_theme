@@ -602,10 +602,10 @@ $flex_content = "mf-content > div
 
 	main, #main
 	{
-		-webkit-box-flex: 2 1 auto;
-		-webkit-flex: 2 1 auto;
-		-ms-flex: 2 1 auto;
-		flex: 2 1 auto;
+		-webkit-box-flex: 2 1 0;
+		-webkit-flex: 2 1 0;
+		-ms-flex: 2 1 0;
+		flex: 2 1 0;
 		overflow: hidden;
 		padding-right: 0;
 		max-width: 100%;
@@ -614,10 +614,11 @@ $flex_content = "mf-content > div
 	aside, #aside
 	{
 		margin-left: 2%;
-		-webkit-box-flex: 1 0 28%;
-		-webkit-flex: 1 0 28%;
-		-ms-flex: 1 0 28%;
-		flex: 1 0 28%;
+		-webkit-box-flex: 1 0 0;
+		-webkit-flex: 1 0 0;
+		-ms-flex: 1 0 0;
+		flex: 1 0 0;
+		width: 28%;
 	}";
 
 if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
@@ -670,9 +671,19 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					//.render_css(array('property' => 'color', 'value' => 'nav_color'))
 					.render_css(array('property' => 'color', 'value' => 'logo_color'))
 					."cursor: pointer;
-					display: block;"
-					.render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
-					."margin: .1em .2em;"
+					display: block;";
+
+					if(isset($options['hamburger_font_size']) && $options['hamburger_font_size'] != '')
+					{
+						echo render_css(array('property' => 'font-size', 'value' => 'hamburger_font_size'));
+					}
+
+					else
+					{
+						echo render_css(array('property' => 'font-size', 'value' => 'logo_font_size'));
+					}
+
+					echo "margin: .1em .2em;"
 					.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
 					."position: absolute;
 					right: 0;
