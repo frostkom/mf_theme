@@ -91,7 +91,8 @@ echo "@media all
 		.render_css(array('property' => 'background', 'value' => 'footer_bg'))
 		.render_css(array('property' => 'font-family', 'value' => 'body_font'))
 		.render_css(array('property' => 'color', 'value' => 'body_color'))
-		."position: relative;"
+		."overflow: hidden;
+		position: relative;"
 		//."text-align: left;"
 	."}
 
@@ -165,7 +166,7 @@ echo "@media all
 						padding: .5em;
 					}
 
-				.theme_nav
+				.theme_nav.is_mobile_ready
 				{"
 					.render_css(array('property' => 'background', 'value' => 'nav_bg'))
 					.render_css(array('property' => 'clear', 'value' => 'nav_clear'))
@@ -194,7 +195,7 @@ echo "@media all
 						list-style: none;
 					}
 
-						.theme_nav li
+						.theme_nav.is_mobile_ready li
 						{
 							display: inline-block;
 							position: relative;
@@ -221,13 +222,13 @@ echo "@media all
 								.theme_nav li > ul
 								{
 									display: none;
-									font-size: .8em;
-									white-space: nowrap;
+									margin-bottom: 0;
+									x-white-space: nowrap;
 								}
 
 									.theme_nav li > ul a
 									{
-										padding: .7em;
+										font-size: .8em;
 									}
 
 						#slide_nav > .fa
@@ -280,17 +281,19 @@ echo "@media all
 		}
 
 			mf-slide-nav > div
-			{
-				right: -30%;"
-				.render_css(array('property' => 'background', 'value' => 'nav_bg'))
+			{"
+				.render_css(array('property' => 'background', 'value' => 'slide_nav_bg'))
 				."bottom: 0;"
+				.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
 				.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
 				.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
-				."padding: 2em;
+				."overflow: hidden;
+				padding: 2.6em 0 1em;
 				position: absolute;
+				right: -90%;
 				top: 0;
-				width: 30%;
-				max-width: 250px;
+				width: 90%;
+				max-width: 300px;
 			}
 
 				mf-slide-nav .fa-close
@@ -307,21 +310,37 @@ echo "@media all
 					list-style: none;
 				}
 
-					mf-slide-nav .menu a
-					{
-						display: block;
-						letter-spacing: .2em;
-						margin-left: 0;
-						opacity: .7;"
-						.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
+					mf-slide-nav .theme_nav ul a
+					{"
+						.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
+						."display: block;
+						letter-spacing: .2em;"
+						.render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
 						."transition: all .4s ease;
 					}
 
-					mf-slide-nav .menu a:hover
+						mf-slide-nav .theme_nav ul a:hover
+						{"
+							.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
+							.render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
+							."text-indent: .3em;
+						}
+
+						mf-slide-nav .theme_nav li.current_page_item > a
+						{"
+							.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
+							.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
+						."}
+						
+					mf-slide-nav .theme_nav li ul a
 					{
-						margin-left: .3em;
-						opacity: 1;
+						text-indent: 1.4em;
 					}
+
+						mf-slide-nav .theme_nav li ul a:hover
+						{
+							text-indent: 2em;
+						}
 
 				mf-slide-nav ul, mf-slide-nav p
 				{
@@ -547,7 +566,12 @@ echo "@media all
 							echo "footer .widget p, footer .widget li
 							{"
 								.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
-							."}";
+							."}
+								
+								footer .widget li ul
+								{
+									margin: .5em 0 0 .5em;
+								}";
 						}
 
 						echo "footer .widget a
@@ -656,7 +680,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				display: none;
 			}
 
-			.theme_nav
+			.theme_nav.is_mobile_ready
 			{
 				float: none;
 				margin: 0;
@@ -715,20 +739,20 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							display: block;
 						}
 
-				.theme_nav ul
+				.theme_nav.is_mobile_ready ul
 				{
 					min-height: 3em;
 					margin: 0 auto;
 					width: 80%;
 				}
 
-					.theme_nav > div > ul > li
+					.theme_nav.is_mobile_ready > div > ul > li
 					{"
 						.render_css(array('property' => 'background', 'value' => 'header_bg'))
 						."display: none;
 					}
 
-						.theme_nav > div > ul > li:last-of-type
+						.theme_nav.is_mobile_ready > div > ul > li:last-of-type
 						{
 							border-radius: 0 0 1em 1em;
 						}

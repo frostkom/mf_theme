@@ -128,6 +128,12 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text", 'id' => 'nav_link_padding', 'title' => __("Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
 				$options_params[] = array('type' => "text", 'id' => 'hamburger_font_size', 'title' => __("Hamburger Font Size", 'lang_theme'), 'default' => "3em");
 				$options_params[] = array('type' => "text", 'id' => 'hamburger_margin', 'title' => __("Hamburger Margin", 'lang_theme'), 'default' => "1em .8em");
+				$options_params[] = array('type' => "color", 'id' => 'slide_nav_bg', 'title' => __("Slide Menu Background", 'lang_theme'), 'default' => "#fff");
+				$options_params[] = array('type' => "color", 'id' => 'slide_nav_bg_hover', 'title' => __("Slide Menu Background", 'lang_theme')." (".__("Hover", 'lang_theme').")");
+				$options_params[] = array('type' => "text", 'id' => 'slide_nav_link_padding', 'title' => __("Slide Menu Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
+				$options_params[] = array('type' => "color", 'id' => 'slide_nav_color', 'title' => __("Slide Menu Color", 'lang_theme'));
+				$options_params[] = array('type' => "color", 'id' => 'slide_nav_color_hover', 'title' => __("Slide Menu Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
+				$options_params[] = array('type' => "color", 'id' => 'slide_nav_color_current', 'title' => __("Slide Menu Color", 'lang_theme')." (".__("Current", 'lang_theme').")");
 			$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Pre Content", 'lang_theme'), 'id' => 'mf_theme_front');
@@ -331,11 +337,14 @@ if(!function_exists('get_search_theme'))
 
 if(!function_exists('get_menu_theme'))
 {
-	function get_menu_theme($type = "")
+	function get_menu_theme($data = array()) //$type = ""
 	{
+		if(!isset($data['where'])){		$data['where'] = "";}
+		if(!isset($data['type'])){		$data['type'] = "";}
+
 		$out = "";
 
-		if($type == "slide")
+		if($data['type'] == 'slide')
 		{
 			$out .= "<nav>
 				<a href='#' id='slide_nav'>
@@ -346,7 +355,7 @@ if(!function_exists('get_menu_theme'))
 
 		else
 		{
-			if(in_array($type, array('', 'secondary', 'both')))
+			if(in_array($data['type'], array('', 'secondary', 'both')))
 			{
 				$wp_menu = wp_nav_menu(array('theme_location' => 'secondary', 'menu' => 'Secondary', 'container' => "div", 'container_override' => false, 'fallback_cb' => false, 'echo' => false));
 
@@ -358,17 +367,27 @@ if(!function_exists('get_menu_theme'))
 				}
 			}
 
-			if(in_array($type, array('', 'main', 'both')))
+			if(in_array($data['type'], array('', 'main', 'both')))
 			{
 				$wp_menu = wp_nav_menu(array('theme_location' => 'primary', 'menu' => 'Main', 'container' => "div", 'container_override' => false, 'echo' => false));
 
 				if($wp_menu != '')
 				{
-					$out .= "<nav id='primary_nav' class='is_mobile_ready theme_nav'>
-						<i class='fa fa-bars toggle_icon'></i>
-						<i class='fa fa-close toggle_icon'></i>"
-						.$wp_menu
-					."</nav>";
+					if($data['where'] == 'widget_slide')
+					{
+						$out .= "<nav id='primary_nav' class='theme_nav'>"
+							.$wp_menu
+						."</nav>";
+					}
+
+					else
+					{
+						$out .= "<nav id='primary_nav' class='is_mobile_ready theme_nav'>
+							<i class='fa fa-bars toggle_icon'></i>
+							<i class='fa fa-close toggle_icon'></i>"
+							.$wp_menu
+						."</nav>";
+					}
 				}
 			}
 		}
@@ -416,7 +435,6 @@ if(!function_exists('get_more_posts'))
 					$post_thumbnail = get_the_post_thumbnail($post_id);
 				}
 
-				//$out .= "<li>";
 				$out .= "<article>";
 
 					if($post_thumbnail != '')
@@ -447,10 +465,8 @@ if(!function_exists('get_more_posts'))
 							$out .= $post_content;
 						}
 
-					$out .= "</section>";
-
-				//$out .= "</li>";
-				$out .= "</article>";
+					$out .= "</section>
+				</article>";
 
 				$i++;
 			}

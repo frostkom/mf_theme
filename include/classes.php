@@ -62,7 +62,7 @@ class widget_theme_menu extends WP_Widget
 		extract($args);
 
 		echo $before_widget
-			.get_menu_theme($instance['theme_menu_type'])
+			.get_menu_theme(array('type' => $instance['theme_menu_type'], 'where' => $id))
 		.$after_widget;
 	}
 

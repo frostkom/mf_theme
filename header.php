@@ -30,7 +30,7 @@ echo "<!DOCTYPE html>
 
 						echo get_logo_theme($options)
 						.get_search_theme()
-						.get_menu_theme();
+						.get_menu_theme(array('where' => 'header'));
 					}
 
 					echo "<div class='clear'></div>
