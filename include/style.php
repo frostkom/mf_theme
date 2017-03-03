@@ -154,17 +154,50 @@ echo "@media all
 						font-size: .4em;
 					}
 
+				.searchform
+				{
+					font-size: 1.4em;
+					padding: .3em;
+					position: relative;
+				}
+
+					.searchform .form_textfield
+					{
+						display: inline-block;
+						position: relative;
+						z-index: 1;
+					}
+
+						.searchform .form_textfield input
+						{
+							background: none;
+							border-color: rgba(0, 0, 0, .1);
+							display: inline-block;
+							float: right;
+							margin: 0;
+							opacity: 0;
+							padding-right: 2.2em;
+							transition: all .4s ease;
+							width: 0;
+						}
+
+							.searchform .form_textfield input:focus
+							{
+								opacity: 1;
+								width: 100%;
+							}
+
+					.searchform .fa
+					{
+						position: absolute;
+						right: 1em;
+						top: 1.1em;
+					}
+
 				header .searchform
 				{
 					float: right;
-					padding: 1em;
 				}
-
-					header .searchform input
-					{
-						display: inline-block;
-						padding: .5em;
-					}
 
 				.theme_nav.is_mobile_ready
 				{"
@@ -841,7 +874,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							{"
 								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
 								."border-radius: .3em;"
-								.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
+								.render_css(array('property' => 'color', 'value' => 'sub_nav_color_hover'))
 							."}"
 		.$flex_content
 	."}";
