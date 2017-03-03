@@ -5,7 +5,7 @@ class widget_theme_logo extends WP_Widget
 	function __construct()
 	{
 		$widget_ops = array(
-			'classname' => 'theme',
+			'classname' => 'theme_logo',
 			'description' => __("Display logo", 'lang_theme')
 		);
 
@@ -48,7 +48,7 @@ class widget_theme_menu extends WP_Widget
 	function __construct()
 	{
 		$widget_ops = array(
-			'classname' => 'theme',
+			'classname' => 'theme_menu',
 			'description' => __("Display menu", 'lang_theme')
 		);
 

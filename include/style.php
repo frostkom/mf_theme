@@ -214,6 +214,12 @@ echo "@media all
 									.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
 								."}
 
+									.theme_nav li.current_page_item > a
+									{"
+										.render_css(array('property' => 'background', 'value' => 'nav_bg_current'))
+										.render_css(array('property' => 'color', 'value' => 'nav_color_current'))
+									."}
+
 								.theme_nav li:hover > ul, .theme_nav li.current-menu-item > ul, .theme_nav li.current-menu-ancestor > ul
 								{
 									display: block;
@@ -222,14 +228,7 @@ echo "@media all
 								.theme_nav li > ul
 								{
 									display: none;
-									margin-bottom: 0;
-									x-white-space: nowrap;
 								}
-
-									.theme_nav li > ul a
-									{
-										font-size: .8em;
-									}
 
 						#slide_nav > .fa
 						{
@@ -300,9 +299,10 @@ echo "@media all
 				{
 					cursor: pointer;
 					font-size: 1.4em;
+					margin: 3% 4% 0 0;
 					position: absolute;
-					right: 4%;
-					top: 1%;
+					right: 0;
+					top: 0;
 				}
 
 				mf-slide-nav ul
@@ -332,15 +332,20 @@ echo "@media all
 							.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
 						."}
 						
-					mf-slide-nav .theme_nav li ul a
+					mf-slide-nav .theme_nav li ul
 					{
-						text-indent: 1.4em;
+						margin-bottom: 0;
 					}
-
-						mf-slide-nav .theme_nav li ul a:hover
+						
+						mf-slide-nav .theme_nav li ul a
 						{
-							text-indent: 2em;
+							text-indent: 1.4em;
 						}
+
+							mf-slide-nav .theme_nav li ul a:hover
+							{
+								text-indent: 2em;
+							}
 
 				mf-slide-nav ul, mf-slide-nav p
 				{
@@ -801,24 +806,43 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			."}";
 		}
 
-			echo ".theme_nav li > ul
-			{
-				background: rgba(0, 0, 0, .2);
-				border-radius: .3em;
+			echo ".theme_nav.is_mobile_ready li > ul
+			{"
+				.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
+				."border-radius: .3em;
 				right: 0;
 				position: absolute;
 				top: 4em;
+				z-index: 100;
 			}
 
-				.theme_nav li > ul:before
+				.theme_nav.is_mobile_ready li > ul:before
 				{
 					content: '';
 					position: absolute;
 					top: -2em;
 					right: 3em;
-					border: 1em solid transparent;
-					border-bottom: 1em solid rgba(0, 0, 0, .2);
-				}"
+					border: 1em solid transparent;"
+					.render_css(array('prefix' => 'border-bottom: 1em solid ', 'value' => 'sub_nav_bg'))
+				."}
+
+					.theme_nav.is_mobile_ready li > ul
+					{
+						white-space: nowrap;
+					}
+
+						.theme_nav.is_mobile_ready li > ul a
+						{"
+							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
+							."padding: .8em;
+						}
+						
+							.theme_nav.is_mobile_ready li > ul a:hover
+							{"
+								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
+								."border-radius: .3em;"
+								.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
+							."}"
 		.$flex_content
 	."}";
 

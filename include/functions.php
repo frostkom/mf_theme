@@ -125,7 +125,12 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "color", 'id' => 'nav_color', 'title' => __("Color", 'lang_theme'));
 					$options_params[] = array('type' => "color", 'id' => 'nav_underline_color_hover', 'title' => __("Underline Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
 					$options_params[] = array('type' => "color", 'id' => 'nav_color_hover', 'title' => __("Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
+					$options_params[] = array('type' => "color", 'id' => 'nav_bg_current', 'title' => __("Background", 'lang_theme')." (".__("Current", 'lang_theme').")");
+					$options_params[] = array('type' => "color", 'id' => 'nav_color_current', 'title' => __("Color", 'lang_theme')." (".__("Current", 'lang_theme').")");
 				$options_params[] = array('type' => "text", 'id' => 'nav_link_padding', 'title' => __("Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
+				$options_params[] = array('type' => "color", 'id' => 'sub_nav_bg', 'title' => __("Submenu Background", 'lang_theme'), 'default' => "#ccc");
+				$options_params[] = array('type' => "color", 'id' => 'sub_nav_color', 'title' => __("Submenu Color", 'lang_theme'), 'default' => "#333");
+					$options_params[] = array('type' => "color", 'id' => 'sub_nav_bg_hover', 'title' => __("Submenu Background", 'lang_theme')." (".__("Hover", 'lang_theme').")");
 				$options_params[] = array('type' => "text", 'id' => 'hamburger_font_size', 'title' => __("Hamburger Font Size", 'lang_theme'), 'default' => "3em");
 				$options_params[] = array('type' => "text", 'id' => 'hamburger_margin', 'title' => __("Hamburger Margin", 'lang_theme'), 'default' => "1em .8em");
 				$options_params[] = array('type' => "color", 'id' => 'slide_nav_bg', 'title' => __("Slide Menu Background", 'lang_theme'), 'default' => "#fff");
@@ -329,15 +334,16 @@ if(!function_exists('get_search_theme'))
 {
 	function get_search_theme()
 	{
-		return "<form action='".get_site_url()."' method='get' class='searchform'>
-			<input type='text' name='s' value='".get_query_var('s')."' placeholder='".__("Search for", 'lang_theme')."...'>
-		</form>";
+		return "<form action='".get_site_url()."' method='get' class='searchform'>"
+			.show_textfield(array('name' => 's', 'value' => get_query_var('s'), 'placeholder' => __("Search for", 'lang_theme')))
+			//."<input type='text' name='s' value='".get_query_var('s')."' placeholder='".__("Search for", 'lang_theme')."...'>"
+		."</form>";
 	}
 }
 
 if(!function_exists('get_menu_theme'))
 {
-	function get_menu_theme($data = array()) //$type = ""
+	function get_menu_theme($data = array())
 	{
 		if(!isset($data['where'])){		$data['where'] = "";}
 		if(!isset($data['type'])){		$data['type'] = "";}
@@ -361,7 +367,7 @@ if(!function_exists('get_menu_theme'))
 
 				if($wp_menu != '')
 				{
-					$out .= "<nav id='secondary_nav' class='theme_nav'>"
+					$out .= "<nav id='secondary_nav' class='theme_nav is_mobile_ready '>"
 						.$wp_menu
 					."</nav>";
 				}
@@ -382,7 +388,7 @@ if(!function_exists('get_menu_theme'))
 
 					else
 					{
-						$out .= "<nav id='primary_nav' class='is_mobile_ready theme_nav'>
+						$out .= "<nav id='primary_nav' class='theme_nav is_mobile_ready'>
 							<i class='fa fa-bars toggle_icon'></i>
 							<i class='fa fa-close toggle_icon'></i>"
 							.$wp_menu
