@@ -91,13 +91,15 @@ if(!function_exists('get_params'))
 		$options_params[] = array('category' => __("Generic", 'lang_theme'), 'id' => 'mf_theme_body');
 			$options_params[] = array('type' => "text", 'id' => 'body_bg', 'title' => __("Background", 'lang_theme'), 'default' => "#fff", 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "font", 'id' => 'body_font', 'title' => __("Font", 'lang_theme'));
+				$options_params[] = array('type' => "text", 'id' => 'body_desktop_font_size', 'title' => __("Font size", 'lang_theme')." (".__("Desktop", 'lang_theme').")", 'default' => ".625em");
+				$options_params[] = array('type' => "text", 'id' => 'body_font_size', 'title' => __("Font size", 'lang_theme'), 'default' => "1.2vw"); //, 'force_default' => true
+				$options_params[] = array('type' => "text", 'id' => 'main_padding', 'title' => __("Padding", 'lang_theme'), 'default' => "1em 2em");
 				$options_params[] = array('type' => "color", 'id' => 'body_color', 'title' => __("Text Color", 'lang_theme'));
 				$options_params[] = array('type' => "color", 'id' => 'body_link_color', 'title' => __("Link Color", 'lang_theme'));
-				$options_params[] = array('type' => "text", 'id' => 'body_font_size', 'title' => __("Font size", 'lang_theme'), 'default' => "1.2vw"); //, 'force_default' => true
-				$options_params[] = array('type' => "text", 'id' => 'body_desktop_font_size', 'title' => __("Font size", 'lang_theme')." (".__("Desktop", 'lang_theme').")", 'default' => ".625em");
+				$options_params[] = array('type' => "color", 'id' => 'button_color', 'title' => __("Button Color", 'lang_theme'));
+					$options_params[] = array('type' => "color", 'id' => 'button_color_hover', 'title' => __("Button Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
 				$options_params[] = array('type' => "number", 'id' => 'website_max_width', 'title' => __("Website Max Width", 'lang_theme'), 'default' => "1100");
 				$options_params[] = array('type' => "number", 'id' => 'mobile_breakpoint', 'title' => __("Mobile Breakpoint", 'lang_theme'), 'default' => "600");
-				$options_params[] = array('type' => "text", 'id' => 'main_padding', 'title' => __("Padding", 'lang_theme'), 'default' => "1em 2em");
 		$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Header", 'lang_theme'), 'id' => 'mf_theme_header');

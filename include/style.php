@@ -50,6 +50,36 @@ echo "@media all
 			.render_css(array('property' => 'color', 'value' => 'body_link_color'))
 		."}
 
+	#wrapper button, #wrapper .button
+	{";
+		if(isset($options['button_color']) && $options['button_color'] != '')
+		{
+			echo render_css(array('property' => 'background', 'value' => 'button_color'));
+		}
+
+		else
+		{
+			echo render_css(array('property' => 'background', 'value' => 'nav_color_hover'));
+		}
+
+		echo "color: #fff;"
+	."}
+
+		#wrapper button:hover, #wrapper .button:hover
+		{"
+			.render_css(array('property' => 'background', 'value' => 'button_color_hover'))
+		."}
+
+		#wrapper button.button-secondary
+		{
+			background: #999;
+		}
+
+			#wrapper button.button-secondary:hover
+			{
+				background: #aaa;
+			}
+
 	img
 	{
 		border: 0;
@@ -480,12 +510,6 @@ echo "@media all
 								{"
 									.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
 								."}
-
-					article form button
-					{"
-						.render_css(array('property' => 'background', 'value' => 'nav_color_hover'))
-						."color: #fff;
-					}
 
 				aside, #aside
 				{"
