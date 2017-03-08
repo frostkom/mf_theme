@@ -890,6 +890,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 						.theme_nav.is_mobile_ready li > ul a
 						{"
+							."border-radius: .3em;"
 							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
 							."padding: .8em;
 						}
@@ -897,7 +898,6 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							.theme_nav.is_mobile_ready li > ul a:hover
 							{"
 								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
-								."border-radius: .3em;"
 								.render_css(array('property' => 'color', 'value' => 'sub_nav_color_hover'))
 							."}"
 		.$flex_content
