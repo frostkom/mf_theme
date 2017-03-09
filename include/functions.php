@@ -105,7 +105,7 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category' => __("Header", 'lang_theme'), 'id' => 'mf_theme_header');
 				$options_params[] = array('type' => "checkbox", 'id' => 'header_fixed', 'title' => __("Fixed", 'lang_theme'), 'default' => 1);
 				$options_params[] = array('type' => "text", 'id' => 'header_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
-				$options_params[] = array('type' => "text", 'id' => 'header_overflow', 'title' => __("Overflow", 'lang_theme'));
+				$options_params[] = array('type' => "overflow", 'id' => 'header_overflow', 'title' => __("Overflow", 'lang_theme'));
 				$options_params[] = array('type' => "text", 'id' => 'header_padding', 'title' => __("Padding", 'lang_theme'));
 				$options_params[] = array('type' => "image", 'id' => 'header_logo', 'title' => __("Logo", 'lang_theme'));
 					$options_params[] = array('type' => "image", 'id' => 'header_mobile_logo', 'title' => __("Logo", 'lang_theme')." (".__("Mobile", 'lang_theme').")");
@@ -120,10 +120,10 @@ if(!function_exists('get_params'))
 
 			$options_params[] = array('category' => __("Navigation", 'lang_theme'), 'id' => 'mf_theme_navigation');
 				$options_params[] = array('type' => "text", 'id' => 'nav_bg', 'title' => __("Background", 'lang_theme'));
-				$options_params[] = array('type' => "text", 'id' => 'nav_clear', 'title' => __("Clear", 'lang_theme'), 'placeholder' => "left, right, both", 'default' => "right");
+				$options_params[] = array('type' => "clear", 'id' => 'nav_clear', 'title' => __("Clear", 'lang_theme'), 'default' => "right");
 				$options_params[] = array('type' => "font", 'id' => 'nav_font', 'title' => __("Font", 'lang_theme'));
 				$options_params[] = array('type' => "text", 'id' => 'nav_size', 'title' => __("Size", 'lang_theme'), 'default' => "2em");
-				$options_params[] = array('type' => "text", 'id' => 'nav_align', 'title' => __("Align", 'lang_theme'), 'placeholder' => "left, right", 'default' => "right");
+				$options_params[] = array('type' => "align", 'id' => 'nav_align', 'title' => __("Align", 'lang_theme'), 'placeholder' => "left, right", 'default' => "right");
 				$options_params[] = array('type' => "color", 'id' => 'nav_color', 'title' => __("Color", 'lang_theme'));
 					$options_params[] = array('type' => "color", 'id' => 'nav_underline_color_hover', 'title' => __("Underline Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
 					$options_params[] = array('type' => "color", 'id' => 'nav_color_hover', 'title' => __("Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
@@ -156,7 +156,7 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "checkbox", 'id' => 'heading_front_visible', 'title' => __("Show heading on front page", 'lang_theme'), 'default' => 2);
 					$options_params[] = array('type' => "font", 'id' => 'heading_font', 'title' => __("Font", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_size', 'title' => __("Size", 'lang_theme')." (H1)", 'default' => "2.2em");
-					$options_params[] = array('type' => "text", 'id' => 'heading_weight', 'title' => __("Weight", 'lang_theme')." (H1)");
+					$options_params[] = array('type' => "weight", 'id' => 'heading_weight', 'title' => __("Weight", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_margin', 'title' => __("Margin", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_padding', 'title' => __("Padding", 'lang_theme')." (H1)", 'default' => ".3em 0 .5em");
 					$options_params[] = array('type' => "text", 'id' => 'heading_border_bottom', 'title' => __("Heading Border Bottom", 'lang_theme'));
@@ -188,11 +188,11 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text", 'id' => 'footer_margin', 'title' => __("Margin", 'lang_theme'), 'default' => "0 0 .3em");
 				$options_params[] = array('type' => "text", 'id' => 'footer_padding', 'title' => __("Padding", 'lang_theme'));
 					$options_params[] = array('type' => "checkbox", 'id' => 'footer_widget_flex', 'title' => __("Widget Flex", 'lang_theme'), 'default' => 2);
-					$options_params[] = array('type' => "text", 'id' => 'footer_widget_overflow', 'title' => __("Widget Overflow", 'lang_theme'), 'default' => "hidden");
+					$options_params[] = array('type' => "overflow", 'id' => 'footer_widget_overflow', 'title' => __("Widget Overflow", 'lang_theme'), 'default' => "hidden");
 					$options_params[] = array('type' => "text", 'id' => 'footer_widget_padding', 'title' => __("Widget Padding", 'lang_theme'), 'default' => ".2em");
 				$options_params[] = array('type' => "text", 'id' => 'footer_widget_heading_size', 'title' => __("Widget Heading Size", 'lang_theme'), 'default' => "1.3em");
 				$options_params[] = array('type' => "text", 'id' => 'footer_widget_heading_margin', 'title' => __("Widget Heading Margin", 'lang_theme'), 'default' => "0 0 .5em");
-				$options_params[] = array('type' => "text", 'id' => 'footer_widget_heading_text_transform', 'title' => __("Widget Heading Text Transform", 'lang_theme'), 'default' => "uppercase");
+				$options_params[] = array('type' => "text_transform", 'id' => 'footer_widget_heading_text_transform', 'title' => __("Widget Heading Text Transform", 'lang_theme'), 'default' => "uppercase");
 				$options_params[] = array('type' => "text", 'id' => 'footer_p_margin', 'title' => __("Paragraph/List Margin", 'lang_theme'), 'default' => "0 0 .5em");
 				$options_params[] = array('type' => "text", 'id' => 'footer_a_bg', 'title' => __("Link Background", 'lang_theme'));
 				$options_params[] = array('type' => "text", 'id' => 'footer_a_margin', 'title' => __("Link Margin", 'lang_theme'));
