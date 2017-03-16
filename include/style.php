@@ -481,6 +481,7 @@ echo "@media all
 					article + article
 					{
 						border-top: 1px solid #ccc;
+						margin-top: 2.5em;
 						padding-top: 1em;
 					}
 
