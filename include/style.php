@@ -561,6 +561,14 @@ echo "@media all
 					.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
 				."}";
 			}
+			
+				if(isset($options['pre_footer_widget_padding']) && $options['pre_footer_widget_padding'] != '')
+				{
+					echo "mf-pre-footer > div .widget
+					{"
+						.render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
+					."}";
+				}
 
 		echo "footer
 		{"

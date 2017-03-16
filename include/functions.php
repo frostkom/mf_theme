@@ -178,6 +178,7 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category' => __("Pre Footer", 'lang_theme'), 'id' => 'mf_theme_pre_footer');
 				$options_params[] = array('type' => "text", 'id' => 'pre_footer_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "text", 'id' => 'pre_footer_padding', 'title' => __("Padding", 'lang_theme'));
+					$options_params[] = array('type' => "text", 'id' => 'pre_footer_widget_padding', 'title' => __("Widget Padding", 'lang_theme'), 'default' => "0 0 .5em");
 			$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Footer", 'lang_theme'), 'id' => 'mf_theme_footer');
