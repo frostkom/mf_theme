@@ -465,10 +465,16 @@ echo "@media all
 						padding: .25em .5em;
 					}
 
-				article h2
+				/*article */h2
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
+				."}
+
+				h3
+				{"
+					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h3'))
+					.render_css(array('property' => 'font-size', 'value' => 'heading_size_h3'))
 				."}
 
 				article section
@@ -617,7 +623,7 @@ echo "@media all
 
 					footer .widget h3
 					{"
-						.render_css(array('property' => 'font-size', 'value' => 'footer_widget_heading_size'))
+						//.render_css(array('property' => 'font-size', 'value' => 'footer_widget_heading_size'))
 						.render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'));
 
 						if(isset($options['footer_widget_heading_text_transform']) && $options['footer_widget_heading_text_transform'] != '')
