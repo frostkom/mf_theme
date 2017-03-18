@@ -117,14 +117,19 @@ echo "@media all
 	}
 
 	body
-	{"
-		.render_css(array('property' => 'background', 'value' => 'footer_bg'))
-		.render_css(array('property' => 'font-family', 'value' => 'body_font'))
+	{";
+
+		if(isset($options['footer_bg']) && $options['footer_bg'] != '')
+		{
+			echo render_css(array('property' => 'background', 'value' => 'footer_bg'))
+			."min-height: 100vh;";
+		}
+
+		echo render_css(array('property' => 'font-family', 'value' => 'body_font'))
 		.render_css(array('property' => 'color', 'value' => 'body_color'))
 		."overflow: hidden;
-		position: relative;"
-		//."text-align: left;"
-	."}
+		position: relative;
+	}
 
 	#wrapper
 	{"
@@ -185,8 +190,9 @@ echo "@media all
 					}
 
 				.searchform
-				{
-					font-size: 1.4em;
+				{"
+					.render_css(array('property' => 'color', 'value' => 'logo_color'))
+					."font-size: 1.4em;
 					padding: .3em;
 					position: relative;
 				}
@@ -201,8 +207,9 @@ echo "@media all
 						.searchform .form_textfield input
 						{
 							background: none;
-							border-color: rgba(0, 0, 0, .1);
-							display: inline-block;
+							border-color: rgba(0, 0, 0, .1);"
+							.render_css(array('property' => 'color', 'value' => 'logo_color'))
+							."display: inline-block;
 							float: right;
 							margin: 0;
 							opacity: 0;
@@ -736,7 +743,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			display: none;
 		}";
 
-			if(!isset($options['logo_mobile_visible']) || $options['logo_mobile_visible'] != 2)
+			/*if(!isset($options['logo_mobile_visible']) || $options['logo_mobile_visible'] != 2)
 			{
 				echo "#site_logo
 				{
@@ -744,7 +751,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				}";
 			}
 
-			else if(isset($options['logo_width_mobile']) && $options['logo_width_mobile'] != '')
+			else */if(isset($options['logo_width_mobile']) && $options['logo_width_mobile'] != '')
 			{
 				echo "#site_logo
 				{"
@@ -767,9 +774,6 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 				#primary_nav > .toggle_icon
 				{"
-					/*."border: .07em solid #666;
-					border-radius: .2em;"*/
-					//.render_css(array('property' => 'color', 'value' => 'nav_color'))
 					.render_css(array('property' => 'color', 'value' => 'logo_color'))
 					."cursor: pointer;
 					display: block;";
