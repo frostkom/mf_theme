@@ -149,7 +149,7 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text", 'id' => 'hamburger_margin', 'title' => __("Margin", 'lang_theme'), 'default' => "1em .8em");
 			$options_params[] = array('category_end' => "");
 
-			if(count($arr_sidebars['widget_slide']) > 0)
+			if(isset($arr_sidebars['widget_slide']) && count($arr_sidebars['widget_slide']) > 0)
 			{
 				$options_params[] = array('category' => " - ".__("Slide Menu", 'lang_theme'), 'id' => 'mf_theme_navigation_slide');
 					$options_params[] = array('type' => "text", 'id' => 'slide_nav_link_padding', 'title' => __("Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
@@ -174,6 +174,7 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text", 'id' => 'content_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "text", 'id' => 'content_padding', 'title' => __("Padding", 'lang_theme'));
 					$options_params[] = array('type' => "checkbox", 'id' => 'heading_front_visible', 'title' => __("Show heading on front page", 'lang_theme'), 'default' => 2);
+					$options_params[] = array('type' => "text", 'id' => 'heading_bg', 'title' => __("Background", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "font", 'id' => 'heading_font', 'title' => __("Font", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_size', 'title' => __("Size", 'lang_theme')." (H1)", 'default' => "2.25em");
 					$options_params[] = array('type' => "weight", 'id' => 'heading_weight', 'title' => __("Weight", 'lang_theme')." (H1)");
@@ -184,9 +185,11 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "text", 'id' => 'heading_size_h2', 'title' => __("Size", 'lang_theme')." (H2)", 'default' => "1.5em");
 					$options_params[] = array('type' => "font", 'id' => 'heading_font_h3', 'title' => __("Font", 'lang_theme')." (H3)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_size_h3', 'title' => __("Size", 'lang_theme')." (H3)", 'default' => "1.3em");
+					$options_params[] = array('type' => "text", 'id' => 'section_bg', 'title' => __("Background", 'lang_theme')." (".__("Content", 'lang_theme').")");
 					$options_params[] = array('type' => "text", 'id' => 'section_size', 'title' => __("Size", 'lang_theme')." (".__("Content", 'lang_theme').")", 'default' => "1.6em");
 					$options_params[] = array('type' => "text", 'id' => 'section_line_height', 'title' => __("Line Height", 'lang_theme')." (".__("Content", 'lang_theme').")", 'default' => "1.5");
 					$options_params[] = array('type' => "text", 'id' => 'section_margin', 'title' => __("Margin", 'lang_theme')." (".__("Content", 'lang_theme').")", 'default' => "0 0 2em");
+					$options_params[] = array('type' => "text", 'id' => 'section_padding', 'title' => __("Padding", 'lang_theme')." (".__("Content", 'lang_theme').")");
 					$options_params[] = array('type' => "color", 'id' => 'article_url_color', 'title' => __("Link Color", 'lang_theme'));
 			$options_params[] = array('category_end' => "");
 
@@ -200,7 +203,7 @@ if(!function_exists('get_params'))
 				$options_params[] = array('category_end' => "");
 			}
 
-			if(count($arr_sidebars['widget_pre_footer']) > 0)
+			if(isset($arr_sidebars['widget_pre_footer']) && count($arr_sidebars['widget_pre_footer']) > 0)
 			{
 				$options_params[] = array('category' => __("Pre Footer", 'lang_theme'), 'id' => 'mf_theme_pre_footer');
 					$options_params[] = array('type' => "text", 'id' => 'pre_footer_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);

@@ -436,6 +436,7 @@ echo "@media all
 
 				article h1
 				{"
+					.render_css(array('property' => 'background', 'value' => 'heading_bg'))
 					.render_css(array('property' => 'border-bottom', 'value' => 'heading_border_bottom'))
 					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
 					.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
@@ -486,9 +487,11 @@ echo "@media all
 
 				article section
 				{"
+					.render_css(array('property' => 'background', 'value' => 'section_bg'))
 					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
 					.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
 					.render_css(array('property' => 'margin', 'value' => 'section_margin'))
+					.render_css(array('property' => 'padding', 'value' => 'section_padding'))
 				."}
 
 					article + article

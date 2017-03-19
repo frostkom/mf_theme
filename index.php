@@ -18,8 +18,6 @@ get_header();
 	{
 		$post_amount = $wp_query->found_posts;
 
-		//$show_h1 = $post_amount > 1 || is_heading_front_visible() || !is_front_page() ? true : false;
-
 		while(have_posts())
 		{
 			the_post();
@@ -42,7 +40,7 @@ get_header();
 
 			echo "<article>";
 
-				if($post_amount > 1 || is_heading_front_visible() || !is_front_page()) //$show_h1 == true
+				if($post_amount > 1 || !is_front_page() || is_heading_front_visible())
 				{
 					echo "<h1>"
 						.$post_url_start
