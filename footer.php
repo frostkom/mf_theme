@@ -11,6 +11,15 @@
 
 					echo "</div>";
 
+					if(is_active_sidebar('widget_sidebar_left'))
+					{
+						echo "<div id='aside'".is_clean("left").">";
+
+							dynamic_sidebar('widget_sidebar_left');
+
+						echo "</div>";
+					}
+
 					if(is_active_sidebar('widget_sidebar'))
 					{
 						echo "<div id='aside'".is_clean().">";

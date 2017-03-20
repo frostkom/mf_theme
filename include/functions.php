@@ -175,12 +175,12 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text", 'id' => 'content_padding', 'title' => __("Padding", 'lang_theme'));
 					$options_params[] = array('type' => "checkbox", 'id' => 'heading_front_visible', 'title' => __("Show heading on front page", 'lang_theme'), 'default' => 2);
 					$options_params[] = array('type' => "text", 'id' => 'heading_bg', 'title' => __("Background", 'lang_theme')." (H1)");
+					$options_params[] = array('type' => "text", 'id' => 'heading_border_bottom', 'title' => __("Border Bottom", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "font", 'id' => 'heading_font', 'title' => __("Font", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_size', 'title' => __("Size", 'lang_theme')." (H1)", 'default' => "2.25em");
 					$options_params[] = array('type' => "weight", 'id' => 'heading_weight', 'title' => __("Weight", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_margin', 'title' => __("Margin", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_padding', 'title' => __("Padding", 'lang_theme')." (H1)", 'default' => ".3em 0 .5em");
-					$options_params[] = array('type' => "text", 'id' => 'heading_border_bottom', 'title' => __("Heading Border Bottom", 'lang_theme'));
 					$options_params[] = array('type' => "font", 'id' => 'heading_font_h2', 'title' => __("Font", 'lang_theme')." (H2)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_size_h2', 'title' => __("Size", 'lang_theme')." (H2)", 'default' => "1.5em");
 					$options_params[] = array('type' => "font", 'id' => 'heading_font_h3', 'title' => __("Font", 'lang_theme')." (H3)");
@@ -196,10 +196,15 @@ if(!function_exists('get_params'))
 			if(count($arr_sidebars['widget_sidebar']) > 0)
 			{
 				$options_params[] = array('category' => __("Aside", 'lang_theme'), 'id' => 'mf_theme_aside');
-					$options_params[] = array('type' => "text", 'id' => 'aside_size', 'title' => __("Size", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'aside_line_height', 'title' => __("Line Height", 'lang_theme'));
 					$options_params[] = array('type' => "text", 'id' => 'aside_widget_background', 'title' => __("Widget Background", 'lang_theme'), 'placeholder' => $bg_placeholder, 'default' => "#f8f8f8");
 					$options_params[] = array('type' => "text", 'id' => 'aside_widget_border', 'title' => __("Widget Border", 'lang_theme'), 'default' => "1px solid #d8d8d8");
+					$options_params[] = array('type' => "text", 'id' => 'aside_heading_bg', 'title' => __("Background", 'lang_theme')." (H3)");
+					$options_params[] = array('type' => "text", 'id' => 'aside_heading_border_bottom', 'title' => __("Border Bottom", 'lang_theme')." (H3)");
+					$options_params[] = array('type' => "text", 'id' => 'aside_heading_size', 'title' => __("Size", 'lang_theme')." (H3)");
+					$options_params[] = array('type' => "text", 'id' => 'aside_heading_padding', 'title' => __("Padding", 'lang_theme')." (H3)", 'default' => ".5em");
+					$options_params[] = array('type' => "text", 'id' => 'aside_size', 'title' => __("Size", 'lang_theme')." (".__("Content", 'lang_theme').")");
+					$options_params[] = array('type' => "text", 'id' => 'aside_line_height', 'title' => __("Line Height", 'lang_theme')." (".__("Content", 'lang_theme').")");
+					$options_params[] = array('type' => "text", 'id' => 'aside_padding', 'title' => __("Padding", 'lang_theme')." (".__("Content", 'lang_theme').")", 'default' => "0 .5em .5em");
 				$options_params[] = array('category_end' => "");
 			}
 
@@ -286,17 +291,26 @@ if(!function_exists('widgets_theme'))
 			'id' => 'widget_front',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
-			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_title' => "</h3><div>",
+			'after_widget' => "</div></div>"
 		));
 
 		register_sidebar(array(
-			'name' => __("Sidebar", 'lang_theme'),
+			'name' => __("Sidebar", 'lang_theme')." (".__("Left", 'lang_theme').")",
+			'id' => 'widget_sidebar_left',
+			'before_widget' => "<div class='widget %s %s'>",
+			'before_title' => "<h3>",
+			'after_title' => "</h3><div>",
+			'after_widget' => "</div></div>"
+		));
+
+		register_sidebar(array(
+			'name' => __("Sidebar", 'lang_theme')." (".__("Right", 'lang_theme').")",
 			'id' => 'widget_sidebar',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
-			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_title' => "</h3><div>",
+			'after_widget' => "</div></div>"
 		));
 
 		if(count($arr_sidebars['widget_footer']) > 0)
@@ -306,8 +320,8 @@ if(!function_exists('widgets_theme'))
 				'id' => 'widget_pre_footer',
 				'before_widget' => "<div class='widget %s %s'>",
 				'before_title' => "<h3>",
-				'after_title' => "</h3>",
-				'after_widget' => "</div>"
+				'after_title' => "</h3><div>",
+				'after_widget' => "</div></div>"
 			));
 		}
 
@@ -316,8 +330,8 @@ if(!function_exists('widgets_theme'))
 			'id' => 'widget_footer',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
-			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_title' => "</h3><div>",
+			'after_widget' => "</div></div>"
 		));
 
 		register_widget('widget_theme_logo');

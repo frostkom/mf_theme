@@ -22,18 +22,18 @@ echo "@media all
 		display: none;
 	}
 
-	html, body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
+	html, body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
 	{
 		margin: 0;
 		padding: 0;
 	}
 
-	body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
+	body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
 	{
 		box-sizing: border-box;
 	}
 
-	header, nav, mf-after-header, mf-pre-content, mf-content, article, section, aside, #aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
+	header, nav, mf-after-header, mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
 	{
 		display: block;
 	}
@@ -528,36 +528,45 @@ echo "@media all
 									.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
 								."}
 
-				aside, #aside
+				#aside
 				{"
-					.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
 					.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
-					.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
 				."}
 
-					aside .widget, #aside .widget
+					#aside .widget
 					{"
 						.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
 						.render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
-						."padding: 1em;
-					}
+						//."padding: 1em;"
+					."}
 
-						aside .widget + .widget, #aside .widget + .widget
+						#aside .widget + .widget
 						{
 							margin-top: 1em;
 						}
 
-						aside h3, #aside h3
-						{
-							margin-bottom: .5em;
-						}
+						#aside h3
+						{"
+							.render_css(array('property' => 'background', 'value' => 'aside_heading_bg'))
+							.render_css(array('property' => 'border-bottom', 'value' => 'aside_heading_border_bottom'))
+							.render_css(array('property' => 'font-size', 'value' => 'aside_heading_size'))
+							."margin-bottom: .5em;"
+							.render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
+						."}
 
-						aside ul, aside ol, #aside ul, #aside ol
+						#aside .widget > div
+						{"
+							.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
+							.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
+							.render_css(array('property' => 'padding', 'value' => 'aside_padding'))
+						."}
+
+						#aside ul, #aside ol
 						{
 							list-style-position: inside;
 						}
 
-							aside p a, aside ul a, aside ol a, #aside p a, #aside ul a, #aside ol a
+							#aside p a, #aside ul a, #aside ol a
 							{
 								border-bottom: 2px solid transparent;"
 								.render_css(array('property' => 'color', 'value' => 'article_url_color'))
@@ -711,26 +720,35 @@ $flex_content = "mf-content > div
 		width: 100%;
 	}
 
-	main, #main
+	#main
 	{
 		-webkit-box-flex: 2 1 0;
 		-webkit-flex: 2 1 0;
 		-ms-flex: 2 1 0;
 		flex: 2 1 0;
+		order: 2;
 		overflow: hidden;
 		padding-right: 0;
 		max-width: 100%;
 	}
 
-	aside, #aside
+	#aside
 	{
 		margin-left: 2%;
 		-webkit-box-flex: 1 0 0;
 		-webkit-flex: 1 0 0;
 		-ms-flex: 1 0 0;
 		flex: 1 0 0;
+		order: 3;
 		width: 28%;
-	}";
+	}
+	
+		#aside.left
+		{
+			margin-right: 2%;
+			margin-left: 0;
+			order: 1;
+		}";
 
 if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 {
@@ -963,7 +981,7 @@ echo "@media print
 		width: auto;
 	}
 
-	header, mf-after-header, mf-pre-content, aside, #aside, mf-pre-footer, footer
+	header, mf-after-header, mf-pre-content, #aside, mf-pre-footer, footer
 	{
 		display: none;
 	}
