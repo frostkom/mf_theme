@@ -598,7 +598,7 @@ echo "@media all
 		echo "footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'footer_bg'))
-			.render_css(array('property' => 'margin', 'value' => 'footer_margin'))
+			//.render_css(array('property' => 'margin', 'value' => 'footer_margin'))
 			."overflow: hidden;
 			position: relative;
 			z-index: 1000;

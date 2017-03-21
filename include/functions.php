@@ -222,7 +222,7 @@ if(!function_exists('get_params'))
 
 				if(count($arr_sidebars['widget_footer']) > 0)
 				{
-					$options_params[] = array('type' => "text", 'id' => 'footer_margin', 'title' => __("Margin", 'lang_theme'), 'default' => "0 0 .3em");
+					//$options_params[] = array('type' => "text", 'id' => 'footer_margin', 'title' => __("Margin", 'lang_theme'), 'default' => "0 0 .3em");
 					$options_params[] = array('type' => "text", 'id' => 'footer_padding', 'title' => __("Padding", 'lang_theme'));
 					$options_params[] = array('type' => "text", 'id' => 'footer_font_size', 'title' => __("Font size", 'lang_theme'), 'default' => "1.8em");
 					$options_params[] = array('type' => "color", 'id' => 'footer_color', 'title' => __("Text Color", 'lang_theme'));
