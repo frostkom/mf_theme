@@ -101,7 +101,7 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "number", 'id' => 'website_max_width', 'title' => __("Max Width", 'lang_theme'), 'default' => "1100");
 				$options_params[] = array('type' => "text", 'id' => 'body_desktop_font_size', 'title' => __("Font Size", 'lang_theme'), 'default' => ".625em");
 				$options_params[] = array('type' => "number", 'id' => 'mobile_breakpoint', 'title' => __("Breakpoint", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'default' => "600");
-				$options_params[] = array('type' => "text", 'id' => 'body_font_size', 'title' => __("Font Size", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'default' => "1.2vw", 'show_if' => 'mobile_breakpoint'); //, 'force_default' => true
+				$options_params[] = array('type' => "text", 'id' => 'body_font_size', 'title' => __("Font Size", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'default' => "2.4vw", 'show_if' => 'mobile_breakpoint');
 		$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Header", 'lang_theme'), 'id' => 'mf_theme_header');
@@ -196,6 +196,7 @@ if(!function_exists('get_params'))
 			if(count($arr_sidebars['widget_sidebar']) > 0)
 			{
 				$options_params[] = array('category' => __("Aside", 'lang_theme'), 'id' => 'mf_theme_aside');
+					$options_params[] = array('type' => "text", 'id' => 'aside_width', 'title' => __("Width", 'lang_theme'), 'default' => "28%");
 					$options_params[] = array('type' => "text", 'id' => 'aside_widget_background', 'title' => __("Widget Background", 'lang_theme'), 'placeholder' => $bg_placeholder, 'default' => "#f8f8f8");
 					$options_params[] = array('type' => "text", 'id' => 'aside_widget_border', 'title' => __("Widget Border", 'lang_theme'), 'default' => "1px solid #d8d8d8");
 					$options_params[] = array('type' => "text", 'id' => 'aside_heading_bg', 'title' => __("Background", 'lang_theme')." (H3)");
@@ -291,8 +292,8 @@ if(!function_exists('widgets_theme'))
 			'id' => 'widget_front',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
-			'after_title' => "</h3><div>",
-			'after_widget' => "</div></div>"
+			'after_title' => "</h3>",
+			'after_widget' => "</div>"
 		));
 
 		register_sidebar(array(
@@ -300,8 +301,8 @@ if(!function_exists('widgets_theme'))
 			'id' => 'widget_sidebar_left',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
-			'after_title' => "</h3><div>",
-			'after_widget' => "</div></div>"
+			'after_title' => "</h3>",
+			'after_widget' => "</div>"
 		));
 
 		register_sidebar(array(
@@ -309,8 +310,8 @@ if(!function_exists('widgets_theme'))
 			'id' => 'widget_sidebar',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
-			'after_title' => "</h3><div>",
-			'after_widget' => "</div></div>"
+			'after_title' => "</h3>",
+			'after_widget' => "</div>"
 		));
 
 		if(count($arr_sidebars['widget_footer']) > 0)
@@ -320,8 +321,8 @@ if(!function_exists('widgets_theme'))
 				'id' => 'widget_pre_footer',
 				'before_widget' => "<div class='widget %s %s'>",
 				'before_title' => "<h3>",
-				'after_title' => "</h3><div>",
-				'after_widget' => "</div></div>"
+				'after_title' => "</h3>",
+				'after_widget' => "</div>"
 			));
 		}
 
@@ -330,8 +331,8 @@ if(!function_exists('widgets_theme'))
 			'id' => 'widget_footer',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
-			'after_title' => "</h3><div>",
-			'after_widget' => "</div></div>"
+			'after_title' => "</h3>",
+			'after_widget' => "</div>"
 		));
 
 		register_widget('widget_theme_logo');

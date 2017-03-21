@@ -422,7 +422,7 @@ echo "@media all
 					margin-bottom: 1em;
 				}
 
-		content, mf-content
+		mf-content
 		{
 			clear: both;
 		}
@@ -554,7 +554,7 @@ echo "@media all
 							.render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
 						."}
 
-						#aside .widget > div
+						#aside .widget > div, #aside .widget > form, #aside .widget > ol, #aside .widget > ul, #aside .widget > p
 						{"
 							.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
 							.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
@@ -707,6 +707,8 @@ echo "@media all
 
 echo "}";
 
+$aside_width = isset($options['aside_width']) && $options['aside_width'] != '' ? $options['aside_width'] : "28%";
+
 $flex_content = "mf-content > div
 {
 	display: -webkit-box;
@@ -714,11 +716,6 @@ $flex_content = "mf-content > div
 	display: -webkit-flex;
 	display: flex;
 }
-
-	mf-content > div > article
-	{
-		width: 100%;
-	}
 
 	#main
 	{
@@ -732,16 +729,21 @@ $flex_content = "mf-content > div
 		max-width: 100%;
 	}
 
+		mf-content > div > article
+		{
+			width: 100%;
+		}
+
 	#aside
 	{
 		margin-left: 2%;
-		-webkit-box-flex: 1 0 0;
-		-webkit-flex: 1 0 0;
-		-ms-flex: 1 0 0;
-		flex: 1 0 0;
-		order: 3;
-		width: 28%;
-	}
+		-webkit-box-flex: 1 0 ".$aside_width.";
+		-webkit-flex: 1 0 ".$aside_width.";
+		-ms-flex: 1 0 ".$aside_width.";
+		flex: 1 0 ".$aside_width.";
+		order: 3;"
+		.render_css(array('property' => 'width', 'value' => 'aside_width'))
+	."}
 	
 		#aside.left
 		{
