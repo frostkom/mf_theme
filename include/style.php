@@ -535,9 +535,8 @@ echo "@media all
 
 					#aside .widget
 					{"
-						.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
+						//.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
 						.render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
-						//."padding: 1em;"
 					."}
 
 						#aside .widget + .widget
@@ -550,14 +549,16 @@ echo "@media all
 							.render_css(array('property' => 'background', 'value' => 'aside_heading_bg'))
 							.render_css(array('property' => 'border-bottom', 'value' => 'aside_heading_border_bottom'))
 							.render_css(array('property' => 'font-size', 'value' => 'aside_heading_size'))
-							."margin-bottom: .5em;"
+							//."margin-bottom: .5em;"
 							.render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
 						."}
 
 						#aside .widget > div, #aside .widget > form, #aside .widget > ol, #aside .widget > ul, #aside .widget > p
 						{"
+							.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
 							.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
 							.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
+							."margin-bottom: .5em;"
 							.render_css(array('property' => 'padding', 'value' => 'aside_padding'))
 						."}
 
@@ -734,7 +735,7 @@ $flex_content = "mf-content > div
 			width: 100%;
 		}
 
-	#aside
+	#aside.right, #aside.left
 	{
 		margin-left: 2%;
 		-webkit-box-flex: 1 0 ".$aside_width.";
@@ -911,7 +912,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				."border-radius: .3em;
 				right: 0;
 				position: absolute;
-				top: 4em;
+				top: 3.4em;
 				z-index: 100;
 			}
 
@@ -919,10 +920,10 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				{
 					content: '';
 					position: absolute;
-					top: -2em;
+					top: -1.4em;
 					right: 3em;
-					border: 1em solid transparent;"
-					.render_css(array('prefix' => 'border-bottom: 1em solid ', 'value' => 'sub_nav_bg'))
+					border: .7em solid transparent;"
+					.render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
 				."}
 
 					.theme_nav.is_mobile_ready li > ul

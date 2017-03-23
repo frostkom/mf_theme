@@ -9,6 +9,15 @@
  * @subpackage Theme
  */
 
+						if(is_active_sidebar('widget_after_content'))
+						{
+							echo "<div id='aside'".is_clean("after_content").">";
+
+								dynamic_sidebar('widget_after_content');
+
+							echo "</div>";
+						}
+
 					echo "</div>";
 
 					if(is_active_sidebar('widget_sidebar_left'))
@@ -22,7 +31,7 @@
 
 					if(is_active_sidebar('widget_sidebar'))
 					{
-						echo "<div id='aside'".is_clean().">";
+						echo "<div id='aside'".is_clean("right").">";
 
 							dynamic_sidebar('widget_sidebar');
 
