@@ -191,9 +191,9 @@ echo "@media all
 
 				.searchform
 				{"
-					.render_css(array('property' => 'color', 'value' => 'logo_color'))
-					."font-size: 1.4em;
-					padding: .3em;
+					.render_css(array('property' => 'color', 'value' => 'search_color'))
+					.render_css(array('property' => 'font-size', 'value' => 'search_size'))
+					."padding: .3em;
 					position: relative;
 				}
 
@@ -208,7 +208,7 @@ echo "@media all
 						{
 							background: none;
 							border-color: rgba(0, 0, 0, .1);"
-							.render_css(array('property' => 'color', 'value' => 'logo_color'))
+							.render_css(array('property' => 'color', 'value' => 'search_color'))
 							."display: inline-block;
 							float: right;
 							margin: 0;
@@ -738,10 +738,10 @@ $flex_content = "mf-content > div
 	#aside.right, #aside.left
 	{
 		margin-left: 2%;
-		-webkit-box-flex: 1 0 ".$aside_width.";
-		-webkit-flex: 1 0 ".$aside_width.";
-		-ms-flex: 1 0 ".$aside_width.";
-		flex: 1 0 ".$aside_width.";
+		-webkit-box-flex: 0 0 ".$aside_width.";
+		-webkit-flex: 0 0 ".$aside_width.";
+		-ms-flex: 0 0 ".$aside_width.";
+		flex: 0 0 ".$aside_width.";
 		order: 3;"
 		.render_css(array('property' => 'width', 'value' => 'aside_width'))
 	."}

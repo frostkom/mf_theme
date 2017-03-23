@@ -109,6 +109,9 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text", 'id' => 'header_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "text", 'id' => 'header_padding', 'title' => __("Padding", 'lang_theme'));
 				$options_params[] = array('type' => "overflow", 'id' => 'header_overflow', 'title' => __("Overflow", 'lang_theme'));
+
+				$options_params[] = array('type' => "color", 'id' => 'search_color', 'title' => __("Color", 'lang_theme')." (".__("Search", 'lang_theme').")");
+				$options_params[] = array('type' => "text", 'id' => 'search_size', 'title' => __("Font Size", 'lang_theme')." (".__("Search", 'lang_theme').")", 'default' => "1.4em");
 			$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Logo", 'lang_theme'), 'id' => 'mf_theme_logo');
