@@ -26,7 +26,7 @@ get_header();
 			$post_title = $post->post_title;
 			$post_content = apply_filters('the_content', $post->post_content);
 
-			$post_url_start = $post_url_end = "";
+			$post_link_start = $post_link_end = "";
 
 			if($post_amount > 1)
 			{
@@ -34,64 +34,60 @@ get_header();
 
 				$post_url = get_permalink($post);
 
-				$post_url_start = "<a href='".$post_url."'>";
-				$post_url_end = "</a>";
+				$post_link_start = "<a href='".$post_url."'>";
+				$post_link_end = "</a>";
 			}
 
-			echo "<article>";
+			$article_content = "";
 
-				if($post_amount > 1 || !is_front_page() || is_heading_front_visible())
+			if(is_heading_visible($post) && ($post_amount > 1 || !is_front_page() || is_heading_front_visible()))
+			{
+				$article_content .= "<h1>".$post_link_start.$post_title.$post_link_end."</h1>";
+
+				$post_meta = apply_filters('the_content_meta', "", $post);
+
+				if($post_meta != '')
 				{
-					echo "<h1>"
-						.$post_url_start
-							.$post_title
-						.$post_url_end
-					."</h1>";
-
-					$post_meta = apply_filters('the_content_meta', "", $post);
-
-					echo ($post_meta != '' ? "<div class='meta'>".$post_meta."</div>" : "");
+					$article_content .= "<div class='meta'>".$post_meta."</div>";
 				}
+			}
 
-				if($post_amount > 1)
-				{
-					echo "<section>";
+			if($post_amount > 1)
+			{
+				$article_content .= "<section>";
 
-						if($post_excerpt != '')
-						{
-							echo "<p>".$post_excerpt."</p>
-							<p>"
-								.$post_url_start
-									.__("Read More", 'lang_theme')
-								.$post_url_end
-							."</p>";
-						}
+					if($post_excerpt != '')
+					{
+						$article_content .= "<p>".$post_excerpt."</p>
+						<p>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>";
+					}
 
-						else
-						{
-							echo $post_content;
-						}
+					else
+					{
+						$article_content .= $post_content;
+					}
 
-					echo "</section>";
-				}
+				$article_content .= "</section>";
+			}
 
-				else
-				{
-					echo "<section>".$post_content."</section>";
-				}
+			else if($post_content != '')
+			{
+				$article_content .= "<section>".$post_content."</section>";
+			}
 
-			echo "</article>";
+			if($article_content != '')
+			{
+				echo "<article>".$article_content."</article>";
+			}
 		}
 	}
 
 	else if(isset($_REQUEST['s']))
 	{
-		$search = get_query_var('s') ? get_query_var('s') : "";
-
 		echo "<article>
 			<h1>".__("No results", 'lang_theme')."</h1>
 			<section>
-				<p>".sprintf(__("There were no results for '%s'", 'lang_theme'), $search)."</p>
+				<p>".sprintf(__("There were no results for '%s'", 'lang_theme'), get_query_var('s'))."</p>
 			</section>
 		</article>";
 	}

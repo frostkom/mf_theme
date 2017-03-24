@@ -743,7 +743,7 @@ $flex_content = "mf-content > div
 		-ms-flex: 0 0 ".$aside_width.";
 		flex: 0 0 ".$aside_width.";
 		order: 3;"
-		.render_css(array('property' => 'width', 'value' => 'aside_width'))
+		.render_css(array('property' => 'max-width', 'value' => 'aside_width'))
 	."}
 	
 		#aside.left

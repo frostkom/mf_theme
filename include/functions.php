@@ -1,5 +1,25 @@
 <?php
 
+if(!function_exists('is_heading_visible'))
+{
+	function is_heading_visible($post)
+	{
+		if($post->post_type == 'page')
+		{
+			$meta_prefix = "mf_theme_";
+
+			$post_meta = get_post_meta($post->ID, $meta_prefix.'display_heading', true);
+
+			return $post_meta != 'no' ? true : false;
+		}
+
+		else
+		{
+			return true;
+		}
+	}
+}
+
 if(!function_exists('is_heading_front_visible'))
 {
 	function is_heading_front_visible()
@@ -349,6 +369,33 @@ if(!function_exists('widgets_theme'))
 
 		register_widget('widget_theme_logo');
 		register_widget('widget_theme_menu');
+	}
+}
+
+if(!function_exists('meta_boxes_theme'))
+{
+	function meta_boxes_theme($meta_boxes)
+	{
+		$meta_prefix = "mf_theme_";
+
+		$meta_boxes[] = array(
+			'id' => 'settings',
+			'title' => __("Settings", 'lang_theme'),
+			'pages' => array('page'),
+			'context' => 'side',
+			'priority' => 'low',
+			'fields' => array(
+				array(
+					'name' => __("Display Heading", 'lang_theme'),
+					'id' => $meta_prefix.'display_heading',
+					'type' => 'select',
+					'options' => get_yes_no_for_select(),
+					'std' => 'yes',
+				),
+			)
+		);
+
+		return $meta_boxes;
 	}
 }
 

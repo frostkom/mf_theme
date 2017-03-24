@@ -6,6 +6,7 @@ include_once("include/classes.php");
 if(is_admin())
 {
 	add_action('admin_menu', 'options_theme');
+	add_action('rwmb_meta_boxes', 'meta_boxes_theme');
 }
 
 else
