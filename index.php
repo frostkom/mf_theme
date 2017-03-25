@@ -40,7 +40,7 @@ get_header();
 
 			$article_content = "";
 
-			if(is_heading_visible($post) && ($post_amount > 1 || !is_front_page() || is_heading_front_visible()))
+			if(is_heading_visible($post) && ($post_amount > 1 || !is_front_page())) // || is_heading_front_visible()
 			{
 				$article_content .= "<h1>".$post_link_start.$post_title.$post_link_end."</h1>";
 

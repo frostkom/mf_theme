@@ -20,7 +20,7 @@ if(!function_exists('is_heading_visible'))
 	}
 }
 
-if(!function_exists('is_heading_front_visible'))
+/*if(!function_exists('is_heading_front_visible'))
 {
 	function is_heading_front_visible()
 	{
@@ -28,7 +28,7 @@ if(!function_exists('is_heading_front_visible'))
 
 		return $options['heading_front_visible'] == 2;
 	}
-}
+}*/
 
 if(!function_exists('head_theme'))
 {
@@ -196,7 +196,7 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category' => __("Content", 'lang_theme'), 'id' => 'mf_theme_content');
 				$options_params[] = array('type' => "text", 'id' => 'content_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "text", 'id' => 'content_padding', 'title' => __("Padding", 'lang_theme'));
-					$options_params[] = array('type' => "checkbox", 'id' => 'heading_front_visible', 'title' => __("Show heading on front page", 'lang_theme'), 'default' => 2);
+					//$options_params[] = array('type' => "checkbox", 'id' => 'heading_front_visible', 'title' => __("Show heading on front page", 'lang_theme'), 'default' => 2);
 					$options_params[] = array('type' => "text", 'id' => 'heading_bg', 'title' => __("Background", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_border_bottom', 'title' => __("Border Bottom", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "font", 'id' => 'heading_font', 'title' => __("Font", 'lang_theme')." (H1)");
