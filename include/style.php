@@ -791,6 +791,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			.theme_nav.is_mobile_ready
 			{
 				float: none;
+				clear: unset;
 				margin: 0;
 				text-align: center;
 				width: 100%;
@@ -817,6 +818,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					."position: absolute;
 					right: 0;
 					top: 0;
+					z-index: 1;
 				}
 
 					#primary_nav .fa-close
@@ -847,19 +849,29 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				.theme_nav.is_mobile_ready ul
 				{
 					min-height: 3em;
-					margin: 0 auto;
-					width: 80%;
+					/*margin: 0 auto;
+					width: 80%;*/
 				}
 
 					.theme_nav.is_mobile_ready > div > ul > li
-					{"
-						.render_css(array('property' => 'background', 'value' => 'header_bg'))
-						."display: none;
+					{";
+					
+						if(isset($options['hamburger_menu_bg']) && $options['hamburger_menu_bg'] != '')
+						{
+							echo render_css(array('property' => 'background', 'value' => 'hamburger_menu_bg'));
+						}
+
+						else
+						{
+							echo render_css(array('property' => 'background', 'value' => 'header_bg'));
+						}
+
+						echo "display: none;
 					}
 
 						.theme_nav.is_mobile_ready > div > ul > li:last-of-type
 						{
-							border-radius: 0 0 1em 1em;
+							border-radius: 0 0 .3em .3em;
 						}
 
 						.theme_nav a:hover, .theme_nav li.current_page_item > a

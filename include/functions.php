@@ -167,9 +167,10 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "color", 'id' => 'sub_nav_color_hover', 'title' => " - ".__("Text Color", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'sub_nav_color');
 			$options_params[] = array('category_end' => "");
 
-			$options_params[] = array('category' => " - ".__("Hamburger Menu", 'lang_theme'), 'id' => 'mf_theme_navigation_hamburger');
+			$options_params[] = array('category' => " - ".__("Mobile Menu", 'lang_theme'), 'id' => 'mf_theme_navigation_hamburger');
 				$options_params[] = array('type' => "text", 'id' => 'hamburger_font_size', 'title' => __("Size", 'lang_theme'), 'default' => "3em");
 				$options_params[] = array('type' => "text", 'id' => 'hamburger_margin', 'title' => __("Margin", 'lang_theme'), 'default' => "1em .8em");
+				$options_params[] = array('type' => "text", 'id' => 'hamburger_menu_bg', 'title' => __("Background", 'lang_theme')." (".__("Menu", 'lang_theme').")");
 			$options_params[] = array('category_end' => "");
 
 			if(isset($arr_sidebars['widget_slide']) && count($arr_sidebars['widget_slide']) > 0)
