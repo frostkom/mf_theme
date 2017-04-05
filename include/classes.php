@@ -98,7 +98,7 @@ class widget_theme_menu extends WP_Widget
 		}
 
 		echo "<p>"
-			.show_select(array('data' => $arr_data, 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'value' => $instance['theme_menu_type'], 'xtra' => " class='widefat'"))
+			.show_select(array('data' => $arr_data, 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'value' => $instance['theme_menu_type'], 'xtra' => "class='widefat'"))
 		."</p>";
 	}
 }

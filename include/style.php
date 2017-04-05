@@ -473,7 +473,7 @@ echo "@media all
 						padding: .25em .5em;
 					}
 
-				/*article */h2
+				h2
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
@@ -499,14 +499,23 @@ echo "@media all
 						border-top: 1px solid #ccc;
 						margin-top: 2.5em;
 						padding-top: 1em;
-					}
+					}";
 
-					article p, article ul, article ol, article form
+
+					if(isset($options['section_margin_between']) && $options['section_margin_between'] != '')
 					{
-						margin-bottom: 1em;
+						echo "article p, article ul, article ol, article form
+						{"
+							.render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
+						."}
+
+							article p:last-child, article ul:last-child, article ol:last-child, article form:last-child
+							{
+								margin-bottom: 0;
+							}";
 					}
 
-						article ul, article ol, article form
+						echo "article ul, article ol, article form
 						{
 							clear: both;
 						}
@@ -549,7 +558,6 @@ echo "@media all
 							.render_css(array('property' => 'background', 'value' => 'aside_heading_bg'))
 							.render_css(array('property' => 'border-bottom', 'value' => 'aside_heading_border_bottom'))
 							.render_css(array('property' => 'font-size', 'value' => 'aside_heading_size'))
-							//."margin-bottom: .5em;"
 							.render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
 						."}
 
