@@ -12,7 +12,7 @@ if(is_admin())
 else
 {
 	add_action('wp_head', 'head_theme', 0);
-	
+
 	add_filter('the_content_meta', 'content_meta_theme', 1, 2);
 }
 

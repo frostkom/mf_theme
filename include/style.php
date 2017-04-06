@@ -320,7 +320,7 @@ echo "@media all
 					.render_css(array('property' => 'padding', 'value' => 'front_padding'))
 				."}";
 			}
-			
+
 				echo "mf-pre-content h3
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
@@ -401,12 +401,12 @@ echo "@media all
 							.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
 							.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
 						."}
-						
+
 					mf-slide-nav .theme_nav li ul
 					{
 						margin-bottom: 0;
 					}
-						
+
 						mf-slide-nav .theme_nav li ul a
 						{
 							text-indent: 1.4em;
@@ -595,7 +595,7 @@ echo "@media all
 					.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
 				."}";
 			}
-			
+
 				if(isset($options['pre_footer_widget_padding']) && $options['pre_footer_widget_padding'] != '')
 				{
 					echo "mf-pre-footer > div .widget
@@ -672,7 +672,7 @@ echo "@media all
 							{"
 								.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
 							."}
-								
+
 								footer .widget li ul
 								{
 									margin: .5em 0 0 .5em;
@@ -753,7 +753,7 @@ $flex_content = "mf-content > div
 		order: 3;"
 		.render_css(array('property' => 'max-width', 'value' => 'aside_width'))
 	."}
-	
+
 		#aside.left
 		{
 			margin-right: 2%;
@@ -863,7 +863,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 					.theme_nav.is_mobile_ready > div > ul > li
 					{";
-					
+
 						if(isset($options['hamburger_menu_bg']) && $options['hamburger_menu_bg'] != '')
 						{
 							echo render_css(array('property' => 'background', 'value' => 'hamburger_menu_bg'));
@@ -957,7 +957,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
 							."padding: .8em;
 						}
-						
+
 							.theme_nav.is_mobile_ready li > ul a:hover
 							{"
 								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))

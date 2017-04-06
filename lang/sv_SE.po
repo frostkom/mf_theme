@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 14:37+0100\n"
+"POT-Creation-Date: 2017-04-06 07:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -331,7 +331,7 @@ msgstr "Marginal mellan innehåll"
 
 #: ../include/functions.php:229
 msgid "Aside"
-msgstr "Vid sidan"
+msgstr "Sidokolumn"
 
 #: ../include/functions.php:231
 msgid "Widget Background"
