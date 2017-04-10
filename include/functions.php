@@ -220,7 +220,7 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "text", 'id' => 'section_line_height', 'title' => __("Line Height", 'lang_theme'), 'default' => "1.5");
 					$options_params[] = array('type' => "text", 'id' => 'section_margin', 'title' => __("Margin", 'lang_theme'), 'default' => "0 0 2em");
 					$options_params[] = array('type' => "text", 'id' => 'section_padding', 'title' => __("Padding", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'section_margin_between', 'title' => __("Margin between Content", 'lang_theme').")", 'default' => "1em");
+					$options_params[] = array('type' => "text", 'id' => 'section_margin_between', 'title' => __("Margin between Content", 'lang_theme'), 'default' => "1em");
 					$options_params[] = array('type' => "color", 'id' => 'article_url_color', 'title' => __("Link Color", 'lang_theme'));
 				$options_params[] = array('category_end' => "");
 
