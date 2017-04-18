@@ -40,7 +40,7 @@ get_header();
 
 			$article_content = "";
 
-			if(is_heading_visible($post) && ($post_amount > 1 || !is_front_page())) // || is_heading_front_visible()
+			if(is_heading_visible($post) && ($post_amount > 1 || !is_front_page()))
 			{
 				$article_content .= "<h1>".$post_link_start.$post_title.$post_link_end."</h1>";
 
@@ -72,7 +72,11 @@ get_header();
 
 			else if($post_content != '')
 			{
-				$article_content .= "<section>".$post_content."</section>";
+				$meta_prefix = "mf_theme_";
+
+				$post_text_columns = get_post_meta($post_id, $meta_prefix.'text_columns', true);
+
+				$article_content .= "<section".($post_text_columns > 1 ? " class='text_columns columns_".$post_text_columns."'" : "").">".$post_content."</section>";
 			}
 
 			if($article_content != '')

@@ -499,7 +499,28 @@ echo "@media all
 						border-top: 1px solid #ccc;
 						margin-top: 2.5em;
 						padding-top: 1em;
-					}";
+					}
+
+						article section.text_columns
+						{
+							-webkit-column-gap: 2em;
+							-moz-column-gap: 2em;
+							column-gap: 2em;
+						}
+					
+							article section.columns_2
+							{
+								-webkit-column-count: 2;
+								-moz-column-count: 2;
+								column-count: 2;
+							}
+							
+							article section.columns_3
+							{
+								-webkit-column-count: 3;
+								-moz-column-count: 3;
+								column-count: 3;
+							}";
 
 
 					if(isset($options['section_margin_between']) && $options['section_margin_between'] != '')
@@ -544,7 +565,6 @@ echo "@media all
 
 					#aside .widget
 					{"
-						//.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
 						.render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
 					."}
 
@@ -607,7 +627,6 @@ echo "@media all
 		echo "footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'footer_bg'))
-			//.render_css(array('property' => 'margin', 'value' => 'footer_margin'))
 			."overflow: hidden;
 			position: relative;
 			z-index: 1000;
@@ -651,7 +670,6 @@ echo "@media all
 
 					footer .widget h3
 					{"
-						//.render_css(array('property' => 'font-size', 'value' => 'footer_widget_heading_size'))
 						.render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'));
 
 						if(isset($options['footer_widget_heading_text_transform']) && $options['footer_widget_heading_text_transform'] != '')
@@ -775,15 +793,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			display: none;
 		}";
 
-			/*if(!isset($options['logo_mobile_visible']) || $options['logo_mobile_visible'] != 2)
-			{
-				echo "#site_logo
-				{
-					display: none;
-				}";
-			}
-
-			else */if(isset($options['logo_width_mobile']) && $options['logo_width_mobile'] != '')
+			if(isset($options['logo_width_mobile']) && $options['logo_width_mobile'] != '')
 			{
 				echo "#site_logo
 				{"
@@ -856,9 +866,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 				.theme_nav.is_mobile_ready ul
 				{
-					min-height: 3em;
-					/*margin: 0 auto;
-					width: 80%;*/
+					min-height: 2em;
 				}
 
 					.theme_nav.is_mobile_ready > div > ul > li
@@ -891,6 +899,13 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							{
 								display: block;
 							}
+
+				article section.text_columns
+				{
+					-webkit-column-count: 1;
+					-moz-column-count: 1;
+					column-count: 1;
+				}
 
 			footer > div
 			{

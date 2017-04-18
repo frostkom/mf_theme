@@ -20,16 +20,6 @@ if(!function_exists('is_heading_visible'))
 	}
 }
 
-/*if(!function_exists('is_heading_front_visible'))
-{
-	function is_heading_front_visible()
-	{
-		$options['heading_front_visible'] = get_theme_mod('heading_front_visible');
-
-		return $options['heading_front_visible'] == 2;
-	}
-}*/
-
 if(!function_exists('head_theme'))
 {
 	function head_theme()
@@ -228,8 +218,8 @@ if(!function_exists('get_params'))
 			{*/
 				$options_params[] = array('category' => __("Aside", 'lang_theme'), 'id' => 'mf_theme_aside');
 					$options_params[] = array('type' => "text", 'id' => 'aside_width', 'title' => __("Width", 'lang_theme'), 'default' => "28%");
-					$options_params[] = array('type' => "text", 'id' => 'aside_widget_background', 'title' => __("Widget Background", 'lang_theme'), 'placeholder' => $bg_placeholder, 'default' => "#f8f8f8");
-					$options_params[] = array('type' => "text", 'id' => 'aside_widget_border', 'title' => __("Widget Border", 'lang_theme'), 'default' => "1px solid #d8d8d8");
+					$options_params[] = array('type' => "text", 'id' => 'aside_widget_background', 'title' => __("Widget Background", 'lang_theme'), 'placeholder' => $bg_placeholder); //, 'default' => "#f8f8f8"
+					$options_params[] = array('type' => "text", 'id' => 'aside_widget_border', 'title' => __("Widget Border", 'lang_theme')); //, 'default' => "1px solid #d8d8d8"
 					$options_params[] = array('type' => "text", 'id' => 'aside_heading_bg', 'title' => __("Background", 'lang_theme')." (H3)");
 					$options_params[] = array('type' => "text", 'id' => 'aside_heading_border_bottom', 'title' => __("Border Bottom", 'lang_theme')." (H3)");
 					$options_params[] = array('type' => "text", 'id' => 'aside_heading_size', 'title' => __("Size", 'lang_theme')." (H3)");
@@ -297,7 +287,7 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => ""
 		));
 
-		if(count($arr_sidebars['widget_header']) > 0)
+		if(isset($arr_sidebars['widget_header']) && count($arr_sidebars['widget_header']) > 0)
 		{
 			register_sidebar(array(
 				'name' => __("After Header", 'lang_theme'),
@@ -354,7 +344,7 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => "</div>"
 		));
 
-		if(count($arr_sidebars['widget_footer']) > 0)
+		if(isset($arr_sidebars['widget_footer']) && count($arr_sidebars['widget_footer']) > 0)
 		{
 			register_sidebar(array(
 				'name' => __("Pre Footer", 'lang_theme'),
@@ -399,6 +389,16 @@ if(!function_exists('meta_boxes_theme'))
 					'type' => 'select',
 					'options' => get_yes_no_for_select(),
 					'std' => 'yes',
+				),
+				array(
+					'name' => __("Text Columns", 'lang_theme'),
+					'id' => $meta_prefix.'text_columns',
+					'type' => 'number',
+					'std' => 1,
+					'attributes' => array(
+						'min' => 1,
+						'max' => 2,
+					),
 				),
 			)
 		);
