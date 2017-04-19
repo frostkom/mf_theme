@@ -28,13 +28,13 @@ if(!function_exists('head_theme'))
 
 		$template_url = get_bloginfo('template_url');
 
-		wp_enqueue_style('style', $template_url."/include/style.php");
+		mf_enqueue_style('style', $template_url."/include/style.php", get_plugin_version(__FILE__));
 
 		list($options_params, $options) = get_params();
 
 		$header_fixed = isset($options['header_fixed']) && $options['header_fixed'] == 2 ? true : false;
 
-		mf_enqueue_script('script_theme', $template_url."/include/script.js", array('template_url' => $template_url, 'header_fixed' => $header_fixed));
+		mf_enqueue_script('script_theme', $template_url."/include/script.js", array('template_url' => $template_url, 'header_fixed' => $header_fixed), get_plugin_version(__FILE__));
 	}
 }
 
