@@ -136,10 +136,21 @@ echo "@media all
 		.render_css(array('property' => 'background', 'value' => 'body_bg'))
 	."}
 
-		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div
+		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget > div
 		{"
 			.render_css(array('property' => 'padding', 'value' => 'main_padding'))
 			."position: relative;
+		}
+
+		.full_width .widget
+		{
+			left: 50%;
+			margin-left: -50vw;
+			margin-right: -50vw;
+			position: relative;
+			right: 50%;
+			width: 100vw;
+			max-width: none;
 		}
 
 		header
@@ -993,7 +1004,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 			content: 'desktop';
 		}
 
-		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div
+		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget > div
 		{
 			margin: 0 auto;
 			max-width: ".$options['website_max_width']."px;

@@ -43,7 +43,9 @@
 
 			if(is_active_sidebar('widget_pre_footer'))
 			{
-				echo "<mf-pre-footer>
+				list($options_params, $options) = get_params();
+
+				echo "<mf-pre-footer".(isset($options['pre_footer_full_width']) && $options['pre_footer_full_width'] == 2 ? " class='full_width'" : "").">
 					<div>";
 
 						dynamic_sidebar('widget_pre_footer');
