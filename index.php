@@ -86,14 +86,4 @@ get_header();
 		}
 	}
 
-	else if(isset($_REQUEST['s']))
-	{
-		echo "<article>
-			<h1>".__("No results", 'lang_theme')."</h1>
-			<section>
-				<p>".sprintf(__("There were no results for '%s'", 'lang_theme'), get_query_var('s'))."</p>
-			</section>
-		</article>";
-	}
-
 get_footer();

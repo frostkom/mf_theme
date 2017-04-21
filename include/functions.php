@@ -151,6 +151,7 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category_end' => "");
 
 				$options_params[] = array('category' => " - ".__("Submenu", 'lang_theme'), 'id' => 'mf_theme_navigation_sub');
+					$options_params[] = array('type' => "checkbox", 'id' => 'sub_nav_arrow', 'title' => __("Show Up Arrow", 'lang_theme'), 'default' => 2);
 					$options_params[] = array('type' => "color", 'id' => 'sub_nav_bg', 'title' => __("Background", 'lang_theme'), 'default' => "#ccc");
 						$options_params[] = array('type' => "color", 'id' => 'sub_nav_bg_hover', 'title' => " - ".__("Background", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'sub_nav_bg');
 					$options_params[] = array('type' => "color", 'id' => 'sub_nav_color', 'title' => __("Text Color", 'lang_theme'), 'default' => "#333");
@@ -311,16 +312,7 @@ if(!function_exists('widgets_theme'))
 		));
 
 		register_sidebar(array(
-			'name' => __("After Content", 'lang_theme'),
-			'id' => 'widget_after_content',
-			'before_widget' => "<div class='widget %s %s'>",
-			'before_title' => "<h3>",
-			'after_title' => "</h3>",
-			'after_widget' => "</div>"
-		));
-
-		register_sidebar(array(
-			'name' => __("Sidebar", 'lang_theme')." (".__("Left", 'lang_theme').")",
+			'name' => __("Aside", 'lang_theme')." (".__("Left", 'lang_theme').")",
 			'id' => 'widget_sidebar_left',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -329,7 +321,16 @@ if(!function_exists('widgets_theme'))
 		));
 
 		register_sidebar(array(
-			'name' => __("Sidebar", 'lang_theme')." (".__("Right", 'lang_theme').")",
+			'name' => __("Below Main Column", 'lang_theme'),
+			'id' => 'widget_after_content',
+			'before_widget' => "<div class='widget %s %s'>",
+			'before_title' => "<h3>",
+			'after_title' => "</h3>",
+			'after_widget' => "</div>"
+		));
+
+		register_sidebar(array(
+			'name' => __("Aside", 'lang_theme')." (".__("Right", 'lang_theme').")",
 			'id' => 'widget_sidebar',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",

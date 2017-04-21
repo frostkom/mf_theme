@@ -4,11 +4,9 @@ document.createElement("mf-after-header");
 document.createElement("mf-slide-nav");
 document.createElement("mf-pre-content");
 document.createElement("mf-content");
-	//document.createElement("main");
-		document.createElement("article");
-		document.createElement("section");
-	//document.createElement("aside");
-	document.createElement("mf-pre-footer");
+	document.createElement("article");
+	document.createElement("section");
+document.createElement("mf-pre-footer");
 document.createElement("footer");
 
 jQuery(function($)

@@ -279,6 +279,7 @@ echo "@media all
 						.theme_nav.is_mobile_ready li
 						{
 							display: inline-block;
+							margin-left: -4px;
 							position: relative;
 						}
 
@@ -289,13 +290,13 @@ echo "@media all
 								.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
 							."}
 
-								.theme_nav a:hover, .theme_nav li.current_page_item > a
+								.theme_nav a:hover, .theme_nav li.current_page_ancestor.current_page_ancestor > a, .theme_nav li.current_page_item.current_page_item > a
 								{"
 									.render_css(array('prefix' => "border-bottom: 5px solid ", 'value' => 'nav_underline_color_hover'))
 									.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
 								."}
 
-									.theme_nav li.current_page_item > a
+									.theme_nav li.current_page_ancestor.current_page_ancestor > a, .theme_nav li.current_page_item.current_page_item > a
 									{"
 										.render_css(array('property' => 'background', 'value' => 'nav_bg_current'))
 										.render_css(array('property' => 'color', 'value' => 'nav_color_current'))
@@ -952,39 +953,59 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			."}";
 		}
 
-			echo ".theme_nav.is_mobile_ready li > ul
+			echo ".theme_nav.is_mobile_ready .sub-menu
 			{"
-				.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
+				//.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 				."border-radius: .3em;
 				right: 0;
 				position: absolute;
-				top: 3.4em;
+				padding-top: .5em;
 				z-index: 100;
-			}
+			}";
 
-				.theme_nav.is_mobile_ready li > ul:before
+				if(isset($options['sub_nav_arrow']) && $options['sub_nav_arrow'] == 2)
 				{
-					content: '';
-					position: absolute;
-					top: -1.4em;
-					right: 3em;
-					border: .7em solid transparent;"
-					.render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
-				."}
+					echo ".theme_nav.is_mobile_ready .sub-menu
+					{
+						margin-top: 3.4em:
+						padding-top: 0;
+					}
+				
+						.theme_nav.is_mobile_ready .sub-menu:before
+						{
+							content: '';
+							position: absolute;
+							top: -.8em;
+							right: 3em;
+							border: .7em solid transparent;"
+							.render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
+						."}";
+				}
 
-					.theme_nav.is_mobile_ready li > ul
+					echo ".theme_nav.is_mobile_ready .sub-menu
 					{
 						white-space: nowrap;
 					}
 
-						.theme_nav.is_mobile_ready li > ul a
+						.theme_nav.is_mobile_ready .sub-menu a
 						{"
-							."border-radius: .3em;"
+							.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
+							//."border-radius: .3em;"
 							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
 							."padding: .8em;
 						}
 
-							.theme_nav.is_mobile_ready li > ul a:hover
+							.theme_nav.is_mobile_ready .sub-menu li:first-child a
+							{
+								border-radius: .3em 0 0 .3em;
+							}
+
+							.theme_nav.is_mobile_ready .sub-menu li:last-child a
+							{
+								border-radius: 0 .3em .3em 0;
+							}
+
+							.theme_nav.is_mobile_ready .sub-menu a:hover
 							{"
 								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
 								.render_css(array('property' => 'color', 'value' => 'sub_nav_color_hover'))
