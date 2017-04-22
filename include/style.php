@@ -614,6 +614,28 @@ echo "@media all
 								."text-decoration: none;
 							}
 
+								.widget.theme_news ul
+								{
+									display: -webkit-box;
+									display: -ms-flexbox;
+									display: -webkit-flex;
+									display: flex;									
+									-webkit-box-flex-wrap: wrap;
+									-webkit-flex-wrap: wrap;
+									-ms-flex-wrap: wrap;
+									flex-wrap: wrap;
+									list-style: none;
+								}
+
+									.widget.theme_news li
+									{
+										-webkit-box-flex: 1 1 33%;
+										-webkit-flex: 1 1 33%;
+										-ms-flex: 1 1 33%;
+										flex: 1 1 33%;
+										padding: 0 1em 1em;
+									}
+
 		mf-pre-footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
