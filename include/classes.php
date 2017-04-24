@@ -132,60 +132,63 @@ class widget_theme_news extends WP_Widget
 				.$after_title;
 			}
 
-			if(!($instance['news_amount'] > 0))
-			{
-				$instance['news_amount'] = 3;
-			}
+			echo "<div class='content'>";
 
-			$result = $wpdb->get_results("SELECT ID, post_title FROM ".$wpdb->posts." WHERE post_type = 'post' AND post_status = 'publish' ORDER BY post_date DESC LIMIT 0, ".$instance['news_amount']);
+				if(!($instance['news_amount'] > 0))
+				{
+					$instance['news_amount'] = 3;
+				}
 
-			if($wpdb->num_rows > 0)
-			{
-				echo "<ul>";
+				$result = $wpdb->get_results("SELECT ID, post_title FROM ".$wpdb->posts." WHERE post_type = 'post' AND post_status = 'publish' ORDER BY post_date DESC LIMIT 0, ".$instance['news_amount']);
 
-					foreach($result as $post)
-					{
-						$post_id = $post->ID;
-						$post_title = $post->post_title;
-						//$post_excerpt = $post->post_excerpt;
+				if($wpdb->num_rows > 0)
+				{
+					echo "<ul>";
 
-						$post_url = get_permalink($post_id);
-
-						$post_url_start = "<a href='".$post_url."'>";
-						$post_url_end = "</a>";
-
-						$post_thumbnail = "";
-
-						if(has_post_thumbnail($post_id))
+						foreach($result as $post)
 						{
-							$post_thumbnail = get_the_post_thumbnail($post_id, 'large');
-						}
+							$post_id = $post->ID;
+							$post_title = $post->post_title;
+							//$post_excerpt = $post->post_excerpt;
 
-						echo "<li>";
+							$post_url = get_permalink($post_id);
 
-							if($post_thumbnail != '')
+							$post_url_start = "<a href='".$post_url."'>";
+							$post_url_end = "</a>";
+
+							$post_thumbnail = "";
+
+							if(has_post_thumbnail($post_id))
 							{
-								echo "<div class='image'>".$post_thumbnail."</div>";
+								$post_thumbnail = get_the_post_thumbnail($post_id, 'large');
 							}
 
-							echo "<h4>"
-								.$post_url_start
-									.$post_title
-								.$post_url_end
-							."</h4>";
-						
-						echo "</li>";
-					}
+							echo "<li>";
 
-				echo "</ul>";
-			}
+								if($post_thumbnail != '')
+								{
+									echo "<div class='image'>".$post_thumbnail."</div>";
+								}
 
-			else
-			{
-				echo "<p>".__("I could not find any posts to present to you", 'lang_theme')."</p>";
-			}
+								echo "<h4>"
+									.$post_url_start
+										.$post_title
+									.$post_url_end
+								."</h4>";
+							
+							echo "</li>";
+						}
+
+					echo "</ul>";
+				}
+
+				else
+				{
+					echo "<p>".__("I could not find any posts to present to you", 'lang_theme')."</p>";
+				}
 			
-		echo $after_widget;
+			echo "</div>"
+		.$after_widget;
 	}
 
 	function update($new_instance, $old_instance)

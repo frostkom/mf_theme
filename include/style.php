@@ -136,7 +136,7 @@ echo "@media all
 		.render_css(array('property' => 'background', 'value' => 'body_bg'))
 	."}
 
-		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget > div
+		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .content, .full_width .widget > div
 		{"
 			.render_css(array('property' => 'padding', 'value' => 'main_padding'))
 			."position: relative;
@@ -593,7 +593,7 @@ echo "@media all
 							.render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
 						."}
 
-						#aside .widget > div, #aside .widget > form, #aside .widget > ol, #aside .widget > ul, #aside .widget > p
+						#aside .widget .content, #aside .widget > div, #aside .widget > form, #aside .widget > ol, #aside .widget > ul, #aside .widget > p
 						{"
 							.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
 							.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
@@ -1047,7 +1047,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 			content: 'desktop';
 		}
 
-		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget > div
+		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .content, .full_width .widget > div
 		{
 			margin: 0 auto;
 			max-width: ".$options['website_max_width']."px;
