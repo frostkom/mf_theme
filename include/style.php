@@ -625,16 +625,67 @@ echo "@media all
 									-ms-flex-wrap: wrap;
 									flex-wrap: wrap;
 									list-style: none;
+									margin: 0 -.5em -1em;
 								}
 
 									.widget.theme_news li
 									{
-										-webkit-box-flex: 1 1 33%;
-										-webkit-flex: 1 1 33%;
-										-ms-flex: 1 1 33%;
-										flex: 1 1 33%;
-										padding: 0 1em 1em;
+										-webkit-box-flex: 0 1 33.333%;
+										-webkit-flex: 0 1 33.333%;
+										-ms-flex: 0 1 33.333%;
+										flex: 0 1 33.333%;
+										padding: 0 .5em 1em;
+										position: relative;
 									}
+
+										.widget.theme_news .allow_expand li
+										{
+											-webkit-box-flex-grow: 1;
+											-webkit-flex-grow: 1;
+											-ms-flex-grow: 1;
+											flex-grow: 1;
+										}
+
+										.widget.theme_news li .image
+										{
+											height: 100%;
+											overflow: hidden;
+											position: relative;
+										}
+										
+											.widget.theme_news li .image img
+											{
+												height: 100%;
+												object-fit: cover;
+												transition: all .75s ease;
+												width: 100%;
+											}
+											
+												.widget.theme_news li:hover .image img
+												{
+													-webkit-transform: scale(1.1);
+													transform: scale(1.1);
+												}
+
+											.widget.theme_news li .image:after
+											{
+												background: linear-gradient(to top, #000 0, transparent 100%);
+												bottom: 0;
+												content: '';
+												left: 0;
+												position: absolute;
+												right: 0;
+												height: 40%;
+											}
+
+										.widget.theme_news li h4
+										{
+											bottom: 0;
+											color: #fff;
+											font-size: 2em;
+											margin: 1.5em 1em;
+											position: absolute;
+										}
 
 		mf-pre-footer
 		{"

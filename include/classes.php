@@ -143,7 +143,9 @@ class widget_theme_news extends WP_Widget
 
 				if($wpdb->num_rows > 0)
 				{
-					echo "<ul>";
+					$post_thumbnail_size = $wpdb->num_rows > 2 ? 'medium' : 'large';
+
+					echo "<ul".($post_thumbnail_size == 'large' ? " class='allow_expand'" : "").">";
 
 						foreach($result as $post)
 						{
@@ -160,7 +162,7 @@ class widget_theme_news extends WP_Widget
 
 							if(has_post_thumbnail($post_id))
 							{
-								$post_thumbnail = get_the_post_thumbnail($post_id, 'large');
+								$post_thumbnail = get_the_post_thumbnail($post_id, $post_thumbnail_size);
 							}
 
 							echo "<li>";
