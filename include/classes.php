@@ -132,7 +132,7 @@ class widget_theme_news extends WP_Widget
 				.$after_title;
 			}
 
-			echo "<div class='content'>";
+			echo "<div class='section'>";
 
 				if(!($instance['news_amount'] > 0))
 				{
