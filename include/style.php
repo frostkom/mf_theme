@@ -283,6 +283,11 @@ echo "@media all
 							position: relative;
 						}
 
+							.theme_nav.is_mobile_ready li:first-child
+							{
+								margin-left: 0;
+							}
+
 							.theme_nav a
 							{
 								display: block;"
