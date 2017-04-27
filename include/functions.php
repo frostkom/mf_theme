@@ -421,7 +421,7 @@ if(!function_exists('meta_boxes_theme'))
 		$meta_boxes[] = array(
 			'id' => 'settings',
 			'title' => __("Settings", 'lang_theme'),
-			'pages' => array('page'),
+			'post_types' => array('page'),
 			'context' => 'side',
 			'priority' => 'low',
 			'fields' => array(
