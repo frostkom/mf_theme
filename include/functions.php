@@ -405,7 +405,7 @@ if(!function_exists('widgets_theme'))
 		mf_unregister_widget('WP_Widget_RSS');
 		mf_unregister_widget('WP_Widget_Tag_Cloud');
 
-		if(is_plugin_active('black-studio-tinymce-widget/black-studio-tinymce-widget.php'))
+		if(function_exists('is_plugin_active') && is_plugin_active('black-studio-tinymce-widget/black-studio-tinymce-widget.php'))
 		{
 			mf_unregister_widget('WP_Widget_Text');
 		}
