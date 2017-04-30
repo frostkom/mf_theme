@@ -997,6 +997,11 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					column-count: 1;
 				}
 
+				.widget.theme_news ul
+				{
+					display: block;
+				}
+
 			footer > div
 			{
 				display: block;
