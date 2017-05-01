@@ -169,14 +169,10 @@ class widget_theme_news extends WP_Widget
 
 								if($post_thumbnail != '')
 								{
-									echo "<div class='image'>".$post_thumbnail."</div>";
+									echo "<div class='image'>".$post_url_start.$post_thumbnail.$post_url_end."</div>";
 								}
 
-								echo "<h4>"
-									.$post_url_start
-										.$post_title
-									.$post_url_end
-								."</h4>";
+								echo "<h4>".$post_title."</h4>";
 							
 							echo "</li>";
 						}
