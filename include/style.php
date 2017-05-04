@@ -384,7 +384,6 @@ echo "@media all
 
 				mf-slide-nav .fa-close
 				{
-					cursor: pointer;
 					font-size: 1.4em;
 					margin: 3% 4% 0 0;
 					position: absolute;
@@ -908,8 +907,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				#primary_nav > .toggle_icon
 				{"
 					.render_css(array('property' => 'color', 'value' => 'logo_color'))
-					."cursor: pointer;
-					display: block;";
+					."display: block;";
 
 					if(isset($options['hamburger_font_size']) && $options['hamburger_font_size'] != '')
 					{
