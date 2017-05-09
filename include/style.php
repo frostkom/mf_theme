@@ -279,7 +279,7 @@ echo "@media all
 						.theme_nav.is_mobile_ready li
 						{
 							display: inline-block;
-							margin-left: -4px;
+							margin-left: -.3em;
 							position: relative;
 						}
 
