@@ -123,70 +123,73 @@ class widget_theme_news extends WP_Widget
 
 		extract($args);
 
-		echo $before_widget;
+		$arr_news = array();
 
-			if($instance['news_title'] != '')
+		if(!($instance['news_amount'] > 0))
+		{
+			$instance['news_amount'] = 3;
+		}
+
+		$result = $wpdb->get_results("SELECT ID, post_title FROM ".$wpdb->posts." WHERE post_type = 'post' AND post_status = 'publish' ORDER BY post_date DESC LIMIT 0, ".$instance['news_amount']);
+
+		if($wpdb->num_rows > 0)
+		{
+			$post_thumbnail_size = 'large'; //$wpdb->num_rows > 2 ? 'medium' : 
+
+			foreach($result as $post)
 			{
-				echo $before_title
-					.$instance['news_title']
-				.$after_title;
-			}
+				$post_id = $post->ID;
+				$post_title = $post->post_title;
 
-			echo "<div class='section'>";
+				$post_url = get_permalink($post_id);
 
-				if(!($instance['news_amount'] > 0))
+				$post_url_start = "<a href='".$post_url."'>";
+				$post_url_end = "</a>";
+
+				$post_thumbnail = "";
+
+				if(has_post_thumbnail($post_id))
 				{
-					$instance['news_amount'] = 3;
+					$post_thumbnail = get_the_post_thumbnail($post_id, $post_thumbnail_size);
 				}
 
-				$result = $wpdb->get_results("SELECT ID, post_title FROM ".$wpdb->posts." WHERE post_type = 'post' AND post_status = 'publish' ORDER BY post_date DESC LIMIT 0, ".$instance['news_amount']);
-
-				if($wpdb->num_rows > 0)
+				if($post_thumbnail != '')
 				{
-					$post_thumbnail_size = 'large'; //$wpdb->num_rows > 2 ? 'medium' : 
+					$arr_news[$post_id] = array(
+						'title' => $post_title,
+						'url' => $post_url,
+						'image' => $post_thumbnail,
+					);
+				}
+			}
+		}
 
-					echo "<ul".($wpdb->num_rows > 2 ? "" : " class='allow_expand'").">";
+		if(count($arr_news) > 0)
+		{
+			echo $before_widget;
 
-						foreach($result as $post)
+				if($instance['news_title'] != '')
+				{
+					echo $before_title
+						.$instance['news_title']
+					.$after_title;
+				}
+
+				echo "<div class='section'>
+					<ul".($arr_news > 2 ? "" : " class='allow_expand'").">";
+
+						foreach($arr_news as $news)
 						{
-							$post_id = $post->ID;
-							$post_title = $post->post_title;
-							//$post_excerpt = $post->post_excerpt;
-
-							$post_url = get_permalink($post_id);
-
-							$post_url_start = "<a href='".$post_url."'>";
-							$post_url_end = "</a>";
-
-							$post_thumbnail = "";
-
-							if(has_post_thumbnail($post_id))
-							{
-								$post_thumbnail = get_the_post_thumbnail($post_id, $post_thumbnail_size);
-							}
-
-							echo "<li>";
-
-								if($post_thumbnail != '')
-								{
-									echo "<div class='image'>".$post_url_start.$post_thumbnail.$post_url_end."</div>";
-								}
-
-								echo "<h4>".$post_title."</h4>";
-							
-							echo "</li>";
+							echo "<li>
+								<div class='image'><a href='".$news['url']."'>".$news['image']."</a></div>
+								<h4>".$news['title']."</h4>
+							</li>";
 						}
 
-					echo "</ul>";
-				}
-
-				else
-				{
-					echo "<p>".__("I could not find any posts to present to you", 'lang_theme')."</p>";
-				}
-			
-			echo "</div>"
-		.$after_widget;
+					echo "</ul>
+				</div>"
+			.$after_widget;
+		}
 	}
 
 	function update($new_instance, $old_instance)
