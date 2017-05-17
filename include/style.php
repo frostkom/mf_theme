@@ -13,9 +13,8 @@ $options_fonts = get_theme_fonts();
 
 list($options_params, $options) = get_params();
 
-echo show_font_face($options_params, $options_fonts, $options);
-
-echo "@media all
+$out = show_font_face($options_params, $options_fonts, $options)
+."@media all
 {
 	body:before
 	{
@@ -54,15 +53,15 @@ echo "@media all
 	{";
 		if(isset($options['button_color']) && $options['button_color'] != '')
 		{
-			echo render_css(array('property' => 'background', 'value' => 'button_color'));
+			$out .= render_css(array('property' => 'background', 'value' => 'button_color'));
 		}
 
 		else
 		{
-			echo render_css(array('property' => 'background', 'value' => 'nav_color_hover'));
+			$out .= render_css(array('property' => 'background', 'value' => 'nav_color_hover'));
 		}
 
-		echo "color: #fff;"
+		$out .= "color: #fff;"
 	."}
 
 		#wrapper button:hover, #wrapper .button:hover
@@ -121,11 +120,11 @@ echo "@media all
 
 		if(isset($options['footer_bg']) && $options['footer_bg'] != '')
 		{
-			echo render_css(array('property' => 'background', 'value' => 'footer_bg'))
+			$out .= render_css(array('property' => 'background', 'value' => 'footer_bg'))
 			."min-height: 100vh;";
 		}
 
-		echo render_css(array('property' => 'font-family', 'value' => 'body_font'))
+		$out .= render_css(array('property' => 'font-family', 'value' => 'body_font'))
 		.render_css(array('property' => 'color', 'value' => 'body_color'))
 		."overflow: hidden;
 		position: relative;
@@ -162,7 +161,7 @@ echo "@media all
 
 			if(isset($options['header_padding']) && $options['header_padding'] != '')
 			{
-				echo "header > div
+				$out .= "header > div
 				{"
 					.render_css(array('property' => 'padding', 'value' => 'header_padding'))
 				."}";
@@ -170,7 +169,7 @@ echo "@media all
 
 				if(isset($options['header_fixed']) && $options['header_fixed'] == 2)
 				{
-					echo "header.fixed > div
+					$out .= "header.fixed > div
 					{"
 						.render_css(array('property' => 'background', 'value' => 'body_bg'))
 						."left: 0;
@@ -180,7 +179,7 @@ echo "@media all
 					}";
 				}
 
-				echo "#site_logo
+				$out .= "#site_logo
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'logo_font'))
 					."float: left;"
@@ -359,13 +358,13 @@ echo "@media all
 
 			if(isset($options['front_padding']) && $options['front_padding'] != '')
 			{
-				echo "mf-pre-content > div
+				$out .= "mf-pre-content > div
 				{"
 					.render_css(array('property' => 'padding', 'value' => 'front_padding'))
 				."}";
 			}
 
-				echo "mf-pre-content h3
+				$out .= "mf-pre-content h3
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
 					.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
@@ -568,7 +567,7 @@ echo "@media all
 
 					if(isset($options['section_margin_between']) && $options['section_margin_between'] != '')
 					{
-						echo "article p, article ul, article ol, article form
+						$out .= "article p, article ul, article ol, article form
 						{"
 							.render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
 						."}
@@ -579,7 +578,7 @@ echo "@media all
 							}";
 					}
 
-						echo "article ul, article ol, article form
+						$out .= "article ul, article ol, article form
 						{
 							clear: both;
 						}
@@ -726,7 +725,7 @@ echo "@media all
 
 			if(isset($options['pre_footer_padding']) && $options['pre_footer_padding'] != '')
 			{
-				echo "mf-pre-footer > div
+				$out .= "mf-pre-footer > div
 				{"
 					.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
 				."}";
@@ -734,13 +733,13 @@ echo "@media all
 
 				if(isset($options['pre_footer_widget_padding']) && $options['pre_footer_widget_padding'] != '')
 				{
-					echo "mf-pre-footer > div .widget
+					$out .= "mf-pre-footer > div .widget
 					{"
 						.render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
 					."}";
 				}
 
-		echo "footer
+		$out .= "footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'footer_bg'))
 			."overflow: hidden;
@@ -755,13 +754,13 @@ echo "@media all
 
 				if(isset($options['footer_widget_flex']) && $options['footer_widget_flex'] == 2)
 				{
-					echo "display: -webkit-box;
+					$out .= "display: -webkit-box;
 					display: -ms-flexbox;
 					display: -webkit-flex;
 					display: flex;";
 				}
 
-			echo "}
+			$out .= "}
 
 				footer .widget
 				{"
@@ -771,13 +770,13 @@ echo "@media all
 
 					if(isset($options['footer_widget_flex']) && $options['footer_widget_flex'] == 2)
 					{
-						echo "-webkit-box-flex: 1;
+						$out .= "-webkit-box-flex: 1;
 						-webkit-flex: 1;
 						-ms-flex: 1;
 						flex: 1;";
 					}
 
-				echo "}
+				$out .= "}
 
 					footer .widget:nth-child(2n)
 					{
@@ -790,10 +789,10 @@ echo "@media all
 
 						if(isset($options['footer_widget_heading_text_transform']) && $options['footer_widget_heading_text_transform'] != '')
 						{
-							echo render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'));
+							$out .= render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'));
 						}
 
-					echo "}
+					$out .= "}
 
 						footer ul
 						{
@@ -802,7 +801,7 @@ echo "@media all
 
 						if(isset($options['footer_p_margin']) && $options['footer_p_margin'] != '')
 						{
-							echo "footer .widget p, footer .widget li
+							$out .= "footer .widget p, footer .widget li
 							{"
 								.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
 							."}
@@ -813,19 +812,19 @@ echo "@media all
 								}";
 						}
 
-						echo "footer .widget a
+						$out .= "footer .widget a
 						{";
 
 							if(isset($options['footer_a_bg']) && $options['footer_a_bg'] != '')
 							{
-								echo "border-radius: .5em;"
+								$out .= "border-radius: .5em;"
 								.render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
 								."display: block;"
 								.render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
 								.render_css(array('property' => 'padding', 'value' => 'footer_a_padding'));
 							}
 
-							echo render_css(array('property' => 'color', 'value' => 'footer_color'))
+							$out .= render_css(array('property' => 'color', 'value' => 'footer_color'))
 						."}
 
 							footer .widget a:hover, footer li.current_page_item a
@@ -833,22 +832,22 @@ echo "@media all
 
 								if(isset($options['footer_color_hover']) && $options['footer_color_hover'] != '')
 								{
-									echo render_css(array('property' => 'color', 'value' => 'footer_color_hover'));
+									$out .= render_css(array('property' => 'color', 'value' => 'footer_color_hover'));
 								}
 
 								else
 								{
-									echo render_css(array('property' => 'color', 'value' => 'nav_color_hover'));
+									$out .= render_css(array('property' => 'color', 'value' => 'nav_color_hover'));
 								}
 
-							echo "}";
+							$out .= "}";
 
 	if(isset($options['custom_css_all']) && $options['custom_css_all'] != '')
 	{
-		echo $options['custom_css_all'];
+		$out .= $options['custom_css_all'];
 	}
 
-echo "}";
+$out .= "}";
 
 $aside_width = isset($options['aside_width']) && $options['aside_width'] != '' ? $options['aside_width'] : "28%";
 
@@ -897,7 +896,7 @@ $flex_content = "mf-content > div
 
 if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 {
-	echo "@media (max-width: ".($options['mobile_breakpoint'] - 1)."px)
+	$out .= "@media (max-width: ".($options['mobile_breakpoint'] - 1)."px)
 	{
 		body:before
 		{
@@ -911,13 +910,13 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 			if(isset($options['logo_width_mobile']) && $options['logo_width_mobile'] != '')
 			{
-				echo "#site_logo
+				$out .= "#site_logo
 				{"
 					.render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
 				."}";
 			}
 
-			echo "#secondary_nav, header .searchform
+			$out .= "#secondary_nav, header .searchform
 			{
 				display: none;
 			}
@@ -942,15 +941,15 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 						if(isset($options['hamburger_font_size']) && $options['hamburger_font_size'] != '')
 						{
-							echo render_css(array('property' => 'font-size', 'value' => 'hamburger_font_size'));
+							$out .= render_css(array('property' => 'font-size', 'value' => 'hamburger_font_size'));
 						}
 
 						else
 						{
-							echo render_css(array('property' => 'font-size', 'value' => 'logo_font_size'));
+							$out .= render_css(array('property' => 'font-size', 'value' => 'logo_font_size'));
 						}
 
-						echo "margin: .1em .2em;"
+						$out .= "margin: .1em .2em;"
 						.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
 						."position: absolute;
 						right: 0;
@@ -983,25 +982,25 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 								display: block;
 							}
 
-				.theme_nav.is_mobile_ready ul
+				/*.theme_nav.is_mobile_ready ul
 				{
 					min-height: 2em;
-				}
+				}*/
 
 					.theme_nav.is_mobile_ready > div > ul > li
 					{";
 
 						if(isset($options['hamburger_menu_bg']) && $options['hamburger_menu_bg'] != '')
 						{
-							echo render_css(array('property' => 'background', 'value' => 'hamburger_menu_bg'));
+							$out .= render_css(array('property' => 'background', 'value' => 'hamburger_menu_bg'));
 						}
 
 						else
 						{
-							echo render_css(array('property' => 'background', 'value' => 'header_bg'));
+							$out .= render_css(array('property' => 'background', 'value' => 'header_bg'));
 						}
 
-						echo "display: none;
+						$out .= "display: none;
 					}
 
 						.theme_nav.is_mobile_ready > div > ul > li:last-of-type
@@ -1039,10 +1038,10 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 		if(isset($options['custom_css_mobile']) && $options['custom_css_mobile'] != '')
 		{
-			echo $options['custom_css_mobile'];
+			$out .= $options['custom_css_mobile'];
 		}
 
-	echo "}
+	$out .= "}
 
 	@media (min-width: ".$options['mobile_breakpoint']."px)
 	{
@@ -1059,13 +1058,13 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 		if(isset($options['body_desktop_font_size']) && $options['body_desktop_font_size'] != '' && $options['body_desktop_font_size'] != $options['body_font_size'])
 		{
-			echo "html
+			$out .= "html
 			{"
 				.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
 			."}";
 		}
 
-			echo ".theme_nav.is_mobile_ready .sub-menu
+			$out .= ".theme_nav.is_mobile_ready .sub-menu
 			{"
 				//.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 				."border-radius: .3em;
@@ -1077,7 +1076,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 				if(isset($options['sub_nav_arrow']) && $options['sub_nav_arrow'] == 2)
 				{
-					echo ".theme_nav.is_mobile_ready .sub-menu
+					$out .= ".theme_nav.is_mobile_ready .sub-menu
 					{
 						margin-top: 3.4em:
 						padding-top: 0;
@@ -1094,7 +1093,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						."}";
 				}
 
-					echo ".theme_nav.is_mobile_ready .sub-menu
+					$out .= ".theme_nav.is_mobile_ready .sub-menu
 					{
 						white-space: nowrap;
 					}
@@ -1129,7 +1128,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 {
-	echo "@media (min-width: ".$options['website_max_width']."px)
+	$out .= "@media (min-width: ".$options['website_max_width']."px)
 	{
 		body:before
 		{
@@ -1145,7 +1144,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 	."}";
 }
 
-echo "@media print
+$out .= "@media print
 {
 	body:before
 	{
@@ -1167,3 +1166,5 @@ echo "@media print
 		display: none;
 	}
 }";
+
+echo compress_css($out);
