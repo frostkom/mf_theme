@@ -164,6 +164,17 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "text", 'id' => 'hamburger_menu_bg', 'title' => __("Background", 'lang_theme')." (".__("Menu", 'lang_theme').")");
 				$options_params[] = array('category_end' => "");
 
+				$options_params[] = array('category' => " - ".__("Secondary", 'lang_theme'), 'id' => 'mf_theme_navigation_secondary');
+					$options_params[] = array('type' => "text", 'id' => 'nav_secondary_bg', 'title' => __("Background", 'lang_theme'));
+					$options_params[] = array('type' => "clear", 'id' => 'nav_secondary_clear', 'title' => __("Clear", 'lang_theme'), 'default' => "none");
+					$options_params[] = array('type' => "text", 'id' => 'nav_secondary_size', 'title' => __("Size", 'lang_theme'), 'default' => "1.4em");
+					$options_params[] = array('type' => "align", 'id' => 'nav_secondary_align', 'title' => __("Align", 'lang_theme'), 'placeholder' => "left, right", 'default' => "right");
+					$options_params[] = array('type' => "color", 'id' => 'nav_secondary_color', 'title' => __("Text Color", 'lang_theme'));
+						$options_params[] = array('type' => "color", 'id' => 'nav_secondary_color_hover', 'title' => " - ".__("Text Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
+						$options_params[] = array('type' => "color", 'id' => 'nav_secondary_bg_current', 'title' => __("Background", 'lang_theme')." (".__("Current", 'lang_theme').")", 'show_if' => 'nav_color');
+						$options_params[] = array('type' => "color", 'id' => 'nav_secondary_color_current', 'title' => __("Text Color", 'lang_theme')." (".__("Current", 'lang_theme').")", 'show_if' => 'nav_color');
+				$options_params[] = array('category_end' => "");
+
 				if(isset($arr_sidebars['widget_slide']) && count($arr_sidebars['widget_slide']) > 0)
 				{
 					$options_params[] = array('category' => " - ".__("Slide Menu", 'lang_theme'), 'id' => 'mf_theme_navigation_slide');
@@ -266,37 +277,6 @@ if(!function_exists('get_params'))
 	}
 }
 
-if(!function_exists('mf_unregister_widget'))
-{
-	function mf_unregister_widget($id)
-	{
-		/*$arr_exclude = array("WP_Widget_", "_");
-		$arr_include = array("", "-");
-		$id_check = strtolower(str_replace($arr_exclude, $arr_include, $id));
-
-		$arr_sidebars = wp_get_sidebars_widgets();
-
-		$is_used = false;
-
-		foreach($arr_sidebars as $sidebar)
-		{
-			foreach($sidebar as $widget)
-			{
-				if(substr($widget, 0, (strlen($id_check) + 1)) == $id_check."-")
-				{
-					$is_used = true;
-				}
-			}
-		}
-
-		//if(is_active_widget(false, false, 'WP_Widget_Text', true) == false)
-		if($is_used == false) //!in_array($id_check, $arr_sidebars)
-		{*/
-			unregister_widget($id);
-		//}
-	}
-}
-
 if(!function_exists('widgets_theme'))
 {
 	function widgets_theme()
@@ -392,23 +372,6 @@ if(!function_exists('widgets_theme'))
 
 		register_widget('widget_theme_logo');
 		register_widget('widget_theme_menu');
-		register_widget('widget_theme_news');
-		mf_unregister_widget('WP_Widget_Recent_Posts');
-
-		mf_unregister_widget('WP_Widget_Pages');
-		mf_unregister_widget('WP_Widget_Calendar');
-		mf_unregister_widget('WP_Widget_Archives');
-		mf_unregister_widget('WP_Widget_Links');
-		mf_unregister_widget('WP_Widget_Meta');
-		mf_unregister_widget('WP_Widget_Categories');
-		mf_unregister_widget('WP_Widget_Recent_Comments');
-		mf_unregister_widget('WP_Widget_RSS');
-		mf_unregister_widget('WP_Widget_Tag_Cloud');
-
-		if(function_exists('is_plugin_active') && is_plugin_active('black-studio-tinymce-widget/black-studio-tinymce-widget.php'))
-		{
-			mf_unregister_widget('WP_Widget_Text');
-		}
 	}
 }
 
@@ -499,17 +462,6 @@ if(!function_exists('get_logo_theme'))
 		$out .= "</a>";
 
 		return $out;
-	}
-}
-
-if(!function_exists('get_search_theme'))
-{
-	function get_search_theme()
-	{
-		return "<form action='".get_site_url()."' method='get' class='searchform mf_form'>"
-			.show_textfield(array('name' => 's', 'value' => check_var('s'), 'placeholder' => __("Search for", 'lang_theme'))) //, 'required' => true
-			."<i class='fa fa-search'></i>"
-		."</form>";
 	}
 }
 

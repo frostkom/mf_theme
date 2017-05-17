@@ -249,33 +249,14 @@ echo "@media all
 
 				.theme_nav.is_mobile_ready
 				{"
-					.render_css(array('property' => 'background', 'value' => 'nav_bg'))
-					.render_css(array('property' => 'clear', 'value' => 'nav_clear'))
 					.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
-					.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
-					.render_css(array('property' => 'text-align', 'value' => 'nav_align'))
 				."}
-
-					#secondary_nav
-					{
-						clear: none;
-					}
-
-						#secondary_nav > div
-						{
-							font-size: .7em;
-						}
-
-					#primary_nav > .toggle_icon
-					{
-						display: none;
-					}
 
 					.theme_nav ul
 					{
 						list-style: none;
 					}
-
+					
 						.theme_nav.is_mobile_ready li
 						{
 							display: inline-block;
@@ -287,41 +268,87 @@ echo "@media all
 							{
 								margin-left: 0;
 							}
+							
+								.theme_nav a
+								{
+									display: block;"
+									.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
+								."}
 
-							.theme_nav a
-							{
-								display: block;"
+									.theme_nav li:hover > ul, .theme_nav li.current-menu-item > ul, .theme_nav li.current-menu-ancestor > ul
+									{
+										display: block;
+									}
+
+									.theme_nav li > ul
+									{
+										display: none;
+									}
+
+					#primary_nav
+					{"
+						.render_css(array('property' => 'background', 'value' => 'nav_bg'))
+						.render_css(array('property' => 'clear', 'value' => 'nav_clear'))
+						.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
+						.render_css(array('property' => 'text-align', 'value' => 'nav_align'))
+					."}
+
+						#primary_nav > .toggle_icon
+						{
+							display: none;
+						}
+
+							#primary_nav a
+							{"
 								.render_css(array('property' => 'color', 'value' => 'nav_color'))
-								.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
 							."}
 
-								.theme_nav a:hover, .theme_nav li.current_page_ancestor.current_page_ancestor > a, .theme_nav li.current_page_item.current_page_item > a
+								#primary_nav a:hover, #primary_nav li.current_page_ancestor.current_page_ancestor > a, #primary_nav li.current_page_item.current_page_item > a
 								{"
 									.render_css(array('prefix' => "border-bottom: 5px solid ", 'value' => 'nav_underline_color_hover'))
 									.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
 								."}
 
-									.theme_nav li.current_page_ancestor.current_page_ancestor > a, .theme_nav li.current_page_item.current_page_item > a
+									#primary_nav li.current_page_ancestor.current_page_ancestor > a, #primary_nav li.current_page_item.current_page_item > a
 									{"
 										.render_css(array('property' => 'background', 'value' => 'nav_bg_current'))
 										.render_css(array('property' => 'color', 'value' => 'nav_color_current'))
 									."}
-
-								.theme_nav li:hover > ul, .theme_nav li.current-menu-item > ul, .theme_nav li.current-menu-ancestor > ul
-								{
-									display: block;
-								}
-
-								.theme_nav li > ul
-								{
-									display: none;
-								}
 
 						#slide_nav > .fa
 						{
 							display: inline-block;
 							margin-left: .5em;
 						}
+
+					#secondary_nav
+					{"
+						.render_css(array('property' => 'background', 'value' => 'nav_secondary_bg'))
+						.render_css(array('property' => 'clear', 'value' => 'nav_secondary_clear'))
+						.render_css(array('property' => 'font-size', 'value' => 'nav_secondary_size'))
+						.render_css(array('property' => 'text-align', 'value' => 'nav_secondary_align'))
+					."}
+
+						/*#secondary_nav > div
+						{
+							font-size: .7em;
+						}*/
+
+							#secondary_nav a
+							{"
+								.render_css(array('property' => 'color', 'value' => 'nav_secondary_color'))
+							."}
+
+								#secondary_nav a:hover, #secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
+								{"
+									.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_hover'))
+								."}
+
+									#secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
+									{"
+										.render_css(array('property' => 'background', 'value' => 'nav_secondary_bg_current'))
+										.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_current'))
+									."}
 
 		mf-pre-content
 		{"
@@ -897,60 +924,64 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 			.theme_nav.is_mobile_ready
 			{
-				float: none;
-				clear: unset;
 				margin: 0;
-				text-align: center;
 				width: 100%;
 			}
 
-				#primary_nav > .toggle_icon
-				{"
-					.render_css(array('property' => 'color', 'value' => 'logo_color'))
-					."display: block;";
-
-					if(isset($options['hamburger_font_size']) && $options['hamburger_font_size'] != '')
-					{
-						echo render_css(array('property' => 'font-size', 'value' => 'hamburger_font_size'));
-					}
-
-					else
-					{
-						echo render_css(array('property' => 'font-size', 'value' => 'logo_font_size'));
-					}
-
-					echo "margin: .1em .2em;"
-					.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
-					."position: absolute;
-					right: 0;
-					top: 0;
-					z-index: 1;
+				#primary_nav
+				{
+					float: none;
+					clear: unset;
+					text-align: center;
 				}
 
-					#primary_nav .fa-close
-					{
-						display: none;
+					#primary_nav > .toggle_icon
+					{"
+						.render_css(array('property' => 'color', 'value' => 'logo_color'))
+						."display: block;";
+
+						if(isset($options['hamburger_font_size']) && $options['hamburger_font_size'] != '')
+						{
+							echo render_css(array('property' => 'font-size', 'value' => 'hamburger_font_size'));
+						}
+
+						else
+						{
+							echo render_css(array('property' => 'font-size', 'value' => 'logo_font_size'));
+						}
+
+						echo "margin: .1em .2em;"
+						.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
+						."position: absolute;
+						right: 0;
+						top: 0;
+						z-index: 1;
 					}
 
-					#primary_nav.is_mobile_ready ul > li
-					{
-						display: none;
-					}
-
-						#primary_nav.open .fa-bars
+						#primary_nav .fa-close
 						{
 							display: none;
 						}
 
-						#primary_nav.open .fa-close
+						#primary_nav.is_mobile_ready ul > li
 						{
-							display: block;
+							display: none;
 						}
 
-						#primary_nav.open ul > li
-						{
-							display: block;
-						}
+							#primary_nav.open .fa-bars
+							{
+								display: none;
+							}
+
+							#primary_nav.open .fa-close
+							{
+								display: block;
+							}
+
+							#primary_nav.open ul > li
+							{
+								display: block;
+							}
 
 				.theme_nav.is_mobile_ready ul
 				{
@@ -1071,7 +1102,6 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						.theme_nav.is_mobile_ready .sub-menu a
 						{"
 							.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
-							//."border-radius: .3em;"
 							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
 							."padding: .8em;
 						}

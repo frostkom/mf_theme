@@ -29,7 +29,7 @@ echo "<!DOCTYPE html>
 						list($options_params, $options) = get_params();
 
 						echo get_logo_theme($options)
-						.get_search_theme()
+						.get_search_theme_core()
 						.get_menu_theme(array('where' => 'header'));
 					}
 
