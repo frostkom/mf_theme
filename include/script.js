@@ -11,8 +11,7 @@ document.createElement("footer");
 
 jQuery(function($)
 {
-	//Slide nav
-	//################
+	/* Slide nav */
 	var right_orig = $('mf-slide-nav > div').css('right');
 
 	function show_slide_menu()
@@ -46,9 +45,8 @@ jQuery(function($)
 			hide_slide_menu();
 		}
 	});
-	//################
 
-	//Mobile nav
+	/* Mobile nav */
 	$(document).on('click', '#primary_nav > .toggle_icon', function()
 	{
 		var slide_nav = $('mf-slide-nav nav');
@@ -74,8 +72,7 @@ jQuery(function($)
 		}
 	});
 
-	//Fixed header
-	//################
+	/* Fixed header */
 	if(script_theme.header_fixed)
 	{
 		function has_scrolled()
@@ -101,10 +98,8 @@ jQuery(function($)
 			has_scrolled();
 		});
 	}
-	//################
 
-	//Load more
-	//################
+	/* Load more */
 	$(document).on('click', '#load_more', function()
 	{
 		var self = $(this);
@@ -128,5 +123,4 @@ jQuery(function($)
 
 		return false;
 	});
-	//################
 });

@@ -658,6 +658,21 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									margin: 0 -.5em -1em;
 								}
 
+								/* Fix for iOS */
+								.widget.theme_news ul
+								{
+									-webkit-box-pack: center;
+									-moz-box-pack: center;
+									-ms-flex-pack: center;
+									-webkit-justify-content: center;
+									justify-content: center;
+									-webkit-box-align: center;
+									-moz-box-align: center;
+									-ms-flex-align: center;
+									-webkit-align-items: center;
+									align-items: center;
+								}
+
 									.widget.theme_news li
 									{
 										-webkit-box-flex: 0 1 33.333%;
@@ -678,6 +693,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 										.widget.theme_news li .image
 										{
+											background: #000;
 											height: 100%;
 											overflow: hidden;
 											position: relative;
@@ -1167,5 +1183,4 @@ $out .= "@media print
 	}
 }";
 
-//echo compress_css($out);
 echo $out;
