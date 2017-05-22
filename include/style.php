@@ -670,7 +670,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									-moz-box-align: center;
 									-ms-flex-align: center;
 									-webkit-align-items: center;
-									align-items: center;
+									align-items: stretch;
 								}
 
 									.widget.theme_news li
