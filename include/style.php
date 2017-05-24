@@ -223,15 +223,15 @@ $out = show_font_face($options_params, $options_fonts, $options)
 							float: right;
 							margin: 0;
 							opacity: 0;
-							padding-right: 2.2em;
+							padding-right: 2.2em !important;
 							transition: all .4s ease;
-							width: 0;
+							width: 0 !important;
 						}
 
 							.searchform .form_textfield input:focus
 							{
 								opacity: 1;
-								width: 100%;
+								width: 100% !important;
 							}
 
 					.searchform .fa
