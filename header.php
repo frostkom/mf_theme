@@ -3,18 +3,24 @@
  * The Header for our theme.
 */
 
+if(!isset($_GET['content_only']))
+{
 echo "<!DOCTYPE html>
 <html lang='".get_bloginfo('language')."'>
 	<head>
 		<meta charset='".get_bloginfo('charset')."'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
-		<meta name='author' content='frostkom.se'>
-		<title>".get_wp_title()."</title>";
+		<meta name='author' content='frostkom.se'>";
+}
+		echo "<title>".get_wp_title()."</title>";
 
+if(!isset($_GET['content_only']))
+{
 		wp_head();
 
-	echo "</head>
-	<body class='".implode(" ", get_body_class())."'>
+	echo "</head>";
+}
+	echo "<body class='".implode(" ", get_body_class())."'>
 		<div id='wrapper'>
 			<header".is_clean().">
 				<div>";

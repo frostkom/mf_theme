@@ -66,8 +66,10 @@
 			}
 
 		echo "</div>";
-
+if(!isset($_GET['content_only']))
+{
 		wp_footer();
 
 	echo "</body>
 </html>";
+}
