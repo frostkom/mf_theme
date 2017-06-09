@@ -1,5 +1,18 @@
 <?php
 
+if(!function_exists('get_search_page'))
+{
+	function get_search_page()
+	{
+		return "<article>
+			<h1>".__("No results", 'lang_theme')."</h1>
+			<section>
+				<p>".sprintf(__("I could not find any results for '%s'", 'lang_theme'), get_query_var('s'))."</p>
+			</section>
+		</article>";
+	}
+}
+
 if(!function_exists('is_heading_visible'))
 {
 	function is_heading_visible($post)

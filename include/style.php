@@ -216,23 +216,28 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 						.searchform .form_textfield input
 						{
-							background: none;
-							border-color: rgba(0, 0, 0, .1);"
+							background: none;"
 							.render_css(array('property' => 'color', 'value' => 'search_color'))
 							."display: inline-block;
 							float: right;
 							margin: 0;
-							opacity: 0;
 							padding-right: 2.2em !important;
-							transition: all .4s ease;
-							width: 0 !important;
 						}
 
-							.searchform .form_textfield input:focus
+							.searchform.search_animate .form_textfield input
 							{
-								opacity: 1;
-								width: 100% !important;
+								border-color: rgba(0, 0, 0, .1);
+								opacity: 0;
+								transition: all .4s ease;
+								width: 0 !important;
 							}
+
+								.searchform.search_animate .form_textfield input:focus
+								{
+									border-color: #e1e1e1;
+									opacity: 1;
+									width: 100% !important;
+								}
 
 					.searchform .fa
 					{
@@ -533,6 +538,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
 					.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
 					.render_css(array('property' => 'margin', 'value' => 'section_margin'))
+					."overflow: hidden;"
 					.render_css(array('property' => 'padding', 'value' => 'section_padding'))
 				."}
 

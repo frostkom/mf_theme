@@ -14,11 +14,6 @@
 
 get_header();
 
-	echo "<article>
-		<h1>".__("No results", 'lang_theme')."</h1>
-		<section>
-			<p>".sprintf(__("I could not find any results for '%s'", 'lang_theme'), get_query_var('s'))."</p>
-		</section>
-	</article>";
+	echo get_search_page();
 
 get_footer();

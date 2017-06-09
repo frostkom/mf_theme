@@ -62,9 +62,14 @@ get_header();
 						<p>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>";
 					}
 
-					else
+					else if($post_content != '')
 					{
 						$article_content .= $post_content;
+					}
+
+					else
+					{
+						$article_content .= "<p>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>";
 					}
 
 				$article_content .= "</section>";
@@ -84,6 +89,11 @@ get_header();
 				echo "<article>".$article_content."</article>";
 			}
 		}
+	}
+
+	else
+	{
+		echo get_search_page();
 	}
 
 get_footer();
