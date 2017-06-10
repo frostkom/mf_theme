@@ -333,26 +333,26 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						.render_css(array('property' => 'text-align', 'value' => 'nav_secondary_align'))
 					."}
 
-						/*#secondary_nav > div
-						{
-							font-size: .7em;
-						}*/
+						#secondary_nav a
+						{"
+							.render_css(array('property' => 'color', 'value' => 'nav_secondary_color'))
+						."}
 
-							#secondary_nav a
+							#secondary_nav a:hover, #secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
 							{"
-								.render_css(array('property' => 'color', 'value' => 'nav_secondary_color'))
+								.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_hover'))
 							."}
 
-								#secondary_nav a:hover, #secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
+								#secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
 								{"
-									.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_hover'))
+									.render_css(array('property' => 'background', 'value' => 'nav_secondary_bg_current'))
+									.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_current'))
 								."}
 
-									#secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
-									{"
-										.render_css(array('property' => 'background', 'value' => 'nav_secondary_bg_current'))
-										.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_current'))
-									."}
+		mf-after-header .widget + .widget
+		{
+			margin-top: 1em;
+		}
 
 		mf-pre-content
 		{"
@@ -650,7 +650,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								."text-decoration: none;
 							}
 
-								.widget.theme_news ul
+								.widget.theme_promo ul
 								{
 									display: -webkit-box;
 									display: -ms-flexbox;
@@ -665,7 +665,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								}
 
 								/* Fix for iOS */
-								.widget.theme_news ul
+								.widget.theme_promo ul
 								{
 									-webkit-box-pack: center;
 									-moz-box-pack: center;
@@ -679,7 +679,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									align-items: stretch;
 								}
 
-									.widget.theme_news li
+									.widget.theme_promo li
 									{
 										-webkit-box-flex: 0 1 33.333%;
 										-webkit-flex: 0 1 33.333%;
@@ -689,7 +689,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 										position: relative;
 									}
 
-										.widget.theme_news .allow_expand li
+										.widget.theme_promo .allow_expand li
 										{
 											-webkit-box-flex-grow: 1;
 											-webkit-flex-grow: 1;
@@ -697,7 +697,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 											flex-grow: 1;
 										}
 
-										.widget.theme_news li .image
+										.widget.theme_promo li .image
 										{
 											background: #000;
 											height: 100%;
@@ -705,7 +705,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 											position: relative;
 										}
 										
-											.widget.theme_news li .image img
+											.widget.theme_promo li .image img
 											{
 												height: 100%;
 												object-fit: cover;
@@ -713,13 +713,13 @@ $out = show_font_face($options_params, $options_fonts, $options)
 												width: 100%;
 											}
 											
-												.widget.theme_news li:hover .image img
+												.widget.theme_promo li:hover .image img
 												{
 													-webkit-transform: scale(1.1);
 													transform: scale(1.1);
 												}
 
-											.widget.theme_news li .image:after
+											.widget.theme_promo li .image:after
 											{
 												background: linear-gradient(to top, #000 0, transparent 100%);
 												bottom: 0;
@@ -730,7 +730,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 												height: 40%;
 											}
 
-										.widget.theme_news li h4
+										.widget.theme_promo li h4
 										{
 											bottom: 0;
 											color: #fff;
@@ -1047,7 +1047,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					column-count: 1;
 				}
 
-				.widget.theme_news ul
+				.widget.theme_promo ul
 				{
 					display: block;
 				}
