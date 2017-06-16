@@ -650,95 +650,6 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								."text-decoration: none;
 							}
 
-								.widget.theme_promo ul
-								{
-									display: -webkit-box;
-									display: -ms-flexbox;
-									display: -webkit-flex;
-									display: flex;									
-									-webkit-box-flex-wrap: wrap;
-									-webkit-flex-wrap: wrap;
-									-ms-flex-wrap: wrap;
-									flex-wrap: wrap;
-									list-style: none;
-									margin: 0 -.5em -1em;
-								}
-
-								/* Fix for iOS */
-								.widget.theme_promo ul
-								{
-									-webkit-box-pack: center;
-									-moz-box-pack: center;
-									-ms-flex-pack: center;
-									-webkit-justify-content: center;
-									justify-content: center;
-									-webkit-box-align: center;
-									-moz-box-align: center;
-									-ms-flex-align: center;
-									-webkit-align-items: center;
-									align-items: stretch;
-								}
-
-									.widget.theme_promo li
-									{
-										-webkit-box-flex: 0 1 33.333%;
-										-webkit-flex: 0 1 33.333%;
-										-ms-flex: 0 1 33.333%;
-										flex: 0 1 33.333%;
-										padding: 0 .5em 1em;
-										position: relative;
-									}
-
-										.widget.theme_promo .allow_expand li
-										{
-											-webkit-box-flex-grow: 1;
-											-webkit-flex-grow: 1;
-											-ms-flex-grow: 1;
-											flex-grow: 1;
-										}
-
-										.widget.theme_promo li .image
-										{
-											background: #000;
-											height: 100%;
-											overflow: hidden;
-											position: relative;
-										}
-										
-											.widget.theme_promo li .image img
-											{
-												height: 100%;
-												object-fit: cover;
-												transition: all .75s ease;
-												width: 100%;
-											}
-											
-												.widget.theme_promo li:hover .image img
-												{
-													-webkit-transform: scale(1.1);
-													transform: scale(1.1);
-												}
-
-											.widget.theme_promo li .image:after
-											{
-												background: linear-gradient(to top, #000 0, transparent 100%);
-												bottom: 0;
-												content: '';
-												left: 0;
-												position: absolute;
-												right: 0;
-												height: 40%;
-											}
-
-										.widget.theme_promo li h4
-										{
-											bottom: 0;
-											color: #fff;
-											font-size: 2em;
-											margin: 1.5em 1em;
-											position: absolute;
-										}
-
 		mf-pre-footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
@@ -1047,11 +958,6 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					column-count: 1;
 				}
 
-				.widget.theme_promo ul
-				{
-					display: block;
-				}
-
 			footer > div
 			{
 				display: block;
@@ -1090,9 +996,10 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			{"
 				//.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 				."border-radius: .3em;
-				right: 0;
+				left: 50%;
 				position: absolute;
 				padding-top: .5em;
+				transform: translateX(-50%);
 				z-index: 100;
 			}";
 
@@ -1106,13 +1013,14 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				
 						.theme_nav.is_mobile_ready .sub-menu:before
 						{
-							content: '';
-							position: absolute;
-							top: -.8em;
-							right: 3em;
 							border: .7em solid transparent;"
 							.render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
-						."}";
+							."content: '';
+							left: 50%;
+							position: absolute;
+							top: -.8em;
+							transform: translateX(-50%);
+						}";
 				}
 
 					$out .= ".theme_nav.is_mobile_ready .sub-menu
@@ -1129,12 +1037,14 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 							.theme_nav.is_mobile_ready .sub-menu li:first-child a
 							{
-								border-radius: .3em 0 0 .3em;
+								border-top-left-radius: .3em;
+								border-bottom-left-radius: .3em;
 							}
 
 							.theme_nav.is_mobile_ready .sub-menu li:last-child a
 							{
-								border-radius: 0 .3em .3em 0;
+								border-top-right-radius: .3em;
+								border-bottom-right-radius: .3em;
 							}
 
 							.theme_nav.is_mobile_ready .sub-menu a:hover
