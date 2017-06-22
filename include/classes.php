@@ -82,23 +82,8 @@ class widget_theme_menu extends WP_Widget
 		);
 		$instance = wp_parse_args((array)$instance, $defaults);
 
-		$arr_types = array(
-			'' => "-- ".__("Choose here", 'lang_theme')." --",
-			'main' => __("Main menu", 'lang_theme'),
-			'secondary' => __("Secondary", 'lang_theme'),
-			'both' => __("Main and Secondary menues", 'lang_theme'),
-			'slide' => __("Slide in from right", 'lang_theme'),
-		);
-
-		$arr_data = array();
-
-		foreach($arr_types as $key => $value)
-		{
-			$arr_data[$key] = $value;
-		}
-
 		echo "<div class='mf_form'>"
-			.show_select(array('data' => $arr_data, 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'value' => $instance['theme_menu_type']))
+			.show_select(array('data' => get_menu_type_for_select(), 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'value' => $instance['theme_menu_type']))
 		."</div>";
 	}
 }

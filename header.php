@@ -68,13 +68,13 @@ if(!isset($_GET['content_only']))
 
 			if(is_active_sidebar('widget_front'))
 			{
-				echo "<mf-pre-content".is_clean().">
+				echo "<div id='mf-pre-content'".is_clean().">
 					<div>";
 
 						dynamic_sidebar('widget_front');
 
 					echo "</div>
-				</mf-pre-content>";
+				</div>";
 			}
 
 			echo "<mf-content>

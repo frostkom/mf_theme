@@ -195,6 +195,7 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text", 'id' => 'front_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "text", 'id' => 'front_padding', 'title' => __("Padding", 'lang_theme'));
 				$options_params[] = array('type' => "color", 'id' => 'front_color', 'title' => __("Text Color", 'lang_theme'));
+				//$options_params[] = array('type' => "text", 'id' => "pre_content_size", 'title' => __("Font Size", 'lang_theme'));
 			$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Content", 'lang_theme'), 'id' => 'mf_theme_content');
@@ -491,26 +492,26 @@ if(!function_exists('get_menu_theme'))
 		{
 			if(in_array($data['type'], array('', 'secondary', 'both')))
 			{
-				$wp_menu = wp_nav_menu(array('theme_location' => 'secondary', 'menu' => 'Secondary', 'container' => "div", 'container_override' => false, 'fallback_cb' => false, 'echo' => false));
+				$nav_content = wp_nav_menu(array('theme_location' => 'secondary', 'menu' => 'Secondary', 'container' => "div", 'container_override' => false, 'fallback_cb' => false, 'echo' => false));
 
-				if($wp_menu != '')
+				if($nav_content != '')
 				{
 					$out .= "<nav id='secondary_nav' class='theme_nav is_mobile_ready'>"
-						.$wp_menu
+						.$nav_content
 					."</nav>";
 				}
 			}
 
 			if(in_array($data['type'], array('', 'main', 'both')))
 			{
-				$wp_menu = wp_nav_menu(array('theme_location' => 'primary', 'menu' => 'Main', 'container' => "div", 'container_override' => false, 'echo' => false));
+				$nav_content = wp_nav_menu(array('theme_location' => 'primary', 'menu' => 'Main', 'container' => "div", 'container_override' => false, 'echo' => false));
 
-				if($wp_menu != '')
+				if($nav_content != '')
 				{
 					if($data['where'] == 'widget_slide')
 					{
 						$out .= "<nav id='primary_nav' class='theme_nav'>"
-							.$wp_menu
+							.$nav_content
 						."</nav>";
 					}
 
@@ -519,7 +520,7 @@ if(!function_exists('get_menu_theme'))
 						$out .= "<nav id='primary_nav' class='theme_nav is_mobile_ready'>
 							<i class='fa fa-bars toggle_icon'></i>
 							<i class='fa fa-close toggle_icon'></i>"
-							.$wp_menu
+							.$nav_content
 						."</nav>";
 					}
 				}

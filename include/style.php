@@ -21,18 +21,18 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		display: none;
 	}
 
-	html, body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
+	html, body, header, nav, mf-after-header, #mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
 	{
 		margin: 0;
 		padding: 0;
 	}
 
-	body, header, nav, mf-after-header, mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
+	body, header, nav, mf-after-header, #mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
 	{
 		box-sizing: border-box;
 	}
 
-	header, nav, mf-after-header, mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
+	header, nav, mf-after-header, #mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
 	{
 		display: block;
 	}
@@ -135,7 +135,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		.render_css(array('property' => 'background', 'value' => 'body_bg'))
 	."}
 
-		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
+		header > div, mf-after-header > div, #mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
 		{"
 			.render_css(array('property' => 'padding', 'value' => 'main_padding'))
 			."position: relative;
@@ -354,22 +354,19 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			margin-top: 1em;
 		}
 
-		mf-pre-content
+		#mf-pre-content
 		{"
 			.render_css(array('property' => 'background', 'value' => 'front_bg'))
 			.render_css(array('property' => 'color', 'value' => 'front_color'))
 			."overflow: hidden;
-		}";
+		}
 
-			if(isset($options['front_padding']) && $options['front_padding'] != '')
-			{
-				$out .= "mf-pre-content > div
-				{"
-					.render_css(array('property' => 'padding', 'value' => 'front_padding'))
-				."}";
-			}
+			#mf-pre-content > div
+			{"
+				.render_css(array('property' => 'padding', 'value' => 'front_padding'))
+			."}
 
-				$out .= "mf-pre-content h3
+				#mf-pre-content h3
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
 					.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
@@ -378,7 +375,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
 				."}
 
-				mf-pre-content p
+				#mf-pre-content p
 				{"
 					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
 					.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
@@ -391,7 +388,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			bottom: 0;
 			display: none;
 			left: 0;
-			position: absolute;
+			position: fixed;
 			right: 0;
 			top: 0;
 			z-index: 1001;
@@ -1067,7 +1064,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 			content: 'desktop';
 		}
 
-		header > div, mf-after-header > div, mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
+		header > div, mf-after-header > div, #mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
 		{
 			margin: 0 auto;
 			max-width: ".$options['website_max_width']."px;
@@ -1093,7 +1090,7 @@ $out .= "@media print
 		width: auto;
 	}
 
-	header, mf-after-header, mf-pre-content, #aside, mf-pre-footer, footer
+	header, mf-after-header, #mf-pre-content, #aside, mf-pre-footer, footer
 	{
 		display: none;
 	}
