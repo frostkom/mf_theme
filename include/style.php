@@ -16,18 +16,13 @@ list($options_params, $options) = get_params();
 $out = show_font_face($options_params, $options_fonts, $options)
 ."@media all
 {
-	body:before
-	{
-		display: none;
-	}
-
-	html, body, header, nav, mf-after-header, #mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, p
+	mf-after-header, #aside, mf-pre-footer
 	{
 		margin: 0;
 		padding: 0;
 	}
 
-	body, header, nav, mf-after-header, #mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, div, ol, ul, li, form, input, select, textarea, button, a, iframe, h1, h2, h3, h4, h5
+	mf-after-header, #aside, mf-pre-footer
 	{
 		box-sizing: border-box;
 	}
@@ -37,17 +32,10 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		display: block;
 	}
 
-	a
-	{
-		color: inherit;
-		text-decoration: none;
-	}
-
-		p a
-		{
-			text-decoration: underline;"
-			.render_css(array('property' => 'color', 'value' => 'body_link_color'))
-		."}
+	p a
+	{"
+		.render_css(array('property' => 'color', 'value' => 'body_link_color'))
+	."}
 
 	#wrapper button, #wrapper .button
 	{";
@@ -78,35 +66,6 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			{
 				background: #aaa;
 			}
-
-	img
-	{
-		border: 0;
-		max-width: 100%;
-	}
-
-	.clear
-	{
-		clear: both;
-	}
-
-	.aligncenter
-	{
-		margin: .5em 0;
-		text-align: center;
-	}
-
-	.alignleft
-	{
-		float: left;
-		margin: .5em 1em .5em 0;
-	}
-
-	.alignright
-	{
-		float: right;
-		margin: .5em 0 .5em 1em;
-	}
 
 	html
 	{
@@ -915,14 +874,14 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							#primary_nav.open ul > li
 							{
 								display: block;
-							}
+							}";
 
 				/*.theme_nav.is_mobile_ready ul
 				{
 					min-height: 2em;
 				}*/
 
-					.theme_nav.is_mobile_ready > div > ul > li
+					$out .= ".theme_nav.is_mobile_ready > div > ul > li
 					{";
 
 						if(isset($options['hamburger_menu_bg']) && $options['hamburger_menu_bg'] != '')
