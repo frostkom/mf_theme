@@ -400,7 +400,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				."bottom: 0;"
 				.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
 				.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
-				.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
+				//.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
 				."overflow: hidden;
 				padding: 2.6em 0 1em;
 				position: absolute;
@@ -424,7 +424,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					list-style: none;
 				}
 
-					mf-slide-nav .theme_nav ul a
+					mf-slide-nav #primary_nav ul a
 					{"
 						.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
 						."display: block;
@@ -433,30 +433,30 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						."transition: all .4s ease;
 					}
 
-						mf-slide-nav .theme_nav ul a:hover
+						mf-slide-nav #primary_nav ul a:hover
 						{"
 							.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
 							.render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
 							."text-indent: .3em;
 						}
 
-						mf-slide-nav .theme_nav li.current_page_item > a
+						mf-slide-nav #primary_nav li.current_page_item > a
 						{"
 							.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
 							.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
 						."}
 
-					mf-slide-nav .theme_nav li ul
+					mf-slide-nav #primary_nav li ul
 					{
 						margin-bottom: 0;
 					}
 
-						mf-slide-nav .theme_nav li ul a
+						mf-slide-nav #primary_nav li ul a
 						{
 							text-indent: 1.4em;
 						}
 
-							mf-slide-nav .theme_nav li ul a:hover
+							mf-slide-nav #primary_nav li ul a:hover
 							{
 								text-indent: 2em;
 							}
@@ -863,6 +863,11 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					clear: unset;
 					text-align: center;
 				}
+
+					mf-slide-nav #primary_nav
+					{
+						text-align: left;
+					}
 
 					#primary_nav > .toggle_icon
 					{"
