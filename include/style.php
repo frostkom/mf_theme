@@ -562,6 +562,11 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
 								."}
 
+							article li + li
+							{
+								margin-top: 1em;
+							}
+
 				#aside
 				{"
 					.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
