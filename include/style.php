@@ -37,7 +37,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		.render_css(array('property' => 'color', 'value' => 'body_link_color'))
 	."}
 
-	#wrapper button, #wrapper .button
+	#wrapper .mf_form button, #wrapper .button
 	{";
 		if(isset($options['button_color']) && $options['button_color'] != '')
 		{
@@ -52,7 +52,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		$out .= "color: #fff;"
 	."}
 
-		#wrapper button:hover, #wrapper .button:hover
+		#wrapper .mf_form button:hover, #wrapper .button:hover
 		{"
 			.render_css(array('property' => 'background', 'value' => 'button_color_hover'))
 		."}
@@ -241,11 +241,15 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									.theme_nav li:hover > ul, .theme_nav li.current-menu-item > ul, .theme_nav li.current-menu-ancestor > ul
 									{
 										display: block;
+										/*opacity: 1;
+										transition: .3s 0s;*/
 									}
 
 									.theme_nav li > ul
 									{
 										display: none;
+										/*opacity: 0;
+										transition: .3s .5s;*/
 									}
 
 					#primary_nav
