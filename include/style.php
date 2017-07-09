@@ -375,7 +375,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 				mf-slide-nav .fa-close
 				{
-					font-size: 1.4em;
+					font-size: 2em;
 					margin: 3% 4% 0 0;
 					position: absolute;
 					right: 0;
