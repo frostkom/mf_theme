@@ -998,7 +998,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						white-space: nowrap;
 					}
 
-						.theme_nav.is_mobile_ready .sub-menu a
+						#primary_nav.theme_nav.is_mobile_ready .sub-menu a
 						{"
 							.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
@@ -1017,7 +1017,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 								border-bottom-right-radius: .3em;
 							}
 
-							.theme_nav.is_mobile_ready .sub-menu a:hover
+							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover
 							{"
 								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
 								.render_css(array('property' => 'color', 'value' => 'sub_nav_color_hover'))
