@@ -227,7 +227,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 							position: relative;
 						}
 
-							.theme_nav.is_mobile_ready li:first-child
+							header .theme_nav.is_mobile_ready li:first-child
 							{
 								margin-left: 0;
 							}
@@ -241,18 +241,14 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									.theme_nav li:hover > ul, .theme_nav li.current-menu-item > ul, .theme_nav li.current-menu-ancestor > ul
 									{
 										display: block;
-										/*opacity: 1;
-										transition: .3s 0s;*/
 									}
 
 									.theme_nav li > ul
 									{
 										display: none;
-										/*opacity: 0;
-										transition: .3s .5s;*/
 									}
 
-					#primary_nav
+					header #primary_nav
 					{"
 						.render_css(array('property' => 'background', 'value' => 'nav_bg'))
 						.render_css(array('property' => 'clear', 'value' => 'nav_clear'))
@@ -825,7 +821,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				width: 100%;
 			}
 
-				#primary_nav
+				header #primary_nav
 				{
 					float: none;
 					clear: unset;
@@ -837,7 +833,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						text-align: left;
 					}
 
-					#primary_nav > .toggle_icon
+					header #primary_nav > .toggle_icon
 					{"
 						.render_css(array('property' => 'color', 'value' => 'logo_color'))
 						."display: block;";
@@ -860,27 +856,27 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						z-index: 1;
 					}
 
-						#primary_nav .fa-close
+						header #primary_nav .fa-close
 						{
 							display: none;
 						}
 
-						#primary_nav.is_mobile_ready ul > li
+						header #primary_nav.is_mobile_ready ul > li
 						{
 							display: none;
 						}
 
-							#primary_nav.open .fa-bars
+							header #primary_nav.open .fa-bars
 							{
 								display: none;
 							}
 
-							#primary_nav.open .fa-close
+							header #primary_nav.open .fa-close
 							{
 								display: block;
 							}
 
-							#primary_nav.open ul > li
+							header #primary_nav.open ul > li
 							{
 								display: block;
 							}";
