@@ -367,7 +367,6 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				."bottom: 0;"
 				.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
 				.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
-				.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
 				."overflow: hidden;
 				padding: 2.6em 0 1em;
 				position: absolute;
@@ -376,71 +375,76 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				width: 90%;
 				max-width: 300px;
 			}
+			
+				mf-slide-nav #primary_nav
+				{"
+					.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
+				."}
 
-				mf-slide-nav .fa-close
-				{
-					font-size: 2em;
-					margin: 3% 4% 0 0;
-					position: absolute;
-					right: 0;
-					top: 0;
-				}
-
-				mf-slide-nav ul
-				{
-					list-style: none;
-				}
-
-					mf-slide-nav #primary_nav ul a
-					{"
-						.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
-						."display: block;
-						letter-spacing: .2em;
-						overflow: hidden;"
-						.render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
-						."text-overflow: ellipsis;
-						transition: all .4s ease;
-						white-space: nowrap;
-					}
-
-						mf-slide-nav #primary_nav ul a:hover
-						{"
-							.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
-							.render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
-							."text-indent: .3em;
-						}
-
-						mf-slide-nav #primary_nav li.current_page_item > a
-						{"
-							.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
-							.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
-						."}
-
-					mf-slide-nav #primary_nav li ul
+					mf-slide-nav .fa-close
 					{
-						margin-bottom: 0;
+						font-size: 2em;
+						margin: 3% 4% 0 0;
+						position: absolute;
+						right: 0;
+						top: 0;
 					}
 
-						/* Hide children until hover or current page */
-						/*mf-slide-nav #primary_nav li:hover > .sub-menu, mf-slide-nav #primary_nav li.current-menu-item > .sub-menu, mf-slide-nav #primary_nav li.current-menu-ancestor > .sub-menu
-						{
-							display: block;
+					mf-slide-nav ul
+					{
+						list-style: none;
+					}
+
+						mf-slide-nav #primary_nav ul a
+						{"
+							.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
+							."display: block;
+							letter-spacing: .2em;
+							overflow: hidden;"
+							.render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
+							."text-overflow: ellipsis;
+							transition: all .4s ease;
+							white-space: nowrap;
 						}
 
-						mf-slide-nav #primary_nav .sub-menu
-						{
-							display: none;
-						}*/
-
-						mf-slide-nav #primary_nav li ul a
-						{
-							text-indent: 1.4em;
-						}
-
-							mf-slide-nav #primary_nav li ul a:hover
-							{
-								text-indent: 2em;
+							mf-slide-nav #primary_nav ul a:hover
+							{"
+								.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
+								.render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
+								."text-indent: .3em;
 							}
+
+							mf-slide-nav #primary_nav li.current_page_item > a
+							{"
+								.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
+								.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
+							."}
+
+						mf-slide-nav #primary_nav li ul
+						{
+							margin-bottom: 0;
+						}
+
+							/* Hide children until hover or current page */
+							/*mf-slide-nav #primary_nav li:hover > .sub-menu, mf-slide-nav #primary_nav li.current-menu-item > .sub-menu, mf-slide-nav #primary_nav li.current-menu-ancestor > .sub-menu
+							{
+								display: block;
+							}
+
+							mf-slide-nav #primary_nav .sub-menu
+							{
+								display: none;
+							}*/
+
+							mf-slide-nav #primary_nav li ul a
+							{
+								text-indent: 1.4em;
+							}
+
+								mf-slide-nav #primary_nav li ul a:hover
+								{
+									text-indent: 2em;
+								}
 
 				mf-slide-nav ul, mf-slide-nav p
 				{
