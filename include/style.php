@@ -359,7 +359,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				."bottom: 0;"
 				.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
 				.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
-				//.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
+				.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
 				."overflow: hidden;
 				padding: 2.6em 0 1em;
 				position: absolute;
@@ -387,9 +387,12 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					{"
 						.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
 						."display: block;
-						letter-spacing: .2em;"
+						letter-spacing: .2em;
+						overflow: hidden;"
 						.render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
-						."transition: all .4s ease;
+						."text-overflow: ellipsis;
+						transition: all .4s ease;
+						white-space: nowrap;
 					}
 
 						mf-slide-nav #primary_nav ul a:hover
