@@ -238,12 +238,19 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
 								."}
 
-									.theme_nav li:hover > ul, .theme_nav li.current-menu-item > ul, .theme_nav li.current-menu-ancestor > ul
+									.theme_nav li:hover > .sub-menu, .theme_nav li.current-menu-item > .sub-menu, .theme_nav li.current-menu-ancestor > .sub-menu
 									{
 										display: block;
+										opacity: .5;
 									}
 
-									.theme_nav li > ul
+										.theme_nav.is_mobile_ready li:hover > .sub-menu
+										{
+											opacity: 1;
+											z-index: 101;
+										}
+
+									.theme_nav .sub-menu
 									{
 										display: none;
 									}
@@ -413,6 +420,17 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					{
 						margin-bottom: 0;
 					}
+
+						/* Hide children until hover or current page */
+						/*mf-slide-nav #primary_nav li:hover > .sub-menu, mf-slide-nav #primary_nav li.current-menu-item > .sub-menu, mf-slide-nav #primary_nav li.current-menu-ancestor > .sub-menu
+						{
+							display: block;
+						}
+
+						mf-slide-nav #primary_nav .sub-menu
+						{
+							display: none;
+						}*/
 
 						mf-slide-nav #primary_nav li ul a
 						{
