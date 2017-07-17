@@ -170,6 +170,7 @@ if(!function_exists('get_params'))
 
 				$options_params[] = array('category' => " - ".__("Secondary", 'lang_theme'), 'id' => 'mf_theme_navigation_secondary');
 					$options_params[] = array('type' => "text", 'id' => 'nav_secondary_bg', 'title' => __("Background", 'lang_theme'));
+					$options_params[] = array('type' => "text", 'id' => 'nav_secondary_link_padding', 'title' => __("Link Padding", 'lang_theme'));
 					$options_params[] = array('type' => "clear", 'id' => 'nav_secondary_clear', 'title' => __("Clear", 'lang_theme'), 'default' => "none");
 					$options_params[] = array('type' => "text", 'id' => 'nav_secondary_size', 'title' => __("Size", 'lang_theme'), 'default' => "1.4em");
 					$options_params[] = array('type' => "align", 'id' => 'nav_secondary_align', 'title' => __("Align", 'lang_theme'), 'placeholder' => "left, right", 'default' => "right");

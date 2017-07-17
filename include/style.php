@@ -295,6 +295,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						#secondary_nav a
 						{"
 							.render_css(array('property' => 'color', 'value' => 'nav_secondary_color'))
+							.render_css(array('property' => 'padding', 'value' => 'nav_secondary_link_padding'))
 						."}
 
 							#secondary_nav a:hover, #secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
