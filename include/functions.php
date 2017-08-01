@@ -1,5 +1,55 @@
 <?php
 
+function cron_theme()
+{
+	list($options_params, $options) = get_params();
+
+	if(isset($options['style_source']) && $options['style_source'] != '')
+	{
+		$style_source = trim($options['style_source'], "/");
+
+		if($style_source != get_site_url())
+		{
+			if(filter_var($style_source, FILTER_VALIDATE_URL))
+			{
+				list($content, $headers) = get_url_content($style_source."/wp-content/themes/mf_theme/include/ajax.php?type=get_style_source", true);
+
+				if(isset($headers['http_code']) && $headers['http_code'] == 200)
+				{
+					$json = json_decode($content, true);
+
+					if(isset($json['success']) && $json['success'] == true)
+					{
+						$version = $json['response']['theme_version'];
+						$style_changed = $json['response']['style_changed'];
+						$style_url = $json['response']['style_url'];
+
+						$theme = wp_get_theme();
+
+						update_option('theme_source_version', ($version != $theme->get('Version') ? $version : ""));
+						update_option('theme_source_style_url', ($style_changed > get_option('mf_theme_saved') ? $style_url : ""));
+					}
+
+					else
+					{
+						do_log(sprintf(__("The feed from %s returned an error", 'lang_theme'), $style_source));
+					}
+				}
+
+				else
+				{
+					do_log(sprintf(__("The response from %s had an error (%s)", 'lang_theme'), $style_source, $headers['http_code']));
+				}
+			}
+
+			else
+			{
+				do_log(sprintf(__("I could not process the feed from %s since the URL was not a valid one", 'lang_theme'), $style_source));
+			}
+		}
+	}
+}
+
 if(!function_exists('get_search_page'))
 {
 	function get_search_page()
@@ -64,6 +114,14 @@ if(!function_exists('content_meta_theme'))
 	}
 }
 
+if(!function_exists('customize_save_theme'))
+{
+	function customize_save_theme()
+	{
+		update_option('mf_theme_saved', date("Y-m-d H:i:s"));
+	}
+}
+
 if(!function_exists('setup_theme'))
 {
 	function setup_theme()
@@ -82,7 +140,26 @@ if(!function_exists('options_theme'))
 {
 	function options_theme()
 	{
-		add_theme_page(__("Theme Options", 'lang_theme'), __("Theme Options", 'lang_theme'), 'edit_theme_options', 'theme_options', 'options_page_theme');
+		$count_message = "";
+
+		$rows = 0;
+
+		$theme_source_version = get_option('theme_source_version');
+		$theme_source_style_url = get_option('theme_source_style_url');
+
+		if($theme_source_version != ''){		$rows++;}
+		if($theme_source_style_url != ''){		$rows++;}
+
+		if($rows > 0)
+		{
+			$count_message = "&nbsp;<span class='update-plugins' title='".__("Theme Updates", 'lang_theme')."'>
+				<span>".$rows."</span>
+			</span>";
+		}
+
+		$menu_title = __("Theme Options", 'lang_theme');
+		
+		add_theme_page($menu_title, $menu_title.$count_message, 'edit_theme_options', 'theme_options', 'options_page_theme');
 	}
 }
 
@@ -105,6 +182,7 @@ if(!function_exists('get_params'))
 		$bg_placeholder = "#ffffff, rgba(0, 0, 0, .3), url(background.png)";
 
 		$options_params[] = array('category' => __("Generic", 'lang_theme'), 'id' => 'mf_theme_body');
+			$options_params[] = array('type' => "text", 'id' => 'style_source', 'title' => __("Get Updates From", 'lang_theme'), 'placeholder' => "http://domain.com");
 			$options_params[] = array('type' => "text", 'id' => 'body_bg', 'title' => __("Background", 'lang_theme'), 'default' => "#fff", 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "text", 'id' => 'main_padding', 'title' => __("Padding", 'lang_theme'), 'default' => "1em 2em");
 				$options_params[] = array('type' => "color", 'id' => 'body_color', 'title' => __("Text Color", 'lang_theme'));
