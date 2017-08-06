@@ -140,6 +140,8 @@ if(!function_exists('options_theme'))
 {
 	function options_theme()
 	{
+		global $menu;
+
 		$count_message = "";
 
 		$rows = 0;
@@ -155,6 +157,21 @@ if(!function_exists('options_theme'))
 			$count_message = "&nbsp;<span class='update-plugins' title='".__("Theme Updates", 'lang_theme')."'>
 				<span>".$rows."</span>
 			</span>";
+
+			if(count($menu) > 0)
+			{
+				foreach($menu as $key => $item)
+				{
+					if($item[2] == 'themes.php')
+					{
+						//$update_count = get_match("/(\<span.*\<\/span\>)/is", $item[0], false);
+						//$menu_name = trim(str_replace($update_count, "", $item[0]));
+						$menu_name = $item[0];
+
+						$menu[$key][0] = strip_tags($menu_name).$count_message;
+					}
+				}
+			}
 		}
 
 		$menu_title = __("Theme Options", 'lang_theme');

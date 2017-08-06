@@ -35,15 +35,12 @@ else if($type_action == "get_style_source")
 	{
 		list($upload_path, $upload_url) = get_uploads_folder('mf_theme');
 
-		$globals['mf_theme_files'] = array();
-
-		get_file_info(array('path' => $upload_path, 'callback' => "get_previous_backups"));
-
-		$count_temp = count($globals['mf_theme_files']);
+		$arr_backups = get_previous_backups_list($upload_path);
+		$count_temp = count($arr_backups);
 
 		if($count_temp > 0)
 		{
-			$style_url = $upload_url.$globals['mf_theme_files'][0]['name'];
+			$style_url = $upload_url.$arr_backups[0]['name'];
 			$style_changed = date("Y-m-d H:i:s", strtotime(substr($style_url, -17, 12)));
 		}
 
