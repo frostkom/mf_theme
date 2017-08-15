@@ -164,8 +164,6 @@ if(!function_exists('options_theme'))
 				{
 					if($item[2] == 'themes.php')
 					{
-						//$update_count = get_match("/(\<span.*\<\/span\>)/is", $item[0], false);
-						//$menu_name = trim(str_replace($update_count, "", $item[0]));
 						$menu_name = $item[0];
 
 						$menu[$key][0] = strip_tags($menu_name).$count_message;
