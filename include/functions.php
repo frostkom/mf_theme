@@ -20,13 +20,9 @@ function cron_theme()
 
 					if(isset($json['success']) && $json['success'] == true)
 					{
-						$version = $json['response']['theme_version'];
 						$style_changed = $json['response']['style_changed'];
 						$style_url = $json['response']['style_url'];
 
-						$theme = wp_get_theme();
-
-						update_option('theme_source_version', ($version != $theme->get('Version') ? $version : ""));
 						update_option('theme_source_style_url', ($style_changed > get_option('mf_theme_saved') ? $style_url : ""));
 					}
 
@@ -146,10 +142,8 @@ if(!function_exists('options_theme'))
 
 		$rows = 0;
 
-		$theme_source_version = get_option('theme_source_version');
 		$theme_source_style_url = get_option('theme_source_style_url');
 
-		if($theme_source_version != ''){		$rows++;}
 		if($theme_source_style_url != ''){		$rows++;}
 
 		if($rows > 0)

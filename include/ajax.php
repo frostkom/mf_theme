@@ -52,7 +52,7 @@ else if($type_action == "get_style_source")
 
 		$json_output['success'] = true;
 		$json_output['response'] = array(
-			'theme_version' => $theme->get('Version'),
+			'theme_version' => $theme->get('Version'), //Deprecated
 			'style_changed' => $style_changed,
 			'style_url' => $style_url,
 		);
