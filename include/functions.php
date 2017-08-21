@@ -44,6 +44,9 @@ function cron_theme()
 			}
 		}
 	}
+
+	list($upload_path, $upload_url) = get_uploads_folder('mf_theme');
+	get_file_info(array('path' => $upload_path, 'callback' => "delete_files"));
 }
 
 if(!function_exists('get_search_page'))
@@ -167,7 +170,7 @@ if(!function_exists('options_theme'))
 		}
 
 		$menu_title = __("Theme Options", 'lang_theme');
-		
+
 		add_theme_page($menu_title, $menu_title.$count_message, 'edit_theme_options', 'theme_options', 'options_page_theme');
 	}
 }

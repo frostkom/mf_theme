@@ -219,7 +219,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					{
 						list-style: none;
 					}
-					
+
 						.theme_nav.is_mobile_ready li
 						{
 							display: inline-block;
@@ -231,7 +231,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 							{
 								margin-left: 0;
 							}
-							
+
 								.theme_nav a
 								{
 									display: block;"
@@ -375,7 +375,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				width: 90%;
 				max-width: 300px;
 			}
-			
+
 				mf-slide-nav #primary_nav
 				{"
 					.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
@@ -537,14 +537,14 @@ $out = show_font_face($options_params, $options_fonts, $options)
 							-moz-column-gap: 2em;
 							column-gap: 2em;
 						}
-					
+
 							article section.columns_2
 							{
 								-webkit-column-count: 2;
 								-moz-column-count: 2;
 								column-count: 2;
 							}
-							
+
 							article section.columns_3
 							{
 								-webkit-column-count: 3;
@@ -1002,7 +1002,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						margin-top: 3.4em:
 						padding-top: 0;
 					}
-				
+
 						.theme_nav.is_mobile_ready .sub-menu:before
 						{
 							border: .7em solid transparent;"
