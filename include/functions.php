@@ -101,6 +101,28 @@ if(!function_exists('head_theme'))
 	}
 }
 
+if(!function_exists('body_class_theme'))
+{
+	function body_class_theme($classes)
+	{
+		global $post;
+
+		if($post->ID > 0)
+		{
+			$meta_prefix = "mf_theme_";
+
+			$body_class = get_post_meta($post->ID, $meta_prefix.'body_class', true);
+
+			if($body_class)
+			{
+				$classes[] = $body_class;
+			}
+		}
+
+		return $classes;
+	}
+}
+
 if(!function_exists('content_meta_theme'))
 {
 	function content_meta_theme($html, $post)
@@ -143,9 +165,7 @@ if(!function_exists('options_theme'))
 		global $menu;
 
 		$count_message = "";
-
 		$rows = 0;
-
 		$theme_source_style_url = get_option('theme_source_style_url');
 
 		if($theme_source_style_url != ''){		$rows++;}
@@ -501,6 +521,11 @@ if(!function_exists('meta_boxes_theme'))
 						'min' => 1,
 						'max' => 2,
 					),
+				),
+				array(
+					'name' => __("Body Class", 'lang_theme'),
+					'id' => $meta_prefix.'body_class',
+					'type' => 'text',
 				),
 			)
 		);

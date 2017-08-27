@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 16:12+0100\n"
+"POT-Creation-Date: 2017-08-27 08:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../index.php:62
 #: ../index.php:72
-#: ../include/functions.php:685
+#: ../include/functions.php:690
 msgid "Read More"
 msgstr "Läs mer"
 
@@ -41,7 +41,7 @@ msgstr "Visa meny"
 
 #: ../include/classes.php:57
 #: ../include/functions.php:259
-#: ../include/functions.php:578
+#: ../include/functions.php:583
 msgid "Menu"
 msgstr "Meny"
 
@@ -453,15 +453,19 @@ msgstr "Visa rubrik"
 msgid "Text Columns"
 msgstr "Textkolumner"
 
-#: ../include/functions.php:537
+#: ../include/functions.php:506
+msgid "Body Class"
+msgstr "Klass på Body"
+
+#: ../include/functions.php:542
 msgid "Site logo"
 msgstr "Logga för webbsidan"
 
-#: ../include/functions.php:542
+#: ../include/functions.php:547
 msgid "Site mobile logo"
 msgstr "Mobil logga"
 
-#: ../include/functions.php:703
+#: ../include/functions.php:708
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
 

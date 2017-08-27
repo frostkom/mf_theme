@@ -820,7 +820,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 	{
 		body:before
 		{
-			content: 'mobile';
+			content: 'is_mobile';
 		}
 
 		.hide_if_mobile
@@ -967,7 +967,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 	{
 		body:before
 		{
-			content: 'tablet';
+			content: 'is_tablet';
 			display: none;
 		}
 
@@ -1056,7 +1056,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 	{
 		body:before
 		{
-			content: 'desktop';
+			content: 'is_desktop';
 		}
 
 		header > div, mf-after-header > div, #mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
@@ -1072,7 +1072,7 @@ $out .= "@media print
 {
 	body:before
 	{
-		content: 'print';
+		content: 'is_print';
 	}
 
 	body
