@@ -38,18 +38,9 @@ $out = show_font_face($options_params, $options_fonts, $options)
 	."}
 
 	#wrapper .mf_form button, #wrapper .button
-	{";
-		if(isset($options['button_color']) && $options['button_color'] != '')
-		{
-			$out .= render_css(array('property' => 'background', 'value' => 'button_color'));
-		}
-
-		else
-		{
-			$out .= render_css(array('property' => 'background', 'value' => 'nav_color_hover'));
-		}
-
-		$out .= "color: #fff;"
+	{"
+		.render_css(array('property' => 'background', 'value' => array('button_color', 'nav_color_hover')))
+		."color: #fff;"
 	."}
 
 		#wrapper .mf_form button:hover, #wrapper .button:hover
@@ -75,15 +66,9 @@ $out = show_font_face($options_params, $options_fonts, $options)
 	}
 
 	body
-	{";
-
-		if(isset($options['footer_bg']) && $options['footer_bg'] != '')
-		{
-			$out .= render_css(array('property' => 'background', 'value' => 'footer_bg'))
-			."min-height: 100vh;";
-		}
-
-		$out .= render_css(array('property' => 'font-family', 'value' => 'body_font'))
+	{"
+		.render_css(array('property' => 'background', 'value' => 'footer_bg', 'append' => "min-height: 100vh;"))
+		.render_css(array('property' => 'font-family', 'value' => 'body_font'))
 		.render_css(array('property' => 'color', 'value' => 'body_color'))
 		."overflow: hidden;
 		position: relative;
@@ -116,15 +101,12 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			.render_css(array('property' => 'background', 'value' => 'header_bg'))
 			.render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
 			."position: relative;
-		}";
+		}
 
-			if(isset($options['header_padding']) && $options['header_padding'] != '')
-			{
-				$out .= "header > div
-				{"
-					.render_css(array('property' => 'padding', 'value' => 'header_padding'))
-				."}";
-			}
+			header > div
+			{"
+				.render_css(array('property' => 'padding', 'value' => 'header_padding'))
+			."}";
 
 				if(isset($options['header_fixed']) && $options['header_fixed'] == 2)
 				{
@@ -550,23 +532,19 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								-webkit-column-count: 3;
 								-moz-column-count: 3;
 								column-count: 3;
-							}";
+							}
 
+					article p, article ul, article ol, article form
+					{"
+						.render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
+					."}
 
-					if(isset($options['section_margin_between']) && $options['section_margin_between'] != '')
-					{
-						$out .= "article p, article ul, article ol, article form
-						{"
-							.render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
-						."}
+						article p:last-child, article ul:last-child, article ol:last-child, article form:last-child
+						{
+							margin-bottom: 0;
+						}
 
-							article p:last-child, article ul:last-child, article ol:last-child, article form:last-child
-							{
-								margin-bottom: 0;
-							}";
-					}
-
-						$out .= "article ul, article ol, article form
+						article ul, article ol, article form
 						{
 							clear: both;
 						}
@@ -641,25 +619,19 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		{"
 			.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
 			."overflow: hidden;
-		}";
+		}
 
-			if(isset($options['pre_footer_padding']) && $options['pre_footer_padding'] != '')
-			{
-				$out .= "mf-pre-footer > div
+			mf-pre-footer > div
+			{"
+				.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
+			."}
+
+				mf-pre-footer > div .widget
 				{"
-					.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
-				."}";
-			}
+					.render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
+				."}
 
-				if(isset($options['pre_footer_widget_padding']) && $options['pre_footer_widget_padding'] != '')
-				{
-					$out .= "mf-pre-footer > div .widget
-					{"
-						.render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
-					."}";
-				}
-
-		$out .= "footer
+		footer
 		{"
 			.render_css(array('property' => 'background', 'value' => 'footer_bg'))
 			."overflow: hidden;
@@ -705,14 +677,9 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					footer .widget h3
 					{"
-						.render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'));
-
-						if(isset($options['footer_widget_heading_text_transform']) && $options['footer_widget_heading_text_transform'] != '')
-						{
-							$out .= render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'));
-						}
-
-					$out .= "}
+						.render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'))
+						.render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'))
+					."}
 
 						footer ul
 						{
@@ -748,19 +715,9 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						."}
 
 							footer .widget a:hover, footer li.current_page_item a
-							{";
-
-								if(isset($options['footer_color_hover']) && $options['footer_color_hover'] != '')
-								{
-									$out .= render_css(array('property' => 'color', 'value' => 'footer_color_hover'));
-								}
-
-								else
-								{
-									$out .= render_css(array('property' => 'color', 'value' => 'nav_color_hover'));
-								}
-
-							$out .= "}";
+							{"
+								.render_css(array('property' => 'color', 'value' => array('footer_color_hover', 'nav_color_hover')))
+							."}";
 
 	if(isset($options['custom_css_all']) && $options['custom_css_all'] != '')
 	{
@@ -826,17 +783,14 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 		.hide_if_mobile
 		{
 			display: none;
-		}";
+		}
 
-			if(isset($options['logo_width_mobile']) && $options['logo_width_mobile'] != '')
-			{
-				$out .= "#site_logo
-				{"
-					.render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
-				."}";
-			}
+			#site_logo
+			{"
+				.render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
+			."}
 
-			$out .= "#secondary_nav, header .searchform
+			#secondary_nav, header .searchform
 			{
 				display: none;
 			}
@@ -862,19 +816,9 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					header #primary_nav > .toggle_icon
 					{"
 						.render_css(array('property' => 'color', 'value' => 'logo_color'))
-						."display: block;";
-
-						if(isset($options['hamburger_font_size']) && $options['hamburger_font_size'] != '')
-						{
-							$out .= render_css(array('property' => 'font-size', 'value' => 'hamburger_font_size'));
-						}
-
-						else
-						{
-							$out .= render_css(array('property' => 'font-size', 'value' => 'logo_font_size'));
-						}
-
-						$out .= "margin: .1em .2em;"
+						."display: block;"
+						.render_css(array('property' => 'font-size', 'value' => array('hamburger_font_size', 'logo_font_size')))
+						."margin: .1em .2em;"
 						.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
 						."position: absolute;
 						right: 0;
@@ -905,27 +849,12 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							header #primary_nav.open ul > li
 							{
 								display: block;
-							}";
+							}
 
-				/*.theme_nav.is_mobile_ready ul
-				{
-					min-height: 2em;
-				}*/
-
-					$out .= ".theme_nav.is_mobile_ready > div > ul > li
-					{";
-
-						if(isset($options['hamburger_menu_bg']) && $options['hamburger_menu_bg'] != '')
-						{
-							$out .= render_css(array('property' => 'background', 'value' => 'hamburger_menu_bg'));
-						}
-
-						else
-						{
-							$out .= render_css(array('property' => 'background', 'value' => 'header_bg'));
-						}
-
-						$out .= "display: none;
+					.theme_nav.is_mobile_ready > div > ul > li
+					{"
+						.render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg')))
+						."display: none;
 					}
 
 						.theme_nav.is_mobile_ready > div > ul > li:last-of-type
@@ -974,17 +903,14 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 		.show_if_mobile
 		{
 			display: none;
-		}";
-
-		if(isset($options['body_desktop_font_size']) && $options['body_desktop_font_size'] != '' && $options['body_desktop_font_size'] != $options['body_font_size'])
-		{
-			$out .= "html
-			{"
-				.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
-			."}";
 		}
 
-			$out .= ".theme_nav.is_mobile_ready .sub-menu
+		html
+		{"
+			.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
+		."}
+
+			.theme_nav.is_mobile_ready .sub-menu
 			{"
 				//.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 				."border-radius: .3em;
