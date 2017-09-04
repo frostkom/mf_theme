@@ -463,6 +463,38 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						color: inherit;
 					}
 
+				article h2
+				{"
+					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.render_css(array('property' => 'font-size', 'value' => 'heading_font_h2'))
+					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h2'))
+					.render_css(array('property' => 'margin', 'value' => 'heading_margin_h2'))
+				."}
+
+				article h3
+				{"
+					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h3'))
+					.render_css(array('property' => 'margin', 'value' => 'heading_margin_h3'))
+					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h3'))
+				."}
+
+				article h4
+				{"
+					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h4'))
+					.render_css(array('property' => 'margin', 'value' => 'heading_margin_h4'))
+					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h4'))
+				."}
+
+				article h5
+				{"
+					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h5'))
+					.render_css(array('property' => 'margin', 'value' => 'heading_margin_h5'))
+					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h5'))
+				."}
+
 				article .meta
 				{"
 					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
