@@ -9,7 +9,7 @@ if(!defined('ABSPATH'))
 	require_once($folder."wp-load.php");
 }
 
-//do_action('init_style');
+do_action('init_style');
 
 $options_fonts = get_theme_fonts();
 
@@ -913,9 +913,8 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 		."}
 
 			.theme_nav.is_mobile_ready .sub-menu
-			{"
-				//.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
-				."border-radius: .3em;
+			{
+				border-radius: .3em;
 				left: 50%;
 				position: absolute;
 				padding-top: .5em;
