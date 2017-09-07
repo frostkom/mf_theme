@@ -107,7 +107,7 @@ if(!function_exists('body_class_theme'))
 	{
 		global $post;
 
-		if(isset($post) && $post->ID > 0)
+		if(isset($post) && isset($post->ID) && $post->ID > 0)
 		{
 			$meta_prefix = "mf_theme_";
 
