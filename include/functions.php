@@ -244,7 +244,6 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "image", 'id' => 'header_logo', 'title' => __("Image", 'lang_theme'));
 				$options_params[] = array('type' => "text", 'id' => 'logo_width', 'title' => __("Width", 'lang_theme'), 'default' => '14em', 'show_if' => 'header_logo');
 				$options_params[] = array('type' => "image", 'id' => 'header_mobile_logo', 'title' => __("Image", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'show_if' => 'mobile_breakpoint');
-				//$options_params[] = array('type' => "checkbox", 'id' => 'logo_mobile_visible', 'title' => __("Show Logo on small screens", 'lang_theme'), 'default' => 2);
 				$options_params[] = array('type' => "text", 'id' => 'logo_width_mobile', 'title' => __("Width", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'default' => '20em');
 				$options_params[] = array('type' => "font", 'id' => 'logo_font', 'title' => __("Font", 'lang_theme'), 'hide_if' => 'header_logo');
 				$options_params[] = array('type' => "text", 'id' => 'logo_font_size', 'title' => __("Font Size", 'lang_theme'), 'default' => "3em");
