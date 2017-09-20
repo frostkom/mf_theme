@@ -222,19 +222,19 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
 								."}
 
-									header .theme_nav li:hover > .sub-menu, header .theme_nav li.current-menu-item > .sub-menu, header .theme_nav li.current-menu-ancestor > .sub-menu, header .theme_nav li:hover > .children, header .theme_nav li.current-menu-item > .children, header .theme_nav li.current-menu-ancestor > .children
+									header .theme_nav li:hover > .sub-menu, header .theme_nav li.current-menu-item > .sub-menu, header .theme_nav li.current-menu-ancestor > .sub-menu/*, header .theme_nav li:hover > .children, header .theme_nav li.current-menu-item > .children, header .theme_nav li.current-menu-ancestor > .children*/
 									{
 										display: block;
 										opacity: .5;
 									}
 
-										header .theme_nav.is_mobile_ready li:hover > .sub-menu, header .theme_nav.is_mobile_ready li:hover > .children
+										header .theme_nav.is_mobile_ready li:hover > .sub-menu/*, header .theme_nav.is_mobile_ready li:hover > .children*/
 										{
 											opacity: 1;
 											z-index: 101;
 										}
 
-									.theme_nav .sub-menu, .theme_nav .children
+									.theme_nav .sub-menu/*, .theme_nav .children*/
 									{
 										display: none;
 									}
@@ -411,12 +411,14 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						}
 
 							/* Hide children until hover or current page */
-							mf-slide-nav #primary_nav.is_large .sub-menu, mf-slide-nav #primary_nav.is_large .children
+							mf-slide-nav #primary_nav.is_large .sub-menu
+							/*, mf-slide-nav #primary_nav.is_large .children*/
 							{
 								display: none;
 							}
 
-								/*mf-slide-nav #primary_nav.is_large li:hover > .sub-menu, mf-slide-nav #primary_nav.is_large li:hover > .children, */mf-slide-nav #primary_nav.is_large li.current-menu-item > .sub-menu, mf-slide-nav #primary_nav.is_large li.current-menu-item > .children, mf-slide-nav #primary_nav.is_large li.current-menu-ancestor > .sub-menu, mf-slide-nav #primary_nav.is_large li.current-menu-ancestor > .children
+								mf-slide-nav #primary_nav.is_large li:hover > .sub-menu, mf-slide-nav #primary_nav.is_large li.current-menu-item > .sub-menu, mf-slide-nav #primary_nav.is_large li.current-menu-ancestor > .sub-menu
+								/*, mf-slide-nav #primary_nav.is_large li:hover > .children, mf-slide-nav #primary_nav.is_large li.current-menu-item > .children, mf-slide-nav #primary_nav.is_large li.current-menu-ancestor > .children*/
 								{
 									display: block;
 								}
@@ -903,7 +905,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							border-bottom: 0;
 						}
 
-							.theme_nav ul .sub-menu, .theme_nav ul .children
+							.theme_nav ul .sub-menu/*, .theme_nav ul .children*/
 							{
 								display: block;
 							}
@@ -946,7 +948,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
 		."}
 
-			.theme_nav.is_mobile_ready .sub-menu, .theme_nav.is_mobile_ready .children
+			.theme_nav.is_mobile_ready .sub-menu/*, .theme_nav.is_mobile_ready .children*/
 			{
 				border-radius: .3em;
 				left: 50%;
@@ -958,13 +960,13 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 				if(isset($options['sub_nav_arrow']) && $options['sub_nav_arrow'] == 2)
 				{
-					$out .= ".theme_nav.is_mobile_ready .sub-menu, .theme_nav.is_mobile_ready .children
+					$out .= ".theme_nav.is_mobile_ready .sub-menu/*, .theme_nav.is_mobile_ready .children*/
 					{
 						margin-top: 3.4em:
 						padding-top: 0;
 					}
 
-						.theme_nav.is_mobile_ready .sub-menu:before, .theme_nav.is_mobile_ready .children:before
+						.theme_nav.is_mobile_ready .sub-menu:before/*, .theme_nav.is_mobile_ready .children:before*/
 						{
 							border: .7em solid transparent;"
 							.render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
@@ -976,31 +978,31 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						}";
 				}
 
-					$out .= ".theme_nav.is_mobile_ready .sub-menu, .theme_nav.is_mobile_ready .children
+					$out .= ".theme_nav.is_mobile_ready .sub-menu/*, .theme_nav.is_mobile_ready .children*/
 					{
 						white-space: nowrap;
 					}
 
-						#primary_nav.theme_nav.is_mobile_ready .sub-menu a, #primary_nav.theme_nav.is_mobile_ready .children a
+						#primary_nav.theme_nav.is_mobile_ready .sub-menu a/*, #primary_nav.theme_nav.is_mobile_ready .children a*/
 						{"
 							.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
 							."padding: .8em;
 						}
 
-							.theme_nav.is_mobile_ready .sub-menu li:first-child a, .theme_nav.is_mobile_ready .children li:first-child a
+							.theme_nav.is_mobile_ready .sub-menu li:first-child a/*, .theme_nav.is_mobile_ready .children li:first-child a*/
 							{
 								border-top-left-radius: .3em;
 								border-bottom-left-radius: .3em;
 							}
 
-							.theme_nav.is_mobile_ready .sub-menu li:last-child a, .theme_nav.is_mobile_ready .children li:last-child a
+							.theme_nav.is_mobile_ready .sub-menu li:last-child a/*, .theme_nav.is_mobile_ready .children li:last-child a*/
 							{
 								border-top-right-radius: .3em;
 								border-bottom-right-radius: .3em;
 							}
 
-							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover, #primary_nav.theme_nav.is_mobile_ready .children a:hover
+							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover/*, #primary_nav.theme_nav.is_mobile_ready .children a:hover*/
 							{"
 								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
 								.render_css(array('property' => 'color', 'value' => 'sub_nav_color_hover'))

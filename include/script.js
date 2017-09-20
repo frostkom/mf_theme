@@ -62,13 +62,10 @@ jQuery(function($)
 			show_slide_menu();
 		});
 
-		$(document).on('click', '.is_large .menu-item-has-children > a:not(.clicked)', function(e)
+		$(document).on('click', '.is_large .menu-item-has-children:not(.current-menu-item) > a', function()
 		{
-			var dom_obj = $(this),
-				dom_sibling = dom_obj.siblings('.sub-menu, .children');
-
-			dom_sibling.show().parents('.menu-item').siblings('.menu-item').children('.sub-menu, .children').hide();
-			dom_obj.addClass('clicked').parent('.menu-item').siblings('.menu-item').children('a.clicked').removeClass('clicked');
+			/*$(this).siblings('.sub-menu, .children').show().parents('.menu-item').siblings('.menu-item').children('.sub-menu, .children').hide();*/
+			$(this).parent('li').addClass('current-menu-item');
 
 			return false;
 		});
