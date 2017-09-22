@@ -23,7 +23,7 @@ function cron_theme()
 						$style_changed = $json['response']['style_changed'];
 						$style_url = $json['response']['style_url'];
 
-						update_option('theme_source_style_url', ($style_changed > get_option('mf_theme_saved') ? $style_url : ""));
+						update_option('theme_source_style_url', ($style_changed > get_option('mf_theme_saved') ? $style_url : ""), 'no');
 					}
 
 					else
@@ -140,7 +140,7 @@ if(!function_exists('customize_save_theme'))
 {
 	function customize_save_theme()
 	{
-		update_option('mf_theme_saved', date("Y-m-d H:i:s"));
+		update_option('mf_theme_saved', date("Y-m-d H:i:s"), 'no');
 	}
 }
 
