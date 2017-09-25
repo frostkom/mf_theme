@@ -15,7 +15,6 @@ function on_load_theme()
 	if(slide_dom_obj.length > 0)
 	{
 		var menu_items = slide_dom_obj.find('.menu .menu-item').length;
-		/*var submenu_items = slide_dom_obj.find('.sub-menu > .menu-item, .children > .menu-item').length;*/
 
 		if(menu_items > 10)
 		{
@@ -64,7 +63,6 @@ jQuery(function($)
 
 		$(document).on('click', '.is_large .menu-item-has-children:not(.current-menu-item) > a', function()
 		{
-			/*$(this).siblings('.sub-menu, .children').show().parents('.menu-item').siblings('.menu-item').children('.sub-menu, .children').hide();*/
 			$(this).parent('li').addClass('current-menu-item');
 
 			return false;
