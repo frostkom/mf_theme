@@ -11,7 +11,10 @@ class widget_theme_logo extends WP_Widget
 
 		$control_ops = array('id_base' => 'theme-logo-widget');
 
-		$this->arr_default = array();
+		$this->arr_default = array(
+			'logo_title' => '',
+			'logo_description' => '',
+		);
 
 		parent::__construct('theme-logo-widget', __("Logo", 'lang_theme'), $widget_ops, $control_ops);
 	}
@@ -23,7 +26,7 @@ class widget_theme_logo extends WP_Widget
 		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
 		echo $before_widget
-			.get_logo_theme()
+			.get_logo_theme(array('title' => $instance['logo_title'], 'description' => $instance['logo_description']))
 		.$after_widget;
 	}
 
@@ -33,7 +36,8 @@ class widget_theme_logo extends WP_Widget
 
 		$new_instance = wp_parse_args((array)$new_instance, $this->arr_default);
 
-		//$instance[''] = strip_tags($new_instance['']);
+		$instance['logo_title'] = sanitize_text_field($new_instance['logo_title']);
+		$instance['logo_description'] = sanitize_text_field($new_instance['logo_description']);
 
 		return $instance;
 	}
@@ -42,7 +46,10 @@ class widget_theme_logo extends WP_Widget
 	{
 		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
-		echo "<p>".__("No need for settings here, we'll take care of the rest", 'lang_theme')."</p>";
+		echo "<div class='mf_form'>"
+			.show_textfield(array('name' => $this->get_field_name('logo_title'), 'text' => __("Title", 'lang_buttons'), 'value' => $instance['logo_title']))
+			.show_textfield(array('name' => $this->get_field_name('logo_description'), 'text' => __("Tagline", 'lang_buttons'), 'value' => $instance['logo_description']))
+		."</div>";
 	}
 }
 

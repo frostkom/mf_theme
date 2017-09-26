@@ -555,38 +555,44 @@ if(!function_exists('is_clean'))
 
 if(!function_exists('get_logo_theme'))
 {
-	function get_logo_theme($options = "")
+	function get_logo_theme($data = array())
 	{
-		if($options == "")
+		if(!isset($data['title'])){				$data['title'] = '';}
+		if(!isset($data['description'])){		$data['description'] = '';}
+		if(!isset($data['options'])){			$data['options'] = '';}
+
+		if($data['options'] == "")
 		{
-			list($options_params, $options) = get_params();
+			list($options_params, $data['options']) = get_params();
 		}
+
+		$has_logo = $data['options']['header_logo'] != '' || $data['options']['header_mobile_logo'] != '';
 
 		$out = "<a href='".get_site_url()."/' id='site_logo'>";
 
-			if($options['header_logo'] != '' || $options['header_mobile_logo'] != '')
+			if($has_logo && $data['title'] == '')
 			{
-				if($options['header_logo'] != '')
+				if($data['options']['header_logo'] != '')
 				{
-					$out .= "<img src='".$options['header_logo']."'".($options['header_mobile_logo'] != '' ? " class='hide_if_mobile'" : "")." alt='".__("Site logo", 'lang_theme')."'>";
+					$out .= "<img src='".$data['options']['header_logo']."'".($data['options']['header_mobile_logo'] != '' ? " class='hide_if_mobile'" : "")." alt='".__("Site logo", 'lang_theme')."'>";
 				}
 
-				if($options['header_mobile_logo'] != '')
+				if($data['options']['header_mobile_logo'] != '')
 				{
-					$out .= "<img src='".$options['header_mobile_logo']."'".($options['header_logo'] != '' ? " class='show_if_mobile'" : "")." alt='".__("Site mobile logo", 'lang_theme')."'>";
+					$out .= "<img src='".$data['options']['header_mobile_logo']."'".($data['options']['header_logo'] != '' ? " class='show_if_mobile'" : "")." alt='".__("Site mobile logo", 'lang_theme')."'>";
 				}
 			}
 
 			else
 			{
-				$site_name = get_bloginfo('name');
-				$site_description = get_bloginfo('description');
+				$logo_title = $data['title'] != '' ? $data['title'] : get_bloginfo('name');
+				$logo_description = $data['description'] != '' ? $data['description'] : get_bloginfo('description');
 
-				$out .= "<div>".$site_name."</div>";
+				$out .= "<div>".$logo_title."</div>";
 
-				if($site_description != '')
+				if($logo_description != '')
 				{
-					$out .= "<span>".$site_description."</span>";
+					$out .= "<span>".$logo_description."</span>";
 				}
 			}
 

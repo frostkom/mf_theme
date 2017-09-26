@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-21 11:21+0100\n"
+"POT-Creation-Date: 2017-09-26 09:14+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../index.php:62
 #: ../index.php:72
-#: ../include/functions.php:719
+#: ../include/functions.php:725
 msgid "Read More"
 msgstr "Läs mer"
 
@@ -26,26 +26,30 @@ msgstr "Läs mer"
 msgid "Display logo"
 msgstr "Visa logga"
 
-#: ../include/classes.php:16
+#: ../include/classes.php:19
 #: ../include/functions.php:242
 msgid "Logo"
 msgstr "Logga"
 
-#: ../include/classes.php:45
-msgid "No need for settings here, we'll take care of the rest"
-msgstr "Inställningar behövs inte här, vi tar hand om resten"
+#: ../include/classes.php:50
+msgid "Title"
+msgstr "Titel"
 
-#: ../include/classes.php:55
+#: ../include/classes.php:51
+msgid "Tagline"
+msgstr "Slogan"
+
+#: ../include/classes.php:62
 msgid "Display menu"
 msgstr "Visa meny"
 
-#: ../include/classes.php:62
+#: ../include/classes.php:69
 #: ../include/functions.php:278
-#: ../include/functions.php:612
+#: ../include/functions.php:618
 msgid "Menu"
 msgstr "Meny"
 
-#: ../include/classes.php:92
+#: ../include/classes.php:99
 msgid "Menu Type"
 msgstr "Typ av meny"
 
@@ -467,17 +471,21 @@ msgstr "Textkolumner"
 msgid "Body Class"
 msgstr "Klass på Body"
 
-#: ../include/functions.php:571
+#: ../include/functions.php:577
 msgid "Site logo"
 msgstr "Logga för webbsidan"
 
-#: ../include/functions.php:576
+#: ../include/functions.php:582
 msgid "Site mobile logo"
 msgstr "Mobil logga"
 
-#: ../include/functions.php:737
+#: ../include/functions.php:743
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
+
+#: ../../mf_parallax/include/classes.php:47
+msgid "No need for settings here, we'll take care of the rest"
+msgstr "Inställningar behövs inte här, vi tar hand om resten"
 
 #: ../../mf_parallax/include/functions.php:77
 msgid "Aside Image Max Width"
@@ -535,7 +543,7 @@ msgstr "Textstorlek på paragraf"
 #: ../../mf_parallax/include/functions.php:254
 #, php-format
 msgid "To choose if this page should be part of the One Page/Parallax you have to set %sShow on Front%s to Your latest Posts."
-msgstr ""
+msgstr "För att välja om denna sida ska vara en del av en sk. one-page måste du ändra %sStartsidan visar%s till Dina senaste inlägg"
 
 #: ../../mf_parallax/include/functions.php:268
 msgid "Information"
