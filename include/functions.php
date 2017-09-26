@@ -566,7 +566,7 @@ if(!function_exists('get_logo_theme'))
 			list($options_params, $data['options']) = get_params();
 		}
 
-		$has_logo = $data['options']['header_logo'] != '' || $data['options']['header_mobile_logo'] != '';
+		$has_logo = isset($data['options']['header_logo']) && $data['options']['header_logo'] != '' || isset($data['options']['header_mobile_logo']) && $data['options']['header_mobile_logo'] != '';
 
 		$out = "<a href='".get_site_url()."/' id='site_logo'>";
 
