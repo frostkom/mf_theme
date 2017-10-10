@@ -46,9 +46,10 @@ class widget_theme_logo extends WP_Widget
 	{
 		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
-		echo "<div class='mf_form'>"
-			.show_textfield(array('name' => $this->get_field_name('logo_title'), 'text' => __("Title", 'lang_buttons'), 'value' => $instance['logo_title']))
-			.show_textfield(array('name' => $this->get_field_name('logo_description'), 'text' => __("Tagline", 'lang_buttons'), 'value' => $instance['logo_description']))
+		echo "<div class='mf_form'>
+			<p>".__("If these are left empty, the chosen logo for the site will be displayed. If there is no chosen logo the site name will be displayed instead.", 'lang_theme')."</p>"
+			.show_textfield(array('name' => $this->get_field_name('logo_title'), 'text' => __("Title", 'lang_theme'), 'value' => $instance['logo_title']))
+			.show_textfield(array('name' => $this->get_field_name('logo_description'), 'text' => __("Tagline", 'lang_theme'), 'value' => $instance['logo_description']))
 		."</div>";
 	}
 }

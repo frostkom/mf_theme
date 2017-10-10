@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-26 09:14+0100\n"
+"POT-Creation-Date: 2017-10-09 14:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -32,24 +32,28 @@ msgid "Logo"
 msgstr "Logga"
 
 #: ../include/classes.php:50
+msgid "If these are left empty, the chosen logo for the site will be displayed. If there is no chosen logo the site name will be displayed instead."
+msgstr "Om dessa fält lämnas tomma kommer den valda loggan för webbsidan att visas. Om det inte finns någon vald logga så visas webbplatsens namn istället."
+
+#: ../include/classes.php:51
 msgid "Title"
 msgstr "Titel"
 
-#: ../include/classes.php:51
+#: ../include/classes.php:52
 msgid "Tagline"
 msgstr "Slogan"
 
-#: ../include/classes.php:62
+#: ../include/classes.php:63
 msgid "Display menu"
 msgstr "Visa meny"
 
-#: ../include/classes.php:69
+#: ../include/classes.php:70
 #: ../include/functions.php:278
 #: ../include/functions.php:618
 msgid "Menu"
 msgstr "Meny"
 
-#: ../include/classes.php:99
+#: ../include/classes.php:100
 msgid "Menu Type"
 msgstr "Typ av meny"
 
