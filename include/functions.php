@@ -496,7 +496,7 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => "</div>"
 		));
 
-		register_widget('widget_theme_logo');
+		//register_widget('widget_theme_logo');
 		register_widget('widget_theme_menu');
 	}
 }
@@ -553,7 +553,7 @@ if(!function_exists('is_clean'))
 	}
 }
 
-if(!function_exists('get_logo_theme'))
+/*if(!function_exists('get_logo_theme'))
 {
 	function get_logo_theme($data = array())
 	{
@@ -600,7 +600,7 @@ if(!function_exists('get_logo_theme'))
 
 		return $out;
 	}
-}
+}*/
 
 if(!function_exists('get_menu_theme'))
 {

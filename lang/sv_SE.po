@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-09 14:54+0100\n"
+"POT-Creation-Date: 2017-10-11 09:42+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -21,27 +21,6 @@ msgstr ""
 #: ../include/functions.php:725
 msgid "Read More"
 msgstr "Läs mer"
-
-#: ../include/classes.php:9
-msgid "Display logo"
-msgstr "Visa logga"
-
-#: ../include/classes.php:19
-#: ../include/functions.php:242
-msgid "Logo"
-msgstr "Logga"
-
-#: ../include/classes.php:50
-msgid "If these are left empty, the chosen logo for the site will be displayed. If there is no chosen logo the site name will be displayed instead."
-msgstr "Om dessa fält lämnas tomma kommer den valda loggan för webbsidan att visas. Om det inte finns någon vald logga så visas webbplatsens namn istället."
-
-#: ../include/classes.php:51
-msgid "Title"
-msgstr "Titel"
-
-#: ../include/classes.php:52
-msgid "Tagline"
-msgstr "Slogan"
 
 #: ../include/classes.php:63
 msgid "Display menu"
@@ -234,6 +213,10 @@ msgstr "Färg"
 #: ../include/functions.php:239
 msgid "Search"
 msgstr "Sök"
+
+#: ../include/functions.php:242
+msgid "Logo"
+msgstr "Logga"
 
 #: ../include/functions.php:244
 #: ../include/functions.php:246
@@ -475,21 +458,9 @@ msgstr "Textkolumner"
 msgid "Body Class"
 msgstr "Klass på Body"
 
-#: ../include/functions.php:577
-msgid "Site logo"
-msgstr "Logga för webbsidan"
-
-#: ../include/functions.php:582
-msgid "Site mobile logo"
-msgstr "Mobil logga"
-
 #: ../include/functions.php:743
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
-
-#: ../../mf_parallax/include/classes.php:47
-msgid "No need for settings here, we'll take care of the rest"
-msgstr "Inställningar behövs inte här, vi tar hand om resten"
 
 #: ../../mf_parallax/include/functions.php:77
 msgid "Aside Image Max Width"

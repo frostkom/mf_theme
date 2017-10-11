@@ -1,6 +1,6 @@
 <?php
 
-class widget_theme_logo extends WP_Widget
+/*class widget_theme_logo extends WP_Widget
 {
 	function __construct()
 	{
@@ -26,7 +26,7 @@ class widget_theme_logo extends WP_Widget
 		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
 		echo $before_widget
-			.get_logo_theme(array('title' => $instance['logo_title'], 'description' => $instance['logo_description']))
+			.get_logo(array('title' => $instance['logo_title'], 'description' => $instance['logo_description']))
 		.$after_widget;
 	}
 
@@ -52,7 +52,7 @@ class widget_theme_logo extends WP_Widget
 			.show_textfield(array('name' => $this->get_field_name('logo_description'), 'text' => __("Tagline", 'lang_theme'), 'value' => $instance['logo_description']))
 		."</div>";
 	}
-}
+}*/
 
 class widget_theme_menu extends WP_Widget
 {
