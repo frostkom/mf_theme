@@ -22,9 +22,7 @@ echo "<!DOCTYPE html>
 
 					else
 					{
-						//list($options_params, $options) = get_params();
-
-						echo get_logo() //array('options' => $options)
+						echo get_logo()
 						.get_search_theme_core()
 						.get_menu_theme(array('where' => 'header'));
 					}
@@ -35,25 +33,25 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_after_header'))
 			{
-				echo "<mf-after-header".is_clean().">
+				echo "<div id='mf-after-header'".is_clean().">
 					<div>";
 
 						dynamic_sidebar('widget_after_header');
 
 					echo "</div>
-				</mf-after-header>";
+				</div>";
 			}
 
 			if(is_active_sidebar('widget_slide'))
 			{
-				echo "<mf-slide-nav".is_clean().">
+				echo "<div id='mf-slide-nav'".is_clean().">
 					<div>
 						<i class='fa fa-close'></i>";
 
 						dynamic_sidebar('widget_slide');
 
 					echo "</div>
-				</mf-slide-nav>";
+				</div>";
 			}
 
 			if(is_active_sidebar('widget_front'))
@@ -67,6 +65,6 @@ echo "<!DOCTYPE html>
 				</div>";
 			}
 
-			echo "<mf-content>
+			echo "<div id='mf-content'>
 				<div>
 					<div id='main'>";

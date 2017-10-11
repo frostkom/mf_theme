@@ -18,18 +18,18 @@ list($options_params, $options) = get_params();
 $out = show_font_face($options_params, $options_fonts, $options)
 ."@media all
 {
-	mf-after-header, #aside, mf-pre-footer
+	#mf-after-header, .aside, #mf-pre-footer
 	{
 		margin: 0;
 		padding: 0;
 	}
 
-	mf-after-header, #aside, mf-pre-footer
+	#mf-after-header, .aside, #mf-pre-footer
 	{
 		box-sizing: border-box;
 	}
 
-	header, nav, mf-after-header, #mf-pre-content, mf-content, article, section, #aside, mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
+	header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
 	{
 		display: block;
 	}
@@ -81,7 +81,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		.render_css(array('property' => 'background', 'value' => 'body_bg'))
 	."}
 
-		header > div, mf-after-header > div, #mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
+		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
 		{"
 			.render_css(array('property' => 'padding', 'value' => 'main_padding'))
 			."position: relative;
@@ -222,19 +222,19 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
 								."}
 
-									header .theme_nav li:hover > .sub-menu, header .theme_nav li.current-menu-item > .sub-menu, header .theme_nav li.current-menu-ancestor > .sub-menu/*, header .theme_nav li:hover > .children, header .theme_nav li.current-menu-item > .children, header .theme_nav li.current-menu-ancestor > .children*/
+									header .theme_nav li:hover > .sub-menu, header .theme_nav li.current-menu-item > .sub-menu, header .theme_nav li.current-menu-ancestor > .sub-menu
 									{
 										display: block;
 										opacity: .5;
 									}
 
-										header .theme_nav.is_mobile_ready li:hover > .sub-menu/*, header .theme_nav.is_mobile_ready li:hover > .children*/
+										header .theme_nav.is_mobile_ready li:hover > .sub-menu
 										{
 											opacity: 1;
 											z-index: 101;
 										}
 
-									.theme_nav .sub-menu/*, .theme_nav .children*/
+									.theme_nav .sub-menu
 									{
 										display: none;
 									}
@@ -298,153 +298,162 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								{"
 									.render_css(array('property' => 'background', 'value' => 'nav_secondary_bg_current'))
 									.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_current'))
-								."}
+								."}";
 
-		mf-after-header .widget + .widget
+		if(is_active_sidebar('widget_after_header'))
 		{
-			margin-top: 1em;
+			$out .= "#mf-after-header .widget + .widget
+			{
+				margin-top: 1em;
+			}";
 		}
 
-		#mf-pre-content
-		{"
-			.render_css(array('property' => 'background', 'value' => 'front_bg'))
-			.render_css(array('property' => 'color', 'value' => 'front_color'))
-			."overflow: hidden;
-		}
-
-			#mf-pre-content > div
-			{"
-				.render_css(array('property' => 'padding', 'value' => 'front_padding'))
-			."}
-
-				#mf-pre-content h3
-				{"
-					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
-					.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
-					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
-					.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
-					.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
-				."}
-
-				#mf-pre-content p
-				{"
-					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
-					.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
-					.render_css(array('property' => 'margin', 'value' => 'section_margin'))
-				."}
-
-		mf-slide-nav
+		if(is_active_sidebar('widget_slide'))
 		{
-			background: rgba(0, 0, 0, .7);
-			bottom: 0;
-			display: none;
-			left: 0;
-			position: absolute;
-			position: fixed;
-			right: 0;
-			top: 0;
-			z-index: 1001;
-		}
-
-			mf-slide-nav > div
-			{"
-				.render_css(array('property' => 'background', 'value' => 'slide_nav_bg'))
-				."bottom: 0;"
-				.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
-				.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
-				."overflow: hidden;
-				padding: 3.5em 0 1em;
+			$out .= "#mf-slide-nav
+			{
+				background: rgba(0, 0, 0, .7);
+				bottom: 0;
+				display: none;
+				left: 0;
 				position: absolute;
-				right: -90%;
+				position: fixed;
+				right: 0;
 				top: 0;
-				width: 90%;
-				max-width: 300px;
+				z-index: 1001;
 			}
 
-				mf-slide-nav #primary_nav
+				#mf-slide-nav > div
 				{"
-					.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
-				."}
-
-					mf-slide-nav .fa-close
-					{
-						font-size: 2em;
-						margin: 3% 4% 0 0;
-						position: absolute;
-						right: 0;
-						top: 0;
-					}
-
-					mf-slide-nav ul
-					{
-						list-style: none;
-					}
-
-						mf-slide-nav #primary_nav ul a
-						{"
-							.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
-							."display: block;
-							letter-spacing: .2em;
-							overflow: hidden;"
-							.render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
-							."text-overflow: ellipsis;
-							transition: all .4s ease;
-							white-space: nowrap;
-						}
-
-							mf-slide-nav #primary_nav ul a:hover
-							{"
-								.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
-								.render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
-								."text-indent: .3em;
-							}
-
-							mf-slide-nav #primary_nav li.current_page_item > a
-							{"
-								.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
-								.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
-							."}
-
-						mf-slide-nav #primary_nav li ul
-						{
-							margin-bottom: 0;
-						}
-
-							/* Hide children until hover or current page */
-							mf-slide-nav #primary_nav.is_large .sub-menu
-							/*, mf-slide-nav #primary_nav.is_large .children*/
-							{
-								display: none;
-							}
-
-								mf-slide-nav #primary_nav.is_large li:hover > .sub-menu, mf-slide-nav #primary_nav.is_large li.current-menu-item > .sub-menu, mf-slide-nav #primary_nav.is_large li.current-menu-ancestor > .sub-menu
-								/*, mf-slide-nav #primary_nav.is_large li:hover > .children, mf-slide-nav #primary_nav.is_large li.current-menu-item > .children, mf-slide-nav #primary_nav.is_large li.current-menu-ancestor > .children*/
-								{
-									display: block;
-								}
-							/* */
-
-							mf-slide-nav #primary_nav li ul a
-							{
-								text-indent: 1.4em;
-							}
-
-								mf-slide-nav #primary_nav li ul a:hover
-								{
-									text-indent: 2em;
-								}
-
-				mf-slide-nav ul, mf-slide-nav p
-				{
-					margin-bottom: 1em;
+					.render_css(array('property' => 'background', 'value' => 'slide_nav_bg'))
+					."bottom: 0;"
+					.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
+					.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
+					."overflow: hidden;
+					padding: 3.5em 0 1em;
+					position: absolute;
+					right: -90%;
+					top: 0;
+					width: 90%;
+					max-width: 300px;
 				}
 
-		mf-content
+					#mf-slide-nav #primary_nav
+					{"
+						.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
+					."}
+
+						#mf-slide-nav .fa-close
+						{
+							font-size: 2em;
+							margin: 3% 4% 0 0;
+							position: absolute;
+							right: 0;
+							top: 0;
+						}
+
+						#mf-slide-nav ul
+						{
+							list-style: none;
+						}
+
+							#mf-slide-nav #primary_nav ul a
+							{"
+								.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
+								."display: block;
+								letter-spacing: .2em;
+								overflow: hidden;"
+								.render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
+								."text-overflow: ellipsis;
+								transition: all .4s ease;
+								white-space: nowrap;
+							}
+
+								#mf-slide-nav #primary_nav ul a:hover
+								{"
+									.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
+									.render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
+									."text-indent: .3em;
+								}
+
+								#mf-slide-nav #primary_nav li.current_page_item > a
+								{"
+									.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
+									.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
+								."}
+
+							#mf-slide-nav #primary_nav li ul
+							{
+								margin-bottom: 0;
+							}
+
+								/* Hide children until hover or current page */
+								#mf-slide-nav #primary_nav.is_large .sub-menu
+								{
+									display: none;
+								}
+
+									#mf-slide-nav #primary_nav.is_large li:hover > .sub-menu, #mf-slide-nav #primary_nav.is_large li.current-menu-item > .sub-menu, #mf-slide-nav #primary_nav.is_large li.current-menu-ancestor > .sub-menu
+									{
+										display: block;
+									}
+								/* */
+
+								#mf-slide-nav #primary_nav li ul a
+								{
+									text-indent: 1.4em;
+								}
+
+									#mf-slide-nav #primary_nav li ul a:hover
+									{
+										text-indent: 2em;
+									}
+
+					#mf-slide-nav ul, #mf-slide-nav p
+					{
+						margin-bottom: 1em;
+					}";
+		}
+
+		if(is_active_sidebar('widget_front'))
+		{
+			$out .= "#mf-pre-content
+			{"
+				.render_css(array('property' => 'background', 'value' => 'front_bg'))
+				.render_css(array('property' => 'color', 'value' => 'front_color'))
+				."overflow: hidden;
+			}
+
+				#mf-pre-content > div
+				{"
+					.render_css(array('property' => 'padding', 'value' => 'front_padding'))
+				."}
+
+					#mf-pre-content h3
+					{"
+						.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
+						.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
+						.render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
+						.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
+						.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
+					."}
+
+					#mf-pre-content p
+					{"
+						.render_css(array('property' => 'font-size', 'value' => 'section_size'))
+						.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
+						.render_css(array('property' => 'margin', 'value' => 'section_margin'))
+					."}";
+		}
+
+		$out .= "
+
+		#mf-content
 		{
 			clear: both;
 		}
 
-			mf-content > div
+			#mf-content > div
 			{"
 				.render_css(array('property' => 'background', 'value' => 'content_bg'))
 				."overflow: hidden;"
@@ -607,155 +616,204 @@ $out = show_font_face($options_params, $options_fonts, $options)
 							article li + li
 							{
 								margin-top: 1em;
-							}
+							}";
 
-				#aside
-				{"
-					.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
-				."}
-
-					#aside .widget
+				if(is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar'))
+				{
+					$out .= ".aside
 					{"
-						.render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
+						.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
 					."}
 
-						#aside .widget + .widget
-						{
-							margin-top: 1em;
-						}
-
-						#aside h3
+						.aside .widget
 						{"
-							.render_css(array('property' => 'background', 'value' => 'aside_heading_bg'))
-							.render_css(array('property' => 'border-bottom', 'value' => 'aside_heading_border_bottom'))
-							.render_css(array('property' => 'font-size', 'value' => 'aside_heading_size'))
-							.render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
+							.render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
 						."}
 
-						#aside .widget .section, #aside .widget > div, #aside .widget > form, #aside .widget > ol, #aside .widget > ul, #aside .widget > p
-						{"
-							.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
-							.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
-							.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
-							."margin-bottom: .5em;"
-							.render_css(array('property' => 'padding', 'value' => 'aside_padding'))
-						."}
-
-						#aside ul, #aside ol
-						{
-							list-style-position: inside;
-						}
-
-							#aside p a, #aside ul a, #aside ol a
+							.aside .widget + .widget
 							{
-								border-bottom: 2px solid transparent;"
-								.render_css(array('property' => 'color', 'value' => 'article_url_color'))
-								."text-decoration: none;
+								margin-top: 1em;
 							}
 
-		mf-pre-footer
-		{"
-			.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
-			."overflow: hidden;
-		}
+							.aside h3
+							{"
+								.render_css(array('property' => 'background', 'value' => 'aside_heading_bg'))
+								.render_css(array('property' => 'border-bottom', 'value' => 'aside_heading_border_bottom'))
+								.render_css(array('property' => 'font-size', 'value' => 'aside_heading_size'))
+								.render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
+							."}
 
-			mf-pre-footer > div
-			{"
-				.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
-			."}
+							.aside .widget .section, .aside .widget > div, .aside .widget > form, .aside .widget > ol, .aside .widget > ul, .aside .widget > p
+							{"
+								.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
+								.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
+								.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
+								."margin-bottom: .5em;"
+								.render_css(array('property' => 'padding', 'value' => 'aside_padding'))
+							."}
 
-				mf-pre-footer > div .widget
-				{"
-					.render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
-				."}
+							.aside ul, .aside ol
+							{
+								list-style-position: inside;
+							}
 
-		footer
-		{"
-			.render_css(array('property' => 'background', 'value' => 'footer_bg'))
-			."overflow: hidden;
-			position: relative;
-			z-index: 1000;
-		}
-
-			footer > div
-			{"
-				.render_css(array('property' => 'color', 'value' => 'footer_color'))
-				.render_css(array('property' => 'padding', 'value' => 'footer_padding'));
-
-				if(isset($options['footer_widget_flex']) && $options['footer_widget_flex'] == 2)
-				{
-					$out .= "display: -webkit-box;
-					display: -ms-flexbox;
-					display: -webkit-flex;
-					display: flex;";
+								.aside p a, .aside ul a, .aside ol a
+								{
+									border-bottom: 2px solid transparent;"
+									.render_css(array('property' => 'color', 'value' => 'article_url_color'))
+									."text-decoration: none;
+								}";
 				}
 
-			$out .= "}
+		if(is_active_sidebar('widget_pre_footer'))
+		{
+			$out .= "#mf-pre-footer
+			{"
+				.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
+				."overflow: hidden;
+			}
 
-				footer .widget
+				#mf-pre-footer > div
 				{"
-					.render_css(array('property' => 'font-size', 'value' => 'footer_font_size'))
-					.render_css(array('property' => 'overflow', 'value' => 'footer_widget_overflow'))
-					.render_css(array('property' => 'padding', 'value' => 'footer_widget_padding'));
+					.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
+				."}
+
+					#mf-pre-footer > div .widget
+					{"
+						.render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
+					."}";
+		}
+
+		if(is_active_sidebar('widget_footer'))
+		{
+			$out .= "footer
+			{"
+				.render_css(array('property' => 'background', 'value' => 'footer_bg'))
+				."overflow: hidden;
+				position: relative;
+				z-index: 1000;
+			}
+
+				footer > div
+				{"
+					.render_css(array('property' => 'color', 'value' => 'footer_color'))
+					.render_css(array('property' => 'padding', 'value' => 'footer_padding'));
 
 					if(isset($options['footer_widget_flex']) && $options['footer_widget_flex'] == 2)
 					{
-						$out .= "-webkit-box-flex: 1;
-						-webkit-flex: 1;
-						-ms-flex: 1;
-						flex: 1;";
+						$out .= "display: -webkit-box;
+						display: -ms-flexbox;
+						display: -webkit-flex;
+						display: flex;";
 					}
 
 				$out .= "}
 
-					footer .widget:nth-child(2n)
-					{
-						margin-right: 0;
-					}
-
-					footer .widget h3
+					footer .widget
 					{"
-						.render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'))
-						.render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'))
-					."}
+						.render_css(array('property' => 'font-size', 'value' => 'footer_font_size'))
+						.render_css(array('property' => 'overflow', 'value' => 'footer_widget_overflow'))
+						.render_css(array('property' => 'padding', 'value' => 'footer_widget_padding'));
 
-						footer ul
+						if(isset($options['footer_widget_flex']) && $options['footer_widget_flex'] == 2)
 						{
-							list-style: none;
-						}";
-
-						if(isset($options['footer_p_margin']) && $options['footer_p_margin'] != '')
-						{
-							$out .= "footer .widget p, footer .widget li
-							{"
-								.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
-							."}
-
-								footer .widget li ul
-								{
-									margin: .5em 0 0 .5em;
-								}";
+							$out .= "-webkit-box-flex: 1;
+							-webkit-flex: 1;
+							-ms-flex: 1;
+							flex: 1;";
 						}
 
-						$out .= "footer .widget a
-						{";
+					$out .= "}
 
-							if(isset($options['footer_a_bg']) && $options['footer_a_bg'] != '')
-							{
-								$out .= "border-radius: .5em;"
-								.render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
-								."display: block;"
-								.render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
-								.render_css(array('property' => 'padding', 'value' => 'footer_a_padding'));
-							}
+						footer .widget:nth-child(2n)
+						{
+							margin-right: 0;
+						}
 
-							$out .= render_css(array('property' => 'color', 'value' => 'footer_color'))
+						footer .widget h3
+						{"
+							.render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'))
+							.render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'))
 						."}
 
-							footer .widget a:hover, footer li.current_page_item a
-							{"
-								.render_css(array('property' => 'color', 'value' => array('footer_color_hover', 'nav_color_hover')))
-							."}";
+							footer ul
+							{
+								list-style: none;
+							}";
+
+							if(isset($options['footer_p_margin']) && $options['footer_p_margin'] != '')
+							{
+								$out .= "footer .widget p, footer .widget li
+								{"
+									.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
+								."}
+
+									footer .widget li ul
+									{
+										margin: .5em 0 0 .5em;
+									}";
+							}
+
+							$out .= "footer .widget a
+							{";
+
+								if(isset($options['footer_a_bg']) && $options['footer_a_bg'] != '')
+								{
+									$out .= "border-radius: .5em;"
+									.render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
+									."display: block;"
+									.render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
+									.render_css(array('property' => 'padding', 'value' => 'footer_a_padding'));
+								}
+
+								$out .= render_css(array('property' => 'color', 'value' => 'footer_color'))
+							."}
+
+								footer .widget a:hover, footer li.current_page_item a
+								{"
+									.render_css(array('property' => 'color', 'value' => array('footer_color_hover', 'nav_color_hover')))
+								."}";
+		}
+
+		if(is_active_sidebar('widget_window_side'))
+		{
+			$out .= "#window_side
+			{
+				position: absolute;
+				position: fixed;
+				right: 0;
+				top: 10vh;
+				-webkit-transform: translateX(50%);
+				transform: translateX(50%);
+				transition: all 1s ease;
+			}
+
+				#window_side:hover
+				{
+					-webkit-transform: translateX(20%);
+					transform: translateX(20%);
+				}
+
+					#window_side a
+					{
+						display: block;
+						font-size: 1.1em;
+						margin: 0 0 .5em 0;
+					}
+			
+						#window_side img, #window_side .fa
+						{
+							border-radius: 50%;
+							border: .1em solid #666;
+							transition: all 1s ease;
+						}
+						
+							#window_side img:hover, #window_side .fa:hover
+							{
+								-webkit-transform: translateX(-30%);
+								transform: translateX(-30%);
+							}";
+		}
 
 	if(isset($options['custom_css_all']) && $options['custom_css_all'] != '')
 	{
@@ -766,7 +824,7 @@ $out .= "}";
 
 $aside_width = isset($options['aside_width']) && $options['aside_width'] != '' ? $options['aside_width'] : "28%";
 
-$flex_content = "mf-content > div
+$flex_content = "#mf-content > div
 {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -786,28 +844,31 @@ $flex_content = "mf-content > div
 		max-width: 100%;
 	}
 
-		mf-content > div > article
+		#mf-content > div > article
 		{
 			width: 100%;
-		}
-
-	#aside.right, #aside.left
-	{
-		margin-left: 2%;
-		-webkit-box-flex: 0 0 ".$aside_width.";
-		-webkit-flex: 0 0 ".$aside_width.";
-		-ms-flex: 0 0 ".$aside_width.";
-		flex: 0 0 ".$aside_width.";
-		order: 3;"
-		.render_css(array('property' => 'max-width', 'value' => 'aside_width'))
-	."}
-
-		#aside.left
-		{
-			margin-right: 2%;
-			margin-left: 0;
-			order: 1;
 		}";
+
+	if(is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar'))
+	{
+		$out .= ".aside.right, .aside.left
+		{
+			margin-left: 2%;
+			-webkit-box-flex: 0 0 ".$aside_width.";
+			-webkit-flex: 0 0 ".$aside_width.";
+			-ms-flex: 0 0 ".$aside_width.";
+			flex: 0 0 ".$aside_width.";
+			order: 3;"
+			.render_css(array('property' => 'max-width', 'value' => 'aside_width'))
+		."}
+
+			.aside.left
+			{
+				margin-right: 2%;
+				margin-left: 0;
+				order: 1;
+			}";
+	}
 
 if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 {
@@ -844,14 +905,17 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					float: none;
 					clear: unset;
 					text-align: center;
-				}
+				}";
 
-					mf-slide-nav #primary_nav
+					if(is_active_sidebar('widget_slide'))
 					{
-						text-align: left;
+						$out .= "#mf-slide-nav #primary_nav
+						{
+							text-align: left;
+						}";
 					}
 
-					header #primary_nav > .toggle_icon
+					$out .= "header #primary_nav > .toggle_icon
 					{"
 						.render_css(array('property' => 'color', 'value' => 'logo_color'))
 						."display: block;"
@@ -905,7 +969,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 							border-bottom: 0;
 						}
 
-							.theme_nav ul .sub-menu/*, .theme_nav ul .children*/
+							.theme_nav ul .sub-menu
 							{
 								display: block;
 							}
@@ -915,13 +979,16 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					-webkit-column-count: 1;
 					-moz-column-count: 1;
 					column-count: 1;
-				}
+				}";
 
-			footer > div
+			if(is_active_sidebar('widget_footer'))
 			{
-				display: block;
-				text-align: center;
-			}";
+				$out .= "footer > div
+				{
+					display: block;
+					text-align: center;
+				}";
+			}
 
 		if(isset($options['custom_css_mobile']) && $options['custom_css_mobile'] != '')
 		{
@@ -948,25 +1015,26 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
 		."}
 
-			.theme_nav.is_mobile_ready .sub-menu/*, .theme_nav.is_mobile_ready .children*/
+			.theme_nav.is_mobile_ready .sub-menu
 			{
 				border-radius: .3em;
 				left: 50%;
 				position: absolute;
 				padding-top: .5em;
+				-webkit-transform: translateY(-50%);
 				transform: translateX(-50%);
 				z-index: 100;
 			}";
 
 				if(isset($options['sub_nav_arrow']) && $options['sub_nav_arrow'] == 2)
 				{
-					$out .= ".theme_nav.is_mobile_ready .sub-menu/*, .theme_nav.is_mobile_ready .children*/
+					$out .= ".theme_nav.is_mobile_ready .sub-menu
 					{
 						margin-top: 3.4em:
 						padding-top: 0;
 					}
 
-						.theme_nav.is_mobile_ready .sub-menu:before/*, .theme_nav.is_mobile_ready .children:before*/
+						.theme_nav.is_mobile_ready .sub-menu:before
 						{
 							border: .7em solid transparent;"
 							.render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
@@ -978,31 +1046,31 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						}";
 				}
 
-					$out .= ".theme_nav.is_mobile_ready .sub-menu/*, .theme_nav.is_mobile_ready .children*/
+					$out .= ".theme_nav.is_mobile_ready .sub-menu
 					{
 						white-space: nowrap;
 					}
 
-						#primary_nav.theme_nav.is_mobile_ready .sub-menu a/*, #primary_nav.theme_nav.is_mobile_ready .children a*/
+						#primary_nav.theme_nav.is_mobile_ready .sub-menu a
 						{"
 							.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
 							."padding: .8em;
 						}
 
-							.theme_nav.is_mobile_ready .sub-menu li:first-child a/*, .theme_nav.is_mobile_ready .children li:first-child a*/
+							.theme_nav.is_mobile_ready .sub-menu li:first-child a
 							{
 								border-top-left-radius: .3em;
 								border-bottom-left-radius: .3em;
 							}
 
-							.theme_nav.is_mobile_ready .sub-menu li:last-child a/*, .theme_nav.is_mobile_ready .children li:last-child a*/
+							.theme_nav.is_mobile_ready .sub-menu li:last-child a
 							{
 								border-top-right-radius: .3em;
 								border-bottom-right-radius: .3em;
 							}
 
-							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover/*, #primary_nav.theme_nav.is_mobile_ready .children a:hover*/
+							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover
 							{"
 								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
 								.render_css(array('property' => 'color', 'value' => 'sub_nav_color_hover'))
@@ -1022,7 +1090,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 			content: 'is_desktop';
 		}
 
-		header > div, mf-after-header > div, #mf-pre-content > div, mf-content > div, mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
+		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
 		{
 			margin: 0 auto;
 			max-width: ".$options['website_max_width']."px;
@@ -1043,12 +1111,12 @@ $out .= "@media print
 		background: none;
 	}
 
-	mf-content > div
+	#mf-content > div
 	{
 		width: auto;
 	}
 
-	header, mf-after-header, #mf-pre-content, #aside, mf-pre-footer, footer
+	header, #mf-after-header, #mf-pre-content, .aside, #mf-pre-footer, footer
 	{
 		display: none;
 	}

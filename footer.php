@@ -11,7 +11,7 @@
 
 						if(is_active_sidebar('widget_after_content'))
 						{
-							echo "<div id='aside'".is_clean("after_content").">";
+							echo "<div class='aside after_content'>";
 
 								dynamic_sidebar('widget_after_content');
 
@@ -22,7 +22,7 @@
 
 					if(is_active_sidebar('widget_sidebar_left'))
 					{
-						echo "<div id='aside'".is_clean("left").">";
+						echo "<div".is_clean("aside left").">";
 
 							dynamic_sidebar('widget_sidebar_left');
 
@@ -31,7 +31,7 @@
 
 					if(is_active_sidebar('widget_sidebar'))
 					{
-						echo "<div id='aside'".is_clean("right").">";
+						echo "<div".is_clean("aside right").">";
 
 							dynamic_sidebar('widget_sidebar');
 
@@ -39,19 +39,19 @@
 					}
 
 				echo "</div>
-			</mf-content>";
+			</div>";
 
 			if(is_active_sidebar('widget_pre_footer'))
 			{
 				list($options_params, $options) = get_params();
 
-				echo "<mf-pre-footer".(isset($options['pre_footer_full_width']) && $options['pre_footer_full_width'] == 2 ? " class='full_width'" : "").">
+				echo "<div id='mf-pre-footer'".(isset($options['pre_footer_full_width']) && $options['pre_footer_full_width'] == 2 ? " class='full_width'" : "").">
 					<div>";
 
 						dynamic_sidebar('widget_pre_footer');
 
 					echo "</div>
-				</mf-pre-footer>";
+				</div>";
 			}
 
 			if(is_active_sidebar('widget_footer'))
@@ -66,6 +66,15 @@
 			}
 
 		echo "</div>";
+
+		if(is_active_sidebar('widget_window_side'))
+		{
+			echo "<div id='window_side'".is_clean().">";
+
+				dynamic_sidebar('widget_window_side');
+
+			echo "</div>";
+		}
 
 		wp_footer();
 

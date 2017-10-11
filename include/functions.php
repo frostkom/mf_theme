@@ -496,6 +496,15 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => "</div>"
 		));
 
+		register_sidebar(array(
+			'name' => __("Window Side Icons", 'lang_theme'),
+			'id' => 'widget_window_side',
+			'before_widget' => "<div class='widget %s %s'>",
+			'before_title' => "<h3>",
+			'after_title' => "</h3>",
+			'after_widget' => "</div>"
+		));
+
 		//register_widget('widget_theme_logo');
 		register_widget('widget_theme_menu');
 	}
