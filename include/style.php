@@ -446,9 +446,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					."}";
 		}
 
-		$out .= "
-
-		#mf-content
+		$out .= "#mf-content
 		{
 			clear: both;
 		}
@@ -618,7 +616,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								margin-top: 1em;
 							}";
 
-				if(is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar'))
+				if(1 == 1) //is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar')
 				{
 					$out .= ".aside
 					{"
@@ -849,9 +847,9 @@ $flex_content = "#mf-content > div
 			width: 100%;
 		}";
 
-	if(is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar'))
+	if(1 == 1) //is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar')
 	{
-		$out .= ".aside.right, .aside.left
+		$flex_content .= ".aside.right, .aside.left
 		{
 			margin-left: 2%;
 			-webkit-box-flex: 0 0 ".$aside_width.";
