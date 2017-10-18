@@ -9,8 +9,6 @@ if(!defined('ABSPATH'))
 	require_once($folder."wp-load.php");
 }
 
-//do_action('init_style');
-
 $options_fonts = get_theme_fonts();
 
 list($options_params, $options) = get_params();
