@@ -325,7 +325,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				position: fixed;
 				right: 0;
 				top: 0;
-				z-index: 1001;
+				z-index: 1002;
 			}
 
 				#mf-slide-nav > div
@@ -789,6 +789,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				-webkit-transform: translateX(50%);
 				transform: translateX(50%);
 				transition: all 1s ease;
+				z-index: 1001;
 			}
 
 				#window_side:hover
@@ -887,100 +888,95 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 			display: none;
 		}
 
-			header
+			#site_logo
+			{"
+				.render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
+			."}
+
+			#secondary_nav, header .searchform
 			{
-				min-height: 6em;
+				display: none;
 			}
 
-				#site_logo
-				{"
-					.render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
-				."}
+			.theme_nav.is_mobile_ready
+			{
+				margin: 0;
+				width: 100%;
+			}
 
-				#secondary_nav, header .searchform
+				header #primary_nav
 				{
-					display: none;
-				}
+					float: none;
+					clear: unset;
+					text-align: center;
+				}";
 
-				.theme_nav.is_mobile_ready
-				{
-					margin: 0;
-					width: 100%;
-				}
-
-					header #primary_nav
+					if(is_active_sidebar('widget_slide'))
 					{
-						float: none;
-						clear: unset;
-						text-align: center;
-					}";
-
-						if(is_active_sidebar('widget_slide'))
+						$out .= "#mf-slide-nav #primary_nav
 						{
-							$out .= "#mf-slide-nav #primary_nav
-							{
-								text-align: left;
-							}";
+							text-align: left;
+						}";
+					}
+
+					$out .= "header #primary_nav > .toggle_icon
+					{"
+						.render_css(array('property' => 'color', 'value' => 'logo_color'))
+						."display: block;"
+						.render_css(array('property' => 'font-size', 'value' => array('hamburger_font_size', 'logo_font_size')))
+						."margin: .1em .2em;"
+						.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
+						."position: absolute;
+						right: 0;
+						top: 0;
+						z-index: 1;
+					}
+
+						header #primary_nav .fa-close
+						{
+							display: none;
 						}
 
-						$out .= "header #primary_nav > .toggle_icon
-						{"
-							.render_css(array('property' => 'color', 'value' => 'logo_color'))
-							."display: block;"
-							.render_css(array('property' => 'font-size', 'value' => array('hamburger_font_size', 'logo_font_size')))
-							."margin: .1em .2em;"
-							.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
-							."position: absolute;
-							right: 0;
-							top: 0;
-							z-index: 1;
+						header #primary_nav.is_mobile_ready ul > li
+						{
+							display: none;
 						}
 
-							header #primary_nav .fa-close
+							header #primary_nav.open .fa-bars
 							{
 								display: none;
 							}
 
-							header #primary_nav.is_mobile_ready ul > li
+							header #primary_nav.open .fa-close
 							{
-								display: none;
+								display: block;
 							}
 
-								header #primary_nav.open .fa-bars
-								{
-									display: none;
-								}
+							header #primary_nav.open ul > li
+							{
+								display: block;
+							}
 
-								header #primary_nav.open .fa-close
-								{
-									display: block;
-								}
+					.theme_nav.is_mobile_ready > div > ul > li
+					{"
+						.render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg')))
+						."display: none;
+					}
 
-								header #primary_nav.open ul > li
-								{
-									display: block;
-								}
-
-						.theme_nav.is_mobile_ready > div > ul > li
-						{"
-							.render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg')))
-							."display: none;
+						.theme_nav.is_mobile_ready > div > ul > li:last-of-type
+						{
+							border-radius: 0 0 .3em .3em;
 						}
 
-							.theme_nav.is_mobile_ready > div > ul > li:last-of-type
-							{
-								border-radius: 0 0 .3em .3em;
-							}
+						.theme_nav a:hover, .theme_nav li.current_page_item > a
+						{
+							border-bottom: 0;
+						}
 
-							.theme_nav a:hover, .theme_nav li.current_page_item > a
+							.theme_nav ul .sub-menu
 							{
-								border-bottom: 0;
+								display: block;
 							}
-
-								.theme_nav ul .sub-menu
-								{
-									display: block;
-								}
 
 				article section.text_columns
 				{
