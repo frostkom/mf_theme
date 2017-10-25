@@ -425,6 +425,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			$out .= "#mf-pre-content
 			{"
 				.render_css(array('property' => 'background', 'value' => 'front_bg'))
+				."clear: both;"
 				.render_css(array('property' => 'color', 'value' => 'front_color'))
 				."overflow: hidden;
 			}
@@ -621,7 +622,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								margin-top: 1em;
 							}";
 
-				if(1 == 1) //is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar')
+				if(is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar'))
 				{
 					$out .= ".aside
 					{"
@@ -853,7 +854,7 @@ $flex_content = "#mf-content > div
 			width: 100%;
 		}";
 
-	if(1 == 1) //is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar')
+	if(is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar'))
 	{
 		$flex_content .= ".aside.right, .aside.left
 		{
