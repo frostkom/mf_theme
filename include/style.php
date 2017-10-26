@@ -305,7 +305,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_current'))
 								."}";
 
-		if(is_active_sidebar('widget_after_header'))
+		if(is_active_widget_area('widget_after_header'))
 		{
 			$out .= "#mf-after-header .widget + .widget
 			{
@@ -313,7 +313,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			}";
 		}
 
-		if(is_active_sidebar('widget_slide'))
+		if(is_active_widget_area('widget_slide'))
 		{
 			$out .= "#mf-slide-nav
 			{
@@ -420,7 +420,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					}";
 		}
 
-		if(is_active_sidebar('widget_front'))
+		if(is_active_widget_area('widget_front'))
 		{
 			$out .= "#mf-pre-content
 			{"
@@ -622,7 +622,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								margin-top: 1em;
 							}";
 
-				if(is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar'))
+				if(is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar'))
 				{
 					$out .= ".aside
 					{"
@@ -669,7 +669,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								}";
 				}
 
-		if(is_active_sidebar('widget_pre_footer'))
+		if(is_active_widget_area('widget_pre_footer'))
 		{
 			$out .= "#mf-pre-footer
 			{"
@@ -688,7 +688,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					."}";
 		}
 
-		if(is_active_sidebar('widget_footer'))
+		if(is_active_widget_area('widget_footer'))
 		{
 			$out .= "footer
 			{"
@@ -779,7 +779,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								."}";
 		}
 
-		if(is_active_sidebar('widget_window_side'))
+		if(is_active_widget_area('widget_window_side'))
 		{
 			$out .= "#window_side
 			{
@@ -854,7 +854,7 @@ $flex_content = "#mf-content > div
 			width: 100%;
 		}";
 
-	if(is_active_sidebar('widget_after_content') || is_active_sidebar('widget_sidebar_left') || is_active_sidebar('widget_sidebar'))
+	if(is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar'))
 	{
 		$flex_content .= ".aside.right, .aside.left
 		{
@@ -912,7 +912,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					text-align: center;
 				}";
 
-					if(is_active_sidebar('widget_slide'))
+					if(is_active_widget_area('widget_slide'))
 					{
 						$out .= "#mf-slide-nav #primary_nav
 						{
@@ -986,7 +986,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 					column-count: 1;
 				}";
 
-			if(is_active_sidebar('widget_footer'))
+			if(is_active_widget_area('widget_footer'))
 			{
 				$out .= "footer > div
 				{
