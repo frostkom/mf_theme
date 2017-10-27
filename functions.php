@@ -21,7 +21,7 @@ else
 }
 
 add_action('customize_register', 'customize_theme');
-add_action('customize_save', 'customize_save_theme');
+//add_action('customize_save', 'customize_save_theme');
 
 add_action('after_setup_theme', 'setup_theme');
 add_action('widgets_init', 'widgets_theme');

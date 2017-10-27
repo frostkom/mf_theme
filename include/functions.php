@@ -23,7 +23,7 @@ function cron_theme()
 						$style_changed = $json['response']['style_changed'];
 						$style_url = $json['response']['style_url'];
 
-						update_option('theme_source_style_url', ($style_changed > get_option('mf_theme_saved') ? $style_url : ""), 'no');
+						update_option('option_theme_source_style_url', ($style_changed > get_option('option_theme_saved') ? $style_url : ""), 'no');
 					}
 
 					else
@@ -89,15 +89,15 @@ if(!function_exists('head_theme'))
 		enqueue_theme_fonts();
 
 		$template_url = get_bloginfo('template_url');
-		$plugin_version = get_plugin_version(__FILE__);
+		$theme_version = get_theme_version();
 
-		mf_enqueue_style('style', $template_url."/include/style.php", $plugin_version);
+		mf_enqueue_style('style', $template_url."/include/style.php", $theme_version);
 
 		list($options_params, $options) = get_params();
 
 		$header_fixed = isset($options['header_fixed']) && $options['header_fixed'] == 2 ? true : false;
 
-		mf_enqueue_script('script_theme', $template_url."/include/script.js", array('template_url' => $template_url, 'header_fixed' => $header_fixed), $plugin_version);
+		mf_enqueue_script('script_theme', $template_url."/include/script.js", array('template_url' => $template_url, 'header_fixed' => $header_fixed), $theme_version);
 	}
 }
 
@@ -136,13 +136,13 @@ if(!function_exists('content_meta_theme'))
 	}
 }
 
-if(!function_exists('customize_save_theme'))
+/*if(!function_exists('customize_save_theme'))
 {
 	function customize_save_theme()
 	{
-		update_option('mf_theme_saved', date("Y-m-d H:i:s"), 'no');
+		update_option('option_theme_saved', date("Y-m-d H:i:s"), 'no');
 	}
-}
+}*/
 
 if(!function_exists('setup_theme'))
 {
@@ -166,9 +166,9 @@ if(!function_exists('options_theme'))
 
 		$count_message = "";
 		$rows = 0;
-		$theme_source_style_url = get_option('theme_source_style_url');
+		$option_theme_source_style_url = get_option('option_theme_source_style_url');
 
-		if($theme_source_style_url != ''){		$rows++;}
+		if($option_theme_source_style_url != ''){		$rows++;}
 
 		if($rows > 0)
 		{
