@@ -7,7 +7,6 @@ add_action('cron_base', 'cron_theme', mt_rand(1, 10));
 
 if(is_admin())
 {
-	add_action('admin_menu', 'options_theme');
 	add_action('rwmb_meta_boxes', 'meta_boxes_theme');
 }
 
@@ -21,7 +20,6 @@ else
 }
 
 add_action('customize_register', 'customize_theme');
-//add_action('customize_save', 'customize_save_theme');
 
 add_action('after_setup_theme', 'setup_theme');
 add_action('widgets_init', 'widgets_theme');

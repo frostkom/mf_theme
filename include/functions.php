@@ -136,14 +136,6 @@ if(!function_exists('content_meta_theme'))
 	}
 }
 
-/*if(!function_exists('customize_save_theme'))
-{
-	function customize_save_theme()
-	{
-		update_option('option_theme_saved', date("Y-m-d H:i:s"), 'no');
-	}
-}*/
-
 if(!function_exists('setup_theme'))
 {
 	function setup_theme()
@@ -155,52 +147,6 @@ if(!function_exists('setup_theme'))
 			'secondary' => __("Secondary Navigation", 'lang_theme'),
 			//'footer' => __("Footer Navigation", 'lang_theme')
 		));
-	}
-}
-
-if(!function_exists('options_theme'))
-{
-	function options_theme()
-	{
-		global $menu;
-
-		$count_message = "";
-		$rows = 0;
-		$option_theme_source_style_url = get_option('option_theme_source_style_url');
-
-		if($option_theme_source_style_url != ''){		$rows++;}
-
-		if($rows > 0)
-		{
-			$count_message = "&nbsp;<span class='update-plugins' title='".__("Theme Updates", 'lang_theme')."'>
-				<span>".$rows."</span>
-			</span>";
-
-			if(count($menu) > 0)
-			{
-				foreach($menu as $key => $item)
-				{
-					if($item[2] == 'themes.php')
-					{
-						$menu_name = $item[0];
-
-						$menu[$key][0] = strip_tags($menu_name).$count_message;
-					}
-				}
-			}
-		}
-
-		$menu_title = __("Theme Options", 'lang_theme');
-
-		add_theme_page($menu_title, $menu_title.$count_message, 'edit_theme_options', 'theme_options', 'options_page_theme');
-	}
-}
-
-if(!function_exists('options_page_theme'))
-{
-	function options_page_theme()
-	{
-		echo get_options_page_theme_core(array('dir' => "mf_theme"));
 	}
 }
 
@@ -505,7 +451,6 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => "</div>"
 		));
 
-		//register_widget('widget_theme_logo');
 		register_widget('widget_theme_menu');
 	}
 }
@@ -561,55 +506,6 @@ if(!function_exists('is_clean'))
 		return ($class != '' ? " class='".$class."'" : "");
 	}
 }
-
-/*if(!function_exists('get_logo_theme'))
-{
-	function get_logo_theme($data = array())
-	{
-		if(!isset($data['title'])){				$data['title'] = '';}
-		if(!isset($data['description'])){		$data['description'] = '';}
-		if(!isset($data['options'])){			$data['options'] = '';}
-
-		if($data['options'] == "")
-		{
-			list($options_params, $data['options']) = get_params();
-		}
-
-		$has_logo = isset($data['options']['header_logo']) && $data['options']['header_logo'] != '' || isset($data['options']['header_mobile_logo']) && $data['options']['header_mobile_logo'] != '';
-
-		$out = "<a href='".get_site_url()."/' id='site_logo'>";
-
-			if($has_logo && $data['title'] == '')
-			{
-				if($data['options']['header_logo'] != '')
-				{
-					$out .= "<img src='".$data['options']['header_logo']."'".($data['options']['header_mobile_logo'] != '' ? " class='hide_if_mobile'" : "")." alt='".__("Site logo", 'lang_theme')."'>";
-				}
-
-				if($data['options']['header_mobile_logo'] != '')
-				{
-					$out .= "<img src='".$data['options']['header_mobile_logo']."'".($data['options']['header_logo'] != '' ? " class='show_if_mobile'" : "")." alt='".__("Site mobile logo", 'lang_theme')."'>";
-				}
-			}
-
-			else
-			{
-				$logo_title = $data['title'] != '' ? $data['title'] : get_bloginfo('name');
-				$logo_description = $data['description'] != '' ? $data['description'] : get_bloginfo('description');
-
-				$out .= "<div>".$logo_title."</div>";
-
-				if($logo_description != '')
-				{
-					$out .= "<span>".$logo_description."</span>";
-				}
-			}
-
-		$out .= "</a>";
-
-		return $out;
-	}
-}*/
 
 if(!function_exists('get_menu_theme'))
 {
