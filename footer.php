@@ -29,13 +29,18 @@
 						echo "</div>";
 					}
 
-					if(is_active_sidebar('widget_sidebar'))
+					if(is_active_sidebar('widget_sidebar')) //Returns true even if it is empty below so I've had to add a hack here ;(
 					{
-						echo "<div".is_clean("aside right").">";
+						ob_start();
+							
+						dynamic_sidebar('widget_sidebar');
 
-							dynamic_sidebar('widget_sidebar');
+						$content = ob_get_clean();
 
-						echo "</div>";
+						if($content != '')
+						{
+							echo "<div".is_clean("aside right").">".$content."</div>";
+						}
 					}
 
 				echo "</div>
