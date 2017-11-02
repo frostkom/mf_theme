@@ -84,6 +84,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 	#wrapper
 	{"
 		.render_css(array('property' => 'background', 'value' => 'body_bg'))
+		.render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
+		.render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
 	."}
 
 		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
@@ -120,6 +122,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					$out .= "header.fixed > div
 					{"
 						.render_css(array('property' => 'background', 'value' => 'body_bg'))
+						.render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
+						.render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
 						."left: 0;
 						position: fixed;
 						right: 0;
