@@ -154,50 +154,11 @@ if(!function_exists('get_params'))
 {
 	function get_params()
 	{
-		//$options_params = array();
-		//$arr_sidebars = wp_get_sidebars_widgets();
-
 		$bg_placeholder = "#ffffff, rgba(0, 0, 0, .3), url(background.png)";
 
 		$options_params = get_params_theme_core('mf_theme');
 
-		//$options_params[] = array('category' => __("Generic", 'lang_theme'), 'id' => 'mf_theme_body');
-			//$options_params[] = array('type' => "text", 'id' => 'style_source', 'title' => __("Get Updates From", 'lang_theme'), 'placeholder' => "http://domain.com");
-			//$options_params[] = array('type' => "text", 'id' => 'body_bg', 'title' => __("Background", 'lang_theme'), 'default' => "#fff", 'placeholder' => $bg_placeholder);
-			//$options_params[] = array('type' => "text", 'id' => 'main_padding', 'title' => __("Padding", 'lang_theme'), 'default' => "1em 2em");
-			//$options_params[] = array('type' => "color", 'id' => 'body_color', 'title' => __("Text Color", 'lang_theme'));
-			//$options_params[] = array('type' => "color", 'id' => 'body_link_color', 'title' => __("Link Color", 'lang_theme'));
-			//$options_params[] = array('type' => "color", 'id' => 'button_color', 'title' => __("Button Color", 'lang_theme'));
-				//$options_params[] = array('type' => "color", 'id' => 'button_color_hover', 'title' => " - ".__("Button Color", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'button_color');
-			//$options_params[] = array('type' => "font", 'id' => 'body_font', 'title' => __("Font", 'lang_theme'));
-			//$options_params[] = array('type' => "number", 'id' => 'website_max_width', 'title' => __("Max Width", 'lang_theme'), 'default' => "1100");
-			//$options_params[] = array('type' => "text", 'id' => 'body_desktop_font_size', 'title' => __("Font Size", 'lang_theme'), 'default' => ".625em");
-			//$options_params[] = array('type' => "number", 'id' => 'mobile_breakpoint', 'title' => __("Breakpoint", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'default' => "600");
-			//$options_params[] = array('type' => "text", 'id' => 'body_font_size', 'title' => __("Font Size", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'default' => "2.4vw", 'show_if' => 'mobile_breakpoint');
-		//$options_params[] = array('category_end' => "");
-
-			$options_params[] = array('category' => __("Header", 'lang_theme'), 'id' => 'mf_theme_header');
-				$options_params[] = array('type' => "checkbox", 'id' => 'header_fixed', 'title' => __("Fixed", 'lang_theme'), 'default' => 1);
-				$options_params[] = array('type' => "text", 'id' => 'header_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
-				$options_params[] = array('type' => "text", 'id' => 'header_padding', 'title' => __("Padding", 'lang_theme'));
-				$options_params[] = array('type' => "overflow", 'id' => 'header_overflow', 'title' => __("Overflow", 'lang_theme'));
-
-				$options_params[] = array('type' => "color", 'id' => 'search_color', 'title' => __("Color", 'lang_theme')." (".__("Search", 'lang_theme').")");
-				$options_params[] = array('type' => "text", 'id' => 'search_size', 'title' => __("Font Size", 'lang_theme')." (".__("Search", 'lang_theme').")", 'default' => "1.4em");
-			$options_params[] = array('category_end' => "");
-
-			$options_params[] = array('category' => __("Logo", 'lang_theme'), 'id' => 'mf_theme_logo');
-				$options_params[] = array('type' => "text", 'id' => 'logo_padding', 'title' => __("Padding", 'lang_theme'), 'default' => '.6em 0 0');
-				$options_params[] = array('type' => "image", 'id' => 'header_logo', 'title' => __("Image", 'lang_theme'));
-				$options_params[] = array('type' => "text", 'id' => 'logo_width', 'title' => __("Width", 'lang_theme'), 'default' => '14em', 'show_if' => 'header_logo');
-				$options_params[] = array('type' => "image", 'id' => 'header_mobile_logo', 'title' => __("Image", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'show_if' => 'mobile_breakpoint');
-				$options_params[] = array('type' => "text", 'id' => 'logo_width_mobile', 'title' => __("Width", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'default' => '20em');
-				$options_params[] = array('type' => "font", 'id' => 'logo_font', 'title' => __("Font", 'lang_theme'), 'hide_if' => 'header_logo');
-				$options_params[] = array('type' => "text", 'id' => 'logo_font_size', 'title' => __("Font Size", 'lang_theme'), 'default' => "3em");
-				$options_params[] = array('type' => "color", 'id' => 'logo_color', 'title' => __("Color", 'lang_theme'));
-			$options_params[] = array('category_end' => "");
-
-			$options_params[] = array('category' => __("Navigation", 'lang_theme'), 'id' => 'mf_theme_navigation');
+			/*$options_params[] = array('category' => __("Navigation", 'lang_theme'), 'id' => 'mf_theme_navigation');
 				$options_params[] = array('type' => "text", 'id' => 'nav_bg', 'title' => __("Background", 'lang_theme'));
 				$options_params[] = array('type' => "text", 'id' => 'nav_link_padding', 'title' => __("Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
 				$options_params[] = array('type' => "clear", 'id' => 'nav_clear', 'title' => __("Clear", 'lang_theme'), 'default' => "right");
@@ -237,7 +198,6 @@ if(!function_exists('get_params'))
 						$options_params[] = array('type' => "color", 'id' => 'nav_secondary_color_current', 'title' => __("Text Color", 'lang_theme')." (".__("Current", 'lang_theme').")", 'show_if' => 'nav_color');
 				$options_params[] = array('category_end' => "");
 
-				//if(isset($arr_sidebars['widget_slide']) && count($arr_sidebars['widget_slide']) > 0)
 				if(is_active_widget_area('widget_slide'))
 				{
 					$options_params[] = array('category' => " - ".__("Slide Menu", 'lang_theme'), 'id' => 'mf_theme_navigation_slide');
@@ -254,7 +214,6 @@ if(!function_exists('get_params'))
 				$options_params[] = array('type' => "text", 'id' => 'front_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
 				$options_params[] = array('type' => "text", 'id' => 'front_padding', 'title' => __("Padding", 'lang_theme'));
 				$options_params[] = array('type' => "color", 'id' => 'front_color', 'title' => __("Text Color", 'lang_theme'));
-				//$options_params[] = array('type' => "text", 'id' => "pre_content_size", 'title' => __("Font Size", 'lang_theme'));
 			$options_params[] = array('category_end' => "");
 
 			$options_params[] = array('category' => __("Content", 'lang_theme'), 'id' => 'mf_theme_content');
@@ -263,7 +222,6 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category_end' => "");
 
 				$options_params[] = array('category' => " - ".__("Headings", 'lang_theme'), 'id' => 'mf_theme_content_heading');
-					//$options_params[] = array('type' => "checkbox", 'id' => 'heading_front_visible', 'title' => __("Show heading on front page", 'lang_theme'), 'default' => 2);
 					$options_params[] = array('type' => "text", 'id' => 'heading_bg', 'title' => __("Background", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "text", 'id' => 'heading_border_bottom', 'title' => __("Border Bottom", 'lang_theme')." (H1)");
 					$options_params[] = array('type' => "font", 'id' => 'heading_font', 'title' => __("Font", 'lang_theme')." (H1)");
@@ -285,7 +243,7 @@ if(!function_exists('get_params'))
 					$options_params[] = array('type' => "text", 'id' => "heading_margin_h5", 'title' => __("Margin", 'lang_theme')." (H5)");
 					$options_params[] = array('type' => "text", 'id' => "heading_font_size_h5", 'title' => __("Size", 'lang_theme')." (H5)");
 					$options_params[] = array('type' => "weight", 'id' => "heading_weight_h5", 'title' => __("Weight", 'lang_theme')." (H5)");
-				$options_params[] = array('category_end' => "");
+				$options_params[] = array('category_end' => "");*/
 
 				$options_params[] = array('category' => " - ".__("Text", 'lang_theme'), 'id' => 'mf_theme_content_text');
 					$options_params[] = array('type' => "text", 'id' => 'section_bg', 'title' => __("Background", 'lang_theme'));
@@ -313,7 +271,6 @@ if(!function_exists('get_params'))
 				$options_params[] = array('category_end' => "");
 			}
 
-			//if(isset($arr_sidebars['widget_pre_footer']) && count($arr_sidebars['widget_pre_footer']) > 0)
 			if(is_active_widget_area('widget_pre_footer'))
 			{
 				$options_params[] = array('category' => __("Pre Footer", 'lang_theme'), 'id' => 'mf_theme_pre_footer');
@@ -327,7 +284,6 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category' => __("Footer", 'lang_theme'), 'id' => 'mf_theme_footer');
 				$options_params[] = array('type' => "text", 'id' => 'footer_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder); //This is used as the default background on body to make the background go all the way down below the footer if present
 
-				//if(isset($arr_sidebars['widget_footer']) && count($arr_sidebars['widget_footer']) > 0)
 				if(is_active_widget_area('widget_footer'))
 				{
 					$options_params[] = array('type' => "text", 'id' => 'footer_padding', 'title' => __("Padding", 'lang_theme'));
@@ -360,8 +316,6 @@ if(!function_exists('widgets_theme'))
 {
 	function widgets_theme()
 	{
-		//$arr_sidebars = wp_get_sidebars_widgets();
-
 		register_sidebar(array(
 			'name' => __("Header", 'lang_theme'),
 			'id' => 'widget_header',
@@ -371,7 +325,6 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => ""
 		));
 
-		//if(isset($arr_sidebars['widget_header']) && count($arr_sidebars['widget_header']) > 0)
 		if(is_active_widget_area('widget_header'))
 		{
 			register_sidebar(array(
@@ -429,7 +382,6 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => "</div>"
 		));
 
-		//if(isset($arr_sidebars['widget_footer']) && count($arr_sidebars['widget_footer']) > 0)
 		if(is_active_widget_area('widget_footer'))
 		{
 			register_sidebar(array(

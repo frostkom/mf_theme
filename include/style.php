@@ -117,16 +117,27 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				.render_css(array('property' => 'padding', 'value' => 'header_padding'))
 			."}";
 
-				if(isset($options['header_fixed']) && $options['header_fixed'] == 2)
+				//if(isset($options['header_fixed']) && $options['header_fixed'] == 2)
+				if(isset($options['header_fixed']) && in_array($options['header_fixed'], array(2, 'absolute', 'fixed')))
 				{
 					$out .= "header.fixed > div
 					{"
 						.render_css(array('property' => 'background', 'value' => 'body_bg'))
 						.render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
 						.render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
-						."left: 0;
-						position: fixed;
-						right: 0;
+						."left: 0;";
+
+						if($options['header_fixed'] == 2)
+						{
+							$out .= "position: fixed;";
+						}
+
+						else
+						{
+							$out .= render_css(array('property' => 'position', 'value' => 'header_fixed'));
+						}
+
+						$out .= "right: 0;
 						z-index: 10;
 					}";
 				}
@@ -429,6 +440,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			$out .= "#mf-pre-content
 			{"
 				.render_css(array('property' => 'background', 'value' => 'front_bg'))
+				.render_css(array('property' => 'background-color', 'value' => 'pre_content_bg_color'))
+				.render_css(array('property' => 'background-image', 'value' => 'pre_content_bg_image'))
 				."clear: both;"
 				.render_css(array('property' => 'color', 'value' => 'front_color'))
 				."overflow: hidden;

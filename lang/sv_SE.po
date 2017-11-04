@@ -436,7 +436,7 @@ msgstr "Höger"
 
 #: ../include/functions.php:500
 msgid "Window Side Icons"
-msgstr "Sidikoner"
+msgstr "Sidoikoner"
 
 #: ../include/functions.php:521
 msgid "Settings"
