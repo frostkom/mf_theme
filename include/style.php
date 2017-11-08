@@ -69,8 +69,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 	{
 		font-size: .625em;"
 		.render_css(array('property' => 'font-size', 'value' => 'body_font_size'))
-		."overflow-y: scroll;
-	}
+		.render_css(array('property' => 'overflow-y', 'value' => 'body_scroll'))
+	."}
 
 	body
 	{"
@@ -145,7 +145,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				$out .= "#site_logo
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'logo_font'))
-					."float: left;"
+					.render_css(array('property' => 'float', 'value' => 'logo_float'))
+					//."float: left;"
 					.render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
 					."font-weight: bold;"
 					.render_css(array('property' => 'color', 'value' => 'logo_color'))
@@ -732,6 +733,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					footer .widget
 					{"
+						.render_css(array('property' => 'font-family', 'value' => 'footer_font'))
 						.render_css(array('property' => 'font-size', 'value' => 'footer_font_size'))
 						.render_css(array('property' => 'overflow', 'value' => 'footer_widget_overflow'))
 						.render_css(array('property' => 'padding', 'value' => 'footer_widget_padding'));

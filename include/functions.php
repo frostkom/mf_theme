@@ -154,98 +154,11 @@ if(!function_exists('get_params'))
 {
 	function get_params()
 	{
-		$bg_placeholder = "#ffffff, rgba(0, 0, 0, .3), url(background.png)";
+		//$bg_placeholder = "#ffffff, rgba(0, 0, 0, .3), url(background.png)";
 
-		$options_params = get_params_theme_core('mf_theme');
+		$options_params = get_params_theme_core();
 
-			/*$options_params[] = array('category' => __("Navigation", 'lang_theme'), 'id' => 'mf_theme_navigation');
-				$options_params[] = array('type' => "text", 'id' => 'nav_bg', 'title' => __("Background", 'lang_theme'));
-				$options_params[] = array('type' => "text", 'id' => 'nav_link_padding', 'title' => __("Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
-				$options_params[] = array('type' => "clear", 'id' => 'nav_clear', 'title' => __("Clear", 'lang_theme'), 'default' => "right");
-				$options_params[] = array('type' => "font", 'id' => 'nav_font', 'title' => __("Font", 'lang_theme'));
-				$options_params[] = array('type' => "text", 'id' => 'nav_size', 'title' => __("Size", 'lang_theme'), 'default' => "2em");
-				$options_params[] = array('type' => "align", 'id' => 'nav_align', 'title' => __("Align", 'lang_theme'), 'placeholder' => "left, right", 'default' => "right");
-				$options_params[] = array('type' => "color", 'id' => 'nav_color', 'title' => __("Text Color", 'lang_theme'));
-					$options_params[] = array('type' => "color", 'id' => 'nav_color_hover', 'title' => " - ".__("Text Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
-					$options_params[] = array('type' => "color", 'id' => 'nav_underline_color_hover', 'title' => " - ".__("Underline Color", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'nav_color');
-					$options_params[] = array('type' => "color", 'id' => 'nav_bg_current', 'title' => __("Background", 'lang_theme')." (".__("Current", 'lang_theme').")", 'show_if' => 'nav_color');
-					$options_params[] = array('type' => "color", 'id' => 'nav_color_current', 'title' => __("Text Color", 'lang_theme')." (".__("Current", 'lang_theme').")", 'show_if' => 'nav_color');
-			$options_params[] = array('category_end' => "");
-
-				$options_params[] = array('category' => " - ".__("Submenu", 'lang_theme'), 'id' => 'mf_theme_navigation_sub');
-					$options_params[] = array('type' => "checkbox", 'id' => 'sub_nav_arrow', 'title' => __("Show Up Arrow", 'lang_theme'), 'default' => 2);
-					$options_params[] = array('type' => "color", 'id' => 'sub_nav_bg', 'title' => __("Background", 'lang_theme'), 'default' => "#ccc");
-						$options_params[] = array('type' => "color", 'id' => 'sub_nav_bg_hover', 'title' => " - ".__("Background", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'sub_nav_bg');
-					$options_params[] = array('type' => "color", 'id' => 'sub_nav_color', 'title' => __("Text Color", 'lang_theme'), 'default' => "#333");
-						$options_params[] = array('type' => "color", 'id' => 'sub_nav_color_hover', 'title' => " - ".__("Text Color", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'sub_nav_color');
-				$options_params[] = array('category_end' => "");
-
-				$options_params[] = array('category' => " - ".__("Mobile Menu", 'lang_theme'), 'id' => 'mf_theme_navigation_hamburger');
-					$options_params[] = array('type' => "text", 'id' => 'hamburger_font_size', 'title' => __("Size", 'lang_theme'), 'default' => "2.5em");
-					$options_params[] = array('type' => "text", 'id' => 'hamburger_margin', 'title' => __("Margin", 'lang_theme'), 'default' => "1em .8em");
-					$options_params[] = array('type' => "text", 'id' => 'hamburger_menu_bg', 'title' => __("Background", 'lang_theme')." (".__("Menu", 'lang_theme').")");
-				$options_params[] = array('category_end' => "");
-
-				$options_params[] = array('category' => " - ".__("Secondary", 'lang_theme'), 'id' => 'mf_theme_navigation_secondary');
-					$options_params[] = array('type' => "text", 'id' => 'nav_secondary_bg', 'title' => __("Background", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'nav_secondary_link_padding', 'title' => __("Link Padding", 'lang_theme'));
-					$options_params[] = array('type' => "clear", 'id' => 'nav_secondary_clear', 'title' => __("Clear", 'lang_theme'), 'default' => "none");
-					$options_params[] = array('type' => "text", 'id' => 'nav_secondary_size', 'title' => __("Size", 'lang_theme'), 'default' => "1.4em");
-					$options_params[] = array('type' => "align", 'id' => 'nav_secondary_align', 'title' => __("Align", 'lang_theme'), 'placeholder' => "left, right", 'default' => "right");
-					$options_params[] = array('type' => "color", 'id' => 'nav_secondary_color', 'title' => __("Text Color", 'lang_theme'));
-						$options_params[] = array('type' => "color", 'id' => 'nav_secondary_color_hover', 'title' => " - ".__("Text Color", 'lang_theme')." (".__("Hover", 'lang_theme').")");
-						$options_params[] = array('type' => "color", 'id' => 'nav_secondary_bg_current', 'title' => __("Background", 'lang_theme')." (".__("Current", 'lang_theme').")", 'show_if' => 'nav_color');
-						$options_params[] = array('type' => "color", 'id' => 'nav_secondary_color_current', 'title' => __("Text Color", 'lang_theme')." (".__("Current", 'lang_theme').")", 'show_if' => 'nav_color');
-				$options_params[] = array('category_end' => "");
-
-				if(is_active_widget_area('widget_slide'))
-				{
-					$options_params[] = array('category' => " - ".__("Slide Menu", 'lang_theme'), 'id' => 'mf_theme_navigation_slide');
-						$options_params[] = array('type' => "text", 'id' => 'slide_nav_link_padding', 'title' => __("Link Padding", 'lang_theme'), 'default' => "1.5em 1em 1em");
-						$options_params[] = array('type' => "color", 'id' => 'slide_nav_bg', 'title' => __("Background", 'lang_theme'), 'default' => "#fff");
-						$options_params[] = array('type' => "color", 'id' => 'slide_nav_bg_hover', 'title' => " - ".__("Background", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'slide_nav_bg');
-						$options_params[] = array('type' => "color", 'id' => 'slide_nav_color', 'title' => __("Text Color", 'lang_theme'));
-						$options_params[] = array('type' => "color", 'id' => 'slide_nav_color_hover', 'title' => " - ".__("Text Color", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'slide_nav_color');
-						$options_params[] = array('type' => "color", 'id' => 'slide_nav_color_current', 'title' => __("Text Color", 'lang_theme')." (".__("Current", 'lang_theme').")");
-					$options_params[] = array('category_end' => "");
-				}
-
-			$options_params[] = array('category' => __("Pre Content", 'lang_theme'), 'id' => 'mf_theme_front');
-				$options_params[] = array('type' => "text", 'id' => 'front_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
-				$options_params[] = array('type' => "text", 'id' => 'front_padding', 'title' => __("Padding", 'lang_theme'));
-				$options_params[] = array('type' => "color", 'id' => 'front_color', 'title' => __("Text Color", 'lang_theme'));
-			$options_params[] = array('category_end' => "");
-
-			$options_params[] = array('category' => __("Content", 'lang_theme'), 'id' => 'mf_theme_content');
-				$options_params[] = array('type' => "text", 'id' => 'content_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
-				$options_params[] = array('type' => "text", 'id' => 'content_padding', 'title' => __("Padding", 'lang_theme'));
-			$options_params[] = array('category_end' => "");
-
-				$options_params[] = array('category' => " - ".__("Headings", 'lang_theme'), 'id' => 'mf_theme_content_heading');
-					$options_params[] = array('type' => "text", 'id' => 'heading_bg', 'title' => __("Background", 'lang_theme')." (H1)");
-					$options_params[] = array('type' => "text", 'id' => 'heading_border_bottom', 'title' => __("Border Bottom", 'lang_theme')." (H1)");
-					$options_params[] = array('type' => "font", 'id' => 'heading_font', 'title' => __("Font", 'lang_theme')." (H1)");
-					$options_params[] = array('type' => "text", 'id' => 'heading_size', 'title' => __("Size", 'lang_theme')." (H1)", 'default' => "2.25em");
-					$options_params[] = array('type' => "weight", 'id' => 'heading_weight', 'title' => __("Weight", 'lang_theme')." (H1)");
-					$options_params[] = array('type' => "text", 'id' => 'heading_margin', 'title' => __("Margin", 'lang_theme')." (H1)");
-					$options_params[] = array('type' => "text", 'id' => 'heading_padding', 'title' => __("Padding", 'lang_theme')." (H1)", 'default' => ".3em 0 .5em");
-					$options_params[] = array('type' => "text", 'id' => "heading_margin_h2", 'title' => __("Margin", 'lang_theme')." (H2)", 'default' => "0 0 .5em");
-					$options_params[] = array('type' => "font", 'id' => 'heading_font_h2', 'title' => __("Font", 'lang_theme')." (H2)");
-					$options_params[] = array('type' => "text", 'id' => 'heading_size_h2', 'title' => __("Size", 'lang_theme')." (H2)", 'default' => "1.5em");
-					$options_params[] = array('type' => "weight", 'id' => "heading_weight_h2", 'title' => __("Weight", 'lang_theme')." (H2)");
-					$options_params[] = array('type' => "text", 'id' => "heading_margin_h3", 'title' => __("Margin", 'lang_theme')." (H3)");
-					$options_params[] = array('type' => "font", 'id' => 'heading_font_h3', 'title' => __("Font", 'lang_theme')." (H3)");
-					$options_params[] = array('type' => "text", 'id' => 'heading_size_h3', 'title' => __("Size", 'lang_theme')." (H3)", 'default' => "1.3em");
-					$options_params[] = array('type' => "weight", 'id' => "heading_weight_h3", 'title' => __("Weight", 'lang_theme')." (H3)");
-					$options_params[] = array('type' => "text", 'id' => "heading_margin_h4", 'title' => __("Margin", 'lang_theme')." (H4)");
-					$options_params[] = array('type' => "text", 'id' => "heading_font_size_h4", 'title' => __("Size", 'lang_theme')." (H4)");
-					$options_params[] = array('type' => "weight", 'id' => "heading_weight_h4", 'title' => __("Weight", 'lang_theme')." (H4)");
-					$options_params[] = array('type' => "text", 'id' => "heading_margin_h5", 'title' => __("Margin", 'lang_theme')." (H5)");
-					$options_params[] = array('type' => "text", 'id' => "heading_font_size_h5", 'title' => __("Size", 'lang_theme')." (H5)");
-					$options_params[] = array('type' => "weight", 'id' => "heading_weight_h5", 'title' => __("Weight", 'lang_theme')." (H5)");
-				$options_params[] = array('category_end' => "");*/
-
-				$options_params[] = array('category' => " - ".__("Text", 'lang_theme'), 'id' => 'mf_theme_content_text');
+				/*$options_params[] = array('category' => " - ".__("Text", 'lang_theme'), 'id' => 'mf_theme_content_text');
 					$options_params[] = array('type' => "text", 'id' => 'section_bg', 'title' => __("Background", 'lang_theme'));
 					$options_params[] = array('type' => "text", 'id' => 'section_size', 'title' => __("Size", 'lang_theme'), 'default' => "1.6em");
 					$options_params[] = array('type' => "text", 'id' => 'section_line_height', 'title' => __("Line Height", 'lang_theme'), 'default' => "1.5");
@@ -306,7 +219,7 @@ if(!function_exists('get_params'))
 			$options_params[] = array('category' => __("Custom", 'lang_theme'), 'id' => 'mf_theme_generic');
 				$options_params[] = array('type' => "textarea", 'id' => 'custom_css_all', 'title' => __("Custom CSS", 'lang_theme'));
 				$options_params[] = array('type' => "textarea", 'id' => 'custom_css_mobile', 'title' => __("Custom CSS", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'show_if' => 'mobile_breakpoint');
-			$options_params[] = array('category_end' => "");
+			$options_params[] = array('category_end' => "");*/
 
 		return gather_params($options_params);
 	}
