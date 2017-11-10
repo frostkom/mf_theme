@@ -824,14 +824,14 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						font-size: 1.1em;
 						margin: 0 0 .5em 0;
 					}
-			
+
 						#window_side img, #window_side .fa
 						{
 							border-radius: 50%;
 							border: .1em solid #666;
 							transition: all 1s ease;
 						}
-						
+
 							#window_side img:hover, #window_side .fa:hover
 							{
 								-webkit-transform: translateX(-30%);

@@ -154,72 +154,7 @@ if(!function_exists('get_params'))
 {
 	function get_params()
 	{
-		//$bg_placeholder = "#ffffff, rgba(0, 0, 0, .3), url(background.png)";
-
 		$options_params = get_params_theme_core();
-
-				/*$options_params[] = array('category' => " - ".__("Text", 'lang_theme'), 'id' => 'mf_theme_content_text');
-					$options_params[] = array('type' => "text", 'id' => 'section_bg', 'title' => __("Background", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'section_size', 'title' => __("Size", 'lang_theme'), 'default' => "1.6em");
-					$options_params[] = array('type' => "text", 'id' => 'section_line_height', 'title' => __("Line Height", 'lang_theme'), 'default' => "1.5");
-					$options_params[] = array('type' => "text", 'id' => 'section_margin', 'title' => __("Margin", 'lang_theme'), 'default' => "0 0 2em");
-					$options_params[] = array('type' => "text", 'id' => 'section_padding', 'title' => __("Padding", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'section_margin_between', 'title' => __("Margin between Content", 'lang_theme'), 'default' => "1em");
-					$options_params[] = array('type' => "color", 'id' => 'article_url_color', 'title' => __("Link Color", 'lang_theme'));
-				$options_params[] = array('category_end' => "");
-
-			if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar'))
-			{
-				$options_params[] = array('category' => __("Aside", 'lang_theme'), 'id' => 'mf_theme_aside');
-					$options_params[] = array('type' => "text", 'id' => 'aside_width', 'title' => __("Width", 'lang_theme'), 'default' => "28%");
-					$options_params[] = array('type' => "text", 'id' => 'aside_widget_background', 'title' => __("Widget Background", 'lang_theme'), 'placeholder' => $bg_placeholder); //, 'default' => "#f8f8f8"
-					$options_params[] = array('type' => "text", 'id' => 'aside_widget_border', 'title' => __("Widget Border", 'lang_theme')); //, 'default' => "1px solid #d8d8d8"
-					$options_params[] = array('type' => "text", 'id' => 'aside_heading_bg', 'title' => __("Background", 'lang_theme')." (H3)");
-					$options_params[] = array('type' => "text", 'id' => 'aside_heading_border_bottom', 'title' => __("Border Bottom", 'lang_theme')." (H3)");
-					$options_params[] = array('type' => "text", 'id' => 'aside_heading_size', 'title' => __("Size", 'lang_theme')." (H3)");
-					$options_params[] = array('type' => "text", 'id' => 'aside_heading_padding', 'title' => __("Padding", 'lang_theme')." (H3)", 'default' => ".5em");
-					$options_params[] = array('type' => "text", 'id' => 'aside_size', 'title' => __("Size", 'lang_theme')." (".__("Content", 'lang_theme').")");
-					$options_params[] = array('type' => "text", 'id' => 'aside_line_height', 'title' => __("Line Height", 'lang_theme')." (".__("Content", 'lang_theme').")");
-					$options_params[] = array('type' => "text", 'id' => 'aside_padding', 'title' => __("Padding", 'lang_theme')." (".__("Content", 'lang_theme').")", 'default' => ".5em");
-				$options_params[] = array('category_end' => "");
-			}
-
-			if(is_active_widget_area('widget_pre_footer'))
-			{
-				$options_params[] = array('category' => __("Pre Footer", 'lang_theme'), 'id' => 'mf_theme_pre_footer');
-					$options_params[] = array('type' => "checkbox", 'id' => 'pre_footer_full_width', 'title' => __("Full Width", 'lang_theme'), 'default' => 1);
-					$options_params[] = array('type' => "text", 'id' => 'pre_footer_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder);
-					$options_params[] = array('type' => "text", 'id' => 'pre_footer_padding', 'title' => __("Padding", 'lang_theme'));
-						$options_params[] = array('type' => "text", 'id' => 'pre_footer_widget_padding', 'title' => __("Widget Padding", 'lang_theme'), 'default' => "0 0 .5em");
-				$options_params[] = array('category_end' => "");
-			}
-
-			$options_params[] = array('category' => __("Footer", 'lang_theme'), 'id' => 'mf_theme_footer');
-				$options_params[] = array('type' => "text", 'id' => 'footer_bg', 'title' => __("Background", 'lang_theme'), 'placeholder' => $bg_placeholder); //This is used as the default background on body to make the background go all the way down below the footer if present
-
-				if(is_active_widget_area('widget_footer'))
-				{
-					$options_params[] = array('type' => "text", 'id' => 'footer_padding', 'title' => __("Padding", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'footer_font_size', 'title' => __("Font size", 'lang_theme'), 'default' => "1.8em");
-					$options_params[] = array('type' => "color", 'id' => 'footer_color', 'title' => __("Text Color", 'lang_theme'));
-						$options_params[] = array('type' => "color", 'id' => 'footer_color_hover', 'title' => " - ".__("Text Color", 'lang_theme')." (".__("Hover", 'lang_theme').")", 'show_if' => 'footer_color');
-						$options_params[] = array('type' => "checkbox", 'id' => 'footer_widget_flex', 'title' => __("Widget Flex", 'lang_theme'), 'default' => 2);
-						$options_params[] = array('type' => "overflow", 'id' => 'footer_widget_overflow', 'title' => __("Widget Overflow", 'lang_theme'), 'default' => "hidden");
-						$options_params[] = array('type' => "text", 'id' => 'footer_widget_padding', 'title' => __("Widget Padding", 'lang_theme'), 'default' => ".2em");
-					$options_params[] = array('type' => "text", 'id' => 'footer_widget_heading_margin', 'title' => __("Widget Heading Margin", 'lang_theme'), 'default' => "0 0 .5em");
-					$options_params[] = array('type' => "text_transform", 'id' => 'footer_widget_heading_text_transform', 'title' => __("Widget Heading Text Transform", 'lang_theme'), 'default' => "uppercase");
-					$options_params[] = array('type' => "text", 'id' => 'footer_p_margin', 'title' => __("Paragraph/List Margin", 'lang_theme'), 'default' => "0 0 .5em");
-					$options_params[] = array('type' => "text", 'id' => 'footer_a_bg', 'title' => __("Link Background", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'footer_a_margin', 'title' => __("Link Margin", 'lang_theme'));
-					$options_params[] = array('type' => "text", 'id' => 'footer_a_padding', 'title' => __("Link Padding", 'lang_theme'), 'default' => ".4em .6em");
-				}
-
-			$options_params[] = array('category_end' => "");
-
-			$options_params[] = array('category' => __("Custom", 'lang_theme'), 'id' => 'mf_theme_generic');
-				$options_params[] = array('type' => "textarea", 'id' => 'custom_css_all', 'title' => __("Custom CSS", 'lang_theme'));
-				$options_params[] = array('type' => "textarea", 'id' => 'custom_css_mobile', 'title' => __("Custom CSS", 'lang_theme')." (".__("Mobile", 'lang_theme').")", 'show_if' => 'mobile_breakpoint');
-			$options_params[] = array('category_end' => "");*/
 
 		return gather_params($options_params);
 	}

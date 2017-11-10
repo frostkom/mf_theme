@@ -9,7 +9,7 @@
  * @subpackage Theme
  */
 
-						if(is_active_sidebar('widget_after_content'))
+						if(is_active_sidebar('widget_after_content') && !post_password_required())
 						{
 							echo "<div class='aside after_content'>";
 
@@ -20,7 +20,7 @@
 
 					echo "</div>";
 
-					if(is_active_sidebar('widget_sidebar_left'))
+					if(is_active_sidebar('widget_sidebar_left') && !post_password_required())
 					{
 						echo "<div".is_clean("aside left").">";
 
@@ -29,10 +29,10 @@
 						echo "</div>";
 					}
 
-					if(is_active_sidebar('widget_sidebar')) //Returns true even if it is empty below so I've had to add a hack here ;(
+					if(is_active_sidebar('widget_sidebar') && !post_password_required()) //Returns true even if it is empty below so I've had to add a hack here ;(
 					{
 						ob_start();
-							
+
 						dynamic_sidebar('widget_sidebar');
 
 						$content = ob_get_clean();
