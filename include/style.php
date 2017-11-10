@@ -640,7 +640,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								margin-top: 1em;
 							}";
 
-				if(is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar'))
+				if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar'))
 				{
 					$out .= ".aside
 					{"
@@ -685,6 +685,14 @@ $out = show_font_face($options_params, $options_fonts, $options)
 									.render_css(array('property' => 'color', 'value' => 'article_url_color'))
 									."text-decoration: none;
 								}";
+
+					if(is_active_widget_area('widget_after_content'))
+					{
+						$out .= ".aside.after_content .widget
+						{"
+							.render_css(array('property' => 'font-size', 'value' => 'after_content_widget_font_size'))
+						."}";
+					}
 				}
 
 		if(is_active_widget_area('widget_pre_footer'))
@@ -702,6 +710,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					#mf-pre-footer > div .widget
 					{"
+						.render_css(array('property' => 'font-size', 'value' => 'pre_footer_widget_font_size'))
 						.render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
 					."}";
 		}
