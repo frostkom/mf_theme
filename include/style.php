@@ -75,6 +75,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 	body
 	{"
 		.render_css(array('property' => 'background', 'value' => 'footer_bg', 'append' => "min-height: 100vh;"))
+		.render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
+		.render_css(array('property' => 'background-image', 'value' => 'footer_bg_image'))
 		.render_css(array('property' => 'font-family', 'value' => 'body_font'))
 		.render_css(array('property' => 'color', 'value' => 'body_color'))
 		."overflow: hidden;
@@ -700,6 +702,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			$out .= "#mf-pre-footer
 			{"
 				.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
+				.render_css(array('property' => 'background-color', 'value' => 'pre_footer_bg_color'))
+				.render_css(array('property' => 'background-image', 'value' => 'pre_footer_bg_image'))
 				."overflow: hidden;
 			}
 
@@ -720,6 +724,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 			$out .= "footer
 			{"
 				.render_css(array('property' => 'background', 'value' => 'footer_bg'))
+				.render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
+				.render_css(array('property' => 'background-image', 'value' => 'footer_bg_image'))
 				."overflow: hidden;
 				position: relative;
 				z-index: 1000;
