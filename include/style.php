@@ -147,17 +147,20 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				$out .= "#site_logo
 				{"
 					.render_css(array('property' => 'font-family', 'value' => 'logo_font'))
-					.render_css(array('property' => 'float', 'value' => 'logo_float'))
-					//."float: left;"
 					.render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
 					."font-weight: bold;"
 					.render_css(array('property' => 'color', 'value' => 'logo_color'))
 					.render_css(array('property' => 'margin', 'value' => 'logo_padding'))
 					."position: relative;
-					text-decoration: none;
-					transition: all .4s ease;"
-					.render_css(array('property' => 'max-width', 'value' => 'logo_width'))
+					text-decoration: none;"
+					//."transition: all .4s ease;"
 				."}
+
+					header #site_logo
+					{"
+						.render_css(array('property' => 'float', 'value' => 'logo_float'))
+						.render_css(array('property' => 'max-width', 'value' => 'logo_width'))
+					."}
 
 					#site_logo span
 					{
@@ -858,6 +861,25 @@ $out = show_font_face($options_params, $options_fonts, $options)
 	{
 		$out .= $options['custom_css_all'];
 	}
+
+	/*if(is_plugin_active('css-hero-ce/css-hero-main.php'))
+	{
+		$arr_selectors = get_option('wpcss_current_settings_array_'.get_theme_slug());
+
+		do_log(var_export($arr_selectors, true));
+
+		foreach($arr_selectors as $selector => $arr_properties)
+		{
+			$out .= $selector."{";
+
+				foreach($arr_properties as $key => $value)
+				{
+					$out .= $key.":".$value.";";
+				}
+
+			$out .= "}";
+		}
+	}*/
 
 $out .= "}";
 
