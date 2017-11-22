@@ -310,7 +310,7 @@ if(!function_exists('is_clean'))
 {
 	function is_clean($class = "")
 	{
-		$class .= (isset($_GET['clean']) ? " hide" : "");
+		//$class .= (isset($_GET['clean']) ? " hide" : "");
 
 		return ($class != '' ? " class='".$class."'" : "");
 	}

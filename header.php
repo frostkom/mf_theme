@@ -33,6 +33,9 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_after_header'))
 			{
+				//list($options_params, $options) = get_params();
+
+				//".is_clean((isset($options['after_header_full_width']) && $options['after_header_full_width'] == 2 ? "full_width" : ""))."
 				echo "<div id='mf-after-header'".is_clean().">
 					<div>";
 
