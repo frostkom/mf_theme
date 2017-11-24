@@ -489,7 +489,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				.render_css(array('property' => 'padding', 'value' => 'content_padding'))
 			."}
 
-				article h1
+				#wrapper h1 /*article h1*/
 				{"
 					.render_css(array('property' => 'background', 'value' => 'heading_bg'))
 					.render_css(array('property' => 'border-bottom', 'value' => 'heading_border_bottom'))
@@ -500,7 +500,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
 				."}
 
-					article h1 a
+					#wrapper h1 a /*article h1 a*/
 					{
 						color: inherit;
 					}
