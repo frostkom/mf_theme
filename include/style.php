@@ -110,6 +110,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		header
 		{"
 			.render_css(array('property' => 'background', 'value' => 'header_bg'))
+			.render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
+			.render_css(array('property' => 'background-image', 'value' => 'header_bg_image'))
 			.render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
 			."position: relative;
 		}
@@ -626,21 +628,24 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						article ul, article ol
 						{
 							list-style-position: inside;
-						}
+						}";
 
-							article p a, article ul a, article ol a
+							if($options['article_url_color'] != '')
 							{
-								border-bottom: 2px solid transparent;"
-								.render_css(array('property' => 'color', 'value' => 'article_url_color'))
-								."text-decoration: none;
-							}
-
-								article p a:hover, article ul a:hover, article ol a:hover
-								{"
-									.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
+								$out .= "article p a, article ul a, article ol a
+								{
+									border-bottom: 2px solid transparent;"
+									.render_css(array('property' => 'color', 'value' => 'article_url_color'))
+									."text-decoration: none;"
 								."}
 
-							article li + li
+									article p a:hover, article ul a:hover, article ol a:hover
+									{"
+										.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
+									."}";
+							}
+
+							$out .= "article li + li
 							{
 								margin-top: 1em;
 							}";
@@ -1016,7 +1021,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 					.theme_nav.is_mobile_ready > div > ul > li
 					{"
-						.render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg')))
+						.render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg', 'header_bg_color', 'header_bg_image')))
 						."display: none;
 					}
 

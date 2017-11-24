@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-22 12:57+0100\n"
+"POT-Creation-Date: 2017-11-24 12:34+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -132,66 +132,66 @@ msgstr "Klass på Body"
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
 
-#: ../../mf_parallax/include/functions.php:127
+#: ../../mf_parallax/include/functions.php:98
 #, php-format
 msgid "To choose if this page should be part of the One Page/Parallax you have to set %sShow on Front%s to Your latest Posts."
 msgstr "För att välja om denna sida ska vara en del av en sk. one-page måste du ändra %sStartsidan visar%s till Dina senaste inlägg"
 
-#: ../../mf_parallax/include/functions.php:141
+#: ../../mf_parallax/include/functions.php:112
 msgid "Information"
 msgstr "Information"
 
-#: ../../mf_parallax/include/functions.php:164
+#: ../../mf_parallax/include/functions.php:135
 msgid "Show in Menu"
 msgstr "Visa i menyn"
 
-#: ../../mf_parallax/include/functions.php:172
+#: ../../mf_parallax/include/functions.php:143
 msgid "Show on Page"
 msgstr "Visa på sidan"
 
-#: ../../mf_parallax/include/functions.php:198
+#: ../../mf_parallax/include/functions.php:169
 msgid "Background Color"
 msgstr "Bakgrundsfärg"
 
-#: ../../mf_parallax/include/functions.php:204
-#: ../../mf_parallax/include/functions.php:210
+#: ../../mf_parallax/include/functions.php:175
+#: ../../mf_parallax/include/functions.php:181
 msgid "Background"
 msgstr "Bakgrund"
 
-#: ../../mf_parallax/include/functions.php:204
+#: ../../mf_parallax/include/functions.php:175
 msgid "Desktop"
 msgstr "Stora skärmar"
 
-#: ../../mf_parallax/include/functions.php:210
+#: ../../mf_parallax/include/functions.php:181
 msgid "Mobile"
 msgstr "Mobil"
 
-#: ../../mf_parallax/include/functions.php:216
+#: ../../mf_parallax/include/functions.php:187
 msgid "Repeat Image"
 msgstr "Repetera bild"
 
-#: ../../mf_parallax/include/functions.php:220
+#: ../../mf_parallax/include/functions.php:191
 msgid "Choose here"
 msgstr "Välj här"
 
-#: ../../mf_parallax/include/functions.php:221
+#: ../../mf_parallax/include/functions.php:192
 msgid "No"
 msgstr "Nej"
 
-#: ../../mf_parallax/include/functions.php:223
-#: ../../mf_parallax/include/functions.php:224
+#: ../../mf_parallax/include/functions.php:194
+#: ../../mf_parallax/include/functions.php:195
 msgid "Yes"
 msgstr "Ja"
 
-#: ../../mf_parallax/include/functions.php:223
+#: ../../mf_parallax/include/functions.php:194
 msgid "Horizontal"
 msgstr "Horisontellt"
 
-#: ../../mf_parallax/include/functions.php:224
+#: ../../mf_parallax/include/functions.php:195
 msgid "Vertical"
 msgstr "Vertikalt"
 
-#: ../../mf_parallax/include/functions.php:229
+#: ../../mf_parallax/include/functions.php:200
 msgid "Text Color"
 msgstr "Textfärg"
 
