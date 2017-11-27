@@ -22,7 +22,12 @@ echo "<!DOCTYPE html>
 
 					else
 					{
-						echo get_logo()
+						if(!isset($obj_theme_core))
+						{
+							$obj_theme_core = new mf_theme_core();
+						}
+
+						echo $obj_theme_core->get_logo()
 						.get_search_theme_core()
 						.get_menu_theme(array('where' => 'header'));
 					}
@@ -33,10 +38,14 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_after_header'))
 			{
-				//list($options_params, $options) = get_params();
+				if(!isset($obj_theme_core))
+				{
+					$obj_theme_core = new mf_theme_core();
+				}
 
-				//".is_clean((isset($options['after_header_full_width']) && $options['after_header_full_width'] == 2 ? "full_width" : ""))."
-				echo "<div id='mf-after-header'".is_clean().">
+				$obj_theme_core->get_params();
+
+				echo "<div id='mf-after-header'".is_clean((isset($obj_theme_core->options['after_header_full_width']) && $obj_theme_core->options['after_header_full_width'] == 2 ? "full_width" : "")).">
 					<div>";
 
 						dynamic_sidebar('widget_after_header');

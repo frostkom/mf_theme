@@ -77,9 +77,9 @@ get_header();
 
 			else if($post_content != '')
 			{
-				$meta_prefix = "mf_theme_";
+				$obj_theme = new mf_theme();
 
-				$post_text_columns = get_post_meta($post_id, $meta_prefix.'text_columns', true);
+				$post_text_columns = get_post_meta($post_id, $obj_theme->meta_prefix.'text_columns', true);
 
 				$article_content .= "<section".($post_text_columns > 1 ? " class='text_columns columns_".$post_text_columns."'" : "").">".$post_content."</section>";
 			}

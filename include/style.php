@@ -1,8 +1,6 @@
 <?php
 
-$is_standalone = !defined('ABSPATH');
-
-if($is_standalone)
+if(!defined('ABSPATH'))
 {
 	header("Content-Type: text/css; charset=utf-8");
 
@@ -11,16 +9,14 @@ if($is_standalone)
 	require_once($folder."wp-load.php");
 }
 
-else
+if(!isset($obj_theme_core))
 {
-	global $options, $options_fonts;
+	$obj_theme_core = new mf_theme_core();
 }
 
-$options_fonts = get_theme_fonts();
+$obj_theme_core->get_params();
 
-list($options_params, $options) = get_params();
-
-$out = show_font_face($options_params, $options_fonts, $options)
+$out = $obj_theme_core->show_font_face()
 ."@media all
 {
 	#mf-after-header, .aside, #mf-pre-footer
@@ -41,18 +37,18 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 	p a
 	{"
-		.render_css(array('property' => 'color', 'value' => 'body_link_color'))
+		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'body_link_color'))
 	."}
 
 	#wrapper .mf_form button, #wrapper .button
 	{"
-		.render_css(array('property' => 'background', 'value' => array('button_color', 'nav_color_hover')))
+		.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('button_color', 'nav_color_hover')))
 		."color: #fff;"
 	."}
 
 		#wrapper .mf_form button:hover, #wrapper .button:hover
 		{"
-			.render_css(array('property' => 'background', 'value' => 'button_color_hover'))
+			.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'button_color_hover'))
 		."}
 
 		#wrapper button.button-secondary
@@ -68,31 +64,31 @@ $out = show_font_face($options_params, $options_fonts, $options)
 	html
 	{
 		font-size: .625em;"
-		.render_css(array('property' => 'font-size', 'value' => 'body_font_size'))
-		.render_css(array('property' => 'overflow-y', 'value' => 'body_scroll'))
+		.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'body_font_size'))
+		.$obj_theme_core->render_css(array('property' => 'overflow-y', 'value' => 'body_scroll'))
 	."}
 
 	body
 	{"
-		.render_css(array('property' => 'background', 'value' => 'footer_bg', 'append' => "min-height: 100vh;"))
-		.render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
-		.render_css(array('property' => 'background-image', 'value' => 'footer_bg_image'))
-		.render_css(array('property' => 'font-family', 'value' => 'body_font'))
-		.render_css(array('property' => 'color', 'value' => 'body_color'))
+		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_bg', 'append' => "min-height: 100vh;"))
+		.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
+		.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'footer_bg_image'))
+		.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'body_font'))
+		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'body_color'))
 		."overflow: hidden;
 		position: relative;
 	}
 
 	#wrapper
 	{"
-		.render_css(array('property' => 'background', 'value' => 'body_bg'))
-		.render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
-		.render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
+		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
+		.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
+		.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
 	."}
 
 		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
 		{"
-			.render_css(array('property' => 'padding', 'value' => 'main_padding'))
+			.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'main_padding'))
 			."position: relative;
 		}
 
@@ -109,36 +105,36 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 		header
 		{"
-			.render_css(array('property' => 'background', 'value' => 'header_bg'))
-			.render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
-			.render_css(array('property' => 'background-image', 'value' => 'header_bg_image'))
-			.render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
+			.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
+			.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
+			.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'header_bg_image'))
+			.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
 			."position: relative;
 		}
 
 			header > div
 			{"
-				.render_css(array('property' => 'padding', 'value' => 'header_padding'))
+				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'header_padding'))
 			."}";
 
-				//if(isset($options['header_fixed']) && $options['header_fixed'] == 2)
-				if(isset($options['header_fixed']) && in_array($options['header_fixed'], array(2, 'absolute', 'fixed')))
+				//if(isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] == 2)
+				if(isset($obj_theme_core->options['header_fixed']) && in_array($obj_theme_core->options['header_fixed'], array(2, 'absolute', 'fixed')))
 				{
 					$out .= "header.fixed > div
 					{"
-						.render_css(array('property' => 'background', 'value' => 'body_bg'))
-						.render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
-						.render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
+						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
+						.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
+						.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
 						."left: 0;";
 
-						if($options['header_fixed'] == 2)
+						if($obj_theme_core->options['header_fixed'] == 2)
 						{
 							$out .= "position: fixed;";
 						}
 
 						else
 						{
-							$out .= render_css(array('property' => 'position', 'value' => 'header_fixed'));
+							$out .= $obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'));
 						}
 
 						$out .= "right: 0;
@@ -148,11 +144,11 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 				$out .= "#site_logo
 				{"
-					.render_css(array('property' => 'font-family', 'value' => 'logo_font'))
-					.render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'logo_font'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
 					."font-weight: bold;"
-					.render_css(array('property' => 'color', 'value' => 'logo_color'))
-					.render_css(array('property' => 'margin', 'value' => 'logo_padding'))
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'logo_color'))
+					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'logo_padding'))
 					."position: relative;
 					text-decoration: none;"
 					//."transition: all .4s ease;"
@@ -160,8 +156,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					header #site_logo
 					{"
-						.render_css(array('property' => 'float', 'value' => 'logo_float'))
-						.render_css(array('property' => 'max-width', 'value' => 'logo_width'))
+						.$obj_theme_core->render_css(array('property' => 'float', 'value' => 'logo_float'))
+						.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width'))
 					."}
 
 					#site_logo span
@@ -172,8 +168,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 				.searchform
 				{"
-					.render_css(array('property' => 'color', 'value' => 'search_color'))
-					.render_css(array('property' => 'font-size', 'value' => 'search_size'))
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'search_color'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'search_size'))
 					."padding: .3em;
 					position: relative;
 				}
@@ -188,7 +184,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 						.searchform .form_textfield input
 						{
 							background: none;"
-							.render_css(array('property' => 'color', 'value' => 'search_color'))
+							.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'search_color'))
 							."display: inline-block;
 							float: right;
 							margin: 0;
@@ -224,7 +220,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 				.theme_nav.is_mobile_ready
 				{"
-					.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'nav_font'))
 				."}
 
 					.theme_nav ul
@@ -247,7 +243,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								.theme_nav a
 								{
 									display: block;"
-									.render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
+									.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
 								."}
 
 									header .theme_nav li:hover > .sub-menu, header .theme_nav li.current-menu-item > .sub-menu, header .theme_nav li.current-menu-ancestor > .sub-menu
@@ -269,10 +265,10 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					header #primary_nav
 					{"
-						.render_css(array('property' => 'background', 'value' => 'nav_bg'))
-						.render_css(array('property' => 'clear', 'value' => 'nav_clear'))
-						.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
-						.render_css(array('property' => 'text-align', 'value' => 'nav_align'))
+						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'nav_bg'))
+						.$obj_theme_core->render_css(array('property' => 'clear', 'value' => 'nav_clear'))
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'nav_size'))
+						.$obj_theme_core->render_css(array('property' => 'text-align', 'value' => 'nav_align'))
 					."}
 
 						#primary_nav > .toggle_icon
@@ -282,19 +278,19 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 							#primary_nav a
 							{"
-								.render_css(array('property' => 'color', 'value' => 'nav_color'))
+								.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'nav_color'))
 							."}
 
 								#primary_nav a:hover, #primary_nav li.current_page_ancestor.current_page_ancestor > a, #primary_nav li.current_page_item.current_page_item > a
 								{"
-									.render_css(array('prefix' => "border-bottom: 5px solid ", 'value' => 'nav_underline_color_hover'))
-									.render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
+									.$obj_theme_core->render_css(array('prefix' => "border-bottom: 5px solid ", 'value' => 'nav_underline_color_hover'))
+									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
 								."}
 
 									#primary_nav li.current_page_ancestor.current_page_ancestor > a, #primary_nav li.current_page_item.current_page_item > a
 									{"
-										.render_css(array('property' => 'background', 'value' => 'nav_bg_current'))
-										.render_css(array('property' => 'color', 'value' => 'nav_color_current'))
+										.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'nav_bg_current'))
+										.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'nav_color_current'))
 									."}
 
 						#slide_nav > .fa
@@ -305,35 +301,42 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					#secondary_nav
 					{"
-						.render_css(array('property' => 'background', 'value' => 'nav_secondary_bg'))
-						.render_css(array('property' => 'clear', 'value' => 'nav_secondary_clear'))
-						.render_css(array('property' => 'font-size', 'value' => 'nav_secondary_size'))
-						.render_css(array('property' => 'text-align', 'value' => 'nav_secondary_align'))
+						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'nav_secondary_bg'))
+						.$obj_theme_core->render_css(array('property' => 'clear', 'value' => 'nav_secondary_clear'))
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'nav_secondary_size'))
+						.$obj_theme_core->render_css(array('property' => 'text-align', 'value' => 'nav_secondary_align'))
 					."}
 
 						#secondary_nav a
 						{"
-							.render_css(array('property' => 'color', 'value' => 'nav_secondary_color'))
-							.render_css(array('property' => 'padding', 'value' => 'nav_secondary_link_padding'))
+							.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'nav_secondary_color'))
+							.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'nav_secondary_link_padding'))
 						."}
 
 							#secondary_nav a:hover, #secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
 							{"
-								.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_hover'))
+								.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'nav_secondary_color_hover'))
 							."}
 
 								#secondary_nav li.current_page_ancestor.current_page_ancestor > a, #secondary_nav li.current_page_item.current_page_item > a
 								{"
-									.render_css(array('property' => 'background', 'value' => 'nav_secondary_bg_current'))
-									.render_css(array('property' => 'color', 'value' => 'nav_secondary_color_current'))
+									.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'nav_secondary_bg_current'))
+									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'nav_secondary_color_current'))
 								."}";
 
 		if(is_active_widget_area('widget_after_header'))
 		{
-			$out .= "#mf-after-header .widget + .widget
-			{
-				margin-top: 1em;
-			}";
+			$out .= "#mf-after-header
+			{"
+				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'after_header_bg'))
+				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'after_header_bg_color'))
+				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'after_header_bg_image'))
+			."}
+			
+				#mf-after-header .widget + .widget
+				{
+					margin-top: 1em;
+				}";
 		}
 
 		if(is_active_widget_area('widget_slide'))
@@ -353,10 +356,10 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 				#mf-slide-nav > div
 				{"
-					.render_css(array('property' => 'background', 'value' => 'slide_nav_bg'))
+					.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'slide_nav_bg'))
 					."bottom: 0;"
-					.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
-					.render_css(array('property' => 'font-family', 'value' => 'nav_font'))
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'nav_font'))
 					."overflow: hidden;
 					padding: 3.5em 0 1em;
 					position: absolute;
@@ -368,7 +371,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					#mf-slide-nav #primary_nav
 					{"
-						.render_css(array('property' => 'font-size', 'value' => 'nav_size'))
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'nav_size'))
 					."}
 
 						#mf-slide-nav .fa-close
@@ -387,11 +390,11 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 							#mf-slide-nav #primary_nav ul a
 							{"
-								.render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
+								.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
 								."display: block;
 								letter-spacing: .2em;
 								overflow: hidden;"
-								.render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
+								.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
 								."text-overflow: ellipsis;
 								transition: all .4s ease;
 								white-space: nowrap;
@@ -399,15 +402,15 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 								#mf-slide-nav #primary_nav ul a:hover
 								{"
-									.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
-									.render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
+									.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
+									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
 									."text-indent: .3em;
 								}
 
 								#mf-slide-nav #primary_nav li.current_page_item > a
 								{"
-									.render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
-									.render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
+									.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
+									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
 								."}
 
 							#mf-slide-nav #primary_nav li ul
@@ -447,33 +450,33 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		{
 			$out .= "#mf-pre-content
 			{"
-				.render_css(array('property' => 'background', 'value' => 'front_bg'))
-				.render_css(array('property' => 'background-color', 'value' => 'pre_content_bg_color'))
-				.render_css(array('property' => 'background-image', 'value' => 'pre_content_bg_image'))
+				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'front_bg'))
+				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'pre_content_bg_color'))
+				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'pre_content_bg_image'))
 				."clear: both;"
-				.render_css(array('property' => 'color', 'value' => 'front_color'))
+				.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'front_color'))
 				."overflow: hidden;
 			}
 
 				#mf-pre-content > div
 				{"
-					.render_css(array('property' => 'padding', 'value' => 'front_padding'))
+					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'front_padding'))
 				."}
 
 					#mf-pre-content h3
 					{"
-						.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
-						.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
-						.render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
-						.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
-						.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
+						.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font'))
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size'))
+						.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
+						.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin'))
+						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'heading_padding'))
 					."}
 
 					#mf-pre-content p
 					{"
-						.render_css(array('property' => 'font-size', 'value' => 'section_size'))
-						.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
-						.render_css(array('property' => 'margin', 'value' => 'section_margin'))
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
+						.$obj_theme_core->render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
+						.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'section_margin'))
 					."}";
 		}
 
@@ -484,20 +487,20 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 			#mf-content > div
 			{"
-				.render_css(array('property' => 'background', 'value' => 'content_bg'))
+				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'content_bg'))
 				."overflow: hidden;"
-				.render_css(array('property' => 'padding', 'value' => 'content_padding'))
+				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'content_padding'))
 			."}
 
 				#wrapper h1 /*article h1*/
 				{"
-					.render_css(array('property' => 'background', 'value' => 'heading_bg'))
-					.render_css(array('property' => 'border-bottom', 'value' => 'heading_border_bottom'))
-					.render_css(array('property' => 'font-family', 'value' => 'heading_font'))
-					.render_css(array('property' => 'font-size', 'value' => 'heading_size'))
-					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
-					.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
-					.render_css(array('property' => 'padding', 'value' => 'heading_padding'))
+					.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'heading_bg'))
+					.$obj_theme_core->render_css(array('property' => 'border-bottom', 'value' => 'heading_border_bottom'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size'))
+					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
+					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin'))
+					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'heading_padding'))
 				."}
 
 					#wrapper h1 a /*article h1 a*/
@@ -507,39 +510,39 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 				article h2
 				{"
-					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
-					.render_css(array('property' => 'font-size', 'value' => 'heading_font_h2'))
-					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h2'))
-					.render_css(array('property' => 'margin', 'value' => 'heading_margin_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h2'))
+					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h2'))
 				."}
 
 				article h3
 				{"
-					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
-					.render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h3'))
-					.render_css(array('property' => 'margin', 'value' => 'heading_margin_h3'))
-					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h3'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h3'))
+					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h3'))
+					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h3'))
 				."}
 
 				article h4
 				{"
-					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
-					.render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h4'))
-					.render_css(array('property' => 'margin', 'value' => 'heading_margin_h4'))
-					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h4'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h4'))
+					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h4'))
+					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h4'))
 				."}
 
 				article h5
 				{"
-					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
-					.render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h5'))
-					.render_css(array('property' => 'margin', 'value' => 'heading_margin_h5'))
-					.render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h5'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h5'))
+					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h5'))
+					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h5'))
 				."}
 
 				article .meta
 				{"
-					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
 					."opacity: .2;
 					transition: all 1s ease;
 				}
@@ -562,24 +565,24 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 				h2
 				{"
-					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
-					.render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
 				."}
 
 				h3
 				{"
-					.render_css(array('property' => 'font-family', 'value' => 'heading_font_h3'))
-					.render_css(array('property' => 'font-size', 'value' => 'heading_size_h3'))
+					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h3'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h3'))
 				."}
 
 				article section
 				{"
-					.render_css(array('property' => 'background', 'value' => 'section_bg'))
-					.render_css(array('property' => 'font-size', 'value' => 'section_size'))
-					.render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
-					.render_css(array('property' => 'margin', 'value' => 'section_margin'))
+					.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'section_bg'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
+					.$obj_theme_core->render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
+					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'section_margin'))
 					."overflow: hidden;"
-					.render_css(array('property' => 'padding', 'value' => 'section_padding'))
+					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'section_padding'))
 				."}
 
 					article + article
@@ -612,7 +615,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					article p, article ul, article ol, article form
 					{"
-						.render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
+						.$obj_theme_core->render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
 					."}
 
 						article p:last-child, article ul:last-child, article ol:last-child, article form:last-child
@@ -630,18 +633,18 @@ $out = show_font_face($options_params, $options_fonts, $options)
 							list-style-position: inside;
 						}";
 
-							if($options['article_url_color'] != '')
+							if($obj_theme_core->options['article_url_color'] != '')
 							{
 								$out .= "article p a, article ul a, article ol a
 								{
 									border-bottom: 2px solid transparent;"
-									.render_css(array('property' => 'color', 'value' => 'article_url_color'))
+									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'article_url_color'))
 									."text-decoration: none;"
 								."}
 
 									article p a:hover, article ul a:hover, article ol a:hover
 									{"
-										.render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
+										.$obj_theme_core->render_css(array('property' => 'border-bottom-color', 'value' => 'article_url_color'))
 									."}";
 							}
 
@@ -654,12 +657,12 @@ $out = show_font_face($options_params, $options_fonts, $options)
 				{
 					$out .= ".aside
 					{"
-						.render_css(array('property' => 'margin', 'value' => 'heading_margin'))
+						.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin'))
 					."}
 
 						.aside .widget
 						{"
-							.render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
+							.$obj_theme_core->render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
 						."}
 
 							.aside .widget + .widget
@@ -669,19 +672,19 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 							.aside h3
 							{"
-								.render_css(array('property' => 'background', 'value' => 'aside_heading_bg'))
-								.render_css(array('property' => 'border-bottom', 'value' => 'aside_heading_border_bottom'))
-								.render_css(array('property' => 'font-size', 'value' => 'aside_heading_size'))
-								.render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
+								.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'aside_heading_bg'))
+								.$obj_theme_core->render_css(array('property' => 'border-bottom', 'value' => 'aside_heading_border_bottom'))
+								.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'aside_heading_size'))
+								.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
 							."}
 
 							.aside .widget .section, .aside .widget > div, .aside .widget > form, .aside .widget > ol, .aside .widget > ul, .aside .widget > p
 							{"
-								.render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
-								.render_css(array('property' => 'font-size', 'value' => 'aside_size'))
-								.render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
+								.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
+								.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'aside_size'))
+								.$obj_theme_core->render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
 								."margin-bottom: .5em;"
-								.render_css(array('property' => 'padding', 'value' => 'aside_padding'))
+								.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'aside_padding'))
 							."}
 
 							.aside ul, .aside ol
@@ -692,7 +695,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								.aside p a, .aside ul a, .aside ol a
 								{
 									border-bottom: 2px solid transparent;"
-									.render_css(array('property' => 'color', 'value' => 'article_url_color'))
+									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'article_url_color'))
 									."text-decoration: none;
 								}";
 
@@ -700,7 +703,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 					{
 						$out .= ".aside.after_content .widget
 						{"
-							.render_css(array('property' => 'font-size', 'value' => 'after_content_widget_font_size'))
+							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'after_content_widget_font_size'))
 						."}";
 					}
 				}
@@ -709,21 +712,21 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		{
 			$out .= "#mf-pre-footer
 			{"
-				.render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
-				.render_css(array('property' => 'background-color', 'value' => 'pre_footer_bg_color'))
-				.render_css(array('property' => 'background-image', 'value' => 'pre_footer_bg_image'))
+				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
+				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'pre_footer_bg_color'))
+				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'pre_footer_bg_image'))
 				."overflow: hidden;
 			}
 
 				#mf-pre-footer > div
 				{"
-					.render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
+					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'pre_footer_padding'))
 				."}
 
 					#mf-pre-footer > div .widget
 					{"
-						.render_css(array('property' => 'font-size', 'value' => 'pre_footer_widget_font_size'))
-						.render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'pre_footer_widget_font_size'))
+						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'pre_footer_widget_padding'))
 					."}";
 		}
 
@@ -731,9 +734,9 @@ $out = show_font_face($options_params, $options_fonts, $options)
 		{
 			$out .= "footer
 			{"
-				.render_css(array('property' => 'background', 'value' => 'footer_bg'))
-				.render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
-				.render_css(array('property' => 'background-image', 'value' => 'footer_bg_image'))
+				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_bg'))
+				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
+				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'footer_bg_image'))
 				."overflow: hidden;
 				position: relative;
 				z-index: 1000;
@@ -741,10 +744,10 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 				footer > div
 				{"
-					.render_css(array('property' => 'color', 'value' => 'footer_color'))
-					.render_css(array('property' => 'padding', 'value' => 'footer_padding'));
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'footer_color'))
+					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'footer_padding'));
 
-					if(isset($options['footer_widget_flex']) && $options['footer_widget_flex'] == 2)
+					if(isset($obj_theme_core->options['footer_widget_flex']) && $obj_theme_core->options['footer_widget_flex'] == 2)
 					{
 						$out .= "display: -webkit-box;
 						display: -ms-flexbox;
@@ -756,12 +759,12 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 					footer .widget
 					{"
-						.render_css(array('property' => 'font-family', 'value' => 'footer_font'))
-						.render_css(array('property' => 'font-size', 'value' => 'footer_font_size'))
-						.render_css(array('property' => 'overflow', 'value' => 'footer_widget_overflow'))
-						.render_css(array('property' => 'padding', 'value' => 'footer_widget_padding'));
+						.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'footer_font'))
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'footer_font_size'))
+						.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'footer_widget_overflow'))
+						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'footer_widget_padding'));
 
-						if(isset($options['footer_widget_flex']) && $options['footer_widget_flex'] == 2)
+						if(isset($obj_theme_core->options['footer_widget_flex']) && $obj_theme_core->options['footer_widget_flex'] == 2)
 						{
 							$out .= "-webkit-box-flex: 1;
 							-webkit-flex: 1;
@@ -778,8 +781,8 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 						footer .widget h3
 						{"
-							.render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'))
-							.render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'))
+							.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'))
+							.$obj_theme_core->render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'))
 						."}
 
 							footer ul
@@ -787,11 +790,11 @@ $out = show_font_face($options_params, $options_fonts, $options)
 								list-style: none;
 							}";
 
-							if(isset($options['footer_p_margin']) && $options['footer_p_margin'] != '')
+							if(isset($obj_theme_core->options['footer_p_margin']) && $obj_theme_core->options['footer_p_margin'] != '')
 							{
 								$out .= "footer .widget p, footer .widget li
 								{"
-									.render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
+									.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'footer_p_margin'))
 								."}
 
 									footer .widget li ul
@@ -803,21 +806,21 @@ $out = show_font_face($options_params, $options_fonts, $options)
 							$out .= "footer .widget a
 							{";
 
-								if(isset($options['footer_a_bg']) && $options['footer_a_bg'] != '')
+								if(isset($obj_theme_core->options['footer_a_bg']) && $obj_theme_core->options['footer_a_bg'] != '')
 								{
 									$out .= "border-radius: .5em;"
-									.render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
+									.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
 									."display: block;"
-									.render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
-									.render_css(array('property' => 'padding', 'value' => 'footer_a_padding'));
+									.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
+									.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'footer_a_padding'));
 								}
 
-								$out .= render_css(array('property' => 'color', 'value' => 'footer_color'))
+								$out .= $obj_theme_core->render_css(array('property' => 'color', 'value' => 'footer_color'))
 							."}
 
 								footer .widget a:hover, footer li.current_page_item a
 								{"
-									.render_css(array('property' => 'color', 'value' => array('footer_color_hover', 'nav_color_hover')))
+									.$obj_theme_core->render_css(array('property' => 'color', 'value' => array('footer_color_hover', 'nav_color_hover')))
 								."}";
 		}
 
@@ -862,9 +865,9 @@ $out = show_font_face($options_params, $options_fonts, $options)
 							}";
 		}
 
-	if(isset($options['custom_css_all']) && $options['custom_css_all'] != '')
+	if(isset($obj_theme_core->options['custom_css_all']) && $obj_theme_core->options['custom_css_all'] != '')
 	{
-		$out .= $options['custom_css_all'];
+		$out .= $obj_theme_core->options['custom_css_all'];
 	}
 
 	/*if(is_plugin_active('css-hero-ce/css-hero-main.php'))
@@ -888,7 +891,7 @@ $out = show_font_face($options_params, $options_fonts, $options)
 
 $out .= "}";
 
-$aside_width = isset($options['aside_width']) && $options['aside_width'] != '' ? $options['aside_width'] : "28%";
+$aside_width = isset($obj_theme_core->options['aside_width']) && $obj_theme_core->options['aside_width'] != '' ? $obj_theme_core->options['aside_width'] : "28%";
 
 $flex_content = "#mf-content > div
 {
@@ -925,7 +928,7 @@ $flex_content = "#mf-content > div
 			-ms-flex: 0 0 ".$aside_width.";
 			flex: 0 0 ".$aside_width.";
 			order: 3;"
-			.render_css(array('property' => 'max-width', 'value' => 'aside_width'))
+			.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'aside_width'))
 		."}
 
 			.aside.left
@@ -936,9 +939,9 @@ $flex_content = "#mf-content > div
 			}";
 	}
 
-if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
+if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->options['mobile_breakpoint'] > 0)
 {
-	$out .= "@media (max-width: ".($options['mobile_breakpoint'] - 1)."px)
+	$out .= "@media (max-width: ".($obj_theme_core->options['mobile_breakpoint'] - 1)."px)
 	{
 		body:before
 		{
@@ -952,7 +955,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 			#site_logo
 			{"
-				.render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
+				.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
 			."}
 
 			#secondary_nav, header .searchform
@@ -983,11 +986,11 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 					$out .= "header #primary_nav > .toggle_icon
 					{"
-						.render_css(array('property' => 'color', 'value' => 'logo_color'))
+						.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'logo_color'))
 						."display: block;"
-						.render_css(array('property' => 'font-size', 'value' => array('hamburger_font_size', 'logo_font_size')))
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => array('hamburger_font_size', 'logo_font_size')))
 						."margin: .1em .2em;"
-						.render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
+						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
 						."position: absolute;
 						right: 0;
 						top: 0;
@@ -1021,7 +1024,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 					.theme_nav.is_mobile_ready > div > ul > li
 					{"
-						.render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg', 'header_bg_color', 'header_bg_image')))
+						.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg', 'header_bg_color', 'header_bg_image')))
 						."display: none;
 					}
 
@@ -1056,14 +1059,14 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				}";
 			}
 
-		if(isset($options['custom_css_mobile']) && $options['custom_css_mobile'] != '')
+		if(isset($obj_theme_core->options['custom_css_mobile']) && $obj_theme_core->options['custom_css_mobile'] != '')
 		{
-			$out .= $options['custom_css_mobile'];
+			$out .= $obj_theme_core->options['custom_css_mobile'];
 		}
 
 	$out .= "}
 
-	@media (min-width: ".$options['mobile_breakpoint']."px)
+	@media (min-width: ".$obj_theme_core->options['mobile_breakpoint']."px)
 	{
 		body:before
 		{
@@ -1078,7 +1081,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 		html
 		{"
-			.render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
+			.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
 		."}
 
 			.theme_nav.is_mobile_ready .sub-menu
@@ -1092,7 +1095,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 				z-index: 100;
 			}";
 
-				if(isset($options['sub_nav_arrow']) && $options['sub_nav_arrow'] == 2)
+				if(isset($obj_theme_core->options['sub_nav_arrow']) && $obj_theme_core->options['sub_nav_arrow'] == 2)
 				{
 					$out .= ".theme_nav.is_mobile_ready .sub-menu
 					{
@@ -1103,7 +1106,7 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 						.theme_nav.is_mobile_ready .sub-menu:before
 						{
 							border: .7em solid transparent;"
-							.render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
+							.$obj_theme_core->render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
 							."content: '';
 							left: 50%;
 							position: absolute;
@@ -1119,8 +1122,8 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 						#primary_nav.theme_nav.is_mobile_ready .sub-menu a
 						{"
-							.render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
-							.render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
+							.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
+							.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
 							."padding: .8em;
 						}
 
@@ -1138,8 +1141,8 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 
 							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover
 							{"
-								.render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
-								.render_css(array('property' => 'color', 'value' => 'sub_nav_color_hover'))
+								.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg_hover'))
+								.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'sub_nav_color_hover'))
 							."}"
 		.$flex_content
 	."}";
@@ -1147,9 +1150,9 @@ if(isset($options['mobile_breakpoint']) && $options['mobile_breakpoint'] > 0)
 	$flex_content = "";
 }
 
-if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
+if(isset($obj_theme_core->options['website_max_width']) && $obj_theme_core->options['website_max_width'] > 0)
 {
-	$out .= "@media (min-width: ".$options['website_max_width']."px)
+	$out .= "@media (min-width: ".$obj_theme_core->options['website_max_width']."px)
 	{
 		body:before
 		{
@@ -1159,7 +1162,7 @@ if(isset($options['website_max_width']) && $options['website_max_width'] > 0)
 		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
 		{
 			margin: 0 auto;
-			max-width: ".$options['website_max_width']."px;
+			max-width: ".$obj_theme_core->options['website_max_width']."px;
 		}"
 		.$flex_content
 	."}";

@@ -2,11 +2,12 @@
 
 function cron_theme()
 {
-	list($options_params, $options) = get_params();
+	$obj_theme_core = new mf_theme_core();
+	$obj_theme_core->get_params();
 
-	if(isset($options['style_source']) && $options['style_source'] != '')
+	if(isset($obj_theme_core->options['style_source']) && $obj_theme_core->options['style_source'] != '')
 	{
-		$style_source = trim($options['style_source'], "/");
+		$style_source = trim($obj_theme_core->options['style_source'], "/");
 
 		if($style_source != get_site_url())
 		{
@@ -68,9 +69,9 @@ if(!function_exists('is_heading_visible'))
 	{
 		if($post->post_type == 'page')
 		{
-			$meta_prefix = "mf_theme_";
+			$obj_theme = new mf_theme();
 
-			$post_meta = get_post_meta($post->ID, $meta_prefix.'display_heading', true);
+			$post_meta = get_post_meta($post->ID, $obj_theme->meta_prefix.'display_heading', true);
 
 			return $post_meta != 'no' ? true : false;
 		}
@@ -86,18 +87,18 @@ if(!function_exists('head_theme'))
 {
 	function head_theme()
 	{
-		enqueue_theme_fonts();
+		$obj_theme_core = new mf_theme_core();
+		$obj_theme_core->get_params();
+		$obj_theme_core->enqueue_theme_fonts();
 
 		$template_url = get_bloginfo('template_url');
 		$theme_version = get_theme_version();
 
 		mf_enqueue_style('style', $template_url."/include/style.php", $theme_version);
-
-		list($options_params, $options) = get_params();
-
-		$header_fixed = isset($options['header_fixed']) && $options['header_fixed'] == 2 ? true : false;
-
-		mf_enqueue_script('script_theme', $template_url."/include/script.js", array('template_url' => $template_url, 'header_fixed' => $header_fixed), $theme_version);
+		mf_enqueue_script('script_theme', $template_url."/include/script.js", array(
+			'template_url' => $template_url,
+			'header_fixed' => (isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] == 2),
+		), $theme_version);
 	}
 }
 
@@ -109,9 +110,9 @@ if(!function_exists('body_class_theme'))
 
 		if(isset($post) && isset($post->ID) && $post->ID > 0)
 		{
-			$meta_prefix = "mf_theme_";
+			$obj_theme = new mf_theme();
 
-			$body_class = get_post_meta($post->ID, $meta_prefix.'body_class', true);
+			$body_class = get_post_meta($post->ID, $obj_theme->meta_prefix.'body_class', true);
 
 			if($body_class)
 			{
@@ -149,16 +150,6 @@ if(!function_exists('setup_theme'))
 		));
 	}
 }
-
-/*if(!function_exists('get_params'))
-{
-	function get_params()
-	{
-		$options_params = get_params_theme_core();
-
-		return gather_params($options_params);
-	}
-}*/
 
 if(!function_exists('widgets_theme'))
 {
@@ -268,7 +259,7 @@ if(!function_exists('meta_boxes_theme'))
 {
 	function meta_boxes_theme($meta_boxes)
 	{
-		$meta_prefix = "mf_theme_";
+		$obj_theme = new mf_theme();
 
 		$meta_boxes[] = array(
 			'id' => 'settings',
@@ -279,14 +270,14 @@ if(!function_exists('meta_boxes_theme'))
 			'fields' => array(
 				array(
 					'name' => __("Display Heading", 'lang_theme'),
-					'id' => $meta_prefix.'display_heading',
+					'id' => $obj_theme->meta_prefix.'display_heading',
 					'type' => 'select',
 					'options' => get_yes_no_for_select(),
 					'std' => 'yes',
 				),
 				array(
 					'name' => __("Text Columns", 'lang_theme'),
-					'id' => $meta_prefix.'text_columns',
+					'id' => $obj_theme->meta_prefix.'text_columns',
 					'type' => 'number',
 					'std' => 1,
 					'attributes' => array(
@@ -296,7 +287,7 @@ if(!function_exists('meta_boxes_theme'))
 				),
 				array(
 					'name' => __("Body Class", 'lang_theme'),
-					'id' => $meta_prefix.'body_class',
+					'id' => $obj_theme->meta_prefix.'body_class',
 					'type' => 'text',
 				),
 			)

@@ -48,9 +48,14 @@
 
 			if(is_active_sidebar('widget_pre_footer'))
 			{
-				list($options_params, $options) = get_params();
+				if(!isset($obj_theme_core))
+				{
+					$obj_theme_core = new mf_theme_core();
+				}
 
-				echo "<div id='mf-pre-footer'".(isset($options['pre_footer_full_width']) && $options['pre_footer_full_width'] == 2 ? " class='full_width'" : "").">
+				$obj_theme_core->get_params();
+
+				echo "<div id='mf-pre-footer'".(isset($obj_theme_core->options['pre_footer_full_width']) && $obj_theme_core->options['pre_footer_full_width'] == 2 ? " class='full_width'" : "").">
 					<div>";
 
 						dynamic_sidebar('widget_pre_footer');

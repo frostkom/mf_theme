@@ -1,5 +1,13 @@
 <?php
 
+class mf_theme
+{
+	function __construct()
+	{
+		$this->meta_prefix = "mf_theme_";
+	}
+}
+
 class widget_theme_menu extends WP_Widget
 {
 	function __construct()
