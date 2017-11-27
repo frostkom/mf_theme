@@ -54,10 +54,12 @@ if(!function_exists('get_search_page'))
 {
 	function get_search_page()
 	{
+		$strSearch = check_var('s');
+
 		return "<article>
 			<h1>".__("No results", 'lang_theme')."</h1>
 			<section>
-				<p>".sprintf(__("I could not find any results for '%s'", 'lang_theme'), get_query_var('s'))."</p>
+				<p>".sprintf(__("I could not find any results for '%s'", 'lang_theme'), $strSearch)."</p>
 			</section>
 		</article>";
 	}
