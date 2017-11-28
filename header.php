@@ -12,8 +12,8 @@ echo "<!DOCTYPE html>
 	echo "</head>
 	<body class='".implode(" ", get_body_class())."'>
 		<div id='wrapper'>
-			<header".is_clean().">
-				<div>";
+			<header>
+				<div>"; //".is_clean()."
 
 					if(is_active_sidebar('widget_header'))
 					{
@@ -45,7 +45,8 @@ echo "<!DOCTYPE html>
 
 				$obj_theme_core->get_params();
 
-				echo "<div id='mf-after-header'".is_clean((isset($obj_theme_core->options['after_header_full_width']) && $obj_theme_core->options['after_header_full_width'] == 2 ? "full_width" : "")).">
+				//".is_clean()."
+				echo "<div id='mf-after-header'".(isset($obj_theme_core->options['after_header_full_width']) && $obj_theme_core->options['after_header_full_width'] == 2 ? " class='full_width'" : "").">
 					<div>";
 
 						dynamic_sidebar('widget_after_header');
@@ -56,7 +57,8 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_slide'))
 			{
-				echo "<div id='mf-slide-nav'".is_clean().">
+				//".is_clean()."
+				echo "<div id='mf-slide-nav'>
 					<div>
 						<i class='fa fa-close'></i>";
 
@@ -68,7 +70,8 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_front'))
 			{
-				echo "<div id='mf-pre-content'".is_clean().">
+				//".is_clean()."
+				echo "<div id='mf-pre-content'>
 					<div>";
 
 						dynamic_sidebar('widget_front');

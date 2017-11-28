@@ -265,7 +265,7 @@ if(!function_exists('meta_boxes_theme'))
 
 		$meta_boxes[] = array(
 			'id' => 'settings',
-			'title' => __("Settings", 'lang_theme'),
+			'title' => __("Content Settings", 'lang_theme'),
 			'post_types' => array('page'),
 			'context' => 'side',
 			'priority' => 'low',
@@ -299,7 +299,7 @@ if(!function_exists('meta_boxes_theme'))
 	}
 }
 
-if(!function_exists('is_clean'))
+/*if(!function_exists('is_clean'))
 {
 	function is_clean($class = "")
 	{
@@ -307,7 +307,7 @@ if(!function_exists('is_clean'))
 
 		return ($class != '' ? " class='".$class."'" : "");
 	}
-}
+}*/
 
 if(!function_exists('get_menu_theme'))
 {
