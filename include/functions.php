@@ -356,10 +356,20 @@ if(!function_exists('get_menu_theme'))
 
 					else
 					{
-						$out .= "<nav id='primary_nav' class='theme_nav is_mobile_ready'>
-							<i class='fa fa-bars toggle_icon'></i>
-							<i class='fa fa-close toggle_icon'></i>"
-							.$nav_content
+						$out .= "<nav id='primary_nav' class='theme_nav is_mobile_ready'>";
+
+							if(1 == 2 && get_current_user_id() > 0)
+							{
+								$out .= "<a href='#' class='toggle_icon'></a>";
+							}
+
+							else
+							{
+								$out .= "<i class='fa fa-bars toggle_icon'></i>
+								<i class='fa fa-close toggle_icon'></i>";
+							}
+
+							$out .= $nav_content
 						."</nav>";
 					}
 				}

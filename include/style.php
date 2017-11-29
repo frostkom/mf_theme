@@ -283,7 +283,8 @@ $out = $obj_theme_core->show_font_face()
 
 								#primary_nav a:hover, #primary_nav li.current_page_ancestor.current_page_ancestor > a, #primary_nav li.current_page_item.current_page_item > a
 								{"
-									.$obj_theme_core->render_css(array('prefix' => "border-bottom: 5px solid ", 'value' => 'nav_underline_color_hover'))
+									//.$obj_theme_core->render_css(array('prefix' => "border-bottom: 5px solid ", 'value' => 'nav_underline_color_hover'))
+									.$obj_theme_core->render_css(array('property' => 'border-bottom', 'prefix' => "5px solid ", 'value' => 'nav_underline_color_hover'))
 									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'nav_color_hover'))
 								."}
 
@@ -996,33 +997,76 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 						top: 0;
 						z-index: 1;
 					}
-
-						header #primary_nav .fa-close
-						{
-							display: none;
-						}
-
+					
 						header #primary_nav.is_mobile_ready ul > li
 						{
 							display: none;
 						}
+						
+							header #primary_nav.open ul > li
+							{
+								display: block;
+							}";
 
-							header #primary_nav.open .fa-bars
+						if(1 == 2 && get_current_user_id() > 0)
+						{
+							$bar_height = 0.15;
+							$bar_spacing = 0.3;
+
+							$out .= "nav .toggle_icon
+							{
+								display: block;"
+								//.$obj_theme_core->render_css(array('property' => 'width', 'value' => array('hamburger_font_size', 'logo_font_size')))
+								."width: 1.5em;"
+							."}
+
+								nav .toggle_icon:before, nav .toggle_icon:after
+								{"
+									.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'logo_color'))
+									."content: '';
+									display: block;
+									height: ".$bar_height."em;
+									transition: all 200ms ease-in-out;
+								}
+
+								nav .toggle_icon:before
+								{"
+									.$obj_theme_core->render_css(array('property' => 'box-shadow', 'prefix' => "0 ".$bar_spacing."em 0 ", 'value' => 'logo_color'))
+									."margin-top: ".($bar_height)."em;"
+									."margin-bottom: ".($bar_spacing + $bar_height)."em;
+								}
+
+									nav.open .toggle_icon:before
+									{"
+										.$obj_theme_core->render_css(array('property' => 'box-shadow', 'prefix' => "0 0 0 ", 'value' => 'logo_color'))
+										."transform: translateY(".$bar_spacing."em) rotate(45deg);
+									}
+
+									nav.open .toggle_icon:after
+									{
+										transform: translateY(-".$bar_spacing."em) rotate(-45deg);
+									}";
+						}
+
+						else
+						{
+							$out .= "header #primary_nav .fa-close
 							{
 								display: none;
 							}
 
-							header #primary_nav.open .fa-close
-							{
-								display: block;
-							}
+								header #primary_nav.open .fa-bars
+								{
+									display: none;
+								}
 
-							header #primary_nav.open ul > li
-							{
-								display: block;
-							}
+								header #primary_nav.open .fa-close
+								{
+									display: block;
+								}";
+						}
 
-					.theme_nav.is_mobile_ready > div > ul > li
+					$out .= ".theme_nav.is_mobile_ready > div > ul > li
 					{"
 						.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg', 'header_bg_color', 'header_bg_image')))
 						."display: none;
@@ -1106,7 +1150,8 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 						.theme_nav.is_mobile_ready .sub-menu:before
 						{
 							border: .7em solid transparent;"
-							.$obj_theme_core->render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
+							//.$obj_theme_core->render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
+							.$obj_theme_core->render_css(array('property' => 'border-bottom-color', 'value' => 'sub_nav_bg'))
 							."content: '';
 							left: 50%;
 							position: absolute;

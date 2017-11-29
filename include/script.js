@@ -103,6 +103,8 @@ jQuery(function($)
 
 			$(this).parent('nav').toggleClass('open');
 		}
+
+		return false;
 	});
 
 	/* Fixed header */
