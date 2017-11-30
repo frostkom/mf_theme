@@ -103,6 +103,11 @@ $out = $obj_theme_core->show_font_face()
 			max-width: none;
 		}
 
+			.full_width .widget.widget_media_image
+			{
+				text-align: center;
+			}
+
 		header
 		{"
 			.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
