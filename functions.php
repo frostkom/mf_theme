@@ -3,8 +3,6 @@
 include_once("include/functions.php");
 include_once("include/classes.php");
 
-add_action('cron_base', 'cron_theme', mt_rand(1, 10));
-
 if(is_admin())
 {
 	add_action('rwmb_meta_boxes', 'meta_boxes_theme');

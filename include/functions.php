@@ -1,55 +1,5 @@
 <?php
 
-function cron_theme()
-{
-	$obj_theme_core = new mf_theme_core();
-	$obj_theme_core->get_params();
-
-	if(isset($obj_theme_core->options['style_source']) && $obj_theme_core->options['style_source'] != '')
-	{
-		$style_source = trim($obj_theme_core->options['style_source'], "/");
-
-		if($style_source != get_site_url())
-		{
-			if(filter_var($style_source, FILTER_VALIDATE_URL))
-			{
-				list($content, $headers) = get_url_content($style_source."/wp-content/themes/mf_theme/include/ajax.php?type=get_style_source", true);
-
-				if(isset($headers['http_code']) && $headers['http_code'] == 200)
-				{
-					$json = json_decode($content, true);
-
-					if(isset($json['success']) && $json['success'] == true)
-					{
-						$style_changed = $json['response']['style_changed'];
-						$style_url = $json['response']['style_url'];
-
-						update_option('option_theme_source_style_url', ($style_changed > get_option('option_theme_saved') ? $style_url : ""), 'no');
-					}
-
-					else
-					{
-						do_log(sprintf(__("The feed from %s returned an error", 'lang_theme'), $style_source));
-					}
-				}
-
-				else
-				{
-					do_log(sprintf(__("The response from %s had an error (%s)", 'lang_theme'), $style_source, $headers['http_code']));
-				}
-			}
-
-			else
-			{
-				do_log(sprintf(__("I could not process the feed from %s since the URL was not a valid one", 'lang_theme'), $style_source));
-			}
-		}
-	}
-
-	list($upload_path, $upload_url) = get_uploads_folder('mf_theme');
-	get_file_info(array('path' => $upload_path, 'callback' => "delete_files"));
-}
-
 if(!function_exists('get_search_page'))
 {
 	function get_search_page()
