@@ -45,7 +45,6 @@ echo "<!DOCTYPE html>
 
 				$obj_theme_core->get_params();
 
-				//".is_clean()."
 				echo "<div id='mf-after-header'".(isset($obj_theme_core->options['after_header_full_width']) && $obj_theme_core->options['after_header_full_width'] == 2 ? " class='full_width'" : "").">
 					<div>";
 
@@ -57,7 +56,6 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_slide'))
 			{
-				//".is_clean()."
 				echo "<div id='mf-slide-nav'>
 					<div>
 						<i class='fa fa-close'></i>";
@@ -70,8 +68,14 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_front'))
 			{
-				//".is_clean()."
-				echo "<div id='mf-pre-content'>
+				if(!isset($obj_theme_core))
+				{
+					$obj_theme_core = new mf_theme_core();
+				}
+
+				$obj_theme_core->get_params();
+
+				echo "<div id='mf-pre-content'".(isset($obj_theme_core->options['pre_content_full_width']) && $obj_theme_core->options['pre_content_full_width'] == 2 ? " class='full_width'" : "").">
 					<div>";
 
 						dynamic_sidebar('widget_front');

@@ -19,17 +19,6 @@ $obj_theme_core->get_params();
 $out = $obj_theme_core->show_font_face()
 ."@media all
 {
-	#mf-after-header, .aside, #mf-pre-footer
-	{
-		margin: 0;
-		padding: 0;
-	}
-
-	#mf-after-header, .aside, #mf-pre-footer
-	{
-		box-sizing: border-box;
-	}
-
 	header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
 	{
 		display: block;
@@ -337,12 +326,20 @@ $out = $obj_theme_core->show_font_face()
 				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'after_header_bg'))
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'after_header_bg_color'))
 				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'after_header_bg_image'))
-			."}
+				."clear: both;"
+				.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'after_header_color'))
+				."overflow: hidden;
+			}
+
+				#mf-after-header > div
+				{"
+					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'after_header_padding'))
+				."}
 			
-				#mf-after-header .widget + .widget
+				/*#mf-after-header .widget + .widget
 				{
 					margin-top: 1em;
-				}";
+				}*/";
 		}
 
 		if(is_active_widget_area('widget_slide'))
