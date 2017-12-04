@@ -61,7 +61,7 @@ $out = $obj_theme_core->show_font_face()
 	{"
 		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_bg', 'append' => "min-height: 100vh;"))
 		.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
-		.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'footer_bg_image'))
+		.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'footer_bg_image', 'suffix' => '); background-size: cover'))
 		.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'body_font'))
 		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'body_color'))
 		."overflow: hidden;
@@ -72,7 +72,7 @@ $out = $obj_theme_core->show_font_face()
 	{"
 		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
 		.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
-		.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
+		.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'body_bg_image', 'suffix' => '); background-size: cover'))
 	."}
 
 		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
@@ -101,7 +101,7 @@ $out = $obj_theme_core->show_font_face()
 		{"
 			.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
 			.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
-			.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'header_bg_image'))
+			.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))
 			.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
 			."position: relative;
 		}
@@ -118,7 +118,7 @@ $out = $obj_theme_core->show_font_face()
 					{"
 						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
 						.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
-						.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'body_bg_image'))
+						.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'body_bg_image', 'suffix' => '); background-size: cover'))
 						."left: 0;";
 
 						if($obj_theme_core->options['header_fixed'] == 2)
@@ -325,7 +325,7 @@ $out = $obj_theme_core->show_font_face()
 			{"
 				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'after_header_bg'))
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'after_header_bg_color'))
-				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'after_header_bg_image'))
+				.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'after_header_bg_image', 'suffix' => '); background-size: cover'))
 				."clear: both;"
 				.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'after_header_color'))
 				."overflow: hidden;
@@ -455,7 +455,7 @@ $out = $obj_theme_core->show_font_face()
 			{"
 				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'front_bg'))
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'pre_content_bg_color'))
-				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'pre_content_bg_image'))
+				.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'pre_content_bg_image', 'suffix' => '); background-size: cover'))
 				."clear: both;"
 				.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'front_color'))
 				."overflow: hidden;
@@ -717,7 +717,7 @@ $out = $obj_theme_core->show_font_face()
 			{"
 				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'pre_footer_bg'))
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'pre_footer_bg_color'))
-				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'pre_footer_bg_image'))
+				.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'pre_footer_bg_image', 'suffix' => '); background-size: cover'))
 				."overflow: hidden;
 			}
 
@@ -739,7 +739,7 @@ $out = $obj_theme_core->show_font_face()
 			{"
 				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_bg'))
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
-				.$obj_theme_core->render_css(array('property' => 'background-image', 'value' => 'footer_bg_image'))
+				.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'footer_bg_image', 'suffix' => '); background-size: cover'))
 				."overflow: hidden;
 				position: relative;
 				z-index: 1000;
