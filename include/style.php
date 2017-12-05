@@ -328,8 +328,9 @@ $out = $obj_theme_core->show_font_face()
 				.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'after_header_bg_image', 'suffix' => '); background-size: cover'))
 				."clear: both;"
 				.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'after_header_color'))
-				."overflow: hidden;
-			}
+				.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'after_header_overflow'))
+				//."overflow: hidden;"
+			."}
 
 				#mf-after-header > div
 				{"
