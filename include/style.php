@@ -19,7 +19,7 @@ $obj_theme_core->get_params();
 $out = $obj_theme_core->show_font_face()
 ."@media all
 {
-	header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer, input:not([type='checkbox']):not([type='radio']), textarea
+	input:not([type='checkbox']):not([type='radio']), textarea, header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer
 	{
 		display: block;
 	}
@@ -29,26 +29,29 @@ $out = $obj_theme_core->show_font_face()
 		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'body_link_color'))
 	."}
 
-	#wrapper .mf_form button, #wrapper .button
+	#wrapper .mf_form button, #wrapper .button, .color_button, #wrapper .mf_form .button-primary
 	{"
 		.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('button_color', 'nav_color_hover')))
-		."color: #fff;"
+		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'button_text_color'))
 	."}
 
-		#wrapper .mf_form button:hover, #wrapper .button:hover
-		{"
-			.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'button_color_hover'))
-		."}
+	#wrapper .button-secondary, .color_button_2
+	{"
+		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'button_color_secondary', 'suffix' => " !important"))
+		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'button_text_color_secondary'))
+	."}
 
-		#wrapper button.button-secondary
+	.color_button_negative
+	{"
+		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'button_color_negative', 'suffix' => " !important"))
+		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'button_text_color_negative'))
+	."}
+
+		#wrapper .mf_form button:hover, #wrapper .button:hover, #wrapper .mf_form .button-primary:hover, #wrapper .button-secondary:hover, .color_button_2:hover, .color_button_negative:hover
 		{
-			background: #999;
-		}
-
-			#wrapper button.button-secondary:hover
-			{
-				background: #aaa;
-			}
+			box-shadow: inset 0 0 10em rgba(0, 0, 0, .1);"
+			//.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'button_color_hover'))
+		."}
 
 	html
 	{
@@ -336,7 +339,7 @@ $out = $obj_theme_core->show_font_face()
 				{"
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'after_header_padding'))
 				."}
-			
+
 				/*#mf-after-header .widget + .widget
 				{
 					margin-top: 1em;
@@ -1000,12 +1003,12 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 						top: 0;
 						z-index: 1;
 					}
-					
+
 						header #primary_nav.is_mobile_ready ul > li
 						{
 							display: none;
 						}
-						
+
 							header #primary_nav.open ul > li
 							{
 								display: block;
