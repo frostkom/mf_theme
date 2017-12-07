@@ -22,61 +22,15 @@ $out = $obj_theme_core->show_font_face()
 	input:not([type='checkbox']):not([type='radio']), textarea, header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer
 	{
 		display: block;
-	}
+	}"
 
-	p a
-	{"
-		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'body_link_color'))
-	."}
+	.$obj_theme_core->get_common_style()
 
-	#wrapper .mf_form button, #wrapper .button, .color_button, #wrapper .mf_form .button-primary
-	{"
-		.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('button_color', 'nav_color_hover')))
-		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'button_text_color'))
-	."}
-
-	#wrapper .button-secondary, .color_button_2
-	{"
-		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'button_color_secondary', 'suffix' => " !important"))
-		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'button_text_color_secondary'))
-	."}
-
-	.color_button_negative
-	{"
-		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'button_color_negative', 'suffix' => " !important"))
-		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'button_text_color_negative'))
-	."}
-
-		#wrapper .mf_form button:hover, #wrapper .button:hover, #wrapper .mf_form .button-primary:hover, #wrapper .button-secondary:hover, .color_button_2:hover, .color_button_negative:hover
-		{
-			box-shadow: inset 0 0 10em rgba(0, 0, 0, .1);"
-			//.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'button_color_hover'))
-		."}
-
-	html
+	."body
 	{
-		font-size: .625em;"
-		.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'body_font_size'))
-		.$obj_theme_core->render_css(array('property' => 'overflow-y', 'value' => 'body_scroll'))
-	."}
-
-	body
-	{"
-		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_bg', 'append' => "min-height: 100vh;"))
-		.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
-		.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'footer_bg_image', 'suffix' => '); background-size: cover'))
-		.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'body_font'))
-		.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'body_color'))
-		."overflow: hidden;
+		overflow: hidden;
 		position: relative;
 	}
-
-	#wrapper
-	{"
-		.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
-		.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
-		.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'body_bg_image', 'suffix' => '); background-size: cover'))
-	."}
 
 		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
 		{"
@@ -114,7 +68,6 @@ $out = $obj_theme_core->show_font_face()
 				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'header_padding'))
 			."}";
 
-				//if(isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] == 2)
 				if(isset($obj_theme_core->options['header_fixed']) && in_array($obj_theme_core->options['header_fixed'], array(2, 'absolute', 'fixed')))
 				{
 					$out .= "header.fixed > div
@@ -561,9 +514,10 @@ $out = $obj_theme_core->show_font_face()
 
 					article .date
 					{
-						background: #808080;
-						border-radius: .2em;
-						color: #fff;
+						background: #808080;"
+						//."border-radius: .2em;"
+						.$obj_theme_core->render_css(array('property' => 'border-radius', 'value' => 'form_border_radius'))
+						."color: #fff;
 						display: inline-block;
 						margin-right: .5em;
 						margin-bottom: 1em;
@@ -815,8 +769,9 @@ $out = $obj_theme_core->show_font_face()
 
 								if(isset($obj_theme_core->options['footer_a_bg']) && $obj_theme_core->options['footer_a_bg'] != '')
 								{
-									$out .= "border-radius: .5em;"
-									.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
+									$out .= $obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
+									//."border-radius: .5em;"
+									.$obj_theme_core->render_css(array('property' => 'border-radius', 'value' => 'form_border_radius'))
 									."display: block;"
 									.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
 									.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'footer_a_padding'));
@@ -1135,9 +1090,9 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 		."}
 
 			.theme_nav.is_mobile_ready .sub-menu
-			{
-				border-radius: .3em;
-				left: 50%;
+			{"
+				//."border-radius: .3em;"
+				."left: 50%;
 				position: absolute;
 				padding-top: .5em;
 				-webkit-transform: translateY(-50%);
@@ -1180,14 +1135,12 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 							.theme_nav.is_mobile_ready .sub-menu li:first-child a
 							{
-								border-top-left-radius: .3em;
-								border-bottom-left-radius: .3em;
+								border-radius: .3em 0 0 .3em;
 							}
 
 							.theme_nav.is_mobile_ready .sub-menu li:last-child a
 							{
-								border-top-right-radius: .3em;
-								border-bottom-right-radius: .3em;
+								border-radius: 0 .3em .3em 0;
 							}
 
 							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover
