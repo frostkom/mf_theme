@@ -32,7 +32,7 @@ jQuery.fn.isOverflown = function()
 			dom_obj.parents("nav").removeClass('is_hamburger');
 		}
 	}
-}
+};
 
 function on_load_theme()
 {
