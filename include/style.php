@@ -962,7 +962,7 @@ $out = $obj_theme_core->show_font_face()
 	{
 		$arr_selectors = get_option('wpcss_current_settings_array_'.get_theme_slug());
 
-		do_log(var_export($arr_selectors, true));
+		error_log(var_export($arr_selectors, true));
 
 		foreach($arr_selectors as $selector => $arr_properties)
 		{

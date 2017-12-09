@@ -2,6 +2,8 @@
 
 if(!defined('ABSPATH'))
 {
+	header('Content-Type: application/json');
+
 	$folder = str_replace("/wp-content/themes/mf_theme/include", "/", dirname(__FILE__));
 
 	require_once($folder."wp-load.php");
