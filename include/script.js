@@ -182,7 +182,7 @@ jQuery(function($)
 
 		$.ajax(
 		{
-			url: script_theme.template_url + '/include/ajax/?type=load_more/' + $(this).attr('rel'),
+			url: script_theme.template_url + '/include/api/?type=load_more/' + $(this).attr('rel'),
 			type: 'post',
 			dataType: 'json',
 			success: function(data)
