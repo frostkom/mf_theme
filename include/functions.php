@@ -83,7 +83,7 @@ if(!function_exists('content_meta_theme'))
 	{
 		if($post->post_type == 'post')
 		{
-			$html .= "<span class='date grey'>".format_date($post->post_date)."</span>";
+			$html .= "<span class='date'>".format_date($post->post_date)."</span>";
 		}
 
 		return $html;
@@ -377,11 +377,11 @@ if(!function_exists('get_more_posts'))
 						$out .= "<div class='image'>".$post_thumbnail."</div>";
 					}
 
-					$out .= "<h1>"
+					$out .= "<h2>"
 						.$post_url_start
 							.$post_title
 						.$post_url_end
-					."</h1>"
+					."</h2>"
 					.($post_meta != '' ? "<div class='meta'>".$post_meta."</div>" : "")
 					."<section>";
 

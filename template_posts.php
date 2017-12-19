@@ -24,11 +24,15 @@ get_header();
 			{
 				$post_meta = apply_filters('the_content_meta', "", $post);
 
-				echo "<article>
-					<h1>".$post_title."</h1>"
+				echo "<article>"
 					.($post_meta != '' ? "<div class='meta'>".$post_meta."</div>" : "")
-					."<section>".$post_content."</section>
-				</article>";
+					."<section>".$post_content."</section>"
+				."</article>";
+			}
+
+			else if(is_heading_visible($post))
+			{
+				echo "<h1>".$post_title."</h1>";
 			}
 		}
 
