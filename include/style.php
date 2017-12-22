@@ -100,9 +100,8 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'logo_color'))
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'logo_padding'))
 					."position: relative;
-					text-decoration: none;"
-					//."transition: all .4s ease;"
-				."}
+					text-decoration: none;
+				}
 
 					header #site_logo
 					{"
@@ -112,9 +111,9 @@ $out = $obj_theme_core->show_font_face()
 
 					#site_logo span
 					{
-						display: block;
-						font-size: .4em;
-					}
+						display: block;"
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'slogan_font_size'))
+					."}
 
 				.searchform
 				{"
