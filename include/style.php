@@ -637,10 +637,9 @@ $out = $obj_theme_core->show_font_face()
 						opacity: 1;
 					}
 
-					article .date
+					article time
 					{
 						background: #808080;"
-						//."border-radius: .2em;"
 						.$obj_theme_core->render_css(array('property' => 'border-radius', 'value' => 'form_border_radius'))
 						."color: #fff;
 						display: inline-block;

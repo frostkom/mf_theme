@@ -83,7 +83,7 @@ if(!function_exists('content_meta_theme'))
 	{
 		if($post->post_type == 'post')
 		{
-			$html .= "<span class='date'>".format_date($post->post_date)."</span>";
+			$html .= "<time datetime='".$post->post_date."'>".format_date($post->post_date)."</time>";
 		}
 
 		return $html;
