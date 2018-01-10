@@ -123,8 +123,8 @@ if(!function_exists('widgets_theme'))
 				'name' => __("After Header", 'lang_theme'),
 				'id' => 'widget_after_header',
 				'before_widget' => "<div class='widget %s %s'>",
-				'before_title' => "<div>",
-				'after_title' => "</div>",
+				'before_title' => "<h3>",
+				'after_title' => "</h3>",
 				'after_widget' => "</div>"
 			));
 

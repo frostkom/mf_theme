@@ -103,16 +103,21 @@ $out = $obj_theme_core->show_font_face()
 					text-decoration: none;
 				}
 
-					header #site_logo
-					{"
-						.$obj_theme_core->render_css(array('property' => 'float', 'value' => 'logo_float'))
-						.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width'))
-					."}
+					#site_logo img
+					{
+						display: block;
+					}
 
 					#site_logo span
 					{
 						display: block;"
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'slogan_font_size'))
+					."}
+
+					header #site_logo
+					{"
+						.$obj_theme_core->render_css(array('property' => 'float', 'value' => 'logo_float'))
+						.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width'))
 					."}
 
 				.searchform
@@ -421,7 +426,13 @@ $out = $obj_theme_core->show_font_face()
 				#mf-after-header > div
 				{"
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'after_header_padding'))
-				."}";
+				."}
+					
+					#mf-after-header > div .widget
+					{"
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'after_header_widget_font_size'))
+						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'after_header_widget_padding'))
+					."}";
 		}
 
 		if(is_active_widget_area('widget_slide'))
@@ -563,6 +574,11 @@ $out = $obj_theme_core->show_font_face()
 						.$obj_theme_core->render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
 						.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'section_margin'))
 					."}";
+
+					/*#mf-pre-content > div .widget
+					{"
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'pre_content_widget_font_size'))
+					."}*/
 		}
 
 		$out .= "#mf-content
@@ -601,7 +617,7 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h2'))
 				."}
 
-				article h3
+				#mf-after-header h3, article h3, #mf-pre-footer h3
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h3'))
@@ -748,6 +764,7 @@ $out = $obj_theme_core->show_font_face()
 						.aside .widget
 						{"
 							.$obj_theme_core->render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
+							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'aside_widget_font_size'))
 						."}
 
 							.aside .widget + .widget
@@ -784,13 +801,13 @@ $out = $obj_theme_core->show_font_face()
 									."text-decoration: none;
 								}";
 
-					if(is_active_widget_area('widget_after_content'))
+					/*if(is_active_widget_area('widget_after_content'))
 					{
 						$out .= ".aside.after_content .widget
 						{"
 							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'after_content_widget_font_size'))
 						."}";
-					}
+					}*/
 				}
 
 		if(is_active_widget_area('widget_pre_footer'))
