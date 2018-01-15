@@ -582,14 +582,16 @@ $out = $obj_theme_core->show_font_face()
 		}
 
 		$out .= "#mf-content
-		{
-			clear: both;
+		{"
+			.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'content_bg'))
+			.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'content_bg_color'))
+			.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'content_bg_image', 'suffix' => '); background-size: cover'))
+			."clear: both;
 		}
 
 			#mf-content > div
-			{"
-				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'content_bg'))
-				."overflow: hidden;"
+			{
+				overflow: hidden;"
 				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'content_padding'))
 			."}
 
