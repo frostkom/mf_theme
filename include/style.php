@@ -1055,7 +1055,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 		.hide_if_mobile
 		{
-			display: none;
+			display: none !important;
 		}
 
 			#site_logo
@@ -1227,7 +1227,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 		.show_if_mobile
 		{
-			display: none;
+			display: none !important;
 		}
 
 		html

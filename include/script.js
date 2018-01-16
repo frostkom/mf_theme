@@ -132,9 +132,7 @@ jQuery(function($)
 
 		else
 		{
-			$(this).parent('nav').siblings('#site_logo').toggleClass('hide_if_mobile');
-
-			$(this).parent('nav').toggleClass('open');
+			$(this).parent('nav').toggleClass('open').siblings('#site_logo').toggleClass('hide_if_mobile');
 		}
 
 		return false;
