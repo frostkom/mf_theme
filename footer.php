@@ -48,7 +48,7 @@
 				echo "</div>
 			</div>";
 
-			if(is_active_sidebar('widget_pre_footer'))
+			if(is_active_sidebar('widget_pre_footer') && !post_password_required())
 			{
 				if(!isset($obj_theme_core))
 				{
