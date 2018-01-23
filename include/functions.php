@@ -250,16 +250,6 @@ if(!function_exists('meta_boxes_theme'))
 	}
 }
 
-/*if(!function_exists('is_clean'))
-{
-	function is_clean($class = "")
-	{
-		//$class .= (isset($_GET['clean']) ? " hide" : "");
-
-		return ($class != '' ? " class='".$class."'" : "");
-	}
-}*/
-
 if(!function_exists('get_menu_theme'))
 {
 	function get_menu_theme($data = array())

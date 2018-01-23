@@ -796,7 +796,7 @@ $out = $obj_theme_core->show_font_face()
 								list-style-position: inside;
 							}
 
-								.aside p a, .aside ul a, .aside ol a
+								/*.aside p a, */.aside ul a, .aside ol a
 								{
 									border-bottom: 2px solid transparent;"
 									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'article_url_color'))
@@ -885,8 +885,14 @@ $out = $obj_theme_core->show_font_face()
 
 						footer .widget h3
 						{"
-							.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'))
-							.$obj_theme_core->render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'))
+							.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'footer_widget_heading_margin'));
+
+							if(isset($obj_theme_core->options['footer_widget_heading_text_transform']) && $obj_theme_core->options['footer_widget_heading_text_transform'] == 'uppercase')
+							{
+								$out .= "letter-spacing: .13em;";
+							}
+
+							$out .= $obj_theme_core->render_css(array('property' => 'text-transform', 'value' => 'footer_widget_heading_text_transform'))
 						."}
 
 							footer ul

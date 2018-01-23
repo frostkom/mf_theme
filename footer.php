@@ -22,7 +22,6 @@
 
 					if(is_active_sidebar('widget_sidebar_left') && !post_password_required())
 					{
-						//".is_clean("")."
 						echo "<div class='aside left'>";
 
 							dynamic_sidebar('widget_sidebar_left');
@@ -40,7 +39,6 @@
 
 						if($content != '')
 						{
-							//".is_clean()."
 							echo "<div class='aside right'>".$content."</div>";
 						}
 					}
@@ -68,7 +66,6 @@
 
 			if(is_active_sidebar('widget_footer'))
 			{
-				//".is_clean()."
 				echo "<footer>
 					<div>";
 
@@ -82,7 +79,6 @@
 
 		if(is_active_sidebar('widget_window_side'))
 		{
-			//".is_clean()."
 			echo "<div id='window_side'>";
 
 				dynamic_sidebar('widget_window_side');

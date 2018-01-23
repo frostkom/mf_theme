@@ -13,7 +13,7 @@ echo "<!DOCTYPE html>
 	<body class='".implode(" ", get_body_class())."'>
 		<div id='wrapper'>
 			<header>
-				<div>"; //".is_clean()."
+				<div>";
 
 					if(is_active_sidebar('widget_header'))
 					{
