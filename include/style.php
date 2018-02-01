@@ -606,12 +606,12 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'heading_padding'))
 				."}
 
-					#wrapper h1 a /*article h1 a*/
+					#wrapper h1 a
 					{
 						color: inherit;
 					}
 
-				article h2
+				#wrapper h2
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_h2'))
@@ -627,7 +627,7 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h3'))
 				."}
 
-				article h4
+				#wrapper h4
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h4'))
@@ -635,7 +635,7 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h4'))
 				."}
 
-				article h5
+				#wrapper h5
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h5'))
