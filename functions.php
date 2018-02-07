@@ -13,8 +13,6 @@ else
 	add_action('wp_head', 'head_theme', 0);
 
 	add_filter('body_class', 'body_class_theme');
-
-	add_filter('the_content_meta', 'content_meta_theme', 1, 2);
 }
 
 add_action('after_setup_theme', 'setup_theme');

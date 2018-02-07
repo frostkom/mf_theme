@@ -77,19 +77,6 @@ if(!function_exists('body_class_theme'))
 	}
 }
 
-if(!function_exists('content_meta_theme'))
-{
-	function content_meta_theme($html, $post)
-	{
-		if($post->post_type == 'post')
-		{
-			$html .= "<time datetime='".$post->post_date."'>".format_date($post->post_date)."</time>";
-		}
-
-		return $html;
-	}
-}
-
 if(!function_exists('setup_theme'))
 {
 	function setup_theme()
@@ -347,7 +334,6 @@ if(!function_exists('get_more_posts'))
 			if($i < $posts_per_page)
 			{
 				$post_url = get_permalink($post);
-
 				$post_meta = apply_filters('the_content_meta', "", $post);
 
 				$post_url_start = "<a href='".$post_url."'>";

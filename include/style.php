@@ -38,22 +38,6 @@ $out = $obj_theme_core->show_font_face()
 			."position: relative;
 		}
 
-		.full_width .widget
-		{
-			left: 50%;
-			margin-left: -50vw;
-			margin-right: -50vw;
-			position: relative;
-			right: 50%;
-			width: 100vw;
-			max-width: none;
-		}
-
-			.full_width .widget.widget_media_image
-			{
-				text-align: center;
-			}
-
 		header
 		{"
 			.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
@@ -655,17 +639,6 @@ $out = $obj_theme_core->show_font_face()
 						opacity: 1;
 					}
 
-					article time
-					{
-						background: #808080;"
-						.$obj_theme_core->render_css(array('property' => 'border-radius', 'value' => 'form_border_radius'))
-						."color: #fff;
-						display: inline-block;
-						margin-right: .5em;
-						margin-bottom: 1em;
-						padding: .25em .5em;
-					}
-
 				h2
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
@@ -1242,9 +1215,8 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 		."}
 
 			.theme_nav.is_mobile_ready .sub-menu
-			{"
-				//."border-radius: .3em;"
-				."left: 50%;
+			{
+				left: 50%;
 				position: absolute;
 				padding-top: .5em;
 				-webkit-transform: translateY(-50%);
@@ -1263,7 +1235,6 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 						.theme_nav.is_mobile_ready .sub-menu:before
 						{
 							border: .7em solid transparent;"
-							//.$obj_theme_core->render_css(array('prefix' => 'border-bottom-color: ', 'value' => 'sub_nav_bg'))
 							.$obj_theme_core->render_css(array('property' => 'border-bottom-color', 'value' => 'sub_nav_bg'))
 							."content: '';
 							left: 50%;
@@ -1323,28 +1294,5 @@ if(isset($obj_theme_core->options['website_max_width']) && $obj_theme_core->opti
 		.$flex_content
 	."}";
 }
-
-$out .= "@media print
-{
-	body:before
-	{
-		content: 'is_print';
-	}
-
-	body
-	{
-		background: none;
-	}
-
-	#mf-content > div
-	{
-		width: auto;
-	}
-
-	header, #mf-after-header, #mf-pre-content, .aside, #mf-pre-footer, footer
-	{
-		display: none;
-	}
-}";
 
 echo $out;
