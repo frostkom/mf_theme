@@ -4,40 +4,38 @@ document.createElement("article");
 	document.createElement("section");
 document.createElement("footer");
 
-var dom_scrollWidth = 0;
-
-jQuery.fn.isOverflown = function()
+jQuery(function($)
 {
-	var e = this[0];
+	var dom_scrollWidth = 0;
 
-	if(typeof e != 'undefined')
+	$.fn.isOverflown = function()
 	{
-		if(dom_scrollWidth == 0)
+		var e = this[0];
+
+		if(typeof e != 'undefined')
 		{
-			dom_scrollWidth = e.scrollWidth;
+			if(dom_scrollWidth == 0)
+			{
+				dom_scrollWidth = e.scrollWidth;
+			}
+
+			var isOverflown = (dom_scrollWidth > e.clientWidth), /*e.scrollHeight > e.clientHeight || */
+				dom_obj = $(this);
+
+			if(isOverflown)
+			{
+				dom_obj.parents("nav").addClass('is_hamburger');
+			}
+
+			else
+			{
+				dom_obj.parents("nav").removeClass('is_hamburger');
+			}
 		}
+	};
 
-		var isOverflown = (dom_scrollWidth > e.clientWidth), /*e.scrollHeight > e.clientHeight || */
-			dom_obj = jQuery(this);
-
-		/*console.log(dom_scrollWidth , e.clientWidth , isOverflown , dom_obj.innerWidth() , dom_obj.outerWidth());*/
-
-		if(isOverflown)
-		{
-			dom_obj.parents("nav").addClass('is_hamburger');
-		}
-
-		else
-		{
-			dom_obj.parents("nav").removeClass('is_hamburger');
-		}
-	}
-};
-
-function on_load_theme()
-{
 	/* Slide nav */
-	var slide_dom_obj = jQuery('#mf-slide-nav');
+	var slide_dom_obj = $('#mf-slide-nav');
 
 	if(slide_dom_obj.length > 0)
 	{
@@ -49,23 +47,6 @@ function on_load_theme()
 		}
 	}
 
-	/* Mobile nav */
-	if(script_theme.hamburger_collapse_if_no_space)
-	{
-		jQuery("body:not(.is_mobile) #primary_nav .menu").isOverflown();
-	}
-}
-
-jQuery(function($)
-{
-	on_load_theme();
-
-	if(typeof collect_on_load == 'function')
-	{
-		collect_on_load('on_load_theme');
-	}
-
-	/* Slide nav */
 	var slide_dom_obj = $('#mf-slide-nav');
 
 	if(slide_dom_obj.length > 0)
@@ -113,6 +94,11 @@ jQuery(function($)
 	}
 
 	/* Mobile nav */
+	if(script_theme.hamburger_collapse_if_no_space)
+	{
+		$("body:not(.is_mobile) #primary_nav .menu").isOverflown();
+	}
+
 	$(document).on('click', "#primary_nav > .toggle_icon", function()
 	{
 		var slide_nav = $('#mf-slide-nav nav');
