@@ -211,6 +211,8 @@ $out = $obj_theme_core->show_font_face()
 					header #primary_nav
 					{"
 						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'nav_bg'))
+						.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'nav_bg_color'))
+						.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'nav_bg_image', 'suffix' => '); background-size: cover'))
 						.$obj_theme_core->render_css(array('property' => 'clear', 'value' => 'nav_clear'))
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'nav_size'))
 						.$obj_theme_core->render_css(array('property' => 'text-align', 'value' => 'nav_align'))
