@@ -49,7 +49,7 @@ if(!function_exists('head_theme'))
 		mf_enqueue_style('style', $template_url."/include/style.php", $theme_version);
 		mf_enqueue_script('script_theme', $template_url."/include/script.js", array(
 			'template_url' => $template_url,
-			'header_fixed' => (isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] == 2),
+			'header_fixed' => (isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] == 'fixed'),
 			'hamburger_collapse_if_no_space' => (isset($obj_theme_core->options['hamburger_collapse_if_no_space']) && $obj_theme_core->options['hamburger_collapse_if_no_space'] == 2),
 		), $theme_version);
 	}
@@ -275,31 +275,34 @@ if(!function_exists('get_menu_theme'))
 
 				if($nav_content != '')
 				{
-					if($data['where'] == 'widget_slide')
+					switch($data['where'])
 					{
-						$out .= "<nav id='primary_nav' class='theme_nav'>"
-							.$nav_content
-						."</nav>";
-					}
+						case 'widget_slide':
+							$nav_class = $nav_before_content = "";
+						break;
 
-					else
-					{
-						$out .= "<nav id='primary_nav' class='theme_nav is_mobile_ready'>";
+						default:
+							global $obj_theme_core;
 
-							if(1 == 2 && get_current_user_id() > 0)
+							if(!isset($obj_theme_core))
 							{
-								$out .= "<a href='#' class='toggle_icon'></a>";
+								$obj_theme_core = new mf_theme_core();
 							}
 
-							else
-							{
-								$out .= "<i class='fa fa-bars toggle_icon'></i>
-								<i class='fa fa-close toggle_icon'></i>";
-							}
+							$obj_theme_core->get_params();
 
-							$out .= $nav_content
-						."</nav>";
+							$nav_class = "is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
+							
+							//$nav_before_content = "<a href='#' class='toggle_icon'></a>";
+							$nav_before_content = "<i class='fa fa-bars toggle_icon'></i>
+							<i class='fa fa-close toggle_icon'></i>";
+						break;
 					}
+
+					$out .= "<nav id='primary_nav' class='theme_nav".($nav_class != '' ? " ".$nav_class : '')."'>"
+						.$nav_before_content
+						.$nav_content
+					."</nav>";
 				}
 			}
 		}

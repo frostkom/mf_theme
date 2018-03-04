@@ -52,26 +52,19 @@ $out = $obj_theme_core->show_font_face()
 				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'header_padding'))
 			."}";
 
-				if(isset($obj_theme_core->options['header_fixed']) && in_array($obj_theme_core->options['header_fixed'], array(2, 'absolute', 'fixed')))
+				if(isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] != '')
 				{
 					$out .= "header.fixed > div
 					{"
-						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
-						.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
-						.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'body_bg_image', 'suffix' => '); background-size: cover'))
-						."left: 0;";
-
-						if($obj_theme_core->options['header_fixed'] == 2)
-						{
-							$out .= "position: fixed;";
-						}
-
-						else
-						{
-							$out .= $obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'));
-						}
-
-						$out .= "right: 0;
+						//.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
+						//.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
+						//.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'body_bg_image', 'suffix' => '); background-size: cover'))
+						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
+						.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
+						.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))
+						."left: 0;"
+						.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
+						."right: 0;
 						z-index: 10;
 					}";
 				}
@@ -222,6 +215,11 @@ $out = $obj_theme_core->show_font_face()
 						{
 							display: none;
 						}
+						
+						header #primary_nav > div
+						{"
+							.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'nav_padding'))
+						."}
 
 							#primary_nav a
 							{"
@@ -324,10 +322,9 @@ $out = $obj_theme_core->show_font_face()
 
 										$out .= ".is_mobile nav .toggle_icon, nav.is_hamburger .toggle_icon
 										{
-											display: block;"
-											//.$obj_theme_core->render_css(array('property' => 'width', 'value' => array('hamburger_font_size', 'logo_font_size')))
-											."width: 1.5em;"
-										."}
+											display: block;
+											width: 1.5em;
+										}
 
 											.is_mobile nav .toggle_icon:before, .is_mobile nav .toggle_icon:after, nav.is_hamburger .toggle_icon:before, nav.is_hamburger .toggle_icon:after
 											{"
@@ -1039,7 +1036,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 			display: none !important;
 		}
 
-			#site_logo
+			header #site_logo
 			{"
 				.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
 			."}
@@ -1102,10 +1099,9 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 								$out .= "nav .toggle_icon
 								{
-									display: block;"
-									//.$obj_theme_core->render_css(array('property' => 'width', 'value' => array('hamburger_font_size', 'logo_font_size')))
-									."width: 1.5em;"
-								."}
+									display: block;
+									width: 1.5em;
+								}
 
 									nav .toggle_icon:before, nav .toggle_icon:after
 									{"
@@ -1288,7 +1284,7 @@ if(isset($obj_theme_core->options['website_max_width']) && $obj_theme_core->opti
 			content: 'is_desktop';
 		}
 
-		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width .widget .section, .full_width .widget > div
+		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, nav.full_width:not(.is_hamburger) > div, .full_width .widget .section, .full_width .widget > div
 		{
 			margin: 0 auto;
 			max-width: ".$obj_theme_core->options['website_max_width']."px;
