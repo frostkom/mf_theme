@@ -45,31 +45,31 @@ $out = $obj_theme_core->show_font_face()
 			.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))
 			.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
 			."position: relative;
-		}
+		}";
 
-			header > div
+			if(isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] != '')
+			{
+				$out .= "header.display_fixed/* > div*/
+				{"
+					/*.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
+					.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
+					.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'body_bg_image', 'suffix' => '); background-size: cover'))*/
+					/*.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
+					.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
+					.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))*/
+					."left: 0;"
+					.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
+					."right: 0;
+					z-index: 10;
+				}";
+			}
+
+			$out .= "header > div
 			{"
 				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'header_padding'))
-			."}";
+			."}
 
-				if(isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] != '')
-				{
-					$out .= "header.fixed > div
-					{"
-						//.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
-						//.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
-						//.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'body_bg_image', 'suffix' => '); background-size: cover'))
-						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
-						.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
-						.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))
-						."left: 0;"
-						.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
-						."right: 0;
-						z-index: 10;
-					}";
-				}
-
-				$out .= "#site_logo
+				#site_logo
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'logo_font'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
@@ -124,17 +124,15 @@ $out = $obj_theme_core->show_font_face()
 
 							.searchform.search_animate .form_textfield input
 							{
-								border-color: rgba(0, 0, 0, .1);
-								opacity: 0;
+								border-color: transparent;
 								transition: all .4s ease;
-								width: 0 !important;
+								width: 0;
 							}
 
 								.searchform.search_animate .form_textfield input:focus
 								{
 									border-color: #e1e1e1;
-									opacity: 1;
-									width: 100% !important;
+									width: 100%;
 								}
 
 					.searchform .fa
@@ -1284,7 +1282,7 @@ if(isset($obj_theme_core->options['website_max_width']) && $obj_theme_core->opti
 			content: 'is_desktop';
 		}
 
-		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, nav.full_width:not(.is_hamburger) > div, .full_width .widget .section, .full_width .widget > div
+		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, body:not(.is_mobile) nav.full_width:not(.is_hamburger) > div, .full_width .widget .section, .full_width .widget > div
 		{
 			margin: 0 auto;
 			max-width: ".$obj_theme_core->options['website_max_width']."px;

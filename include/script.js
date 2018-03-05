@@ -135,19 +135,24 @@ jQuery(function($)
 	/* Fixed header */
 	if(script_theme.header_fixed)
 	{
+		var dom_header = $("header"),
+			dom_after_header = dom_header.next("*"),
+			header_height = dom_header.height();
+
 		function has_scrolled()
 		{
-			var scroll_top = $(window).scrollTop(),
-				header_height = $('header').height();
+			var scroll_top = $(window).scrollTop();
 
-			if(scroll_top > header_height)
+			if(scroll_top > 0)
 			{
-				$('header').addClass('fixed');
+				dom_header.addClass('display_fixed');
+				dom_after_header.css({'margin-top': header_height + 'px'});
 			}
 
 			else
 			{
-				$('header').removeClass('fixed');
+				dom_header.removeClass('display_fixed');
+				dom_after_header.css({'margin-top': '0'});
 			}
 		}
 
