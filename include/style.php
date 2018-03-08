@@ -1282,9 +1282,12 @@ if(isset($obj_theme_core->options['website_max_width']) && $obj_theme_core->opti
 			content: 'is_desktop';
 		}
 
-		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, body:not(.is_mobile) nav.full_width:not(.is_hamburger) > div, .full_width .widget .section, .full_width .widget > div
+		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, body:not(.is_mobile) nav.full_width:not(.is_hamburger) > div, .full_width .widget > *
+		/*, .full_width .widget .section, .full_width .widget > div*/
 		{
 			margin: 0 auto;
+			margin-left: auto !important;
+			margin-right: auto !important;
 			max-width: ".$obj_theme_core->options['website_max_width']."px;
 		}"
 		.$flex_content
