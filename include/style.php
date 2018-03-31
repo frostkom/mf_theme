@@ -213,7 +213,7 @@ $out = $obj_theme_core->show_font_face()
 						{
 							display: none;
 						}
-						
+
 						header #primary_nav > div
 						{"
 							.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'nav_padding'))
@@ -408,7 +408,7 @@ $out = $obj_theme_core->show_font_face()
 				{"
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'after_header_padding'))
 				."}
-					
+
 					#mf-after-header > div .widget
 					{"
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'after_header_widget_font_size'))
@@ -726,6 +726,98 @@ $out = $obj_theme_core->show_font_face()
 								margin-top: 1em;
 							}";
 
+						/* Comments */
+						$out .= "#comments
+						{
+							
+						}
+
+							#comments .comment-list, #comments .comment-respond
+							{"
+								.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
+							."}
+
+							#comments ol
+							{
+								list-style: none;
+							}
+
+								#comments ol .children
+								{
+									margin-left: 2em;
+								}
+
+								#comments .comment-body
+								{
+									margin-bottom: 2em;
+									margin-left: 65px;
+								}
+
+								#comments .comment-author
+								{
+									margin-bottom: 0.4em;
+									position: relative;
+								}
+
+									#comments .comment-author .avatar
+									{
+										height: 50px;
+										left: -65px;
+										position: absolute;
+										width: 50px;
+									}
+
+									#comments .comment-author .says
+									{
+										display: none;
+									}
+
+								.comment-meta
+								{
+									margin-bottom: .5em;
+								}
+
+									.comment-metadata
+									{
+										font-weight: 800;
+										text-transform: uppercase;
+									}
+
+										.comment-metadata a.comment-edit-link
+										{
+											margin-left: 1em;
+										}
+
+								#comments .comment-reply-link
+								{
+									font-weight: 800;
+									position: relative;
+								}
+
+								#comments .children .comment-author .avatar
+								{
+									height: 30px;
+									left: -45px;
+									width: 30px;
+								}
+
+								#comments .bypostauthor > .comment-body > .comment-meta > .comment-author .avatar
+								{
+									border: 1px solid #333;
+									padding: 2px;
+								}
+
+						#comments .comments-pagination
+						{
+							margin: 2em 0 3em;
+						}
+
+						#comments .no-comments, #comments .comment-awaiting-moderation
+						{
+							color: #767676;
+							font-style: italic;
+						}";
+
 				if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar'))
 				{
 					$out .= ".aside
@@ -889,7 +981,6 @@ $out = $obj_theme_core->show_font_face()
 								if(isset($obj_theme_core->options['footer_a_bg']) && $obj_theme_core->options['footer_a_bg'] != '')
 								{
 									$out .= $obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
-									//."border-radius: .5em;"
 									.$obj_theme_core->render_css(array('property' => 'border-radius', 'value' => 'form_border_radius'))
 									."display: block;"
 									.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))

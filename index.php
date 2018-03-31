@@ -99,6 +99,14 @@ get_header();
 			if($article_content != '')
 			{
 				echo "<article>".$article_content."</article>";
+
+				if(is_single())
+				{
+					if(comments_open() || get_comments_number())
+					{
+						comments_template();
+					}
+				}
 			}
 		}
 	}

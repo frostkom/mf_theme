@@ -292,7 +292,7 @@ if(!function_exists('get_menu_theme'))
 							$obj_theme_core->get_params();
 
 							$nav_class = "is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
-							
+
 							//$nav_before_content = "<a href='#' class='toggle_icon'></a>";
 							$nav_before_content = "<i class='fa fa-bars toggle_icon'></i>
 							<i class='fa fa-close toggle_icon'></i>";
