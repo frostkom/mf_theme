@@ -133,7 +133,7 @@ jQuery(function($)
 	}
 
 	/* Fixed header */
-	if(script_theme.header_fixed)
+	/*if(script_theme.header_fixed)
 	{
 		var dom_header = $("header"),
 			dom_after_header = dom_header.next("*"),
@@ -162,7 +162,7 @@ jQuery(function($)
 		{
 			has_scrolled();
 		});
-	}
+	}*/
 
 	/* Load more */
 	$(document).on('click', '#load_more', function()

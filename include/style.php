@@ -28,7 +28,7 @@ $out = $obj_theme_core->show_font_face()
 
 	."body
 	{
-		overflow: hidden;
+		/*overflow: hidden;*/
 		position: relative;
 	}
 
@@ -44,25 +44,20 @@ $out = $obj_theme_core->show_font_face()
 			.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
 			.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))
 			.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
-			."position: relative;
-		}";
+			//."position: relative;"
+			.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
+		."}";
 
-			if(isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] != '')
+			/*if(isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] != '')
 			{
-				$out .= "header.display_fixed/* > div*/
-				{"
-					/*.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'body_bg'))
-					.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'body_bg_color'))
-					.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'body_bg_image', 'suffix' => '); background-size: cover'))*/
-					/*.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
-					.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
-					.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))*/
-					."left: 0;"
+				$out .= "header.display_fixed
+				{
+					left: 0;"
 					.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
 					."right: 0;
 					z-index: 10;
 				}";
-			}
+			}*/
 
 			$out .= "header > div
 			{"
@@ -1046,7 +1041,7 @@ $out = $obj_theme_core->show_font_face()
 	{
 		$arr_selectors = get_option('wpcss_current_settings_array_'.get_theme_slug());
 
-		error_log(var_export($arr_selectors, true));
+		do_log(var_export($arr_selectors, true));
 
 		foreach($arr_selectors as $selector => $arr_properties)
 		{
