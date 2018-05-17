@@ -1340,12 +1340,14 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 							.theme_nav.is_mobile_ready .sub-menu li:first-child a
 							{
-								border-radius: .3em 0 0 .3em;
+								border-top-left-radius: .3em;
+								border-bottom-left-radius: .3em;
 							}
 
 							.theme_nav.is_mobile_ready .sub-menu li:last-child a
 							{
-								border-radius: 0 .3em .3em 0;
+								border-top-right-radius: .3em;
+								border-bottom-right-radius: .3em;
 							}
 
 							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover
