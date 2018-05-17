@@ -162,13 +162,12 @@ $out = $obj_theme_core->show_font_face()
 						.theme_nav.is_mobile_ready li
 						{
 							display: inline-block;
-							margin-left: -.3em;
 							position: relative;
 						}
 
-							header .theme_nav.is_mobile_ready li:first-child
+							.theme_nav.is_mobile_ready li:not(:first-child)
 							{
-								margin-left: 0;
+								margin-left: -.3em;
 							}
 
 								.theme_nav a
@@ -1295,16 +1294,63 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 		{"
 			.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
 		."}
-
+			
 			.theme_nav.is_mobile_ready .sub-menu
 			{
 				left: 50%;
 				position: absolute;
-				padding-top: .5em;
 				-webkit-transform: translateY(-50%);
 				transform: translateX(-50%);
 				z-index: 100;
 			}";
+
+			if(isset($obj_theme_core->options['sub_nav_direction']) && $obj_theme_core->options['sub_nav_direction'] == 'vertical')
+			{
+				$out .= ".theme_nav.is_mobile_ready .sub-menu
+				{"
+					.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
+					."border-radius: .3em;
+					overflow: hidden;
+					text-align: center;
+				}
+				
+					.theme_nav.is_mobile_ready .sub-menu li
+					{
+						display: block;
+						margin-left: 0;
+					}
+					
+						.theme_nav.is_mobile_ready .sub-menu li a
+						{
+							white-space: nowrap;
+						}";
+			}
+
+			else
+			{
+				$out .= ".theme_nav.is_mobile_ready .sub-menu
+				{
+					padding-top: .5em;
+					white-space: nowrap;
+				}
+
+					#primary_nav.theme_nav.is_mobile_ready .sub-menu a
+					{"
+						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
+					."}
+						
+						.theme_nav.is_mobile_ready .sub-menu li:first-child a
+						{
+							border-top-left-radius: .3em;
+							border-bottom-left-radius: .3em;
+						}
+
+						.theme_nav.is_mobile_ready .sub-menu li:last-child a
+						{
+							border-top-right-radius: .3em;
+							border-bottom-right-radius: .3em;
+						}";
+			}
 
 				if(isset($obj_theme_core->options['sub_nav_arrow']) && $obj_theme_core->options['sub_nav_arrow'] == 2)
 				{
@@ -1326,29 +1372,11 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 						}";
 				}
 
-					$out .= ".theme_nav.is_mobile_ready .sub-menu
-					{
-						white-space: nowrap;
-					}
-
-						#primary_nav.theme_nav.is_mobile_ready .sub-menu a
+						$out .= "#primary_nav.theme_nav.is_mobile_ready .sub-menu a
 						{"
-							.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 							.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
 							."padding: .8em;
 						}
-
-							.theme_nav.is_mobile_ready .sub-menu li:first-child a
-							{
-								border-top-left-radius: .3em;
-								border-bottom-left-radius: .3em;
-							}
-
-							.theme_nav.is_mobile_ready .sub-menu li:last-child a
-							{
-								border-top-right-radius: .3em;
-								border-bottom-right-radius: .3em;
-							}
 
 							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover
 							{"
