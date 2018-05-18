@@ -95,6 +95,9 @@ if(!function_exists('widgets_theme'))
 {
 	function widgets_theme()
 	{
+		$obj_theme_core = new mf_theme_core();
+		$obj_theme_core->get_custom_widget_areas();
+
 		register_sidebar(array(
 			'name' => __("Header", 'lang_theme'),
 			'id' => 'widget_header',
@@ -103,6 +106,8 @@ if(!function_exists('widgets_theme'))
 			'after_title' => "</div>",
 			'after_widget' => ""
 		));
+
+		$obj_theme_core->display_custom_widget_area('widget_header');
 
 		if(is_active_widget_area('widget_header'))
 		{
@@ -115,6 +120,8 @@ if(!function_exists('widgets_theme'))
 				'after_widget' => "</div>"
 			));
 
+			$obj_theme_core->display_custom_widget_area('widget_after_header');
+
 			register_sidebar(array(
 				'name' => __("Slide menu", 'lang_theme'),
 				'id' => 'widget_slide',
@@ -123,6 +130,8 @@ if(!function_exists('widgets_theme'))
 				'after_title' => "",
 				'after_widget' => ""
 			));
+
+			$obj_theme_core->display_custom_widget_area('widget_slide');
 		}
 
 		register_sidebar(array(
@@ -134,6 +143,8 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => "</div>"
 		));
 
+		$obj_theme_core->display_custom_widget_area('widget_front');
+
 		register_sidebar(array(
 			'name' => __("Aside", 'lang_theme')." (".__("Left", 'lang_theme').")",
 			'id' => 'widget_sidebar_left',
@@ -142,6 +153,8 @@ if(!function_exists('widgets_theme'))
 			'after_title' => "</h3>",
 			'after_widget' => "</div>"
 		));
+
+		$obj_theme_core->display_custom_widget_area('widget_sidebar_left');
 
 		register_sidebar(array(
 			'name' => __("Below Main Column", 'lang_theme'),
@@ -152,6 +165,8 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => "</div>"
 		));
 
+		$obj_theme_core->display_custom_widget_area('widget_after_content');
+
 		register_sidebar(array(
 			'name' => __("Aside", 'lang_theme')." (".__("Right", 'lang_theme').")",
 			'id' => 'widget_sidebar',
@@ -160,6 +175,8 @@ if(!function_exists('widgets_theme'))
 			'after_title' => "</h3>",
 			'after_widget' => "</div>"
 		));
+
+		$obj_theme_core->display_custom_widget_area('widget_sidebar');
 
 		if(is_active_widget_area('widget_footer'))
 		{
@@ -171,6 +188,8 @@ if(!function_exists('widgets_theme'))
 				'after_title' => "</h3>",
 				'after_widget' => "</div>"
 			));
+
+			$obj_theme_core->display_custom_widget_area('widget_pre_footer');
 		}
 
 		register_sidebar(array(
@@ -182,6 +201,8 @@ if(!function_exists('widgets_theme'))
 			'after_widget' => "</div>"
 		));
 
+		$obj_theme_core->display_custom_widget_area('widget_footer');
+
 		register_sidebar(array(
 			'name' => __("Window Side Icons", 'lang_theme'),
 			'id' => 'widget_window_side',
@@ -190,6 +211,8 @@ if(!function_exists('widgets_theme'))
 			'after_title' => "</h3>",
 			'after_widget' => "</div>"
 		));
+
+		$obj_theme_core->display_custom_widget_area('widget_window_side');
 
 		register_widget('widget_theme_menu');
 	}
