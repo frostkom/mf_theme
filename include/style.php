@@ -174,15 +174,27 @@ $out = $obj_theme_core->show_font_face()
 								{
 									display: block;"
 									.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'nav_link_padding'))
-								."}
+								."}";
 
-									header .theme_nav li:hover > .sub-menu, header .theme_nav li.current-menu-item > .sub-menu, header .theme_nav li.current-menu-ancestor > .sub-menu
+									if(isset($obj_theme_core->options['sub_nav_direction']) && $obj_theme_core->options['sub_nav_direction'] == 'vertical')
 									{
-										display: block;
-										opacity: .5;
+										$out .= "header .theme_nav li:hover > .sub-menu
+										{
+											display: block;
+											opacity: .5;
+										}";
 									}
 
-										header .theme_nav.is_mobile_ready li:hover > .sub-menu
+									else
+									{
+										$out .= "header .theme_nav li:hover > .sub-menu, header .theme_nav li.current-menu-item > .sub-menu, header .theme_nav li.current-menu-ancestor > .sub-menu
+										{
+											display: block;
+											opacity: .5;
+										}";
+									}
+
+										$out .= "header .theme_nav.is_mobile_ready li:hover > .sub-menu
 										{
 											opacity: 1;
 											z-index: 101;
@@ -721,10 +733,7 @@ $out = $obj_theme_core->show_font_face()
 							}";
 
 						/* Comments */
-						$out .= "#comments
-						{
-							
-						}
+						$out .= "#comments{}
 
 							#comments .comment-list, #comments .comment-respond
 							{"
@@ -1294,7 +1303,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 		{"
 			.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'body_desktop_font_size'))
 		."}
-			
+
 			.theme_nav.is_mobile_ready .sub-menu
 			{
 				left: 50%;
@@ -1313,13 +1322,13 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 					overflow: hidden;
 					text-align: center;
 				}
-				
+
 					.theme_nav.is_mobile_ready .sub-menu li
 					{
 						display: block;
 						margin-left: 0;
 					}
-					
+
 						.theme_nav.is_mobile_ready .sub-menu li a
 						{
 							white-space: nowrap;
@@ -1338,7 +1347,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 					{"
 						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 					."}
-						
+
 						.theme_nav.is_mobile_ready .sub-menu li:first-child a
 						{
 							border-top-left-radius: .3em;

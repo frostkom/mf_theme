@@ -36,7 +36,7 @@ echo "<article id='comments'>";
 				/* translators: %s: post title */
 				echo sprintf(__("One Reply to &ldquo;%s&rdquo;", 'lang_theme'), get_the_title());
 			}
-			
+
 			else
 			{
 				printf(
