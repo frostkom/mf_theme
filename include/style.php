@@ -674,21 +674,18 @@ $out = $obj_theme_core->show_font_face()
 						article section.text_columns
 						{
 							-webkit-column-gap: 2em;
-							-moz-column-gap: 2em;
 							column-gap: 2em;
 						}
 
 							article section.columns_2
 							{
 								-webkit-column-count: 2;
-								-moz-column-count: 2;
 								column-count: 2;
 							}
 
 							article section.columns_3
 							{
 								-webkit-column-count: 3;
-								-moz-column-count: 3;
 								column-count: 3;
 							}
 
@@ -1266,7 +1263,6 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 			$out .= "article section.text_columns
 			{
 				-webkit-column-count: 1;
-				-moz-column-count: 1;
 				column-count: 1;
 			}";
 
