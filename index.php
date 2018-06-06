@@ -77,16 +77,19 @@ get_header();
 
 			else if($post_content != '')
 			{
-				$post_thumbnail = "";
-
 				if(has_post_thumbnail($post_id))
 				{
-					$post_thumbnail = get_the_post_thumbnail($post_id, 'full');
-				}
+					$obj_theme_core = new mf_theme_core();
 
-				if($post_thumbnail != '')
-				{
-					$article_content .= "<div class='image'>".$post_thumbnail."</div>";
+					if($obj_theme_core->display_featured_image($post_id))
+					{
+						$post_thumbnail = get_the_post_thumbnail($post_id, 'full');
+
+						if($post_thumbnail != '')
+						{
+							$article_content .= "<div class='image'>".$post_thumbnail."</div>";
+						}
+					}
 				}
 
 				$obj_theme = new mf_theme();

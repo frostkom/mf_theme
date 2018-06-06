@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 15:36+0100\n"
+"POT-Creation-Date: 2018-06-06 07:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -16,9 +16,26 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: ../..\n"
 
+#: ../comments.php:37
+#, php-format
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr "Ett svar till &ldquo;%s&rdquo;"
+
+#: ../comments.php:68
+msgid "Previous"
+msgstr "Föregående"
+
+#: ../comments.php:69
+msgid "Next"
+msgstr "Nästa"
+
+#: ../comments.php:75
+msgid "Comments are closed."
+msgstr "Kommentarer är stängda."
+
 #: ../index.php:62
 #: ../index.php:72
-#: ../include/functions.php:393
+#: ../include/functions.php:395
 msgid "Read More"
 msgstr "Läs mer"
 
@@ -44,36 +61,36 @@ msgstr "Inga resultat"
 msgid "I could not find any results for '%s'"
 msgstr "Jag kunde inte hitta några resultat för '%s'"
 
-#: ../include/functions.php:100
+#: ../include/functions.php:87
 msgid "Primary Navigation"
 msgstr "Primär navigation"
 
-#: ../include/functions.php:101
+#: ../include/functions.php:88
 msgid "Secondary Navigation"
 msgstr "Sekundär navigation"
 
-#: ../include/functions.php:112
+#: ../include/functions.php:102
 msgid "Header"
 msgstr "Sidhuvud"
 
-#: ../include/functions.php:123
+#: ../include/functions.php:115
 msgid "After Header"
 msgstr "Efter sidhuvud"
 
-#: ../include/functions.php:132
+#: ../include/functions.php:126
 msgid "Slide menu"
 msgstr "Sidomeny"
 
-#: ../include/functions.php:142
+#: ../include/functions.php:138
 msgid "Pre Content"
 msgstr "Före innehåll"
 
-#: ../include/functions.php:151
-#: ../include/functions.php:169
+#: ../include/functions.php:149
+#: ../include/functions.php:171
 msgid "Aside"
 msgstr "Sidokolumn"
 
-#: ../include/functions.php:151
+#: ../include/functions.php:149
 msgid "Left"
 msgstr "Vänster"
 
@@ -81,115 +98,106 @@ msgstr "Vänster"
 msgid "Below Main Column"
 msgstr "Under huvudkolumn"
 
-#: ../include/functions.php:169
+#: ../include/functions.php:171
 msgid "Right"
 msgstr "Höger"
 
-#: ../include/functions.php:180
+#: ../include/functions.php:184
 msgid "Pre Footer"
 msgstr "Före sidfot"
 
-#: ../include/functions.php:190
+#: ../include/functions.php:196
 msgid "Footer"
 msgstr "Sidfot"
 
-#: ../include/functions.php:199
+#: ../include/functions.php:207
 msgid "Window Side Icons"
 msgstr "Sidoikoner"
 
-#: ../include/functions.php:219
+#: ../include/functions.php:229
 msgid "Content Settings"
 msgstr "Inställningar för innehåll"
 
-#: ../include/functions.php:225
+#: ../include/functions.php:235
 msgid "Display Heading"
 msgstr "Visa rubrik"
 
-#: ../include/functions.php:232
+#: ../include/functions.php:242
 msgid "Text Columns"
 msgstr "Textkolumner"
 
-#: ../include/functions.php:242
+#: ../include/functions.php:252
 msgid "Body Class"
 msgstr "Klass på Body"
 
-#: ../include/functions.php:411
+#: ../include/functions.php:413
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
 
-#: ../../mf_parallax/include/functions.php:88
+#: ../../mf_parallax/include/functions.php:99
 #, php-format
 msgid "To choose if this page should be part of the One Page/Parallax you have to set %sShow on Front%s to Your latest Posts."
 msgstr "För att välja om denna sida ska vara en del av en sk. one-page måste du ändra %sStartsidan visar%s till Dina senaste inlägg"
 
-#: ../../mf_parallax/include/functions.php:102
+#: ../../mf_parallax/include/functions.php:113
 msgid "Information"
 msgstr "Information"
 
-#: ../../mf_parallax/include/functions.php:125
+#: ../../mf_parallax/include/functions.php:136
 msgid "Show in Menu"
 msgstr "Visa i menyn"
 
-#: ../../mf_parallax/include/functions.php:133
+#: ../../mf_parallax/include/functions.php:144
 msgid "Show on Page"
 msgstr "Visa på sidan"
 
-#: ../../mf_parallax/include/functions.php:159
+#: ../../mf_parallax/include/functions.php:170
 msgid "Background Color"
 msgstr "Bakgrundsfärg"
 
-#: ../../mf_parallax/include/functions.php:165
-#: ../../mf_parallax/include/functions.php:171
+#: ../../mf_parallax/include/functions.php:176
+#: ../../mf_parallax/include/functions.php:182
 msgid "Background"
 msgstr "Bakgrund"
 
-#: ../../mf_parallax/include/functions.php:165
+#: ../../mf_parallax/include/functions.php:176
 msgid "Desktop"
 msgstr "Stora skärmar"
 
-#: ../../mf_parallax/include/functions.php:171
+#: ../../mf_parallax/include/functions.php:182
 msgid "Mobile"
 msgstr "Mobil"
 
-#: ../../mf_parallax/include/functions.php:177
+#: ../../mf_parallax/include/functions.php:188
 msgid "Repeat Image"
 msgstr "Repetera bild"
 
-#: ../../mf_parallax/include/functions.php:181
+#: ../../mf_parallax/include/functions.php:192
 msgid "Choose here"
 msgstr "Välj här"
 
-#: ../../mf_parallax/include/functions.php:182
+#: ../../mf_parallax/include/functions.php:193
 msgid "No"
 msgstr "Nej"
 
-#: ../../mf_parallax/include/functions.php:184
-#: ../../mf_parallax/include/functions.php:185
+#: ../../mf_parallax/include/functions.php:195
+#: ../../mf_parallax/include/functions.php:196
 msgid "Yes"
 msgstr "Ja"
 
-#: ../../mf_parallax/include/functions.php:184
+#: ../../mf_parallax/include/functions.php:195
 msgid "Horizontal"
 msgstr "Horisontellt"
 
-#: ../../mf_parallax/include/functions.php:185
+#: ../../mf_parallax/include/functions.php:196
 msgid "Vertical"
 msgstr "Vertikalt"
 
-#: ../../mf_parallax/include/functions.php:190
+#: ../../mf_parallax/include/functions.php:201
 msgid "Text Color"
 msgstr "Textfärg"
 
-#: ../../mf_parallax/include/functions.php:197
+#: ../../mf_parallax/include/functions.php:208
 msgid "Settings"
 msgstr "Inställningar"
 
-#~ msgid "The feed from %s returned an error"
-#~ msgstr "Feeden från %s returnerade ett fel"
-
-#~ msgid "The response from %s had an error (%s)"
-#~ msgstr "Svaret från %s innehöll ett fel (%s)"
-
-#~ msgid ""
-#~ "I could not process the feed from %s since the URL was not a valid one"
-#~ msgstr "Jag kunde inte gå igenom feeden från %s eftersom URLen var felaktig"
