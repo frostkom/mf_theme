@@ -689,15 +689,10 @@ $out = $obj_theme_core->show_font_face()
 								column-count: 3;
 							}
 
-					article p, article ul, article ol, article form
+					article p:not(:last-child), article ul:not(:last-child), article ol:not(:last-child), article form:not(:last-child)
 					{"
 						.$obj_theme_core->render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
 					."}
-
-						article p:last-child, article ul:last-child, article ol:last-child, article form:last-child
-						{
-							margin-bottom: 0;
-						}
 
 						article ul, article ol, article form
 						{
@@ -857,6 +852,11 @@ $out = $obj_theme_core->show_font_face()
 							{
 								list-style-position: inside;
 							}
+
+								.aside p:not(:last-child), .aside ul:not(:last-child), .aside ol:not(:last-child), .aside form:not(:last-child)
+								{"
+									.$obj_theme_core->render_css(array('property' => 'margin-bottom', 'value' => 'aside_margin_between'))
+								."}
 
 								/*.aside p a, */.aside ul a, .aside ol a
 								{
