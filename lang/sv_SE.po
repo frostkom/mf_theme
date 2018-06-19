@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-06 07:50+0100\n"
+"POT-Creation-Date: 2018-06-19 21:10+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -173,7 +173,7 @@ msgid "Repeat Image"
 msgstr "Repetera bild"
 
 #: ../../mf_parallax/include/functions.php:192
-msgid "Choose here"
+msgid "Choose Here"
 msgstr "Välj här"
 
 #: ../../mf_parallax/include/functions.php:193

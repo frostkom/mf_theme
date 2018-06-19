@@ -46,20 +46,9 @@ $out = $obj_theme_core->show_font_face()
 			.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
 			//."position: relative;"
 			.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
-		."}";
+		."}
 
-			/*if(isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] != '')
-			{
-				$out .= "header.display_fixed
-				{
-					left: 0;"
-					.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
-					."right: 0;
-					z-index: 10;
-				}";
-			}*/
-
-			$out .= "header > div
+			header > div
 			{"
 				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'header_padding'))
 			."}
@@ -818,6 +807,7 @@ $out = $obj_theme_core->show_font_face()
 					$out .= ".aside
 					{"
 						.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin'))
+						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'aside_container_padding'))
 					."}
 
 						.aside .widget
@@ -864,14 +854,6 @@ $out = $obj_theme_core->show_font_face()
 									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'article_url_color'))
 									."text-decoration: none;
 								}";
-
-					/*if(is_active_widget_area('widget_after_content'))
-					{
-						$out .= ".aside.after_content .widget
-						{"
-							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'after_content_widget_font_size'))
-						."}";
-					}*/
 				}
 
 		if(is_active_widget_area('widget_pre_footer'))
@@ -1135,7 +1117,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 				display: none;
 			}";
 
-			if(1 == 2)
+			/*if(1 == 2)
 			{
 				$out .= ".theme_nav.is_mobile_ready
 				{
@@ -1258,7 +1240,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 								{
 									display: block;
 								}";
-			}
+			}*/
 
 			$out .= "article section.text_columns
 			{
