@@ -821,7 +821,7 @@ $out = $obj_theme_core->show_font_face()
 							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'aside_widget_font_size'))
 						."}
 
-							.aside .widget + .widget
+							.aside .widget:not(.theme_widget_area) .widget + .widget
 							{
 								margin-top: 1em;
 							}
@@ -834,7 +834,7 @@ $out = $obj_theme_core->show_font_face()
 								.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'aside_heading_padding'))
 							."}
 
-							.aside .widget .section, .aside .widget > div, .aside .widget > form, .aside .widget > ol, .aside .widget > ul, .aside .widget > p
+							.aside .widget .section, .aside .widget:not(.theme_widget_area) > div, .aside .widget > form, .aside .widget > ol, .aside .widget > ul, .aside .widget > p
 							{"
 								.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'aside_widget_background'))
 								.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'aside_size'))
