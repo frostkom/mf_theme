@@ -350,12 +350,12 @@ if(!function_exists('get_more_posts'))
 
 		$i = 0;
 
-		foreach($result as $post)
+		foreach($result as $r)
 		{
-			$post_id = $post->ID;
-			$post_title = $post->post_title;
-			$post_excerpt = $post->post_excerpt;
-			$post_content = apply_filters('the_content', $post->post_content);
+			$post_id = $r->ID;
+			$post_title = $r->post_title;
+			$post_excerpt = $r->post_excerpt;
+			$post_content = apply_filters('the_content', $r->post_content);
 
 			if($i < $posts_per_page)
 			{

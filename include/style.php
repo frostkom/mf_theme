@@ -643,6 +643,11 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h3'))
 				."}
 
+				article > .image
+				{
+					margin-bottom: .5em;
+				}
+
 				article section
 				{"
 					.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'section_bg'))
