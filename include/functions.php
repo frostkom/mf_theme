@@ -359,8 +359,8 @@ if(!function_exists('get_more_posts'))
 
 			if($i < $posts_per_page)
 			{
-				$post_url = get_permalink($post);
-				$post_meta = apply_filters('the_content_meta', "", $post);
+				$post_url = get_permalink($r);
+				$post_meta = apply_filters('the_content_meta', "", $r);
 
 				$post_url_start = "<a href='".$post_url."'>";
 				$post_url_end = "</a>";

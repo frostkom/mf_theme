@@ -815,7 +815,7 @@ $out = $obj_theme_core->show_font_face()
 						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'aside_container_padding'))
 					."}
 
-						.aside .widget
+						.aside .widget:not(.theme_widget_area)
 						{"
 							.$obj_theme_core->render_css(array('property' => 'border', 'value' => 'aside_widget_border'))
 							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'aside_widget_font_size'))
