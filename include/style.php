@@ -1050,7 +1050,8 @@ $out = $obj_theme_core->show_font_face()
 
 $out .= "}";
 
-$aside_width = isset($obj_theme_core->options['aside_width']) && $obj_theme_core->options['aside_width'] != '' ? $obj_theme_core->options['aside_width'] : "28%";
+$aside_left_width = isset($obj_theme_core->options['aside_left_width']) && $obj_theme_core->options['aside_left_width'] != '' ? $obj_theme_core->options['aside_left_width'] : "28%";
+$aside_right_width = isset($obj_theme_core->options['aside_width']) && $obj_theme_core->options['aside_width'] != '' ? $obj_theme_core->options['aside_width'] : "28%";
 
 $flex_content = "#mf-content > div
 {
@@ -1079,23 +1080,27 @@ $flex_content = "#mf-content > div
 
 	if(is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar'))
 	{
-		$flex_content .= ".aside.right, .aside.left
+		$flex_content .= ".aside.right
 		{
 			margin-left: 2%;
-			-webkit-box-flex: 0 0 ".$aside_width.";
-			-webkit-flex: 0 0 ".$aside_width.";
-			-ms-flex: 0 0 ".$aside_width.";
-			flex: 0 0 ".$aside_width.";
+			-webkit-box-flex: 0 0 ".$aside_right_width.";
+			-webkit-flex: 0 0 ".$aside_right_width.";
+			-ms-flex: 0 0 ".$aside_right_width.";
+			flex: 0 0 ".$aside_right_width.";
 			order: 3;"
 			.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'aside_width'))
 		."}
 
-			.aside.left
-			{
-				margin-right: 2%;
-				margin-left: 0;
-				order: 1;
-			}";
+		.aside.left
+		{
+			margin-right: 2%;
+			-webkit-box-flex: 0 0 ".$aside_left_width.";
+			-webkit-flex: 0 0 ".$aside_left_width.";
+			-ms-flex: 0 0 ".$aside_left_width.";
+			flex: 0 0 ".$aside_left_width.";
+			order: 1;"
+			.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'aside_left_width'))
+		."}";
 	}
 
 if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->options['mobile_breakpoint'] > 0)
