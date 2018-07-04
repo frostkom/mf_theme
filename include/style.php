@@ -548,8 +548,12 @@ $out = $obj_theme_core->show_font_face()
 					{"
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
 						.$obj_theme_core->render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
-						.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'section_margin'))
-					."}";
+					."}
+
+						#mf-pre-content p:not(:last-child)
+						{"
+							.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'section_margin'))
+						."}";
 
 					/*#mf-pre-content > div .widget
 					{"

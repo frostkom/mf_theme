@@ -11,7 +11,7 @@
 
 						if(is_active_sidebar('widget_after_content') && !post_password_required())
 						{
-							echo "<div class='aside after_content'>";
+							echo "<div id='aside_after_content' class='aside after_content'>";
 
 								dynamic_sidebar('widget_after_content');
 
@@ -22,7 +22,7 @@
 
 					if(is_active_sidebar('widget_sidebar_left') && !post_password_required())
 					{
-						echo "<div class='aside left'>";
+						echo "<div id='aside_left' class='aside left'>";
 
 							dynamic_sidebar('widget_sidebar_left');
 
@@ -39,7 +39,7 @@
 
 						if($content != '')
 						{
-							echo "<div class='aside right'>".$content."</div>";
+							echo "<div id='aside_right' class='aside right'>".$content."</div>";
 						}
 					}
 
