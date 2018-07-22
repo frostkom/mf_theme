@@ -65,16 +65,22 @@ echo "<article id='comments'>";
 		echo "</ol>";
 
 		the_comments_pagination( array(
-			'prev_text' => "<i class='fa fa-chevron-left'></i> <span class='screen-reader-text'>".__( 'Previous', 'lang_theme' )."</span>",
+			'prev_text' => "<i class='fa fa-chevron-left'></i> <span class='screen-reader-text'>".__("Previous", 'lang_theme')."</span>",
 			'next_text' => "<span class='screen-reader-text'>".__("Next", 'lang_theme')."</span> <i class='fa fa-chevron-left'></i>",
 		));
 	}
 
-	if(!comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) )
+	if(apply_filters('allow_comments', true, $post) == true)
 	{
-		echo "<p class='no-comments'>".__("Comments are closed.", 'lang_theme')."</p>";
-	}
+		if(!comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) )
+		{
+			echo "<p class='no-comments'>".__("Comments are closed", 'lang_theme')."</p>";
+		}
 
-	comment_form();
+		else
+		{
+			comment_form();
+		}
+	}
 
 echo "</article>";

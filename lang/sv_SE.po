@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 21:10+0100\n"
+"POT-Creation-Date: 2018-07-22 09:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -29,9 +29,9 @@ msgstr "Föregående"
 msgid "Next"
 msgstr "Nästa"
 
-#: ../comments.php:75
-msgid "Comments are closed."
-msgstr "Kommentarer är stängda."
+#: ../comments.php:77
+msgid "Comments are closed"
+msgstr "Kommentarer är stängda"
 
 #: ../index.php:62
 #: ../index.php:72
