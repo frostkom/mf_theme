@@ -702,7 +702,7 @@ $out = $obj_theme_core->show_font_face()
 							list-style-position: inside;
 						}";
 
-							if($obj_theme_core->options['article_url_color'] != '')
+							if(isset($obj_theme_core->options['article_url_color']) && $obj_theme_core->options['article_url_color'] != '')
 							{
 								$out .= "article p a, article ul a, article ol a
 								{
@@ -811,7 +811,7 @@ $out = $obj_theme_core->show_font_face()
 							font-style: italic;
 						}";
 
-				if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar'))
+				if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar') || is_active_widget_area('widget_below_content'))
 				{
 					$out .= ".aside
 					{"
@@ -1082,7 +1082,7 @@ $flex_content = "#mf-content > div
 			width: 100%;
 		}";
 
-	if(is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar'))
+	if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar')) // || is_active_widget_area('widget_after_content')
 	{
 		$flex_content .= ".aside.right
 		{

@@ -95,6 +95,13 @@ if(!function_exists('widgets_theme'))
 {
 	function widgets_theme()
 	{
+		// A fix to make it work on register form
+		if(!class_exists('mf_theme_core'))
+		{
+			include_once(ABSPATH."wp-content/plugins/mf_theme_core/include/classes.php");
+			include_once(ABSPATH."wp-content/plugins/mf_theme_core/include/functions.php");
+		}
+
 		$obj_theme_core = new mf_theme_core();
 		$obj_theme_core->get_custom_widget_areas();
 
@@ -177,6 +184,17 @@ if(!function_exists('widgets_theme'))
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_sidebar');
+
+		register_sidebar(array(
+			'name' => __("Below Content", 'lang_theme'),
+			'id' => 'widget_below_content',
+			'before_widget' => "<div class='widget %s %s'>",
+			'before_title' => "<h3>",
+			'after_title' => "</h3>",
+			'after_widget' => "</div>"
+		));
+
+		$obj_theme_core->display_custom_widget_area('widget_below_content');
 
 		if(is_active_widget_area('widget_footer'))
 		{

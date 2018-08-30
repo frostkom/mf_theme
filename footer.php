@@ -43,8 +43,18 @@
 						}
 					}
 
-				echo "</div>
-			</div>";
+				echo "</div>";
+
+				if(is_active_sidebar('widget_below_content') && !post_password_required())
+				{
+					echo "<div id='aside_below_content' class='aside below_content'>";
+
+						dynamic_sidebar('widget_below_content');
+
+					echo "</div>";
+				}
+
+			echo "</div>";
 
 			if(is_active_sidebar('widget_pre_footer') && !post_password_required())
 			{
