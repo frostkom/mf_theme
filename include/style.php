@@ -1090,6 +1090,20 @@ $flex_content = "#mf-content > div
 
 	if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar')) // || is_active_widget_area('widget_after_content')
 	{
+		if(isset($obj_theme_core->options['aside_sticky_position']) && $obj_theme_core->options['aside_sticky_position'] != '')
+		{
+			$flex_content .= "#mf-content > div
+			{
+				overflow: unset;
+			}
+			
+			.aside.right > div, .aside.left > div
+			{
+				position: sticky;"
+				.$obj_theme_core->render_css(array('property' => 'top', 'value' => 'aside_sticky_position'))
+			."}";
+		}
+		
 		$flex_content .= ".aside.right
 		{
 			margin-left: 2%;

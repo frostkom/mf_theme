@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 07:48+0100\n"
+"POT-Creation-Date: 2018-09-07 13:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -15,121 +15,12 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../comments.php:37
-#, php-format
-msgid "One Reply to &ldquo;%s&rdquo;"
-msgstr ""
-
-#: ../comments.php:68
-msgid "Previous"
-msgstr ""
-
-#: ../comments.php:69
-msgid "Next"
-msgstr ""
-
-#: ../comments.php:75
-msgid "Comments are closed."
-msgstr ""
-
-#: ../index.php:62
-#: ../index.php:72
-#: ../include/functions.php:395
 msgid "Read More"
 msgstr "Les Mer"
 
-#: ../include/classes.php:17
-msgid "Display menu"
-msgstr ""
-
-#: ../include/classes.php:24
-#: ../include/functions.php:276
-msgid "Menu"
-msgstr ""
-
-#: ../include/classes.php:54
-msgid "Menu Type"
-msgstr ""
-
-#: ../include/functions.php:10
-msgid "No results"
-msgstr ""
-
-#: ../include/functions.php:12
-#, php-format
-msgid "I could not find any results for '%s'"
-msgstr ""
-
-#: ../include/functions.php:87
-msgid "Primary Navigation"
-msgstr ""
-
-#: ../include/functions.php:88
-msgid "Secondary Navigation"
-msgstr ""
-
-#: ../include/functions.php:102
-msgid "Header"
-msgstr ""
-
-#: ../include/functions.php:115
-msgid "After Header"
-msgstr ""
-
-#: ../include/functions.php:126
-msgid "Slide menu"
-msgstr ""
-
-#: ../include/functions.php:138
-msgid "Pre Content"
-msgstr ""
-
-#: ../include/functions.php:149
-#: ../include/functions.php:171
-msgid "Aside"
-msgstr ""
-
-#: ../include/functions.php:149
 msgid "Left"
-msgstr ""
+msgstr "Venstre"
 
-#: ../include/functions.php:160
-msgid "Below Main Column"
-msgstr ""
-
-#: ../include/functions.php:171
 msgid "Right"
-msgstr ""
-
-#: ../include/functions.php:184
-msgid "Pre Footer"
-msgstr ""
-
-#: ../include/functions.php:196
-msgid "Footer"
-msgstr ""
-
-#: ../include/functions.php:207
-msgid "Window Side Icons"
-msgstr ""
-
-#: ../include/functions.php:229
-msgid "Content Settings"
-msgstr ""
-
-#: ../include/functions.php:235
-msgid "Display Heading"
-msgstr ""
-
-#: ../include/functions.php:242
-msgid "Text Columns"
-msgstr ""
-
-#: ../include/functions.php:252
-msgid "Body Class"
-msgstr ""
-
-#: ../include/functions.php:413
-msgid "Load more posts"
-msgstr ""
+msgstr "Høyre"
 

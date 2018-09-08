@@ -22,11 +22,13 @@
 
 					if(is_active_sidebar('widget_sidebar_left') && !post_password_required())
 					{
-						echo "<div id='aside_left' class='aside left'>";
+						echo "<div id='aside_left' class='aside left'>
+							<div>";
 
-							dynamic_sidebar('widget_sidebar_left');
+								dynamic_sidebar('widget_sidebar_left');
 
-						echo "</div>";
+							echo "</div>
+						</div>";
 					}
 
 					if(is_active_sidebar('widget_sidebar') && !post_password_required()) //Returns true even if it is empty below so I've had to add a hack here ;(
@@ -39,7 +41,11 @@
 
 						if($content != '')
 						{
-							echo "<div id='aside_right' class='aside right'>".$content."</div>";
+							echo "<div id='aside_right' class='aside right'>
+								<div>"
+									.$content
+								."</div>
+							</div>";
 						}
 					}
 
