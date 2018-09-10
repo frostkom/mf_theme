@@ -978,7 +978,7 @@ $out = $obj_theme_core->show_font_face()
 								if(isset($obj_theme_core->options['footer_a_bg']) && $obj_theme_core->options['footer_a_bg'] != '')
 								{
 									$out .= $obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_a_bg'))
-									.$obj_theme_core->render_css(array('property' => 'border-radius', 'value' => 'form_border_radius'))
+									.$obj_theme_core->render_css(array('property' => 'border-radius', 'value' => 'form_button_border_radius'))
 									."display: block;"
 									.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'footer_a_margin'))
 									.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'footer_a_padding'));
@@ -1096,14 +1096,14 @@ $flex_content = "#mf-content > div
 			{
 				overflow: unset;
 			}
-			
+
 			.aside.right > div, .aside.left > div
 			{
 				position: sticky;"
 				.$obj_theme_core->render_css(array('property' => 'top', 'value' => 'aside_sticky_position'))
 			."}";
 		}
-		
+
 		$flex_content .= ".aside.right
 		{
 			margin-left: 2%;
