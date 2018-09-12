@@ -336,7 +336,7 @@ if(!function_exists('get_menu_theme'))
 
 							//$nav_before_content = "<a href='#' class='toggle_icon'></a>";
 							$nav_before_content = "<i class='fas fa-bars toggle_icon'></i>
-							<i class='fa fa-close toggle_icon'></i>";
+							<i class='fa fa-times toggle_icon'></i>";
 						break;
 					}
 

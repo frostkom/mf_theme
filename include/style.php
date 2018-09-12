@@ -349,7 +349,7 @@ $out = $obj_theme_core->show_font_face()
 
 									else
 									{
-										$out .= ".is_mobile header #primary_nav .fa-close, header #primary_nav.is_hamburger .fa-close
+										$out .= ".is_mobile header #primary_nav .fa-times, header #primary_nav.is_hamburger .fa-times
 										{
 											display: none;
 										}
@@ -359,7 +359,7 @@ $out = $obj_theme_core->show_font_face()
 												display: none;
 											}
 
-											.is_mobile header #primary_nav.open .fa-close, header #primary_nav.is_hamburger.open .fa-close
+											.is_mobile header #primary_nav.open .fa-times, header #primary_nav.is_hamburger.open .fa-times
 											{
 												display: block;
 											}";
@@ -446,7 +446,7 @@ $out = $obj_theme_core->show_font_face()
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'nav_size'))
 					."}
 
-						#mf-slide-nav .fa-close
+						#mf-slide-nav .fa-times
 						{
 							font-size: 2em;
 							margin: 3% 4% 0 0;
@@ -1238,7 +1238,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 							else
 							{
-								$out .= "header #primary_nav .fa-close
+								$out .= "header #primary_nav .fa-times
 								{
 									display: none;
 								}
@@ -1248,7 +1248,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 										display: none;
 									}
 
-									header #primary_nav.open .fa-close
+									header #primary_nav.open .fa-times
 									{
 										display: block;
 									}";
