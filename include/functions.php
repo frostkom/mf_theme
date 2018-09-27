@@ -291,7 +291,7 @@ if(!function_exists('get_menu_theme'))
 		{
 			$out .= "<nav>
 				<a href='#' id='slide_nav'>
-					".__("Menu", 'lang_theme')." <i class='fas fa-bars'></i>
+					".__("Menu", 'lang_theme')." <i class='fa fa-bars'></i>
 				</a>
 			</nav>";
 		}
@@ -335,7 +335,7 @@ if(!function_exists('get_menu_theme'))
 							$nav_class = "is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
 
 							//$nav_before_content = "<a href='#' class='toggle_icon'></a>";
-							$nav_before_content = "<i class='fas fa-bars toggle_icon'></i>
+							$nav_before_content = "<i class='fa fa-bars toggle_icon'></i>
 							<i class='fa fa-times toggle_icon'></i>";
 						break;
 					}

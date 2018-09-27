@@ -59,7 +59,7 @@ echo "<article id='comments'>";
 				'avatar_size' => 100,
 				'style'       => 'ol',
 				'short_ping'  => true,
-				'reply_text'  => "<i class='fas fa-reply'></i>",
+				'reply_text'  => "<i class='fa fa-reply'></i>",
 			));
 
 		echo "</ol>";
