@@ -822,6 +822,7 @@ $out = $obj_theme_core->show_font_face()
 					$out .= ".aside
 					{"
 						.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin'))
+						.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'aside_container_margin'))
 						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'aside_container_padding'))
 					."}
 
