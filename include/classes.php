@@ -18,7 +18,7 @@ class widget_theme_menu extends WP_Widget
 		);
 
 		$this->arr_default = array(
-			'theme_menu_type' => "",
+			'theme_menu_type' => '',
 		);
 
 		parent::__construct('theme-menu-widget', __("Menu", 'lang_theme'), $widget_ops);

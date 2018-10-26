@@ -298,7 +298,7 @@ if(!function_exists('get_menu_theme'))
 
 		else
 		{
-			if(in_array($data['type'], array('', 'secondary', 'both')))
+			if(in_array($data['type'], array('', 'secondary', 'secondary-menu', 'both')))
 			{
 				$nav_content = wp_nav_menu(array('theme_location' => 'secondary', 'menu' => 'Secondary', 'container' => "div", 'container_override' => false, 'fallback_cb' => false, 'echo' => false));
 
@@ -310,9 +310,46 @@ if(!function_exists('get_menu_theme'))
 				}
 			}
 
-			if(in_array($data['type'], array('', 'main', 'both')))
+			if(in_array($data['type'], array('', 'main', 'main-menu', 'both')))
 			{
 				$nav_content = wp_nav_menu(array('theme_location' => 'primary', 'menu' => 'Main', 'container' => "div", 'container_override' => false, 'echo' => false));
+
+				if($nav_content != '')
+				{
+					switch($data['where'])
+					{
+						case 'widget_slide':
+							$nav_class = $nav_before_content = "";
+						break;
+
+						default:
+							global $obj_theme_core;
+
+							if(!isset($obj_theme_core))
+							{
+								$obj_theme_core = new mf_theme_core();
+							}
+
+							$obj_theme_core->get_params();
+
+							$nav_class = "is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
+
+							//$nav_before_content = "<a href='#' class='toggle_icon'></a>";
+							$nav_before_content = "<i class='fa fa-bars toggle_icon'></i>
+							<i class='fa fa-times toggle_icon'></i>";
+						break;
+					}
+
+					$out .= "<nav id='primary_nav' class='theme_nav".($nav_class != '' ? " ".$nav_class : '')."'>"
+						.$nav_before_content
+						.$nav_content
+					."</nav>";
+				}
+			}
+
+			if($data['type'] != '' && !in_array($data['type'], array('main', 'main-menu', 'secondary', 'secondary-menu', 'both')))
+			{
+				$nav_content = wp_nav_menu(array('menu' => $data['type'], 'container' => "div", 'container_override' => false, 'echo' => false));
 
 				if($nav_content != '')
 				{
