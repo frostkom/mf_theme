@@ -11,7 +11,7 @@
 
 						if(is_active_sidebar('widget_after_content') && !post_password_required())
 						{
-							echo "<div id='aside_after_content' class='aside after_content'>";
+							echo "<div class='aside after_content'>"; // id='aside_after_content'
 
 								dynamic_sidebar('widget_after_content');
 

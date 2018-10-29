@@ -18,6 +18,8 @@ get_header();
 	{
 		$post_amount = $wp_query->found_posts;
 
+		$is_single = ($post_amount == 1);
+
 		while(have_posts())
 		{
 			the_post();
@@ -28,7 +30,7 @@ get_header();
 
 			$post_link_start = $post_link_end = "";
 
-			if($post_amount > 1)
+			if($is_single == false)
 			{
 				$post_excerpt = $post->post_excerpt;
 
@@ -50,9 +52,28 @@ get_header();
 				{
 					$article_content .= "<div class='meta'>".$post_meta."</div>";
 				}
+
+				if($is_single == true)
+				{
+					if(is_active_sidebar('widget_after_heading') && !post_password_required())
+					{
+						ob_start();
+
+						dynamic_sidebar('widget_after_heading');
+
+						$content = ob_get_clean();
+
+						if($content != '')
+						{
+							$article_content .= "<div class='aside after_heading'>" // id='aside_after_heading'
+								.$content
+							."</div>";
+						}
+					}
+				}
 			}
 
-			if($post_amount > 1)
+			if($is_single == false)
 			{
 				$article_content .= "<section>";
 

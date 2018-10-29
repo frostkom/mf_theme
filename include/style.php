@@ -668,6 +668,11 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'section_padding'))
 				."}
 
+					article .aside.after_heading + section
+					{
+						margin-top: 1em;
+					}
+
 					article + article
 					{
 						border-top: 1px solid #ccc;
@@ -817,7 +822,7 @@ $out = $obj_theme_core->show_font_face()
 							font-style: italic;
 						}";
 
-				if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar') || is_active_widget_area('widget_below_content'))
+				if(is_active_widget_area('widget_after_heading') || is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar') || is_active_widget_area('widget_below_content'))
 				{
 					$out .= ".aside
 					{"
@@ -1089,7 +1094,7 @@ $flex_content = "#mf-content > div
 			width: 100%;
 		}";
 
-	if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar')) // || is_active_widget_area('widget_after_content')
+	if(is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_sidebar'))
 	{
 		if(isset($obj_theme_core->options['aside_sticky_position']) && $obj_theme_core->options['aside_sticky_position'] != '')
 		{

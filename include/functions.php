@@ -153,6 +153,17 @@ if(!function_exists('widgets_theme'))
 		$obj_theme_core->display_custom_widget_area('widget_front');
 
 		register_sidebar(array(
+			'name' => __("Below Main Heading", 'lang_theme'),
+			'id' => 'widget_after_heading',
+			'before_widget' => "<div class='widget %s %s'>",
+			'before_title' => "<h3>",
+			'after_title' => "</h3>",
+			'after_widget' => "</div>"
+		));
+
+		$obj_theme_core->display_custom_widget_area('widget_after_heading');
+
+		register_sidebar(array(
 			'name' => __("Aside", 'lang_theme')." (".__("Left", 'lang_theme').")",
 			'id' => 'widget_sidebar_left',
 			'before_widget' => "<div class='widget %s %s'>",
