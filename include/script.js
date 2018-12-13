@@ -19,7 +19,7 @@ jQuery(function($)
 				dom_scrollWidth = e.scrollWidth;
 			}
 
-			var isOverflown = (dom_scrollWidth > e.clientWidth), /*e.scrollHeight > e.clientHeight || */
+			var isOverflown = (dom_scrollWidth > e.clientWidth),
 				dom_obj = $(this);
 
 			if(isOverflown)
@@ -132,39 +132,7 @@ jQuery(function($)
 		});
 	}
 
-	/* Fixed header */
-	/*if(script_theme.header_fixed)
-	{
-		var dom_header = $("header"),
-			dom_after_header = dom_header.next("*"),
-			header_height = dom_header.height();
-
-		function has_scrolled()
-		{
-			var scroll_top = $(window).scrollTop();
-
-			if(scroll_top > 0)
-			{
-				dom_header.addClass('display_fixed');
-				dom_after_header.css({'margin-top': header_height + 'px'});
-			}
-
-			else
-			{
-				dom_header.removeClass('display_fixed');
-				dom_after_header.css({'margin-top': '0'});
-			}
-		}
-
-		has_scrolled();
-
-		$(window).scroll(function(e)
-		{
-			has_scrolled();
-		});
-	}*/
-
-	/* Load more */
+	/* Load More */
 	$(document).on('click', '#load_more', function()
 	{
 		var self = $(this);

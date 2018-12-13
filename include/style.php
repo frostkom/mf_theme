@@ -44,7 +44,6 @@ $out = $obj_theme_core->show_font_face()
 			.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
 			.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))
 			.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
-			//."position: relative;"
 			.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
 		."}
 
@@ -906,9 +905,10 @@ $out = $obj_theme_core->show_font_face()
 				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'footer_bg'))
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
 				.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'footer_bg_image', 'suffix' => '); background-size: cover'))
-				."overflow: hidden;
-				position: relative;
-				z-index: 1000;
+				."overflow: hidden;"
+				//."position: relative;"
+				.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'footer_fixed'))
+				."z-index: 1000;
 			}
 
 				footer > div

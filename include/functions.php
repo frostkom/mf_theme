@@ -49,7 +49,6 @@ if(!function_exists('head_theme'))
 		mf_enqueue_style('style', $template_url."/include/style.php", $theme_version);
 		mf_enqueue_script('script_theme', $template_url."/include/script.js", array(
 			'template_url' => $template_url,
-			//'header_fixed' => (isset($obj_theme_core->options['header_fixed']) && $obj_theme_core->options['header_fixed'] == 'fixed'),
 			'hamburger_collapse_if_no_space' => (isset($obj_theme_core->options['hamburger_collapse_if_no_space']) && $obj_theme_core->options['hamburger_collapse_if_no_space'] == 2),
 		), $theme_version);
 	}
