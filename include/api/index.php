@@ -16,6 +16,8 @@ if(is_plugin_active('mf_cache/index.php'))
 	$obj_cache->get_or_set_file_content('json');
 }
 
+$obj_theme = new mf_theme();
+
 $json_output = array();
 
 $type = check_var('type', 'char');
@@ -28,7 +30,7 @@ $type_value = isset($arr_input[1]) ? $arr_input[1] : "";
 if($type_action == "load_more")
 {
 	$json_output['success'] = true;
-	$json_output['response'] = get_more_posts(array('limit_start' => $type_value));
+	$json_output['response'] = $obj_theme->get_more_posts(array('limit_start' => $type_value));
 }
 
 echo json_encode($json_output);

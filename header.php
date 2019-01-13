@@ -3,6 +3,16 @@
  * The Header for our theme.
 */
 
+if(!isset($obj_theme_core))
+{
+	$obj_theme_core = new mf_theme_core();
+}
+
+if(!isset($obj_theme))
+{
+	$obj_theme = new mf_theme();
+}
+
 echo "<!DOCTYPE html>
 <html ".get_language_attributes().">
 	<head>";
@@ -22,14 +32,9 @@ echo "<!DOCTYPE html>
 
 					else
 					{
-						if(!isset($obj_theme_core))
-						{
-							$obj_theme_core = new mf_theme_core();
-						}
-
 						echo $obj_theme_core->get_logo()
 						.get_search_theme_core()
-						.get_menu_theme(array('where' => 'header'));
+						.$obj_theme->get_menu(array('where' => 'header'));
 					}
 
 					echo "<div class='clear'></div>
@@ -38,11 +43,6 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_after_header'))
 			{
-				if(!isset($obj_theme_core))
-				{
-					$obj_theme_core = new mf_theme_core();
-				}
-
 				$obj_theme_core->get_params();
 
 				echo "<div id='mf-after-header'".(isset($obj_theme_core->options['after_header_full_width']) && $obj_theme_core->options['after_header_full_width'] == 2 ? " class='full_width'" : "").">
@@ -68,11 +68,6 @@ echo "<!DOCTYPE html>
 
 			if(is_active_sidebar('widget_front'))
 			{
-				if(!isset($obj_theme_core))
-				{
-					$obj_theme_core = new mf_theme_core();
-				}
-
 				$obj_theme_core->get_params();
 
 				echo "<div id='mf-pre-content'".(isset($obj_theme_core->options['pre_content_full_width']) && $obj_theme_core->options['pre_content_full_width'] == 2 ? " class='full_width'" : "").">

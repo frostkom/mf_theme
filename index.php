@@ -14,6 +14,11 @@
 
 get_header();
 
+	if(!isset($obj_theme))
+	{
+		$obj_theme = new mf_theme();
+	}
+
 	if(have_posts())
 	{
 		$post_amount = $wp_query->found_posts;
@@ -42,7 +47,7 @@ get_header();
 
 			$article_content = "";
 
-			if(is_heading_visible($post))
+			if($obj_theme->is_heading_visible($post))
 			{
 				$article_content .= "<h1>".$post_link_start.$post_title.$post_link_end."</h1>";
 
@@ -100,9 +105,9 @@ get_header();
 			{
 				if(has_post_thumbnail($post_id))
 				{
-					$obj_theme_core = new mf_theme_core();
+					//$obj_theme_core = new mf_theme_core();
 
-					if($obj_theme_core->display_featured_image($post_id))
+					if($obj_theme->display_featured_image($post_id))
 					{
 						$post_thumbnail = get_the_post_thumbnail($post_id, 'full');
 
@@ -137,7 +142,7 @@ get_header();
 
 	else
 	{
-		echo get_search_page();
+		echo $obj_theme->get_search_page();
 	}
 
 get_footer();

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-29 17:44+0100\n"
+"POT-Creation-Date: 2019-01-13 11:47+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -33,179 +33,183 @@ msgstr "Nästa"
 msgid "Comments are closed"
 msgstr "Kommentarer är stängda"
 
-#: ../index.php:83
-#: ../index.php:93
-#: ../include/functions.php:461
+#: ../index.php:88
+#: ../index.php:98
+#: ../include/classes.php:203
 msgid "Read More"
 msgstr "Läs mer"
 
-#: ../include/classes.php:17
-msgid "Display menu"
-msgstr "Visa meny"
-
-#: ../include/classes.php:24
-#: ../include/functions.php:305
-msgid "Menu"
-msgstr "Meny"
-
-#: ../include/classes.php:54
-msgid "Menu Type"
-msgstr "Typ av meny"
-
-#: ../include/functions.php:10
+#: ../include/classes.php:15
 msgid "No results"
 msgstr "Inga resultat"
 
-#: ../include/functions.php:12
+#: ../include/classes.php:17
 #, php-format
 msgid "I could not find any results for '%s'"
 msgstr "Jag kunde inte hitta några resultat för '%s'"
 
-#: ../include/functions.php:87
-msgid "Primary Navigation"
-msgstr "Primär navigation"
+#: ../include/classes.php:50
+#: ../include/classes.php:507
+msgid "Menu"
+msgstr "Meny"
 
-#: ../include/functions.php:88
-msgid "Secondary Navigation"
-msgstr "Sekundär navigation"
-
-#: ../include/functions.php:109
-msgid "Header"
-msgstr "Sidhuvud"
-
-#: ../include/functions.php:122
-msgid "After Header"
-msgstr "Efter sidhuvud"
-
-#: ../include/functions.php:133
-msgid "Slide menu"
-msgstr "Sidomeny"
-
-#: ../include/functions.php:145
-msgid "Pre Content"
-msgstr "Före innehåll"
-
-#: ../include/functions.php:156
-msgid "Below Main Heading"
-msgstr "Under huvudrubrik"
-
-#: ../include/functions.php:167
-#: ../include/functions.php:189
-msgid "Aside"
-msgstr "Sidokolumn"
-
-#: ../include/functions.php:167
-msgid "Left"
-msgstr "Vänster"
-
-#: ../include/functions.php:178
-msgid "Below Main Column"
-msgstr "Under huvudkolumn"
-
-#: ../include/functions.php:189
-msgid "Right"
-msgstr "Höger"
-
-#: ../include/functions.php:200
-msgid "Below Content"
-msgstr "Efter innehåll"
-
-#: ../include/functions.php:213
-msgid "Pre Footer"
-msgstr "Före sidfot"
-
-#: ../include/functions.php:225
-msgid "Footer"
-msgstr "Sidfot"
-
-#: ../include/functions.php:236
-msgid "Window Side Icons"
-msgstr "Sidoikoner"
-
-#: ../include/functions.php:258
-msgid "Content Settings"
-msgstr "Inställningar för innehåll"
-
-#: ../include/functions.php:264
-msgid "Display Heading"
-msgstr "Visa rubrik"
-
-#: ../include/functions.php:271
-msgid "Text Columns"
-msgstr "Textkolumner"
-
-#: ../include/functions.php:281
-msgid "Body Class"
-msgstr "Klass på Body"
-
-#: ../include/functions.php:479
+#: ../include/classes.php:221
 msgid "Load more posts"
 msgstr "Ladda fler inlägg"
 
-#: ../../mf_parallax/include/functions.php:99
+#: ../include/classes.php:243
+msgid "Display Heading"
+msgstr "Visa rubrik"
+
+#: ../include/classes.php:258
+msgid "Display Featured Image on Single Page"
+msgstr "Visa utvald bild på sida"
+
+#: ../include/classes.php:266
+msgid "Text Columns"
+msgstr "Textkolumner"
+
+#: ../include/classes.php:277
+msgid "Body Class"
+msgstr "Klass på Body"
+
+#: ../include/classes.php:284
+msgid "Content Settings"
+msgstr "Inställningar för innehåll"
+
+#: ../include/classes.php:332
+msgid "Primary Navigation"
+msgstr "Primär navigation"
+
+#: ../include/classes.php:333
+msgid "Secondary Navigation"
+msgstr "Sekundär navigation"
+
+#: ../include/classes.php:351
+msgid "Header"
+msgstr "Sidhuvud"
+
+#: ../include/classes.php:364
+msgid "After Header"
+msgstr "Efter sidhuvud"
+
+#: ../include/classes.php:375
+msgid "Slide menu"
+msgstr "Sidomeny"
+
+#: ../include/classes.php:387
+msgid "Pre Content"
+msgstr "Före innehåll"
+
+#: ../include/classes.php:398
+msgid "Below Main Heading"
+msgstr "Under huvudrubrik"
+
+#: ../include/classes.php:409
+#: ../include/classes.php:431
+msgid "Aside"
+msgstr "Sidokolumn"
+
+#: ../include/classes.php:409
+msgid "Left"
+msgstr "Vänster"
+
+#: ../include/classes.php:420
+msgid "Below Main Column"
+msgstr "Under huvudkolumn"
+
+#: ../include/classes.php:431
+msgid "Right"
+msgstr "Höger"
+
+#: ../include/classes.php:442
+msgid "Below Content"
+msgstr "Efter innehåll"
+
+#: ../include/classes.php:455
+msgid "Pre Footer"
+msgstr "Före sidfot"
+
+#: ../include/classes.php:467
+msgid "Footer"
+msgstr "Sidfot"
+
+#: ../include/classes.php:478
+msgid "Window Side Icons"
+msgstr "Sidoikoner"
+
+#: ../include/classes.php:498
+msgid "Display menu"
+msgstr "Visa meny"
+
+#: ../include/classes.php:537
+msgid "Menu Type"
+msgstr "Typ av meny"
+
+#: ../../mf_parallax/include/classes.php:118
 #, php-format
 msgid "To choose if this page should be part of the One Page/Parallax you have to set %sShow on Front%s to Your latest Posts."
 msgstr "För att välja om denna sida ska vara en del av en sk. one-page måste du ändra %sStartsidan visar%s till Dina senaste inlägg"
 
-#: ../../mf_parallax/include/functions.php:113
+#: ../../mf_parallax/include/classes.php:129
 msgid "Information"
 msgstr "Information"
 
-#: ../../mf_parallax/include/functions.php:136
+#: ../../mf_parallax/include/classes.php:152
 msgid "Show in Menu"
 msgstr "Visa i menyn"
 
-#: ../../mf_parallax/include/functions.php:144
+#: ../../mf_parallax/include/classes.php:160
 msgid "Show on Page"
 msgstr "Visa på sidan"
 
-#: ../../mf_parallax/include/functions.php:170
+#: ../../mf_parallax/include/classes.php:186
 msgid "Background Color"
 msgstr "Bakgrundsfärg"
 
-#: ../../mf_parallax/include/functions.php:176
-#: ../../mf_parallax/include/functions.php:182
+#: ../../mf_parallax/include/classes.php:192
+#: ../../mf_parallax/include/classes.php:198
 msgid "Background"
 msgstr "Bakgrund"
 
-#: ../../mf_parallax/include/functions.php:176
+#: ../../mf_parallax/include/classes.php:192
 msgid "Desktop"
 msgstr "Stora skärmar"
 
-#: ../../mf_parallax/include/functions.php:182
+#: ../../mf_parallax/include/classes.php:198
 msgid "Mobile"
 msgstr "Mobil"
 
-#: ../../mf_parallax/include/functions.php:188
+#: ../../mf_parallax/include/classes.php:204
 msgid "Repeat Image"
 msgstr "Repetera bild"
 
-#: ../../mf_parallax/include/functions.php:192
+#: ../../mf_parallax/include/classes.php:208
 msgid "Choose Here"
 msgstr "Välj här"
 
-#: ../../mf_parallax/include/functions.php:193
+#: ../../mf_parallax/include/classes.php:209
 msgid "No"
 msgstr "Nej"
 
-#: ../../mf_parallax/include/functions.php:195
-#: ../../mf_parallax/include/functions.php:196
+#: ../../mf_parallax/include/classes.php:211
+#: ../../mf_parallax/include/classes.php:212
 msgid "Yes"
 msgstr "Ja"
 
-#: ../../mf_parallax/include/functions.php:195
+#: ../../mf_parallax/include/classes.php:211
 msgid "Horizontal"
 msgstr "Horisontellt"
 
-#: ../../mf_parallax/include/functions.php:196
+#: ../../mf_parallax/include/classes.php:212
 msgid "Vertical"
 msgstr "Vertikalt"
 
-#: ../../mf_parallax/include/functions.php:201
+#: ../../mf_parallax/include/classes.php:217
 msgid "Text Color"
 msgstr "Textfärg"
 
-#: ../../mf_parallax/include/functions.php:208
+#: ../../mf_parallax/include/classes.php:224
 msgid "Settings"
 msgstr "Inställningar"
 

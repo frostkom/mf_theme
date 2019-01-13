@@ -12,6 +12,11 @@ get_header();
 
 	if(have_posts())
 	{
+		if(!isset($obj_theme))
+		{
+			$obj_theme = new mf_theme();
+		}
+
 		while(have_posts())
 		{
 			the_post();
@@ -30,13 +35,13 @@ get_header();
 				."</article>";
 			}
 
-			else if(is_heading_visible($post))
+			else if($obj_theme->is_heading_visible($post))
 			{
 				echo "<h1>".$post_title."</h1>";
 			}
 		}
 
-		echo get_more_posts();
+		echo $obj_theme->get_more_posts();
 	}
 
 get_footer();
