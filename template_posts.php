@@ -1,10 +1,5 @@
 <?php
-/**
- * @package WordPress
- * @subpackage MF Theme
- */
-
- /*
+/*
 Template Name: Posts
 */
 

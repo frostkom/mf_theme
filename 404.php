@@ -1,10 +1,7 @@
 <?php
-/**
+/*
  * The template for displaying 404 pages (Not Found).
- *
- * @package WordPress
- * @subpackage Theme
- */
+*/
 
 if(preg_match("/wp-admin/i", $_SERVER['REQUEST_URI']))
 {

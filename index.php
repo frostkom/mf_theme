@@ -1,16 +1,7 @@
 <?php
-/**
+/*
  * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Theme
- */
+*/
 
 get_header();
 
@@ -33,9 +24,20 @@ get_header();
 			$post_title = $post->post_title;
 			$post_content = apply_filters('the_content', $post->post_content);
 
-			$post_link_start = $post_link_end = "";
+			$is_post = isset($post->post_type) && $post->post_type == 'post';
 
-			if($is_single == false)
+			$post_link_start = $post_link_end = $article_attr = $article_content = $heading_attr = "";
+
+			if($is_single)
+			{
+				if($is_post)
+				{
+					$article_attr = " itemscope itemtype='http://schema.org/BlogPosting'";
+					$heading_attr = " itemprop='title'";
+				}
+			}
+
+			else
 			{
 				$post_excerpt = $post->post_excerpt;
 
@@ -45,11 +47,9 @@ get_header();
 				$post_link_end = "</a>";
 			}
 
-			$article_content = "";
-
 			if($obj_theme->is_heading_visible($post))
 			{
-				$article_content .= "<h1>".$post_link_start.$post_title.$post_link_end."</h1>";
+				$article_content .= "<h1".$heading_attr.">".$post_link_start.$post_title.$post_link_end."</h1>";
 
 				$post_meta = apply_filters('the_content_meta', "", $post);
 
@@ -70,7 +70,7 @@ get_header();
 
 						if($content != '')
 						{
-							$article_content .= "<div class='aside after_heading'>" // id='aside_after_heading'
+							$article_content .= "<div class='aside after_heading'>"
 								.$content
 							."</div>";
 						}
@@ -105,8 +105,6 @@ get_header();
 			{
 				if(has_post_thumbnail($post_id))
 				{
-					//$obj_theme_core = new mf_theme_core();
-
 					if($obj_theme->display_featured_image($post_id))
 					{
 						$post_thumbnail = get_the_post_thumbnail($post_id, 'full');
@@ -118,8 +116,6 @@ get_header();
 					}
 				}
 
-				$obj_theme = new mf_theme();
-
 				$post_text_columns = get_post_meta($post_id, $obj_theme->meta_prefix.'text_columns', true);
 
 				$article_content .= "<section".($post_text_columns > 1 ? " class='text_columns columns_".$post_text_columns."'" : "").">".$post_content."</section>";
@@ -127,7 +123,7 @@ get_header();
 
 			if($article_content != '')
 			{
-				echo "<article>".$article_content."</article>";
+				echo "<article".$article_attr.">".$article_content."</article>";
 
 				if(is_single())
 				{
