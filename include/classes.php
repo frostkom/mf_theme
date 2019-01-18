@@ -272,7 +272,7 @@ class mf_theme
 				'max' => 2,
 			),
 		);
-		
+
 		$arr_fields[] = array(
 			'name' => __("Body Class", 'lang_theme'),
 			'id' => $this->meta_prefix.'body_class',

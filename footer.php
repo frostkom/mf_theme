@@ -5,7 +5,7 @@
 
 						if(is_active_sidebar('widget_after_content') && !post_password_required())
 						{
-							echo "<div class='aside after_content'>"; // id='aside_after_content'
+							echo "<div class='aside after_content'>";
 
 								dynamic_sidebar('widget_after_content');
 
@@ -31,13 +31,13 @@
 
 						dynamic_sidebar('widget_sidebar');
 
-						$content = ob_get_clean();
+						$widget_content = ob_get_clean();
 
-						if($content != '')
+						if($widget_content != '')
 						{
 							echo "<div id='aside_right' class='aside right'>
 								<div>"
-									.$content
+									.$widget_content
 								."</div>
 							</div>";
 						}

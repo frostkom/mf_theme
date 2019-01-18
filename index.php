@@ -66,12 +66,12 @@ get_header();
 
 						dynamic_sidebar('widget_after_heading');
 
-						$content = ob_get_clean();
+						$widget_content = ob_get_clean();
 
-						if($content != '')
+						if($widget_content != '')
 						{
 							$article_content .= "<div class='aside after_heading'>"
-								.$content
+								.$widget_content
 							."</div>";
 						}
 					}
