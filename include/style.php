@@ -19,9 +19,14 @@ $obj_theme_core->get_params();
 $out = $obj_theme_core->show_font_face()
 ."@media all
 {
-	input:not([type='checkbox']):not([type='radio']), textarea, header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer
+	header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer
 	{
 		display: block;
+	}
+	
+	input:not([type='checkbox']):not([type='radio']), textarea
+	{
+		display: inline-block;
 	}"
 
 	.$obj_theme_core->get_common_style()
