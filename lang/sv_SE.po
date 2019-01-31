@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 11:47+0100\n"
+"POT-Creation-Date: 2019-01-31 09:20+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -14,22 +14,21 @@ msgstr ""
 "X-Poedit-KeywordsList: esc_html__;esc_html_e;esc_attr__;esc_attr_e;__;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
-"X-Poedit-SearchPath-1: ../..\n"
 
-#: ../comments.php:37
+#: ../comments.php:27
 #, php-format
 msgid "One Reply to &ldquo;%s&rdquo;"
 msgstr "Ett svar till &ldquo;%s&rdquo;"
 
-#: ../comments.php:68
+#: ../comments.php:58
 msgid "Previous"
 msgstr "Föregående"
 
-#: ../comments.php:69
+#: ../comments.php:59
 msgid "Next"
 msgstr "Nästa"
 
-#: ../comments.php:77
+#: ../comments.php:67
 msgid "Comments are closed"
 msgstr "Kommentarer är stängda"
 
@@ -145,71 +144,4 @@ msgstr "Visa meny"
 #: ../include/classes.php:537
 msgid "Menu Type"
 msgstr "Typ av meny"
-
-#: ../../mf_parallax/include/classes.php:118
-#, php-format
-msgid "To choose if this page should be part of the One Page/Parallax you have to set %sShow on Front%s to Your latest Posts."
-msgstr "För att välja om denna sida ska vara en del av en sk. one-page måste du ändra %sStartsidan visar%s till Dina senaste inlägg"
-
-#: ../../mf_parallax/include/classes.php:129
-msgid "Information"
-msgstr "Information"
-
-#: ../../mf_parallax/include/classes.php:152
-msgid "Show in Menu"
-msgstr "Visa i menyn"
-
-#: ../../mf_parallax/include/classes.php:160
-msgid "Show on Page"
-msgstr "Visa på sidan"
-
-#: ../../mf_parallax/include/classes.php:186
-msgid "Background Color"
-msgstr "Bakgrundsfärg"
-
-#: ../../mf_parallax/include/classes.php:192
-#: ../../mf_parallax/include/classes.php:198
-msgid "Background"
-msgstr "Bakgrund"
-
-#: ../../mf_parallax/include/classes.php:192
-msgid "Desktop"
-msgstr "Stora skärmar"
-
-#: ../../mf_parallax/include/classes.php:198
-msgid "Mobile"
-msgstr "Mobil"
-
-#: ../../mf_parallax/include/classes.php:204
-msgid "Repeat Image"
-msgstr "Repetera bild"
-
-#: ../../mf_parallax/include/classes.php:208
-msgid "Choose Here"
-msgstr "Välj här"
-
-#: ../../mf_parallax/include/classes.php:209
-msgid "No"
-msgstr "Nej"
-
-#: ../../mf_parallax/include/classes.php:211
-#: ../../mf_parallax/include/classes.php:212
-msgid "Yes"
-msgstr "Ja"
-
-#: ../../mf_parallax/include/classes.php:211
-msgid "Horizontal"
-msgstr "Horisontellt"
-
-#: ../../mf_parallax/include/classes.php:212
-msgid "Vertical"
-msgstr "Vertikalt"
-
-#: ../../mf_parallax/include/classes.php:217
-msgid "Text Color"
-msgstr "Textfärg"
-
-#: ../../mf_parallax/include/classes.php:224
-msgid "Settings"
-msgstr "Inställningar"
 

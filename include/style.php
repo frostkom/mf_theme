@@ -23,7 +23,7 @@ $out = $obj_theme_core->show_font_face()
 	{
 		display: block;
 	}
-	
+
 	input:not([type='checkbox']):not([type='radio']), textarea
 	{
 		display: inline-block;
