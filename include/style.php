@@ -558,11 +558,6 @@ $out = $obj_theme_core->show_font_face()
 						{"
 							.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'section_margin'))
 						."}";
-
-					/*#mf-pre-content > div .widget
-					{"
-						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'pre_content_widget_font_size'))
-					."}*/
 		}
 
 		$out .= "#mf-content
@@ -590,11 +585,11 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'heading_padding'))
 				."}
 
-					#wrapper h1:last-child
+					/*#wrapper h1:last-child
 					{
 						margin-bottom: 0;
 						padding-bottom: 0;
-					}
+					}*/
 
 					#wrapper h1 a
 					{
@@ -671,6 +666,11 @@ $out = $obj_theme_core->show_font_face()
 					."overflow: hidden;"
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'section_padding'))
 				."}
+
+					article:not(:last-child) section
+					{
+						margin-bottom: 0;
+					}
 
 					article .aside.after_heading + section
 					{

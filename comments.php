@@ -47,9 +47,9 @@ echo "<article id='comments'>";
 
 			wp_list_comments( array(
 				'avatar_size' => 100,
-				'style'       => 'ol',
-				'short_ping'  => true,
-				'reply_text'  => "<i class='fa fa-reply'></i>",
+				'style' => 'ol',
+				'short_ping' => true,
+				'reply_text' => "<i class='fa fa-reply'></i>",
 			));
 
 		echo "</ol>";
