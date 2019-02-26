@@ -667,10 +667,10 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'section_padding'))
 				."}
 
-					article:not(:last-child) section
+					/*article:not(:last-child) section
 					{
 						margin-bottom: 0;
-					}
+					}*/
 
 					article .aside.after_heading + section
 					{
