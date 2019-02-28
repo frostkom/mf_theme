@@ -14,7 +14,7 @@ class mf_theme
 		return "<article>
 			<h1>".__("No results", 'lang_theme')."</h1>
 			<section>
-				<p>".sprintf(__("I could not find any results for '%s'", 'lang_theme'), $strSearch)."</p>
+				<p>".sprintf(__("I could not find any results for %s", 'lang_theme'), $strSearch)."</p>
 			</section>
 		</article>";
 	}

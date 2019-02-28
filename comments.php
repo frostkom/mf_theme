@@ -24,7 +24,7 @@ echo "<article id='comments'>";
 			if('1' === $comments_number)
 			{
 				/* translators: %s: post title */
-				echo sprintf(__("One Reply to &ldquo;%s&rdquo;", 'lang_theme'), get_the_title());
+				echo sprintf(__("One Reply to %s", 'lang_theme'), "&ldquo;".get_the_title()."&rdquo;");
 			}
 
 			else
@@ -32,13 +32,13 @@ echo "<article id='comments'>";
 				printf(
 					/* translators: 1: number of comments, 2: post title */
 					_nx(
-						'%1$s Reply to &ldquo;%2$s&rdquo;',
-						'%1$s Replies to &ldquo;%2$s&rdquo;',
+						'%1$s Reply to %2$s',
+						'%1$s Replies to %2$s',
 						$comments_number,
 						'lang_theme'
 					),
 					number_format_i18n($comments_number),
-					get_the_title()
+					"&ldquo;".get_the_title()."&rdquo;"
 				);
 			}
 
