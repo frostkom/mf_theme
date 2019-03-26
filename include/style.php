@@ -861,9 +861,18 @@ $out = $obj_theme_core->show_font_face()
 								.$obj_theme_core->render_css(array('property' => 'line-height', 'value' => 'aside_line_height'))
 								."margin-bottom: .5em;"
 								.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'aside_padding'))
-							."}
+							."}";
 
-							.aside ul, .aside ol
+								if(isset($obj_theme_core->options['aside_padding']) && $obj_theme_core->options['aside_padding'] != '')
+								{
+									$out .= ".aside div.widget.theme_widget_area .widget:not(.theme_widget_area) > div
+									{
+										padding-top: 0;
+										padding-bottom: 0;
+									}";
+								}
+
+							$out .= ".aside ul, .aside ol
 							{
 								list-style-position: inside;
 							}
