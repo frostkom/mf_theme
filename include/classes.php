@@ -4,7 +4,7 @@ class mf_theme
 {
 	function __construct()
 	{
-		$this->meta_prefix = "mf_theme_";
+		$this->meta_prefix = 'mf_theme_';
 	}
 
 	function get_search_page()
@@ -90,7 +90,6 @@ class mf_theme
 
 							$nav_class = "is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
 
-							//$nav_before_content = "<a href='#' class='toggle_icon'></a>";
 							$nav_before_content = "<i class='fa fa-bars toggle_icon'></i>
 							<i class='fa fa-times toggle_icon'></i>";
 						break;
@@ -127,7 +126,6 @@ class mf_theme
 
 							$nav_class = "is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
 
-							//$nav_before_content = "<a href='#' class='toggle_icon'></a>";
 							$nav_before_content = "<i class='fa fa-bars toggle_icon'></i>
 							<i class='fa fa-times toggle_icon'></i>";
 						break;

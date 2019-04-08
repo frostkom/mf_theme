@@ -39,11 +39,11 @@ jQuery(function($)
 
 	if(slide_dom_obj.length > 0)
 	{
-		var menu_items = slide_dom_obj.find('.menu .menu-item').length;
+		var menu_items = slide_dom_obj.find(".menu .menu-item").length;
 
 		if(menu_items > 10)
 		{
-			slide_dom_obj.find('#primary_nav').addClass('is_large');
+			slide_dom_obj.find("#primary_nav").addClass('is_large');
 		}
 	}
 
@@ -51,38 +51,38 @@ jQuery(function($)
 
 	if(slide_dom_obj.length > 0)
 	{
-		var right_orig = slide_dom_obj.children('div').css('right');
+		var right_orig = slide_dom_obj.children("div").css('right');
 
 		function show_slide_menu()
 		{
-			slide_dom_obj.fadeIn().children('div').animate({'right': '0'}, 500);
+			slide_dom_obj.fadeIn().children("div").animate({'right': '0'}, 500);
 
 			return false;
 		}
 
 		function hide_slide_menu()
 		{
-			slide_dom_obj.children('div').animate({'right': right_orig}, 500, function()
+			slide_dom_obj.children("div").animate({'right': right_orig}, 500, function()
 			{
-				$(this).parent('#mf-slide-nav').fadeOut();
+				$(this).parent("#mf-slide-nav").fadeOut();
 			});
 
 			return false;
 		}
 
-		$(document).on('click', '#slide_nav', function()
+		$(document).on('click', "#slide_nav", function()
 		{
 			show_slide_menu();
 		});
 
-		$(document).on('click', '.is_large .menu-item-has-children:not(.current-menu-item) > a', function()
+		$(document).on('click', ".is_large .menu-item-has-children:not(.current-menu-item) > a", function()
 		{
-			$(this).parent('li').addClass('current-menu-item');
+			$(this).parent("li").addClass('current-menu-item');
 
 			return false;
 		});
 
-		$(document).on('click', '#mf-slide-nav', function(e)
+		$(document).on('click', "#mf-slide-nav", function(e)
 		{
 			var dom_obj = $(e.target);
 
@@ -118,7 +118,7 @@ jQuery(function($)
 
 		else
 		{
-			$(this).parent('nav').toggleClass('open').siblings('#site_logo').toggleClass('hide_if_mobile');
+			$(this).parent("nav").toggleClass('open').siblings("#site_logo").toggleClass('hide_if_mobile');
 		}
 
 		return false;
@@ -133,7 +133,7 @@ jQuery(function($)
 	}
 
 	/* Load More */
-	$(document).on('click', '#load_more', function()
+	$(document).on('click', "#load_more", function()
 	{
 		var self = $(this);
 
@@ -146,7 +146,7 @@ jQuery(function($)
 			{
 				if(data.success)
 				{
-					var parent = self.parent('ul');
+					var parent = self.parent("ul");
 
 					self.remove();
 					parent.append(data.response);
