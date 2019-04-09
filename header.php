@@ -33,7 +33,7 @@ echo "<!DOCTYPE html>
 					else
 					{
 						echo $obj_theme_core->get_logo()
-						.get_search_theme_core()
+						.$obj_theme_core->get_search_theme_core()
 						.$obj_theme->get_menu(array('where' => 'header'));
 					}
 
