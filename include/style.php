@@ -604,6 +604,12 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h2'))
 				."}
 
+					/* Just to make sure that there is some margin if there is no heading for the page and posts are displayed as a front page */
+					#wrapper article h2:first-child
+					{
+						margin-top: 1em;
+					}
+
 				#mf-after-header h3, article h3, #mf-pre-footer h3
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
