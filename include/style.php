@@ -33,7 +33,6 @@ $out = $obj_theme_core->show_font_face()
 
 	."body
 	{
-		/*overflow: hidden;*/
 		position: relative;
 	}
 

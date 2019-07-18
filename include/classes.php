@@ -40,13 +40,14 @@ class mf_theme
 	{
 		if(!isset($data['where'])){		$data['where'] = "";}
 		if(!isset($data['type'])){		$data['type'] = "";}
+		if(!isset($data['class'])){		$data['class'] = "";}
 
 		$out = "";
 
 		if($data['type'] == 'slide')
 		{
 			$out .= "<nav>
-				<a href='#' id='slide_nav'>
+				<a href='#' id='slide_nav'".($data['class'] != '' ? " class='".$data['class']."'" : "").">
 					".__("Menu", 'lang_theme')." <i class='fa fa-bars'></i>
 				</a>
 			</nav>";
@@ -60,7 +61,7 @@ class mf_theme
 
 				if($nav_content != '')
 				{
-					$out .= "<nav id='secondary_nav' class='theme_nav is_mobile_ready'>"
+					$out .= "<nav id='secondary_nav' class='theme_nav is_mobile_ready".($data['class'] != '' ? " ".$data['class'] : "")."'>"
 						.$nav_content
 					."</nav>";
 				}
@@ -75,7 +76,7 @@ class mf_theme
 					switch($data['where'])
 					{
 						case 'widget_slide':
-							$nav_class = $nav_before_content = "";
+							$nav_before_content = "";
 						break;
 
 						default:
@@ -88,14 +89,14 @@ class mf_theme
 
 							$obj_theme_core->get_params();
 
-							$nav_class = "is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
+							$data['class'] .= ($data['class'] != '' ? " " : "")."is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
 
 							$nav_before_content = "<i class='fa fa-bars toggle_icon'></i>
 							<i class='fa fa-times toggle_icon'></i>";
 						break;
 					}
 
-					$out .= "<nav id='primary_nav' class='theme_nav".($nav_class != '' ? " ".$nav_class : '')."'>"
+					$out .= "<nav id='primary_nav' class='theme_nav".($data['class'] != '' ? " ".$data['class'] : '')."'>"
 						.$nav_before_content
 						.$nav_content
 					."</nav>";
@@ -111,7 +112,7 @@ class mf_theme
 					switch($data['where'])
 					{
 						case 'widget_slide':
-							$nav_class = $nav_before_content = "";
+							$nav_before_content = "";
 						break;
 
 						default:
@@ -124,14 +125,14 @@ class mf_theme
 
 							$obj_theme_core->get_params();
 
-							$nav_class = "is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
+							$data['class'] .= ($data['class'] != '' ? " " : "")."is_mobile_ready".(isset($obj_theme_core->options['nav_full_width']) && $obj_theme_core->options['nav_full_width'] == 2 ? " full_width" : "");
 
 							$nav_before_content = "<i class='fa fa-bars toggle_icon'></i>
 							<i class='fa fa-times toggle_icon'></i>";
 						break;
 					}
 
-					$out .= "<nav id='primary_nav' class='theme_nav".($nav_class != '' ? " ".$nav_class : '')."'>"
+					$out .= "<nav id='primary_nav' class='theme_nav".($data['class'] != '' ? " ".$data['class'] : '')."'>"
 						.$nav_before_content
 						.$nav_content
 					."</nav>";
@@ -498,6 +499,7 @@ class widget_theme_menu extends WP_Widget
 
 		$this->arr_default = array(
 			'theme_menu_type' => '',
+			'theme_menu_display_mobile_version' => 'no',
 		);
 
 		$this->obj_theme = new mf_theme();
@@ -508,21 +510,20 @@ class widget_theme_menu extends WP_Widget
 	function widget($args, $instance)
 	{
 		extract($args);
-
 		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
 		echo $before_widget
-			.$this->obj_theme->get_menu(array('type' => $instance['theme_menu_type'], 'where' => $id))
+			.$this->obj_theme->get_menu(array('type' => $instance['theme_menu_type'], 'where' => $id, 'class' => ($instance['theme_menu_display_mobile_version'] == 'yes' ? "is_hamburger" : "")))
 		.$after_widget;
 	}
 
 	function update($new_instance, $old_instance)
 	{
 		$instance = $old_instance;
-
 		$new_instance = wp_parse_args((array)$new_instance, $this->arr_default);
 
 		$instance['theme_menu_type'] = sanitize_text_field($new_instance['theme_menu_type']);
+		$instance['theme_menu_display_mobile_version'] = sanitize_text_field($new_instance['theme_menu_display_mobile_version']);
 
 		return $instance;
 	}
@@ -533,6 +534,7 @@ class widget_theme_menu extends WP_Widget
 
 		echo "<div class='mf_form'>"
 			.show_select(array('data' => get_menu_type_for_select(), 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'value' => $instance['theme_menu_type']))
+			.show_select(array('data' => get_yes_no_for_select(), 'name' => $this->get_field_name('theme_menu_display_mobile_version'), 'text' => __("Always Display Mobile Menu", 'lang_theme'), 'value' => $instance['theme_menu_display_mobile_version']))
 		."</div>";
 	}
 }
