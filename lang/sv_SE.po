@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-29 14:40+0100\n"
+"POT-Creation-Date: 2019-08-18 20:33+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -17,18 +17,6 @@ msgstr ""
 
 msgid "Read More"
 msgstr "Läs mer"
-
-msgid "One Reply to %s"
-msgstr "Ett svar till %s"
-
-msgid "Previous"
-msgstr "Föregående"
-
-msgid "Next"
-msgstr "Nästa"
-
-msgid "Comments are closed"
-msgstr "Kommentarer är stängda"
 
 msgid "No results"
 msgstr "Inga resultat"
@@ -110,4 +98,19 @@ msgstr "Visa meny"
 
 msgid "Menu Type"
 msgstr "Typ av meny"
+
+msgid "Always Display Mobile Menu"
+msgstr "Visa alltid mobilmeny"
+
+msgid "One Reply to %s"
+msgstr "Ett svar till %s"
+
+msgid "Previous"
+msgstr "Föregående"
+
+msgid "Next"
+msgstr "Nästa"
+
+msgid "Comments are closed"
+msgstr "Kommentarer är stängda"
 
