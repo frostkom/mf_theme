@@ -333,7 +333,7 @@ class mf_theme
 		register_nav_menus(array(
 			'primary' => __("Primary Navigation", 'lang_theme'),
 			'secondary' => __("Secondary Navigation", 'lang_theme'),
-			//'footer' => __("Footer Navigation", 'lang_theme')
+			//'footer' => __("Footer Navigation", 'lang_theme'),
 		));
 	}
 
