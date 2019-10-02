@@ -925,7 +925,6 @@ $out = $obj_theme_core->show_font_face()
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'footer_bg_color'))
 				.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'footer_bg_image', 'suffix' => '); background-size: cover'))
 				."overflow: hidden;"
-				//."position: relative;"
 				.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'footer_fixed'))
 				."z-index: 1000;
 			}

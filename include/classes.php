@@ -23,8 +23,6 @@ class mf_theme
 	{
 		if($post->post_type == 'page')
 		{
-			//$obj_theme = new mf_theme();
-
 			$post_meta = get_post_meta($post->ID, $this->meta_prefix.'display_heading', true);
 
 			return $post_meta != 'no' ? true : false;
