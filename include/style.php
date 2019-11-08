@@ -426,7 +426,7 @@ $out = $obj_theme_core->show_font_face()
 				position: fixed;
 				right: 0;
 				top: 0;
-				z-index: 1002;
+				z-index: 1003;
 			}
 
 				#mf-slide-nav > div
