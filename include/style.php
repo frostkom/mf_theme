@@ -494,6 +494,11 @@ $out = $obj_theme_core->show_font_face()
 							}
 
 								/* Hide children until hover or current page */
+								#mf-slide-nav #primary_nav .sub-menu
+								{
+									display: block;
+								}
+
 								#mf-slide-nav #primary_nav.is_large .sub-menu
 								{
 									display: none;
