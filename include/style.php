@@ -1162,7 +1162,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 	{
 		body:before
 		{
-			content: 'is_size_palm';
+			content: 'is_mobile'; /* is_size_palm */
 		}
 
 		.hide_if_mobile
@@ -1331,7 +1331,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 	{
 		body:before
 		{
-			content: 'is_size_lap';
+			content: 'is_tablet'; /* is_size_lap */
 			display: none;
 		}
 
@@ -1445,7 +1445,7 @@ if(isset($obj_theme_core->options['website_max_width']) && $obj_theme_core->opti
 	{
 		body:before
 		{
-			content: 'is_size_desk';
+			content: 'is_desktop'; /* is_size_desk */
 		}
 
 		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, body:not(.is_mobile) nav.full_width:not(.is_hamburger) > div, .full_width > div > .widget .section, .full_width > div > .widget > div
