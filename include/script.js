@@ -74,7 +74,7 @@ jQuery(function($)
 		{
 			$(this).parent("li").addClass('current-menu-item');
 
-			return false;
+			/*return false;*/ /* This will prevent page/view from changing on slide menu that is opened by hamburger */
 		});
 
 		$(document).on('click', "#mf-slide-nav", function(e)
