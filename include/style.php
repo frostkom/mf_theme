@@ -585,15 +585,10 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size'))
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
+					."line-height: 1.1;"
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin'))
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'heading_padding'))
 				."}
-
-					/*#wrapper h1:last-child
-					{
-						margin-bottom: 0;
-						padding-bottom: 0;
-					}*/
 
 					#wrapper h1 a
 					{
@@ -605,6 +600,7 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h2'))
+					."line-height: 1.1;"
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h2'))
 				."}
 
@@ -618,6 +614,7 @@ $out = $obj_theme_core->show_font_face()
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h3'))
+					."line-height: 1.1;"
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h3'))
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h3'))
 				."}
@@ -626,6 +623,7 @@ $out = $obj_theme_core->show_font_face()
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h4'))
+					."line-height: 1.1;"
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h4'))
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h4'))
 				."}
@@ -634,6 +632,7 @@ $out = $obj_theme_core->show_font_face()
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h5'))
+					."line-height: 1.1;"
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h5'))
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h5'))
 				."}
@@ -654,12 +653,14 @@ $out = $obj_theme_core->show_font_face()
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
+					."line-height: 1.1;"
 				."}
 
 				h3
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h3'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h3'))
+					."line-height: 1.1;"
 				."}
 
 				article > .image
