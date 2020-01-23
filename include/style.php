@@ -598,7 +598,7 @@ $out = $obj_theme_core->show_font_face()
 				#wrapper h2
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
-					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_h2'))
+					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h2'))
 					."line-height: 1.1;"
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'heading_margin_h2'))
