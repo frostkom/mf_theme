@@ -605,7 +605,7 @@ $out = $obj_theme_core->show_font_face()
 				."}
 
 					/* Just to make sure that there is some margin if there is no heading for the page and posts are displayed as a front page */
-					#wrapper article h2:first-child
+					#wrapper article > h2:first-child
 					{
 						margin-top: 1em;
 					}
