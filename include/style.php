@@ -950,7 +950,7 @@ $out = $obj_theme_core->show_font_face()
 
 				$out .= "}
 
-					footer .widget
+					footer .widget:not(.theme_widget_area)
 					{"
 						.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'footer_font'))
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'footer_font_size'))
