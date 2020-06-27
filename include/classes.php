@@ -277,7 +277,7 @@ class mf_theme
 		);
 
 		$meta_boxes[] = array(
-			'id' => 'settings',
+			'id' => $this->meta_prefix.'settings',
 			'title' => __("Content Settings", 'lang_theme'),
 			'post_types' => array('page'),
 			'context' => 'side',
