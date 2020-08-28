@@ -493,7 +493,7 @@ class widget_theme_menu extends WP_Widget
 {
 	function __construct()
 	{
-		$widget_ops = array(
+		$this->widget_ops = array(
 			'classname' => 'theme_menu',
 			'description' => __("Display menu", 'lang_theme')
 		);
@@ -505,7 +505,7 @@ class widget_theme_menu extends WP_Widget
 
 		$this->obj_theme = new mf_theme();
 
-		parent::__construct('theme-menu-widget', __("Menu", 'lang_theme'), $widget_ops);
+		parent::__construct(str_replace("_", "-", $this->widget_ops['classname']).'-widget', __("Menu", 'lang_theme'), $this->widget_ops);
 	}
 
 	function widget($args, $instance)
