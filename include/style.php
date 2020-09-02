@@ -688,7 +688,7 @@ $out = $obj_theme_core->show_font_face()
 						margin-top: 1em;
 					}
 
-					article + article
+					article:not(.hide) + article
 					{
 						border-top: 1px solid #ccc;
 						margin-top: 2.5em;
