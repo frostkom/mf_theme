@@ -194,12 +194,8 @@ class mf_theme
 
 						if($post_excerpt != '')
 						{
-							$out .= "<p>".$post_excerpt."</p>
-							<p>"
-								.$post_url_start
-									.__("Read More", 'lang_theme')
-								.$post_url_end
-							."</p>";
+							$out .= "<p>".$post_excerpt."</p>"
+							.apply_filters('the_content_read_more', "<p>".$post_url_start.__("Read More", 'lang_theme').$post_url_end."</p>", $r);
 						}
 
 						else
