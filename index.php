@@ -32,8 +32,8 @@ get_header();
 			{
 				if($is_post)
 				{
-					$article_attr = " itemscope itemtype='http://schema.org/BlogPosting'";
-					$heading_attr = " itemprop='title'";
+					$article_attr .= " itemscope itemtype='http://schema.org/BlogPosting'";
+					$heading_attr .= " itemprop='title'";
 				}
 			}
 
@@ -85,7 +85,7 @@ get_header();
 					if($post_excerpt != '')
 					{
 						$article_content .= "<p>".$post_excerpt."</p>"
-						.apply_filters('the_content_read_more', "<p>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>", $post);
+						.apply_filters('the_content_read_more', "<p class='read_more'>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>", $post);
 					}
 
 					else if($post_content != '')
@@ -95,7 +95,7 @@ get_header();
 
 					else
 					{
-						$article_content .= apply_filters('the_content_read_more', "<p>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>", $post);
+						$article_content .= apply_filters('the_content_read_more', "<p class='read_more'>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>", $post);
 					}
 
 				$article_content .= "</section>";
@@ -123,7 +123,7 @@ get_header();
 
 			if($article_content != '')
 			{
-				echo "<article".$article_attr.">".$article_content."</article>";
+				echo "<article".$article_attr." class='post_type_".$post->post_type."'>".$article_content."</article>";
 
 				if(is_single())
 				{
