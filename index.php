@@ -49,7 +49,7 @@ get_header();
 
 			if($obj_theme->is_heading_visible($post))
 			{
-				$article_content .= "<h1".$heading_attr.">".$post_link_start.$post_title.$post_link_end."</h1>";
+				$article_content .= "<h1".$heading_attr.">".apply_filters('filter_post_title', $post_link_start.$post_title.$post_link_end)."</h1>";
 
 				$post_meta = apply_filters('the_content_meta', "", $post);
 

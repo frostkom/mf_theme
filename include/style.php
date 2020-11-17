@@ -311,7 +311,7 @@ $out = $obj_theme_core->show_font_face()
 											display: block;
 										}";
 
-									if(1 == 2 && get_current_user_id() > 0)
+									if(1 == 2 && is_user_logged_in())
 									{
 										$bar_height = 0.15;
 										$bar_spacing = 0.3;
@@ -1227,7 +1227,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 									display: block;
 								}";
 
-							if(1 == 2 && get_current_user_id() > 0)
+							if(1 == 2 && is_user_logged_in())
 							{
 								$bar_height = 0.15;
 								$bar_spacing = 0.3;
