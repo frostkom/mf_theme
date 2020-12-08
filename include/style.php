@@ -36,26 +36,6 @@ $out = $obj_theme_core->show_font_face()
 		position: relative;
 	}
 
-		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, .full_width > div > .widget .section, .full_width > div > .widget > div
-		{"
-			.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'main_padding'))
-			."position: relative;
-		}
-
-		header
-		{"
-			.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'header_bg'))
-			.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'header_bg_color'))
-			.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'header_bg_image', 'suffix' => '); background-size: cover'))
-			.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'header_overflow'))
-			.$obj_theme_core->render_css(array('property' => 'position', 'value' => 'header_fixed'))
-		."}
-
-			header > div
-			{"
-				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'header_padding'))
-			."}
-
 				#site_logo
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'logo_font'))
@@ -65,6 +45,7 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'logo_padding'))
 					."position: relative;
 					text-decoration: none;
+					transition: all .4s ease;
 				}
 
 					#site_logo img
@@ -76,63 +57,14 @@ $out = $obj_theme_core->show_font_face()
 					{
 						display: block;"
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'slogan_font_size'))
-					."}
+						."margin-bottom: 1em;
+					}
 
 					header #site_logo
 					{"
 						.$obj_theme_core->render_css(array('property' => 'float', 'value' => 'logo_float'))
 						.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width'))
 					."}
-
-				.searchform
-				{"
-					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'search_color'))
-					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'search_size'))
-					."padding: .3em;
-					position: relative;
-				}
-
-					.searchform .form_textfield
-					{
-						display: inline-block;
-						position: relative;
-						z-index: 1;
-					}
-
-						.searchform .form_textfield input
-						{
-							background: none;"
-							.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'search_color'))
-							."display: inline-block;
-							float: right;
-							margin: 0;
-							padding-right: 2.2em !important;
-						}
-
-							.searchform.search_animate .form_textfield input
-							{
-								border-color: transparent;
-								transition: all .4s ease;
-								width: 0;
-							}
-
-								.searchform.search_animate .form_textfield input:focus
-								{
-									border-color: #e1e1e1;
-									width: 100%;
-								}
-
-					.searchform .fa
-					{
-						position: absolute;
-						right: 1em;
-						top: 1.1em;
-					}
-
-				header .searchform
-				{
-					float: right;
-				}
 
 				.theme_nav.is_mobile_ready
 				{"
@@ -282,7 +214,7 @@ $out = $obj_theme_core->show_font_face()
 
 								if(is_active_widget_area('widget_slide'))
 								{
-									$out .= ".is_mobile #mf-slide-nav #primary_nav
+									$out .= ".is_mobile #mf-slide-nav .theme_nav
 									{
 										text-align: left;
 									}";
@@ -412,120 +344,6 @@ $out = $obj_theme_core->show_font_face()
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'after_header_widget_font_size'))
 						.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'after_header_widget_padding'))
 					."}";
-		}
-
-		if(is_active_widget_area('widget_slide'))
-		{
-			$out .= "#mf-slide-nav
-			{
-				background: rgba(0, 0, 0, .7);
-				bottom: 0;
-				display: none;
-				left: 0;
-				position: absolute;
-				position: fixed;
-				right: 0;
-				top: 0;
-				z-index: 1003;
-			}
-
-				#mf-slide-nav > div
-				{"
-					.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'slide_nav_bg'))
-					."bottom: 0;"
-					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
-					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'nav_font'))
-					."overflow: hidden;
-					padding: 3.5em 0 1em;
-					position: absolute;
-					right: -90%;
-					top: 0;
-					width: 90%;
-					max-width: 300px;
-				}
-
-					#mf-slide-nav #primary_nav
-					{"
-						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'nav_size'))
-					."}
-
-						#mf-slide-nav .fa-times
-						{
-							font-size: 2em;
-							margin: 3% 4% 0 0;
-							position: absolute;
-							right: 0;
-							top: 0;
-						}
-
-						#mf-slide-nav ul
-						{
-							list-style: none;
-						}
-
-							#mf-slide-nav #primary_nav ul a
-							{"
-								.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'slide_nav_color'))
-								."display: block;
-								letter-spacing: .2em;
-								overflow: hidden;"
-								.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'slide_nav_link_padding'))
-								."text-overflow: ellipsis;
-								transition: all .4s ease;
-								white-space: nowrap;
-							}
-
-								#mf-slide-nav #primary_nav ul a:hover
-								{"
-									.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
-									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'slide_nav_color_hover'))
-									."text-indent: .3em;
-								}
-
-								#mf-slide-nav #primary_nav li.current_page_item > a
-								{"
-									.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'slide_nav_bg_hover'))
-									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'slide_nav_color_current'))
-								."}
-
-							#mf-slide-nav #primary_nav li ul
-							{
-								margin-bottom: 0;
-							}
-
-								/* Hide children until hover or current page */
-								#mf-slide-nav #primary_nav .sub-menu
-								{
-									display: block;
-								}
-
-								#mf-slide-nav #primary_nav.is_large .sub-menu
-								{
-									display: none;
-								}
-
-									#mf-slide-nav #primary_nav.is_large li:hover > .sub-menu, #mf-slide-nav #primary_nav.is_large li.current-menu-item > .sub-menu, #mf-slide-nav #primary_nav.is_large li.current-menu-ancestor > .sub-menu
-									{
-										display: block;
-									}
-								/* */
-
-								#mf-slide-nav #primary_nav li ul a
-								{"
-									.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'slide_nav_sub_bg'))
-									."text-indent: 1.4em;
-								}
-
-									#mf-slide-nav #primary_nav li ul a:hover
-									{"
-										.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'slide_nav_sub_bg_hover'))
-										."text-indent: 2em;
-									}
-
-					#mf-slide-nav ul, #mf-slide-nav p
-					{
-						margin-bottom: 1em;
-					}";
 		}
 
 		if(is_active_widget_area('widget_front'))
@@ -1071,7 +889,7 @@ $out = $obj_theme_core->show_font_face()
 		$out .= $obj_theme_core->options['custom_css_all'];
 	}
 
-	/*if(is_plugin_active('css-hero-ce/css-hero-main.php'))
+	/*if(is_plugin_active("css-hero-ce/css-hero-main.php"))
 	{
 		$arr_selectors = get_option('wpcss_current_settings_array_'.$obj_theme_core->get_theme_slug());
 
@@ -1200,7 +1018,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 						if(is_active_widget_area('widget_slide'))
 						{
-							$out .= "#mf-slide-nav #primary_nav
+							$out .= "#mf-slide-nav .theme_nav
 							{
 								text-align: left;
 							}";
