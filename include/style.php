@@ -260,7 +260,7 @@ $out = $obj_theme_core->show_font_face()
 												."content: '';
 												display: block;
 												height: ".$bar_height."em;
-												transition: all 200ms ease-in-out;
+												transition: all .2s ease-in-out;
 											}
 
 											.is_mobile nav .toggle_icon:before, nav.is_hamburger .toggle_icon:before
@@ -1064,7 +1064,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 										."content: '';
 										display: block;
 										height: ".$bar_height."em;
-										transition: all 200ms ease-in-out;
+										transition: all .2s ease-in-out;
 									}
 
 									nav .toggle_icon:before
