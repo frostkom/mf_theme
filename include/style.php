@@ -214,7 +214,12 @@ $out = $obj_theme_core->show_font_face()
 
 						if(is_active_widget_area('widget_slide'))
 						{
-							$out .= ".is_mobile #mf-slide-nav .theme_nav
+							$out .= "#mf-slide-nav > div
+							{
+								right: -90%;
+							}
+
+							.is_mobile #mf-slide-nav .theme_nav
 							{
 								text-align: left;
 							}";
@@ -1203,16 +1208,30 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 							."white-space: nowrap;
 						}
 						
-							.theme_nav.is_mobile_ready .sub-menu li:first-child a
+							.theme_nav.is_mobile_ready .sub-menu li:first-child > a
 							{
 								border-top-left-radius: .3em;
 								border-top-right-radius: .3em;
 							}
 
-							.theme_nav.is_mobile_ready .sub-menu li:last-child a
+							.theme_nav.is_mobile_ready .sub-menu li:last-child > a
 							{
 								border-bottom-left-radius: .3em;
 								border-bottom-right-radius: .3em;
+							}
+							
+						.theme_nav.is_mobile_ready .sub-menu .sub-menu
+						{
+							left: 17em !important;
+							top: 0;
+						}
+
+							.theme_nav.is_mobile_ready .sub-menu .sub-menu:before
+							{
+								border-bottom-color: transparent;"
+								.$obj_theme_core->render_css(array('property' => 'border-right-color', 'value' => 'sub_nav_bg'))
+								."left: -0.6em;
+								top: 0.9em;
 							}";
 			}
 
@@ -1229,13 +1248,13 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 						.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 					."}
 
-						.theme_nav.is_mobile_ready .sub-menu li:first-child a
+						.theme_nav.is_mobile_ready .sub-menu li:first-child > a
 						{
 							border-top-left-radius: .3em;
 							border-bottom-left-radius: .3em;
 						}
 
-						.theme_nav.is_mobile_ready .sub-menu li:last-child a
+						.theme_nav.is_mobile_ready .sub-menu li:last-child > a
 						{
 							border-top-right-radius: .3em;
 							border-bottom-right-radius: .3em;
@@ -1246,7 +1265,6 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 				{
 					$out .= ".theme_nav.is_mobile_ready .sub-menu
 					{
-						margin-top: 0;
 						padding-top: .5em;
 					}
 
