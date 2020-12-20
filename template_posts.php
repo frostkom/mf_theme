@@ -24,7 +24,7 @@ get_header();
 			{
 				$post_meta = apply_filters('the_content_meta', "", $post);
 
-				echo "<article>"
+				echo "<article class='post_type_".$post->post_type.(IS_ADMIN ? " template_posts" : "")."'>"
 					.($post_meta != '' ? "<div class='meta'>".$post_meta."</div>" : "")
 					."<section>".$post_content."</section>"
 				."</article>";

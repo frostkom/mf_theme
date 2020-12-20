@@ -1207,7 +1207,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 							.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
 							."white-space: nowrap;
 						}
-						
+
 							.theme_nav.is_mobile_ready .sub-menu li:first-child > a
 							{
 								border-top-left-radius: .3em;
@@ -1219,7 +1219,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 								border-bottom-left-radius: .3em;
 								border-bottom-right-radius: .3em;
 							}
-							
+
 						.theme_nav.is_mobile_ready .sub-menu .sub-menu
 						{
 							left: 17em !important;
