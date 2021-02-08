@@ -195,11 +195,9 @@ $out = $obj_theme_core->show_font_face()
 						{"
 							.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'nav_secondary_bg_current'))
 							.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'nav_secondary_color_current'))
-						."}";
+						."}
 
-			if(1 == 1)
-			{
-				$out .= ".is_mobile .theme_nav.is_mobile_ready, .theme_nav.is_mobile_ready.is_hamburger
+				.is_mobile .theme_nav.is_mobile_ready, .theme_nav.is_mobile_ready.is_hamburger
 				{
 					margin: 0;
 					width: 100%;
@@ -207,8 +205,9 @@ $out = $obj_theme_core->show_font_face()
 
 					.is_mobile header #primary_nav, header #primary_nav.is_hamburger
 					{
-						float: none;
 						clear: unset;
+						float: none;
+						overflow: hidden;
 						text-align: center;
 					}";
 
@@ -246,66 +245,24 @@ $out = $obj_theme_core->show_font_face()
 								.is_mobile header #primary_nav.open ul > li, header #primary_nav.is_hamburger.open ul > li
 								{
 									display: block;
-								}";
-
-							if(1 == 2 && is_user_logged_in())
-							{
-								$bar_height = 0.15;
-								$bar_spacing = 0.3;
-
-								$out .= ".is_mobile nav .toggle_icon, nav.is_hamburger .toggle_icon
-								{
-									display: block;
-									width: 1.5em;
 								}
 
-									.is_mobile nav .toggle_icon:before, .is_mobile nav .toggle_icon:after, nav.is_hamburger .toggle_icon:before, nav.is_hamburger .toggle_icon:after
-									{"
-										.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'logo_color'))
-										."content: '';
-										display: block;
-										height: ".$bar_height."em;
-										transition: all .2s ease-in-out;
-									}
-
-									.is_mobile nav .toggle_icon:before, nav.is_hamburger .toggle_icon:before
-									{"
-										.$obj_theme_core->render_css(array('property' => 'box-shadow', 'prefix' => "0 ".$bar_spacing."em 0 ", 'value' => 'logo_color'))
-										."margin-top: ".($bar_height)."em;"
-										."margin-bottom: ".($bar_spacing + $bar_height)."em;
-									}
-
-										.is_mobile nav.open .toggle_icon:before, nav.is_hamburger.open .toggle_icon:before
-										{"
-											.$obj_theme_core->render_css(array('property' => 'box-shadow', 'prefix' => "0 0 0 ", 'value' => 'logo_color'))
-											."transform: translateY(".$bar_spacing."em) rotate(45deg);
-										}
-
-										.is_mobile nav.open .toggle_icon:after, nav.is_hamburger.open .toggle_icon:after
-										{
-											transform: translateY(-".$bar_spacing."em) rotate(-45deg);
-										}";
+							.is_mobile header #primary_nav .fa-times, header #primary_nav.is_hamburger .fa-times
+							{
+								display: none;
 							}
 
-							else
-							{
-								$out .= ".is_mobile header #primary_nav .fa-times, header #primary_nav.is_hamburger .fa-times
+								.is_mobile header #primary_nav.open .fa-bars, header #primary_nav.is_hamburger.open .fa-bars
 								{
 									display: none;
 								}
 
-									.is_mobile header #primary_nav.open .fa-bars, header #primary_nav.is_hamburger.open .fa-bars
-									{
-										display: none;
-									}
+								.is_mobile header #primary_nav.open .fa-times, header #primary_nav.is_hamburger.open .fa-times
+								{
+									display: block;
+								}
 
-									.is_mobile header #primary_nav.open .fa-times, header #primary_nav.is_hamburger.open .fa-times
-									{
-										display: block;
-									}";
-							}
-
-						$out .= ".is_mobile .theme_nav.is_mobile_ready > div > ul > li, .theme_nav.is_mobile_ready.is_hamburger > div > ul > li
+						.is_mobile .theme_nav.is_mobile_ready > div > ul > li, .theme_nav.is_mobile_ready.is_hamburger > div > ul > li
 						{"
 							.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg', 'header_bg_color', 'header_bg_image')))
 							."display: none;
@@ -325,7 +282,6 @@ $out = $obj_theme_core->show_font_face()
 								{
 									display: block;
 								}";
-			}
 
 		if(is_active_widget_area('widget_after_header'))
 		{
@@ -1006,137 +962,12 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 				.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
 			."}
 
-			#secondary_nav, header .searchform
+			#secondary_nav/*, header .searchform*/
 			{
 				display: none;
-			}";
+			}
 
-			/*if(1 == 2)
-			{
-				$out .= ".theme_nav.is_mobile_ready
-				{
-					margin: 0;
-					width: 100%;
-				}
-
-					header #primary_nav
-					{
-						float: none;
-						clear: unset;
-						text-align: center;
-					}";
-
-						if(is_active_widget_area('widget_slide'))
-						{
-							$out .= "#mf-slide-nav .theme_nav
-							{
-								text-align: left;
-							}";
-						}
-
-						$out .= "header #primary_nav > .toggle_icon
-						{"
-							.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'logo_color'))
-							."display: block;"
-							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => array('hamburger_font_size', 'logo_font_size')))
-							."margin: .1em .2em;"
-							.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'hamburger_margin'))
-							."position: absolute;
-							right: 0;
-							top: 0;
-							z-index: 1;
-						}
-
-							header #primary_nav.is_mobile_ready ul > li
-							{
-								display: none;
-							}
-
-								header #primary_nav.open ul > li
-								{
-									display: block;
-								}";
-
-							if(1 == 2 && is_user_logged_in())
-							{
-								$bar_height = 0.15;
-								$bar_spacing = 0.3;
-
-								$out .= "nav .toggle_icon
-								{
-									display: block;
-									width: 1.5em;
-								}
-
-									nav .toggle_icon:before, nav .toggle_icon:after
-									{"
-										.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'logo_color'))
-										."content: '';
-										display: block;
-										height: ".$bar_height."em;
-										transition: all .2s ease-in-out;
-									}
-
-									nav .toggle_icon:before
-									{"
-										.$obj_theme_core->render_css(array('property' => 'box-shadow', 'prefix' => "0 ".$bar_spacing."em 0 ", 'value' => 'logo_color'))
-										."margin-top: ".($bar_height)."em;"
-										."margin-bottom: ".($bar_spacing + $bar_height)."em;
-									}
-
-										nav.open .toggle_icon:before
-										{"
-											.$obj_theme_core->render_css(array('property' => 'box-shadow', 'prefix' => "0 0 0 ", 'value' => 'logo_color'))
-											."transform: translateY(".$bar_spacing."em) rotate(45deg);
-										}
-
-										nav.open .toggle_icon:after
-										{
-											transform: translateY(-".$bar_spacing."em) rotate(-45deg);
-										}";
-							}
-
-							else
-							{
-								$out .= "header #primary_nav .fa-times
-								{
-									display: none;
-								}
-
-									header #primary_nav.open .fa-bars
-									{
-										display: none;
-									}
-
-									header #primary_nav.open .fa-times
-									{
-										display: block;
-									}";
-							}
-
-						$out .= ".theme_nav.is_mobile_ready > div > ul > li
-						{"
-							.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg', 'header_bg_color', 'header_bg_image')))
-							."display: none;
-						}
-
-							.theme_nav.is_mobile_ready > div > ul > li:last-of-type
-							{
-								border-radius: 0 0 .3em .3em;
-							}
-
-							.theme_nav a:hover, .theme_nav li.current_page_item > a
-							{
-								border-bottom: 0;
-							}
-
-								.theme_nav ul .sub-menu
-								{
-									display: block;
-								}";
-			}*/
-
-			$out .= "article section.text_columns
+			article section.text_columns
 			{
 				-webkit-column-count: 1;
 				column-count: 1;

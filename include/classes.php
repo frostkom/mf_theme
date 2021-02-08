@@ -242,6 +242,9 @@ class mf_theme
 		);
 
 		$post_id = check_var('post');
+		/*$post_id = get_rwmb_post_id(array(
+			'meta_key' => 'meta_theme_',
+		));*/
 
 		if($post_id > 0 && has_post_thumbnail($post_id))
 		{
