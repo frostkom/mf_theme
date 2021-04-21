@@ -24,13 +24,21 @@ get_header();
 			$post_title = $post->post_title;
 			$post_content = apply_filters('the_content', $post->post_content);
 
-			$is_post = isset($post->post_type) && $post->post_type == 'post';
-
 			$post_link_start = $post_link_end = $article_attr = $article_content = $heading_attr = "";
 
 			if($is_single)
 			{
-				if($is_post)
+				if(is_search() && get_option('setting_theme_core_search_redirect_single_result') == 'yes')
+				{
+					$post_url = get_permalink($post);
+
+					if($post_url != '')
+					{
+						mf_redirect($post_url);
+					}
+				}
+
+				if(isset($post->post_type) && $post->post_type == 'post')
 				{
 					$article_attr .= " itemscope itemtype='http://schema.org/BlogPosting'";
 					$heading_attr .= " itemprop='title'";
