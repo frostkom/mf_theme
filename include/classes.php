@@ -5,6 +5,8 @@ class mf_theme
 	function __construct()
 	{
 		$this->meta_prefix = 'mf_theme_';
+
+		$this->lang_key = 'lang_theme';
 	}
 
 	function get_search_page()
@@ -12,9 +14,9 @@ class mf_theme
 		$strSearch = check_var('s');
 
 		return "<article".(IS_ADMIN ? " class='get_search_page'" : "").">
-			<h1>".__("No results", 'lang_theme')."</h1>
+			<h1>".__("No results", $this->lang_key)."</h1>
 			<section>
-				<p>".sprintf(__("I could not find any results for %s", 'lang_theme'), $strSearch)."</p>
+				<p>".sprintf(__("I could not find any results for %s", $this->lang_key), $strSearch)."</p>
 			</section>
 		</article>";
 	}
@@ -46,7 +48,7 @@ class mf_theme
 		{
 			$out .= "<nav>
 				<a href='#' id='slide_nav'".($data['class'] != '' ? " class='".$data['class']."'" : "").">
-					".__("Menu", 'lang_theme')." <i class='fa fa-bars'></i>
+					".__("Menu", $this->lang_key)." <i class='fa fa-bars'></i>
 				</a>
 			</nav>";
 		}
@@ -177,7 +179,7 @@ class mf_theme
 					$post_thumbnail = get_the_post_thumbnail($post_id, 'full');
 				}
 
-				$out .= "<article class='post_type_post".(IS_ADMIN ? " get_more_posts" : "")."'>";
+				$out .= "<article class='post_type_post".(IS_ADMIN ? " get_more_posts post_".$post_id : "")."'>";
 
 					if($post_thumbnail != '')
 					{
@@ -195,7 +197,7 @@ class mf_theme
 						if($post_excerpt != '')
 						{
 							$out .= "<p>".$post_excerpt."</p>"
-							.apply_filters('the_content_read_more', "<p>".$post_url_start.__("Read More", 'lang_theme').$post_url_end."</p>", $r);
+							.apply_filters('the_content_read_more', "<p>".$post_url_start.__("Read More", $this->lang_key).$post_url_end."</p>", $r);
 						}
 
 						else
@@ -211,7 +213,9 @@ class mf_theme
 
 			else
 			{
-				$out .= "<a href='#' id='load_more' rel='".$i."'>".__("Load more posts", 'lang_theme')."</a>";
+				$out .= "<div class='form_button'>
+					<a href='#' id='load_more' class='button' rel='".($data['limit_start'] + $i)."'>".__("Load more posts", $this->lang_key)."</a>
+				</div>";
 
 				break;
 			}
@@ -233,7 +237,7 @@ class mf_theme
 	{
 		$arr_fields = array(
 			array(
-				'name' => __("Display Heading", 'lang_theme'),
+				'name' => __("Display Heading", $this->lang_key),
 				'id' => $this->meta_prefix.'display_heading',
 				'type' => 'select',
 				'options' => get_yes_no_for_select(),
@@ -251,7 +255,7 @@ class mf_theme
 			$obj_theme_core = new mf_theme_core();
 
 			$arr_fields[] = array(
-				'name' => __("Display Featured Image on Single Page", 'lang_theme'),
+				'name' => __("Display Featured Image on Single Page", $this->lang_key),
 				'id' => $obj_theme_core->meta_prefix.'display_featured_image',
 				'type' => 'select',
 				'options' => get_yes_no_for_select(),
@@ -259,7 +263,7 @@ class mf_theme
 		}
 
 		$arr_fields[] = array(
-			'name' => __("Text Columns", 'lang_theme'),
+			'name' => __("Text Columns", $this->lang_key),
 			'id' => $this->meta_prefix.'text_columns',
 			'type' => 'number',
 			'std' => 1,
@@ -270,14 +274,14 @@ class mf_theme
 		);
 
 		$arr_fields[] = array(
-			'name' => __("Body Class", 'lang_theme'),
+			'name' => __("Body Class", $this->lang_key),
 			'id' => $this->meta_prefix.'body_class',
 			'type' => 'text',
 		);
 
 		$meta_boxes[] = array(
 			'id' => $this->meta_prefix.'settings',
-			'title' => __("Content Settings", 'lang_theme'),
+			'title' => __("Content Settings", $this->lang_key),
 			'post_types' => array('page'),
 			'context' => 'side',
 			'priority' => 'low',
@@ -331,12 +335,12 @@ class mf_theme
 
 	function after_setup_theme()
 	{
-		load_theme_textdomain('lang_theme', get_template_directory()."/lang");
+		load_theme_textdomain($this->lang_key, get_template_directory()."/lang");
 
 		register_nav_menus(array(
-			'primary' => __("Primary Navigation", 'lang_theme'),
-			'secondary' => __("Secondary Navigation", 'lang_theme'),
-			//'footer' => __("Footer Navigation", 'lang_theme'),
+			'primary' => __("Primary Navigation", $this->lang_key),
+			'secondary' => __("Secondary Navigation", $this->lang_key),
+			//'footer' => __("Footer Navigation", $this->lang_key),
 		));
 	}
 
@@ -353,7 +357,7 @@ class mf_theme
 		$obj_theme_core->get_custom_widget_areas();
 
 		register_sidebar(array(
-			'name' => __("Header", 'lang_theme'),
+			'name' => __("Header", $this->lang_key),
 			'id' => 'widget_header',
 			'before_widget' => "",
 			'before_title' => "<div>",
@@ -366,7 +370,7 @@ class mf_theme
 		if(is_active_widget_area('widget_header'))
 		{
 			register_sidebar(array(
-				'name' => __("After Header", 'lang_theme'),
+				'name' => __("After Header", $this->lang_key),
 				'id' => 'widget_after_header',
 				'before_widget' => "<div class='widget %s %s'>",
 				'before_title' => "<h3>",
@@ -377,7 +381,7 @@ class mf_theme
 			$obj_theme_core->display_custom_widget_area('widget_after_header');
 
 			register_sidebar(array(
-				'name' => __("Slide menu", 'lang_theme'),
+				'name' => __("Slide menu", $this->lang_key),
 				'id' => 'widget_slide',
 				'before_widget' => "",
 				'before_title' => "",
@@ -389,7 +393,7 @@ class mf_theme
 		}
 
 		register_sidebar(array(
-			'name' => __("Pre Content", 'lang_theme'),
+			'name' => __("Pre Content", $this->lang_key),
 			'id' => 'widget_front',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -400,7 +404,7 @@ class mf_theme
 		$obj_theme_core->display_custom_widget_area('widget_front');
 
 		register_sidebar(array(
-			'name' => __("Below Main Heading", 'lang_theme'),
+			'name' => __("Below Main Heading", $this->lang_key),
 			'id' => 'widget_after_heading',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -411,7 +415,7 @@ class mf_theme
 		$obj_theme_core->display_custom_widget_area('widget_after_heading');
 
 		register_sidebar(array(
-			'name' => __("Aside", 'lang_theme')." (".__("Left", 'lang_theme').")",
+			'name' => __("Aside", $this->lang_key)." (".__("Left", $this->lang_key).")",
 			'id' => 'widget_sidebar_left',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -422,7 +426,7 @@ class mf_theme
 		$obj_theme_core->display_custom_widget_area('widget_sidebar_left');
 
 		register_sidebar(array(
-			'name' => __("Below Main Column", 'lang_theme'),
+			'name' => __("Below Main Column", $this->lang_key),
 			'id' => 'widget_after_content',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -433,7 +437,7 @@ class mf_theme
 		$obj_theme_core->display_custom_widget_area('widget_after_content');
 
 		register_sidebar(array(
-			'name' => __("Aside", 'lang_theme')." (".__("Right", 'lang_theme').")",
+			'name' => __("Aside", $this->lang_key)." (".__("Right", $this->lang_key).")",
 			'id' => 'widget_sidebar',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -444,7 +448,7 @@ class mf_theme
 		$obj_theme_core->display_custom_widget_area('widget_sidebar');
 
 		register_sidebar(array(
-			'name' => __("Below Content", 'lang_theme'),
+			'name' => __("Below Content", $this->lang_key),
 			'id' => 'widget_below_content',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -457,7 +461,7 @@ class mf_theme
 		if(is_active_widget_area('widget_footer'))
 		{
 			register_sidebar(array(
-				'name' => __("Pre Footer", 'lang_theme'),
+				'name' => __("Pre Footer", $this->lang_key),
 				'id' => 'widget_pre_footer',
 				'before_widget' => "<div class='widget %s %s'>",
 				'before_title' => "<h3>",
@@ -469,7 +473,7 @@ class mf_theme
 		}
 
 		register_sidebar(array(
-			'name' => __("Footer", 'lang_theme'),
+			'name' => __("Footer", $this->lang_key),
 			'id' => 'widget_footer',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -480,7 +484,7 @@ class mf_theme
 		$obj_theme_core->display_custom_widget_area('widget_footer');
 
 		register_sidebar(array(
-			'name' => __("Window Side Icons", 'lang_theme'),
+			'name' => __("Window Side Icons", $this->lang_key),
 			'id' => 'widget_window_side',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -498,9 +502,11 @@ class widget_theme_menu extends WP_Widget
 {
 	function __construct()
 	{
+		$this->obj_theme = new mf_theme();
+
 		$this->widget_ops = array(
 			'classname' => 'theme_menu',
-			'description' => __("Display menu", 'lang_theme')
+			'description' => __("Display menu", $this->obj_theme->lang_key)
 		);
 
 		$this->arr_default = array(
@@ -508,9 +514,7 @@ class widget_theme_menu extends WP_Widget
 			'theme_menu_display_mobile_version' => 'no',
 		);
 
-		$this->obj_theme = new mf_theme();
-
-		parent::__construct(str_replace("_", "-", $this->widget_ops['classname']).'-widget', __("Menu", 'lang_theme'), $this->widget_ops);
+		parent::__construct(str_replace("_", "-", $this->widget_ops['classname']).'-widget', __("Menu", $this->obj_theme->lang_key), $this->widget_ops);
 	}
 
 	function widget($args, $instance)
@@ -539,8 +543,8 @@ class widget_theme_menu extends WP_Widget
 		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
 		echo "<div class='mf_form'>"
-			.show_select(array('data' => get_menu_type_for_select(), 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'value' => $instance['theme_menu_type']))
-			.show_select(array('data' => get_yes_no_for_select(), 'name' => $this->get_field_name('theme_menu_display_mobile_version'), 'text' => __("Always Display Mobile Menu", 'lang_theme'), 'value' => $instance['theme_menu_display_mobile_version']))
+			.show_select(array('data' => get_menu_type_for_select(), 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", $this->obj_theme->lang_key), 'value' => $instance['theme_menu_type']))
+			.show_select(array('data' => get_yes_no_for_select(), 'name' => $this->get_field_name('theme_menu_display_mobile_version'), 'text' => __("Always Display Mobile Menu", $this->obj_theme->lang_key), 'value' => $instance['theme_menu_display_mobile_version']))
 		."</div>";
 	}
 }

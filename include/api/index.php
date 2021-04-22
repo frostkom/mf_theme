@@ -22,10 +22,12 @@ $arr_input = explode("/", $type);
 $type_action = $arr_input[0];
 $type_value = isset($arr_input[1]) ? $arr_input[1] : "";
 
-if($type_action == "load_more")
+switch($type_action)
 {
-	$json_output['success'] = true;
-	$json_output['response'] = $obj_theme->get_more_posts(array('limit_start' => $type_value));
+	case 'load_more':
+		$json_output['success'] = true;
+		$json_output['response'] = $obj_theme->get_more_posts(array('limit_start' => $type_value));
+	break;
 }
 
 echo json_encode($json_output);

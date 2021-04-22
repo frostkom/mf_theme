@@ -144,7 +144,7 @@ jQuery(function($)
 	/* Load More */
 	$(document).on('click', "#load_more", function()
 	{
-		var self = $(this);
+		var dom_obj_parent = $(this).parent(".form_button");
 
 		$.ajax(
 		{
@@ -155,10 +155,10 @@ jQuery(function($)
 			{
 				if(data.success)
 				{
-					var parent = self.parent("ul");
+					var dom_obj_main = dom_obj_parent.parent("#main");
 
-					self.remove();
-					parent.append(data.response);
+					dom_obj_parent.remove();
+					dom_obj_main.append(data.response);
 				}
 			}
 		});

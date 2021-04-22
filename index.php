@@ -93,7 +93,7 @@ get_header();
 					if($post_excerpt != '')
 					{
 						$article_content .= "<p>".$post_excerpt."</p>"
-						.apply_filters('the_content_read_more', "<p class='read_more'>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>", $post);
+						.apply_filters('the_content_read_more', "<p class='read_more'>".$post_link_start.__("Read More", $obj_theme->lang_key).$post_link_end."</p>", $post);
 					}
 
 					else if($post_content != '')
@@ -103,7 +103,7 @@ get_header();
 
 					else
 					{
-						$article_content .= apply_filters('the_content_read_more', "<p class='read_more'>".$post_link_start.__("Read More", 'lang_theme').$post_link_end."</p>", $post);
+						$article_content .= apply_filters('the_content_read_more', "<p class='read_more'>".$post_link_start.__("Read More", $obj_theme->lang_key).$post_link_end."</p>", $post);
 					}
 
 				$article_content .= "</section>";

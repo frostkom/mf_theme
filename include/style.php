@@ -459,11 +459,6 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'section_padding'))
 				."}
 
-					/*article:not(:last-child) section
-					{
-						margin-bottom: 0;
-					}*/
-
 					article .aside.after_heading + section
 					{
 						margin-top: 1em;
@@ -527,85 +522,88 @@ $out = $obj_theme_core->show_font_face()
 							$out .= "article li + li
 							{
 								margin-top: 1em;
-							}";
-
-						/* Comments */
-						$out .= "#comments{}
-
-							#comments .comment-list, #comments .comment-respond
-							{"
-								.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
-							."}
-
-							#comments ol
-							{
-								list-style: none;
 							}
 
-								#comments ol .children
+				#main #load_more
+				{
+					font-size: 1.5em;
+				}";
+
+						/* Comments */
+						$out .= "#comments .comment-list, #comments .comment-respond
+						{"
+							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
+						."}
+
+						#comments ol
+						{
+							list-style: none;
+						}
+
+							#comments ol .children
+							{
+								margin-left: 2em;
+							}
+
+							#comments .comment-body
+							{
+								margin-bottom: 2em;
+								margin-left: 65px;
+							}
+
+							#comments .comment-author
+							{
+								margin-bottom: 0.4em;
+								position: relative;
+							}
+
+								#comments .comment-author .avatar
 								{
-									margin-left: 2em;
+									height: 50px;
+									left: -65px;
+									position: absolute;
+									width: 50px;
 								}
 
-								#comments .comment-body
+								#comments .comment-author .says
 								{
-									margin-bottom: 2em;
-									margin-left: 65px;
+									display: none;
 								}
 
-								#comments .comment-author
-								{
-									margin-bottom: 0.4em;
-									position: relative;
-								}
+							.comment-meta
+							{
+								margin-bottom: .5em;
+							}
 
-									#comments .comment-author .avatar
-									{
-										height: 50px;
-										left: -65px;
-										position: absolute;
-										width: 50px;
-									}
-
-									#comments .comment-author .says
-									{
-										display: none;
-									}
-
-								.comment-meta
-								{
-									margin-bottom: .5em;
-								}
-
-									.comment-metadata
-									{
-										font-weight: 800;
-										text-transform: uppercase;
-									}
-
-										.comment-metadata a.comment-edit-link
-										{
-											margin-left: 1em;
-										}
-
-								#comments .comment-reply-link
+								.comment-metadata
 								{
 									font-weight: 800;
-									position: relative;
+									text-transform: uppercase;
 								}
 
-								#comments .children .comment-author .avatar
-								{
-									height: 30px;
-									left: -45px;
-									width: 30px;
-								}
+									.comment-metadata a.comment-edit-link
+									{
+										margin-left: 1em;
+									}
 
-								#comments .bypostauthor > .comment-body > .comment-meta > .comment-author .avatar
-								{
-									border: 1px solid #333;
-									padding: 2px;
-								}
+							#comments .comment-reply-link
+							{
+								font-weight: 800;
+								position: relative;
+							}
+
+							#comments .children .comment-author .avatar
+							{
+								height: 30px;
+								left: -45px;
+								width: 30px;
+							}
+
+							#comments .bypostauthor > .comment-body > .comment-meta > .comment-author .avatar
+							{
+								border: 1px solid #333;
+								padding: 2px;
+							}
 
 						#comments .comments-pagination
 						{
