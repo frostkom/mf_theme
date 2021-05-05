@@ -26,7 +26,7 @@ echo "<article id='comments'>";
 			if('1' === $comments_number)
 			{
 				/* translators: %s: post title */
-				echo sprintf(__("One Reply to %s", $obj_theme->lang_key), "&ldquo;".get_the_title()."&rdquo;");
+				echo sprintf(__("One Reply to %s", 'lang_theme'), "&ldquo;".get_the_title()."&rdquo;");
 			}
 
 			else
@@ -37,7 +37,7 @@ echo "<article id='comments'>";
 						'%1$s Reply to %2$s',
 						'%1$s Replies to %2$s',
 						$comments_number,
-						$obj_theme->lang_key
+						'lang_theme'
 					),
 					number_format_i18n($comments_number),
 					"&ldquo;".get_the_title()."&rdquo;"
@@ -57,8 +57,8 @@ echo "<article id='comments'>";
 		echo "</ol>";
 
 		the_comments_pagination( array(
-			'prev_text' => "<i class='fa fa-chevron-left'></i> <span class='screen-reader-text'>".__("Previous", $obj_theme->lang_key)."</span>",
-			'next_text' => "<span class='screen-reader-text'>".__("Next", $obj_theme->lang_key)."</span> <i class='fa fa-chevron-left'></i>",
+			'prev_text' => "<i class='fa fa-chevron-left'></i> <span class='screen-reader-text'>".__("Previous", 'lang_theme')."</span>",
+			'next_text' => "<span class='screen-reader-text'>".__("Next", 'lang_theme')."</span> <i class='fa fa-chevron-left'></i>",
 		));
 	}
 
@@ -66,7 +66,7 @@ echo "<article id='comments'>";
 	{
 		if(!comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) )
 		{
-			echo "<p class='no-comments'>".__("Comments are closed", $obj_theme->lang_key)."</p>";
+			echo "<p class='no-comments'>".__("Comments are closed", 'lang_theme')."</p>";
 		}
 
 		else
