@@ -3,7 +3,12 @@
  * The template for displaying the footer.
 */
 
-						if(is_active_sidebar('widget_after_content') && !post_password_required())
+if(!isset($obj_theme_core))
+{
+	$obj_theme_core = new mf_theme_core();
+}
+
+						if(is_active_sidebar('widget_after_content') && $obj_theme_core->is_post_password_protected() == false)
 						{
 							echo "<div class='aside after_content'>";
 
@@ -14,7 +19,7 @@
 
 					echo "</div>";
 
-					if(is_active_sidebar('widget_sidebar_left') && !post_password_required())
+					if(is_active_sidebar('widget_sidebar_left') && $obj_theme_core->is_post_password_protected() == false)
 					{
 						echo "<div id='aside_left' class='aside left'>
 							<div>";
@@ -25,7 +30,7 @@
 						</div>";
 					}
 
-					if(is_active_sidebar('widget_sidebar') && !post_password_required()) //Returns true even if it is empty below so I've had to add a hack here ;(
+					if(is_active_sidebar('widget_sidebar') && $obj_theme_core->is_post_password_protected() == false) //Returns true even if it is empty below so I've had to add a hack here ;(
 					{
 						ob_start();
 
@@ -45,7 +50,7 @@
 
 				echo "</div>";
 
-				if(is_active_sidebar('widget_below_content') && !post_password_required())
+				if(is_active_sidebar('widget_below_content') && $obj_theme_core->is_post_password_protected() == false)
 				{
 					echo "<div id='aside_below_content' class='aside below_content'>";
 
@@ -56,13 +61,8 @@
 
 			echo "</div>";
 
-			if(is_active_sidebar('widget_pre_footer') && !post_password_required())
+			if(is_active_sidebar('widget_pre_footer') && $obj_theme_core->is_post_password_protected() == false)
 			{
-				if(!isset($obj_theme_core))
-				{
-					$obj_theme_core = new mf_theme_core();
-				}
-
 				$obj_theme_core->get_params();
 
 				echo "<div id='mf-pre-footer'".(isset($obj_theme_core->options['pre_footer_full_width']) && $obj_theme_core->options['pre_footer_full_width'] == 2 ? " class='full_width'" : "").">

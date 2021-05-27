@@ -5,6 +5,11 @@
 
 get_header();
 
+	if(!isset($obj_theme_core))
+	{
+		$obj_theme_core = new mf_theme_core();
+	}
+
 	if(!isset($obj_theme))
 	{
 		$obj_theme = new mf_theme();
@@ -66,22 +71,19 @@ get_header();
 					$article_content .= "<div class='meta'>".$post_meta."</div>";
 				}
 
-				if($is_single == true)
+				if($is_single == true &&is_active_sidebar('widget_after_heading') && $obj_theme_core->is_post_password_protected($post_id) == false)
 				{
-					if(is_active_sidebar('widget_after_heading') && !post_password_required())
+					ob_start();
+
+					dynamic_sidebar('widget_after_heading');
+
+					$widget_content = ob_get_clean();
+
+					if($widget_content != '')
 					{
-						ob_start();
-
-						dynamic_sidebar('widget_after_heading');
-
-						$widget_content = ob_get_clean();
-
-						if($widget_content != '')
-						{
-							$article_content .= "<div class='aside after_heading'>"
-								.$widget_content
-							."</div>";
-						}
+						$article_content .= "<div class='aside after_heading'>"
+							.$widget_content
+						."</div>";
 					}
 				}
 			}

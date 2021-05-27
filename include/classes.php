@@ -25,7 +25,7 @@ class mf_theme
 		{
 			$post_meta = get_post_meta($post->ID, $this->meta_prefix.'display_heading', true);
 
-			return $post_meta != 'no' ? true : false;
+			return ($post_meta != 'no');
 		}
 
 		else
