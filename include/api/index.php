@@ -11,7 +11,10 @@ if(!defined('ABSPATH'))
 
 do_action('run_cache', array('suffix' => 'json'));
 
-$obj_theme = new mf_theme();
+if(!isset($obj_theme))
+{
+	$obj_theme = new mf_theme();
+}
 
 $json_output = array();
 

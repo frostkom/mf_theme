@@ -62,7 +62,7 @@ get_header();
 
 			if($obj_theme->is_heading_visible($post))
 			{
-				$article_content .= "<h1".$heading_attr.">".apply_filters('filter_post_title', $post_link_start.$post_title.$post_link_end)."</h1>";
+				$article_content .= apply_filters('filter_post_title_tag', "<h1".$heading_attr.">".apply_filters('filter_post_title', $post_link_start.$post_title.$post_link_end)."</h1>");
 
 				$post_meta = apply_filters('the_content_meta', "", $post);
 
@@ -71,7 +71,7 @@ get_header();
 					$article_content .= "<div class='meta'>".$post_meta."</div>";
 				}
 
-				if($is_single == true &&is_active_sidebar('widget_after_heading') && $obj_theme_core->is_post_password_protected($post_id) == false)
+				if($is_single == true && is_active_sidebar('widget_after_heading') && $obj_theme_core->is_post_password_protected($post_id) == false)
 				{
 					ob_start();
 
