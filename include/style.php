@@ -489,10 +489,15 @@ $out = $obj_theme_core->show_font_face()
 								column-count: 3;
 							}
 
-					article p:not(:last-child), article ul:not(:last-child), article ol:not(:last-child), article form:not(:last-child)
+					article p:not(:last-child), article ul:not(:last-child), article ol:not(:last-child), article form:not(:last-child), article section > figure.wp-block-image
 					{"
 						.$obj_theme_core->render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
 					."}
+
+						article section > figure.wp-block-image
+						{
+							margin: 0; /* Margin is otherwise automatically added in the browser */
+						}
 
 						article ul, article ol, article form
 						{
