@@ -338,7 +338,7 @@ class mf_theme
 		register_nav_menus(array(
 			'primary' => __("Primary Navigation", 'lang_theme'),
 			'secondary' => __("Secondary Navigation", 'lang_theme'),
-			//'footer' => __("Footer Navigation", 'lang_theme'),
+			//'footer' => ,
 		));
 	}
 
@@ -530,6 +530,13 @@ class widget_theme_menu extends WP_Widget
 				echo $before_title
 					.$instance['theme_menu_title']
 				.$after_title;
+			}
+
+			if(!isset($id))
+			{
+				do_log("widget_theme_menu->widget - Unknown ID because of new Widget view(?): ".var_export($args, true));
+
+				$id = '';
 			}
 
 			echo $this->obj_theme->get_menu(array('type' => $instance['theme_menu_type'], 'where' => $id, 'class' => ($instance['theme_menu_display_mobile_version'] == 'yes' ? "is_hamburger" : "")))
