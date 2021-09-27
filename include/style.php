@@ -532,94 +532,129 @@ $out = $obj_theme_core->show_font_face()
 				#main #load_more
 				{
 					font-size: 1.5em;
-				}";
+				}
+				
+				#main .pagination
+				{
+					list-style: none;
+				}
+
+					#main .pagination li
+					{
+						display: inline-block;
+						font-size: 1.5em;
+					}
+					
+						#main .pagination li a
+						{
+							display: inline-block;
+							padding: .5em .5em 1em;
+						}
+
+							#main .pagination li a.current_page
+							{
+								opacity: .7;
+							}
+
+							#main .pagination li a.current_page:before
+							{
+								content: '[';
+							}
+
+							#main .pagination li a.current_page:after
+							{
+								content: ']';
+							}";
 
 						/* Comments */
-						$out .= "#comments .comment-list, #comments .comment-respond
-						{"
-							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
-						."}
-
-						#comments ol
+						if(get_option('default_comment_status') == 'open')
 						{
-							list-style: none;
-						}
+							$out .= "#comments .comment-list, #comments .comment-respond
+							{"
+								.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
+							."}
 
-							#comments ol .children
+							#comments ol
 							{
-								margin-left: 2em;
+								list-style: none;
 							}
 
-							#comments .comment-body
-							{
-								margin-bottom: 2em;
-								margin-left: 65px;
-							}
-
-							#comments .comment-author
-							{
-								margin-bottom: 0.4em;
-								position: relative;
-							}
-
-								#comments .comment-author .avatar
+								#comments ol .children
 								{
-									height: 50px;
-									left: -65px;
-									position: absolute;
-									width: 50px;
+									margin-left: 2em;
 								}
 
-								#comments .comment-author .says
+								#comments .comment-body
 								{
-									display: none;
+									margin-bottom: 2em;
+									margin-left: 65px;
 								}
 
-							.comment-meta
-							{
-								margin-bottom: .5em;
-							}
-
-								.comment-metadata
+								#comments .comment-author
 								{
-									font-weight: 800;
-									text-transform: uppercase;
+									margin-bottom: 0.4em;
+									position: relative;
 								}
 
-									.comment-metadata a.comment-edit-link
+									#comments .comment-author .avatar
 									{
-										margin-left: 1em;
+										height: 50px;
+										left: -65px;
+										position: absolute;
+										width: 50px;
 									}
 
-							#comments .comment-reply-link
+									#comments .comment-author .says
+									{
+										display: none;
+									}
+
+								.comment-meta
+								{
+									margin-bottom: .5em;
+								}
+
+									.comment-metadata
+									{
+										font-weight: 800;
+										text-transform: uppercase;
+									}
+
+										.comment-metadata a.comment-edit-link
+										{
+											margin-left: 1em;
+										}
+
+								#comments .comment-reply-link
+								{
+									font-weight: 800;
+									position: relative;
+								}
+
+								#comments .children .comment-author .avatar
+								{
+									height: 30px;
+									left: -45px;
+									width: 30px;
+								}
+
+								#comments .bypostauthor > .comment-body > .comment-meta > .comment-author .avatar
+								{
+									border: 1px solid #333;
+									padding: 2px;
+								}
+
+							#comments .comments-pagination
 							{
-								font-weight: 800;
-								position: relative;
+								margin: 2em 0 3em;
 							}
 
-							#comments .children .comment-author .avatar
+							#comments .no-comments, #comments .comment-awaiting-moderation
 							{
-								height: 30px;
-								left: -45px;
-								width: 30px;
-							}
-
-							#comments .bypostauthor > .comment-body > .comment-meta > .comment-author .avatar
-							{
-								border: 1px solid #333;
-								padding: 2px;
-							}
-
-						#comments .comments-pagination
-						{
-							margin: 2em 0 3em;
+								color: #767676;
+								font-style: italic;
+							}";
 						}
-
-						#comments .no-comments, #comments .comment-awaiting-moderation
-						{
-							color: #767676;
-							font-style: italic;
-						}";
 
 				if(is_active_widget_area('widget_after_heading') || is_active_widget_area('widget_sidebar_left') || is_active_widget_area('widget_after_content') || is_active_widget_area('widget_sidebar') || is_active_widget_area('widget_below_content'))
 				{

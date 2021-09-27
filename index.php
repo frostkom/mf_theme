@@ -144,6 +144,64 @@ get_header();
 				}
 			}
 		}
+
+		/* Pagination */
+		##########################
+		$posts_per_page = get_option_or_default('posts_per_page', 10);
+
+		if($post_amount > $posts_per_page)
+		{
+			$first = 1;
+			$last = ceil($post_amount / $posts_per_page);
+			$current = max(1, get_query_var('paged'));
+			$range = 5;
+			
+			$start = ($first < ($current - $range - 1) ? ($current - $range) : $first);
+			$stop = ($last > ($current + $range + 1) ? ($current + $range) : $last);
+
+			$base_url = preg_replace("/(?:&|(\?))"."paged"."=[^&]*(?(1)&|)?/i", "$1", $_SERVER['REQUEST_URI']);
+			$base_url .= (preg_match("/\?/", $base_url) ? "&" : "?")."paged=";
+
+			echo "<ul class='pagination'>";
+
+				if($current > $first)
+				{
+					echo "<li><a href='".$base_url.($current - 1)."'><i class='fas fa-angle-double-left'></i></a></li>";
+				}
+
+				if($start != $first)
+				{
+					echo "<li><a href='".$base_url.$first."'>".$first."</a></li>
+					<li>...</li>";
+				}
+
+				for($i = $start; $i <= $stop; $i++)
+				{
+					echo "<li><a href='".$base_url.$i."'".($current == $i ? " class='current_page'" : "").">".$i."</a></li>";
+				}
+
+				if($stop != $last)
+				{
+					echo "<li>...</li>
+					<li><a href='".$base_url.$last."'>".$last."</a></li>";
+				}
+
+				if($current < $last)
+				{
+					echo "<li><a href='".$base_url.($current + 1)."'><i class='fas fa-angle-double-right'></i></a></li>";
+				}
+
+				//Range and total amount
+				#####
+				$start_value = (($current - 1) * $posts_per_page + 1);
+				$end_value = ($current < $last ? ($start_value + $posts_per_page - 1) : $post_amount);
+
+				echo "<li>(".$start_value." - ".$end_value." ".__("of", 'lang_theme')." ".$post_amount.")</li>";
+				#####
+			
+			echo "</ul>";
+		}
+		##########################
 	}
 
 	else
