@@ -354,6 +354,20 @@ class mf_theme
 		$obj_theme_core = new mf_theme_core();
 		$obj_theme_core->get_custom_widget_areas();
 
+		$obj_theme_core->display_custom_widget_area('widget_header');
+
+		if(is_active_widget_area('widget_header'))
+		{
+			register_sidebar(array(
+				'name' => __("Before Header", 'lang_theme'),
+				'id' => 'widget_pre_header',
+				'before_widget' => "<div class='widget %s %s'>",
+				'before_title' => "<h3>",
+				'after_title' => "</h3>",
+				'after_widget' => "</div>",
+			));
+		}
+
 		register_sidebar(array(
 			'name' => __("Header", 'lang_theme'),
 			'id' => 'widget_header',
@@ -363,8 +377,6 @@ class mf_theme
 			'after_widget' => ""
 		));
 
-		$obj_theme_core->display_custom_widget_area('widget_header');
-
 		if(is_active_widget_area('widget_header'))
 		{
 			register_sidebar(array(
@@ -373,7 +385,7 @@ class mf_theme
 				'before_widget' => "<div class='widget %s %s'>",
 				'before_title' => "<h3>",
 				'after_title' => "</h3>",
-				'after_widget' => "</div>"
+				'after_widget' => "</div>",
 			));
 
 			$obj_theme_core->display_custom_widget_area('widget_after_header');
@@ -384,7 +396,7 @@ class mf_theme
 				'before_widget' => "",
 				'before_title' => "",
 				'after_title' => "",
-				'after_widget' => ""
+				'after_widget' => "",
 			));
 
 			$obj_theme_core->display_custom_widget_area('widget_slide');
@@ -396,7 +408,7 @@ class mf_theme
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
 			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_widget' => "</div>",
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_front');
@@ -407,7 +419,7 @@ class mf_theme
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
 			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_widget' => "</div>",
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_after_heading');
@@ -418,7 +430,7 @@ class mf_theme
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
 			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_widget' => "</div>",
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_sidebar_left');
@@ -429,7 +441,7 @@ class mf_theme
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
 			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_widget' => "</div>",
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_after_content');
@@ -440,7 +452,7 @@ class mf_theme
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
 			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_widget' => "</div>",
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_sidebar');
@@ -451,7 +463,7 @@ class mf_theme
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
 			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_widget' => "</div>",
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_below_content');
@@ -464,7 +476,7 @@ class mf_theme
 				'before_widget' => "<div class='widget %s %s'>",
 				'before_title' => "<h3>",
 				'after_title' => "</h3>",
-				'after_widget' => "</div>"
+				'after_widget' => "</div>",
 			));
 
 			$obj_theme_core->display_custom_widget_area('widget_pre_footer');
@@ -476,7 +488,7 @@ class mf_theme
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
 			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_widget' => "</div>",
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_footer');
@@ -487,7 +499,7 @@ class mf_theme
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
 			'after_title' => "</h3>",
-			'after_widget' => "</div>"
+			'after_widget' => "</div>",
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_window_side');

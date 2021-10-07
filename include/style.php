@@ -19,7 +19,7 @@ $obj_theme_core->get_params();
 $out = $obj_theme_core->show_font_face()
 ."@media all
 {
-	header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer
+	#mf-pre-header, header, nav, #mf-after-header, #mf-pre-content, #mf-content, article, section, .aside, #mf-pre-footer, footer
 	{
 		display: block;
 	}
@@ -34,9 +34,33 @@ $out = $obj_theme_core->show_font_face()
 	."body
 	{
 		position: relative;
-	}
+	}";
 
-		#site_logo
+		if(is_active_widget_area('widget_pre_header'))
+		{
+			$out .= "#mf-pre-header
+			{"
+				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'pre_header_bg'))
+				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'pre_header_bg_color'))
+				//.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'pre_header_bg_image', 'suffix' => '); background-size: cover'))
+				."clear: both;"
+				.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'pre_header_color'))
+				//.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'pre_header_overflow'))
+			."}
+
+				#mf-pre-header > div
+				{"
+					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'pre_header_padding'))
+				."}
+
+					#mf-pre-header > div .widget
+					{"
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'pre_header_widget_font_size'))
+						//.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'pre_header_widget_padding'))
+					."}";
+		}
+
+		$out .= "#site_logo
 		{"
 			.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'logo_font'))
 			.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
@@ -1175,7 +1199,7 @@ if(isset($obj_theme_core->options['website_max_width']) && $obj_theme_core->opti
 			content: 'is_desktop'; /* is_size_desk */
 		}
 
-		header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, body:not(.is_mobile) nav.full_width:not(.is_hamburger) > div, .full_width > div > .widget .section, .full_width > div > .widget > div
+		#mf-pre-header > div, header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, body:not(.is_mobile) nav.full_width:not(.is_hamburger) > div, .full_width > div > .widget .section, .full_width > div > .widget > div
 		{
 			margin: 0 auto;
 			margin-left: auto !important;

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 21:56+0100\n"
+"POT-Creation-Date: 2021-10-07 14:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -38,7 +38,7 @@ msgstr "Kommentarer är stängda"
 msgid "Read More"
 msgstr "Läs mer"
 
-#: ../index.php:233
+#: ../index.php:199
 msgid "of"
 msgstr "av"
 
@@ -52,7 +52,7 @@ msgid "I could not find any results for %s"
 msgstr "Jag kunde inte hitta några resultat för %s"
 
 #: ../include/classes.php:49
-#: ../include/classes.php:516
+#: ../include/classes.php:528
 msgid "Menu"
 msgstr "Meny"
 
@@ -88,72 +88,76 @@ msgstr "Primär navigation"
 msgid "Secondary Navigation"
 msgstr "Sekundär navigation"
 
-#: ../include/classes.php:358
+#: ../include/classes.php:362
+msgid "Before Header"
+msgstr "Före sidhuvud"
+
+#: ../include/classes.php:372
 msgid "Header"
 msgstr "Sidhuvud"
 
-#: ../include/classes.php:371
+#: ../include/classes.php:383
 msgid "After Header"
 msgstr "Efter sidhuvud"
 
-#: ../include/classes.php:382
+#: ../include/classes.php:394
 msgid "Slide menu"
 msgstr "Sidomeny"
 
-#: ../include/classes.php:394
+#: ../include/classes.php:406
 msgid "Pre Content"
 msgstr "Före innehåll"
 
-#: ../include/classes.php:405
+#: ../include/classes.php:417
 msgid "Below Main Heading"
 msgstr "Under huvudrubrik"
 
-#: ../include/classes.php:416
-#: ../include/classes.php:438
+#: ../include/classes.php:428
+#: ../include/classes.php:450
 msgid "Aside"
 msgstr "Sidokolumn"
 
-#: ../include/classes.php:416
+#: ../include/classes.php:428
 msgid "Left"
 msgstr "Vänster"
 
-#: ../include/classes.php:427
+#: ../include/classes.php:439
 msgid "Below Main Column"
 msgstr "Under huvudkolumn"
 
-#: ../include/classes.php:438
+#: ../include/classes.php:450
 msgid "Right"
 msgstr "Höger"
 
-#: ../include/classes.php:449
+#: ../include/classes.php:461
 msgid "Below Content"
 msgstr "Efter innehåll"
 
-#: ../include/classes.php:462
+#: ../include/classes.php:474
 msgid "Pre Footer"
 msgstr "Före sidfot"
 
-#: ../include/classes.php:474
+#: ../include/classes.php:486
 msgid "Footer"
 msgstr "Sidfot"
 
-#: ../include/classes.php:485
+#: ../include/classes.php:497
 msgid "Window Side Icons"
 msgstr "Sidoikoner"
 
-#: ../include/classes.php:507
+#: ../include/classes.php:519
 msgid "Display Menu"
 msgstr "Visa meny"
 
-#: ../include/classes.php:563
+#: ../include/classes.php:575
 msgid "Title"
 msgstr "Rubrik"
 
-#: ../include/classes.php:564
+#: ../include/classes.php:576
 msgid "Menu Type"
 msgstr "Typ av meny"
 
-#: ../include/classes.php:565
+#: ../include/classes.php:577
 msgid "Always Display Mobile Menu"
 msgstr "Visa alltid mobilmeny"
 
