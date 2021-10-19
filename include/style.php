@@ -45,7 +45,7 @@ $out = $obj_theme_core->show_font_face()
 				//.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'pre_header_bg_image', 'suffix' => '); background-size: cover'))
 				."clear: both;"
 				.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'pre_header_color'))
-				//.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'pre_header_overflow'))
+				.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'pre_header_overflow'))
 			."}
 
 				#mf-pre-header > div
