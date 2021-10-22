@@ -151,7 +151,9 @@ class mf_theme
 
 		$posts_per_page = get_option('posts_per_page');
 
-		$result = $wpdb->get_results("SELECT * FROM ".$wpdb->posts." WHERE post_type = 'post' AND post_status = 'publish' ORDER BY post_date DESC LIMIT ".esc_sql($data['limit_start']).", ".(esc_sql($posts_per_page) + 1));
+		$query_limit = " LIMIT ".esc_sql($data['limit_start']).", ".(esc_sql($posts_per_page) + 1);
+
+		$result = $wpdb->get_results($wpdb->prepare("SELECT * FROM ".$wpdb->posts." WHERE post_type = %s AND post_status = %s ORDER BY post_date DESC".$query_limit, 'post', 'publish'));
 
 		$i = 0;
 
