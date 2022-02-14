@@ -155,7 +155,7 @@ get_header();
 			$last = ceil($post_amount / $posts_per_page);
 			$current = max(1, get_query_var('paged'));
 			$range = 5;
-			
+
 			$start = ($first < ($current - $range - 1) ? ($current - $range) : $first);
 			$stop = ($last > ($current + $range + 1) ? ($current + $range) : $last);
 
@@ -198,7 +198,7 @@ get_header();
 
 				echo "<li>(".$start_value." - ".$end_value." ".__("of", 'lang_theme')." ".$post_amount.")</li>";
 				#####
-			
+
 			echo "</ul>";
 		}
 		##########################

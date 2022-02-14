@@ -557,7 +557,7 @@ $out = $obj_theme_core->show_font_face()
 				{
 					font-size: 1.5em;
 				}
-				
+
 				#main .pagination
 				{
 					list-style: none;
@@ -568,7 +568,7 @@ $out = $obj_theme_core->show_font_face()
 						display: inline-block;
 						font-size: 1.5em;
 					}
-					
+
 						#main .pagination li a
 						{
 							display: inline-block;

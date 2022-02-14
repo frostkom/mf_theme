@@ -23,10 +23,10 @@ echo "<!DOCTYPE html>
 	<body class='".implode(" ", get_body_class())."'>
 		<div id='wrapper'>";
 
+			$obj_theme_core->get_params();
+
 			if(is_active_sidebar('widget_pre_header'))
 			{
-				$obj_theme_core->get_params();
-
 				echo "<div id='mf-pre-header'".(isset($obj_theme_core->options['pre_header_full_width']) && $obj_theme_core->options['pre_header_full_width'] == 2 ? " class='full_width'" : "").">
 					<div>";
 
@@ -36,7 +36,7 @@ echo "<!DOCTYPE html>
 				</div>";
 			}
 
-			echo "<header>
+			echo "<header".(isset($obj_theme_core->options['header_full_width']) && $obj_theme_core->options['header_full_width'] == 2 ? " class='full_width'" : "").">
 				<div>";
 
 					if(is_active_sidebar('widget_header'))
