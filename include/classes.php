@@ -9,12 +9,10 @@ class mf_theme
 
 	function get_search_page()
 	{
-		$strSearch = check_var('s');
-
 		return "<article".(IS_ADMIN ? " class='get_search_page'" : "").">
 			<h1>".__("No results", 'lang_theme')."</h1>
 			<section>
-				<p>".sprintf(__("I could not find any results for %s", 'lang_theme'), $strSearch)."</p>
+				<p>".sprintf(__("I could not find any results for %s", 'lang_theme'), check_var('s'))."</p>
 			</section>
 		</article>";
 	}
@@ -246,9 +244,6 @@ class mf_theme
 		);
 
 		$post_id = check_var('post');
-		/*$post_id = get_rwmb_post_id(array(
-			'meta_key' => 'meta_theme_',
-		));*/
 
 		if($post_id > 0 && has_post_thumbnail($post_id))
 		{
