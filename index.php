@@ -135,12 +135,9 @@ get_header();
 			{
 				echo "<article".$article_attr." class='post_type_".$post->post_type."'>".$article_content."</article>";
 
-				if(is_single())
+				if(is_single() && (comments_open() || get_comments_number()))
 				{
-					if(comments_open() || get_comments_number())
-					{
-						comments_template();
-					}
+					comments_template();
 				}
 			}
 		}
