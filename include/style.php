@@ -516,9 +516,28 @@ $out = $obj_theme_core->show_font_face()
 					article p:not(:last-child), article ul:not(:last-child), article ol:not(:last-child), article form:not(:last-child), article section > figure.wp-block-image
 					{"
 						.$obj_theme_core->render_css(array('property' => 'margin-bottom', 'value' => 'section_margin_between'))
-					."}
+					."}";
 
-						article section > figure.wp-block-image
+					if(isset($obj_theme_core->options['paragraph_drop_cap_size']) && $obj_theme_core->options['paragraph_drop_cap_size'] != '')
+					{
+						$out .= "article h1 + section p:first-child:first-letter
+						{"
+							."float: left;"
+							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'paragraph_drop_cap_size'))
+							."line-height: 0;"
+							."margin: .2em .2em 0 0;"
+						."}";
+					}
+					
+					if(isset($obj_theme_core->options['paragraph_indentation']) && $obj_theme_core->options['paragraph_indentation'] != '')
+					{
+						$out .= "article section p + p
+						{"
+							.$obj_theme_core->render_css(array('property' => 'text-indent', 'value' => 'paragraph_indentation'))
+						."}";
+					}
+
+						$out .= "article section > figure.wp-block-image
 						{
 							margin: 0; /* Margin is otherwise automatically added in the browser */
 						}
