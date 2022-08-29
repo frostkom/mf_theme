@@ -528,7 +528,7 @@ $out = $obj_theme_core->show_font_face()
 							."margin: .2em .2em 0 0;"
 						."}";
 					}
-					
+
 					if(isset($obj_theme_core->options['paragraph_indentation']) && $obj_theme_core->options['paragraph_indentation'] != '')
 					{
 						$out .= "article section p + p
@@ -760,7 +760,7 @@ $out = $obj_theme_core->show_font_face()
 									.$obj_theme_core->render_css(array('property' => 'margin-bottom', 'value' => 'aside_margin_between'))
 								."}
 
-								/*.aside p a, */.aside ul a, .aside ol a
+								.aside ul a, .aside ol a
 								{
 									border-bottom: 2px solid transparent;"
 									.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'article_url_color'))
