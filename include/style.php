@@ -387,6 +387,7 @@ $out = $obj_theme_core->show_font_face()
 				{"
 					.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'heading_bg'))
 					.$obj_theme_core->render_css(array('property' => 'border-bottom', 'value' => 'heading_border_bottom'))
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'heading_color'))
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size'))
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight'))
@@ -402,6 +403,7 @@ $out = $obj_theme_core->show_font_face()
 
 				#wrapper h2
 				{"
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'heading_color_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h2'))
@@ -417,6 +419,7 @@ $out = $obj_theme_core->show_font_face()
 
 				#mf-after-header h3, #wrapper article h3, #mf-pre-footer h3
 				{"
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'heading_color_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h3'))
 					."line-height: 1.1;"
@@ -426,6 +429,7 @@ $out = $obj_theme_core->show_font_face()
 
 				#wrapper h4
 				{"
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'heading_color_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h4'))
 					."line-height: 1.1;"
@@ -435,6 +439,7 @@ $out = $obj_theme_core->show_font_face()
 
 				#wrapper h5
 				{"
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'heading_color_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_font_size_h5'))
 					."line-height: 1.1;"
@@ -456,6 +461,7 @@ $out = $obj_theme_core->show_font_face()
 
 				h2
 				{"
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'heading_color_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h2'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h2'))
 					."line-height: 1.1;"
@@ -463,6 +469,7 @@ $out = $obj_theme_core->show_font_face()
 
 				h3
 				{"
+					.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'heading_color_h3'))
 					.$obj_theme_core->render_css(array('property' => 'font-family', 'value' => 'heading_font_h3'))
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'heading_size_h3'))
 					."line-height: 1.1;"
@@ -957,8 +964,8 @@ $out = $obj_theme_core->show_font_face()
 
 $out .= "}";
 
-$aside_left_width = isset($obj_theme_core->options['aside_left_width']) && $obj_theme_core->options['aside_left_width'] != '' ? $obj_theme_core->options['aside_left_width'] : "28%";
-$aside_right_width = isset($obj_theme_core->options['aside_width']) && $obj_theme_core->options['aside_width'] != '' ? $obj_theme_core->options['aside_width'] : "28%";
+$aside_left_width = (isset($obj_theme_core->options['aside_left_width']) && $obj_theme_core->options['aside_left_width'] != '' ? $obj_theme_core->options['aside_left_width'] : "28%");
+$aside_right_width = (isset($obj_theme_core->options['aside_width']) && $obj_theme_core->options['aside_width'] != '' ? $obj_theme_core->options['aside_width'] : "28%");
 
 $flex_content = "#mf-content > div
 {
