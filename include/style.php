@@ -1202,8 +1202,8 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 						$out .= "#primary_nav.theme_nav.is_mobile_ready .sub-menu a
 						{"
 							.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'sub_nav_color'))
-							."padding: .8em;
-						}
+							.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'sub_nav_link_padding'))
+						."}
 
 							#primary_nav.theme_nav.is_mobile_ready .sub-menu a:hover
 							{"
