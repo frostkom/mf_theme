@@ -34,9 +34,33 @@ class mf_theme
 
 	function get_menu($data = array())
 	{
-		if(!isset($data['where'])){		$data['where'] = "";}
-		if(!isset($data['type'])){		$data['type'] = "";}
-		if(!isset($data['class'])){		$data['class'] = "";}
+		if(!isset($data['where'])){				$data['where'] = "";}
+		if(!isset($data['type'])){				$data['type'] = "";}
+		if(!isset($data['class'])){				$data['class'] = "";}
+		if(!isset($data['columns_desktop'])){	$data['columns_desktop'] = 1;}
+		if(!isset($data['columns_tablet'])){	$data['columns_tablet'] = 1;}
+		if(!isset($data['columns_mobile'])){	$data['columns_mobile'] = 1;}
+		if(!isset($data['columns_height'])){	$data['columns_height'] = "";}
+
+		if($data['columns_desktop'] > 1 || $data['columns_tablet'] > 1 || $data['columns_mobile'] > 1)
+		{
+			$data['class'] .= ($data['class'] != '' ? " " : "").($data['columns_height'] != '' ? "has_menu_height" : "has_menu_columns");
+
+			if($data['columns_desktop'] > 1)
+			{
+				$data['class'] .= " menu_columns_desktop_".$data['columns_desktop'];
+			}
+
+			if($data['columns_tablet'] > 1)
+			{
+				$data['class'] .= " menu_columns_tablet_".$data['columns_tablet'];
+			}
+
+			if($data['columns_mobile'] > 1)
+			{
+				$data['class'] .= " menu_columns_mobile_".$data['columns_mobile'];
+			}
+		}
 
 		$out = "";
 
@@ -134,6 +158,11 @@ class mf_theme
 					."</nav>";
 				}
 			}
+		}
+
+		if($data['columns_height'] != '')
+		{
+			$out = str_replace(' class="menu"', " class='menu' style='height: ".$data['columns_height']."'", $out);
 		}
 
 		return $out;
@@ -520,6 +549,10 @@ class widget_theme_menu extends WP_Widget
 			'theme_menu_title' => '',
 			'theme_menu_type' => '',
 			'theme_menu_display_mobile_version' => 'no',
+			'theme_menu_columns_desktop' => 1,
+			'theme_menu_columns_tablet' => 1,
+			'theme_menu_columns_mobile' => 1,
+			'theme_menu_height' => '',
 		);
 
 		parent::__construct(str_replace("_", "-", $this->widget_ops['classname']).'-widget', __("Menu", 'lang_theme'), $this->widget_ops);
@@ -548,7 +581,15 @@ class widget_theme_menu extends WP_Widget
 				$id = '';
 			}
 
-			echo $this->obj_theme->get_menu(array('type' => $instance['theme_menu_type'], 'where' => $id, 'class' => ($instance['theme_menu_display_mobile_version'] == 'yes' ? "is_hamburger" : "")))
+			echo $this->obj_theme->get_menu(array(
+				'type' => $instance['theme_menu_type'],
+				'where' => $id,
+				'class' => ($instance['theme_menu_display_mobile_version'] == 'yes' ? "is_hamburger" : ""),
+				'columns_desktop' => $instance['theme_menu_columns_desktop'],
+				'columns_tablet' => $instance['theme_menu_columns_tablet'],
+				'columns_mobile' => $instance['theme_menu_columns_mobile'],
+				'columns_height' => $instance['theme_menu_height'],
+			))
 		.$after_widget;
 	}
 
@@ -560,8 +601,21 @@ class widget_theme_menu extends WP_Widget
 		$instance['theme_menu_title'] = sanitize_text_field($new_instance['theme_menu_title']);
 		$instance['theme_menu_type'] = sanitize_text_field($new_instance['theme_menu_type']);
 		$instance['theme_menu_display_mobile_version'] = sanitize_text_field($new_instance['theme_menu_display_mobile_version']);
+		$instance['theme_menu_columns_desktop'] = sanitize_text_field($new_instance['theme_menu_columns_desktop']);
+		$instance['theme_menu_columns_tablet'] = sanitize_text_field($new_instance['theme_menu_columns_tablet']);
+		$instance['theme_menu_columns_mobile'] = sanitize_text_field($new_instance['theme_menu_columns_mobile']);
+		$instance['theme_menu_height'] = sanitize_text_field($new_instance['theme_menu_height']);
 
 		return $instance;
+	}
+
+	function get_columns_for_select()
+	{
+		return array(
+			1 => 1,
+			2 => 2,
+			3 => 3,
+		);
 	}
 
 	function form($instance)
@@ -571,7 +625,24 @@ class widget_theme_menu extends WP_Widget
 		echo "<div class='mf_form'>"
 			.show_textfield(array('name' => $this->get_field_name('theme_menu_title'), 'text' => __("Title", 'lang_theme'), 'value' => $instance['theme_menu_title'], 'xtra' => " id='".$this->widget_ops['classname']."-title'"))
 			.show_select(array('data' => get_menu_type_for_select(), 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'value' => $instance['theme_menu_type']))
-			.show_select(array('data' => get_yes_no_for_select(), 'name' => $this->get_field_name('theme_menu_display_mobile_version'), 'text' => __("Always Display Mobile Menu", 'lang_theme'), 'value' => $instance['theme_menu_display_mobile_version']))
-		."</div>";
+			.show_select(array('data' => get_yes_no_for_select(), 'name' => $this->get_field_name('theme_menu_display_mobile_version'), 'text' => __("Always Display Mobile Menu", 'lang_theme'), 'value' => $instance['theme_menu_display_mobile_version']));
+
+			if($instance['theme_menu_display_mobile_version'] == 'no')
+			{
+				echo "<h4>".__("Columns", 'lang_theme')."</h4>
+				<div class='flex_flow'>"
+					.show_select(array('data' => $this->get_columns_for_select(), 'name' => $this->get_field_name('theme_menu_columns_desktop'), 'text' => __("Desktop", 'lang_theme'), 'value' => $instance['theme_menu_columns_desktop']))
+					.show_select(array('data' => $this->get_columns_for_select(), 'name' => $this->get_field_name('theme_menu_columns_tablet'), 'text' => __("Tablet", 'lang_theme'), 'value' => $instance['theme_menu_columns_tablet']))
+					.show_select(array('data' => $this->get_columns_for_select(), 'name' => $this->get_field_name('theme_menu_columns_mobile'), 'text' => __("Mobile", 'lang_theme'), 'value' => $instance['theme_menu_columns_mobile']));
+
+					if($instance['theme_menu_columns_desktop'] > 0 || $instance['theme_menu_columns_tablet'] > 0 || $instance['theme_menu_columns_mobile'] > 0)
+					{
+						echo show_textfield(array('name' => $this->get_field_name('theme_menu_height'), 'text' => __("Height", 'lang_theme'), 'value' => $instance['theme_menu_height'], 'placeholder' => "20em"));
+					}
+
+				echo "</div>";
+			}
+
+		echo "</div>";
 	}
 }
