@@ -237,10 +237,27 @@ $out = $obj_theme_core->show_font_face()
 
 						if(is_active_widget_area('widget_slide'))
 						{
-							$out .= "#mf-slide-nav > div
+							$out .= "#wrapper header, #wrapper #mf-content, #wrapper footer
 							{
-								right: -90%;
+								transform: translateX(0);
+								transition: transform ".(isset($obj_theme_core->options['slide_nav_animation_length']) && $obj_theme_core->options['slide_nav_animation_length'] > 0 ? $obj_theme_core->options['slide_nav_animation_length'] : .5)."s ease;
 							}
+
+								.display_slide_nav #wrapper header, .display_slide_nav #wrapper #mf-content, .display_slide_nav #wrapper footer
+								{
+									transform: translateX(-20%);
+								}
+							
+							#mf-slide-nav
+							{
+								transform: translateX(100%);
+								transition: transform ".(isset($obj_theme_core->options['slide_nav_animation_length']) && $obj_theme_core->options['slide_nav_animation_length'] > 0 ? $obj_theme_core->options['slide_nav_animation_length'] : .5)."s ease;
+							}
+
+								.display_slide_nav #mf-slide-nav
+								{
+									transform: translateX(0);
+								}
 
 							.is_mobile #mf-slide-nav .theme_nav
 							{

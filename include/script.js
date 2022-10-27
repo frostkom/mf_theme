@@ -48,26 +48,30 @@ jQuery(function($)
 
 		var right_orig = slide_dom_obj.children("div").css('right');
 
-		function show_slide_menu()
+		function init_slide_nav()
 		{
-			slide_dom_obj.fadeIn().children("div").animate({'right': '0'}, 500);
+			slide_dom_obj.show();
+		}
+
+		function display_slide_nav()
+		{
+			$("body").addClass('display_slide_nav');
 
 			return false;
 		}
 
-		function hide_slide_menu()
+		function hide_slide_nav()
 		{
-			slide_dom_obj.children("div").animate({'right': right_orig}, 500, function()
-			{
-				$(this).parent("#mf-slide-nav").fadeOut();
-			});
+			$("body").removeClass('display_slide_nav');
 
 			return false;
 		}
+
+		init_slide_nav();
 
 		$(document).on('click', "#slide_nav", function()
 		{
-			show_slide_menu();
+			display_slide_nav();
 		});
 
 		$(document).on('click', ".is_large .menu-item-has-children:not(.current-menu-item) > a", function()
@@ -77,13 +81,13 @@ jQuery(function($)
 			/*return false;*/ /* This will prevent page/view from changing on slide menu that is opened by hamburger */
 		});
 
-		$(document).on('click', "#mf-slide-nav", function(e)
+		slide_dom_obj.on('click', function(e)
 		{
 			var dom_obj = $(e.target);
 
 			if(dom_obj.is("#mf-slide-nav") || dom_obj.is("i"))
 			{
-				hide_slide_menu();
+				hide_slide_nav();
 			}
 		});
 	}
@@ -103,18 +107,18 @@ jQuery(function($)
 
 	$(document).on('click', "#primary_nav > .toggle_icon", function()
 	{
-		var slide_nav = $("#mf-slide-nav nav");
+		var slide_nav = slide_dom_obj.find("nav");
 
 		if(slide_nav.length > 0)
 		{
-			if(slide_nav.is(":visible"))
+			if($("body").hasClass('display_slide_nav')) /*slide_nav.is(":visible") && */
 			{
-				hide_slide_menu();
+				hide_slide_nav();
 			}
 
 			else
 			{
-				show_slide_menu();
+				display_slide_nav();
 			}
 		}
 

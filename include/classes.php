@@ -337,6 +337,7 @@ class mf_theme
 		mf_enqueue_script('script_theme', $template_url."/include/script.js", array(
 			'template_url' => $template_url,
 			'hamburger_collapse_if_no_space' => (isset($obj_theme_core->options['hamburger_collapse_if_no_space']) && $obj_theme_core->options['hamburger_collapse_if_no_space'] == 2),
+			//'slide_nav_fade' => (isset($obj_theme_core->options['slide_nav_fade_bg']) && $obj_theme_core->options['slide_nav_fade_bg'] != '')
 		), $theme_version);
 	}
 
