@@ -237,13 +237,13 @@ $out = $obj_theme_core->show_font_face()
 
 						if(is_active_widget_area('widget_slide'))
 						{
-							$out .= "#wrapper header, #wrapper #mf-content, #wrapper footer
+							$out .= "#mf-pre-header, #wrapper header, #mf-after-header, #mf-pre-content, #mf-content, #mf-pre-footer, #wrapper footer
 							{
 								transform: translateX(0);
 								transition: transform ".(isset($obj_theme_core->options['slide_nav_animation_length']) && $obj_theme_core->options['slide_nav_animation_length'] > 0 ? $obj_theme_core->options['slide_nav_animation_length'] : .5)."s ease;
 							}
 
-								.display_slide_nav #wrapper header, .display_slide_nav #wrapper #mf-content, .display_slide_nav #wrapper footer
+								.display_slide_nav #mf-pre-header, .display_slide_nav #wrapper header, .display_slide_nav #mf-after-header, .display_slide_nav #mf-pre-content, .display_slide_nav #mf-content, .display_slide_nav #mf-pre-footer, .display_slide_nav #wrapper footer
 								{
 									transform: translateX(-20%);
 								}
