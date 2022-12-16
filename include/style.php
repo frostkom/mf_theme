@@ -247,7 +247,7 @@ $out = $obj_theme_core->show_font_face()
 								{
 									transform: translateX(-20%);
 								}
-							
+
 							#mf-slide-nav
 							{
 								transform: translateX(100%);
@@ -353,7 +353,7 @@ $out = $obj_theme_core->show_font_face()
 				{
 					width: 50%;
 				}
-				
+
 				.is_desktop .has_menu_columns.menu_columns_desktop_3 .menu > li, .is_tablet .has_menu_columns.menu_columns_tablet_3 .menu > li, .is_mobile .has_menu_columns.menu_columns_mobile_3 .menu > li
 				{
 					width: 33%;
@@ -365,7 +365,7 @@ $out = $obj_theme_core->show_font_face()
 				-webkit-column-count: 2;
 				column-count: 2;
 			}
-			
+
 			.is_desktop .has_menu_columns.menu_columns_desktop_3 .menu, .is_tablet .has_menu_columns.menu_columns_tablet_3 .menu, .is_mobile .has_menu_columns.menu_columns_mobile_3 .menu
 			{
 				-webkit-column-count: 3;
@@ -396,12 +396,12 @@ $out = $obj_theme_core->show_font_face()
 					-ms-flex: 0 0 auto;
 					flex: 0 0 auto;
 				}
-				
+
 					.is_desktop .has_menu_height.menu_columns_desktop_2 .menu > li, .is_tablet .has_menu_height.menu_columns_tablet_2 .menu > li, .is_mobile .has_menu_height.menu_columns_mobile_2 .menu > li
 					{
 						width: 50%;
 					}
-					
+
 					.is_desktop .has_menu_height.menu_columns_desktop_3 .menu > li, .is_tablet .has_menu_height.menu_columns_tablet_3 .menu > li, .is_mobile .has_menu_height.menu_columns_mobile_3 .menu > li
 					{
 						width: 33%;

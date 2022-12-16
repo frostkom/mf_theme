@@ -625,7 +625,7 @@ class widget_theme_menu extends WP_Widget
 
 		echo "<div class='mf_form'>"
 			.show_textfield(array('name' => $this->get_field_name('theme_menu_title'), 'text' => __("Title", 'lang_theme'), 'value' => $instance['theme_menu_title'], 'xtra' => " id='".$this->widget_ops['classname']."-title'"))
-			.show_select(array('data' => get_menu_type_for_select(), 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme'), 'value' => $instance['theme_menu_type']))
+			.show_select(array('data' => get_menu_type_for_select(), 'name' => $this->get_field_name('theme_menu_type'), 'text' => __("Menu Type", 'lang_theme')." <a href='".admin_url("nav-menus.php")."'><i class='fa fa-wrench fa-lg'></i></a>", 'value' => $instance['theme_menu_type']))
 			.show_select(array('data' => get_yes_no_for_select(), 'name' => $this->get_field_name('theme_menu_display_mobile_version'), 'text' => __("Always Display Mobile Menu", 'lang_theme'), 'value' => $instance['theme_menu_display_mobile_version']));
 
 			if($instance['theme_menu_display_mobile_version'] == 'no')
