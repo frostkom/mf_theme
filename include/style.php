@@ -42,7 +42,6 @@ $out = $obj_theme_core->show_font_face()
 			{"
 				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'pre_header_bg'))
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'pre_header_bg_color'))
-				//.$obj_theme_core->render_css(array('property' => 'background-image', 'prefix' => 'url(', 'value' => 'pre_header_bg_image', 'suffix' => '); background-size: cover'))
 				."clear: both;"
 				.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'pre_header_color'))
 				.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'pre_header_overflow'))
@@ -56,7 +55,6 @@ $out = $obj_theme_core->show_font_face()
 					#mf-pre-header > div .widget
 					{"
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'pre_header_widget_font_size'))
-						//.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'pre_header_widget_padding'))
 					."}";
 		}
 
@@ -66,7 +64,6 @@ $out = $obj_theme_core->show_font_face()
 			.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'logo_font_size'))
 			."font-weight: bold;"
 			.$obj_theme_core->render_css(array('property' => 'color', 'value' => 'logo_color'))
-			.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'logo_padding'))
 			."position: relative;
 			text-decoration: none;
 			transition: all .4s ease;
@@ -84,9 +81,10 @@ $out = $obj_theme_core->show_font_face()
 				."margin-bottom: 1em;
 			}
 
-			header #site_logo
+			header .theme_logo, header > div > #site_logo
 			{"
 				.$obj_theme_core->render_css(array('property' => 'float', 'value' => 'logo_float'))
+				.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'logo_padding'))
 				.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width'))
 			."}
 
@@ -153,7 +151,7 @@ $out = $obj_theme_core->show_font_face()
 								display: none;
 							}
 
-			header #primary_nav
+			header .theme_menu, header > div > #primary_nav
 			{"
 				.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'nav_bg'))
 				.$obj_theme_core->render_css(array('property' => 'background-color', 'value' => 'nav_bg_color'))
