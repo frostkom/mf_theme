@@ -239,14 +239,17 @@ $out = $obj_theme_core->show_font_face()
 							{
 								transform: translateX(0);
 								transition: transform ".(isset($obj_theme_core->options['slide_nav_animation_length']) && $obj_theme_core->options['slide_nav_animation_length'] > 0 ? $obj_theme_core->options['slide_nav_animation_length'] : .5)."s ease;
-							}
+							}";
 
-								.display_slide_nav #mf-pre-header, .display_slide_nav #wrapper header, .display_slide_nav #mf-after-header, .display_slide_nav #mf-pre-content, .display_slide_nav #mf-content, .display_slide_nav #mf-pre-footer, .display_slide_nav #wrapper footer
+								if(isset($obj_theme_core->options['slide_nav_content_offset']) && $obj_theme_core->options['slide_nav_content_offset'] > 0)
 								{
-									transform: translateX(-20%);
+									$out .= ".display_slide_nav #mf-pre-header, .display_slide_nav #wrapper header, .display_slide_nav #mf-after-header, .display_slide_nav #mf-pre-content, .display_slide_nav #mf-content, .display_slide_nav #mf-pre-footer, .display_slide_nav #wrapper footer
+									{
+										transform: translateX(-".$obj_theme_core->options['slide_nav_content_offset']."%);
+									}";
 								}
 
-							#mf-slide-nav
+							$out .= "#mf-slide-nav
 							{
 								transform: translateX(100%);
 								transition: transform ".(isset($obj_theme_core->options['slide_nav_animation_length']) && $obj_theme_core->options['slide_nav_animation_length'] > 0 ? $obj_theme_core->options['slide_nav_animation_length'] : .5)."s ease;
