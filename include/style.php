@@ -1243,16 +1243,18 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 						.theme_nav.is_mobile_ready .sub-menu .sub-menu
 						{
-							left: 17em !important;
+							/*left: 17em !important;*/
+							left: 100% !important;
 							top: 0;
+							transform: translateX(3%);
 						}
 
 							.theme_nav.is_mobile_ready .sub-menu .sub-menu:before
 							{
 								border-bottom-color: transparent;"
 								.$obj_theme_core->render_css(array('property' => 'border-right-color', 'value' => 'sub_nav_bg'))
-								."left: -0.6em;
-								top: 0.9em;
+								."left: -.6em;
+								top: .9em;
 							}";
 			}
 
@@ -1260,7 +1262,6 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 			{
 				$out .= ".theme_nav.is_mobile_ready .sub-menu
 				{
-					/*padding-top: .5em;*/
 					white-space: nowrap;
 				}
 
