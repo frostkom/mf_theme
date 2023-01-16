@@ -77,8 +77,6 @@ jQuery(function($)
 		$(document).on('click', ".is_large .menu-item-has-children:not(.current-menu-item) > a", function()
 		{
 			$(this).parent("li").addClass('current-menu-item');
-
-			/*return false;*/ /* This will prevent page/view from changing on slide menu that is opened by hamburger */
 		});
 
 		slide_dom_obj.on('click', function(e)

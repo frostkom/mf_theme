@@ -10,7 +10,7 @@ if(!isset($obj_theme_core))
 
 						if(is_active_sidebar('widget_after_content') && $obj_theme_core->is_post_password_protected() == false)
 						{
-							echo "<div class='aside after_content'>";
+							echo "<div id='aside_after_content' class='aside after_content'>";
 
 								dynamic_sidebar('widget_after_content');
 
