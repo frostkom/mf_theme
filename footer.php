@@ -87,6 +87,15 @@ if(!isset($obj_theme_core))
 				</footer>";
 			}
 
+			if(is_active_sidebar('widget_window_bottom'))
+			{
+				echo "<div id='window_bottom'>";
+
+					dynamic_sidebar('widget_window_bottom');
+
+				echo "</div>";
+			}
+
 		echo "</div>";
 
 		if(is_active_sidebar('widget_window_side'))

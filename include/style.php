@@ -1040,6 +1040,19 @@ $out = $obj_theme_core->show_font_face()
 							}";
 		}
 
+		if(is_active_widget_area('widget_window_bottom'))
+		{
+			$out .= "#window_bottom
+			{
+				bottom: 0;
+				position: absolute;
+				position: fixed;
+				text-align: center;
+				width: 100%;
+				z-index: 1001;
+			}";
+		}
+
 	if(isset($obj_theme_core->options['custom_css_all']) && $obj_theme_core->options['custom_css_all'] != '')
 	{
 		$out .= $obj_theme_core->options['custom_css_all'];

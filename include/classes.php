@@ -521,7 +521,7 @@ class mf_theme
 		$obj_theme_core->display_custom_widget_area('widget_footer');
 
 		register_sidebar(array(
-			'name' => __("Window Side Icons", 'lang_theme'),
+			'name' => __("Window Side", 'lang_theme'),
 			'id' => 'widget_window_side',
 			'before_widget' => "<div class='widget %s %s'>",
 			'before_title' => "<h3>",
@@ -530,6 +530,17 @@ class mf_theme
 		));
 
 		$obj_theme_core->display_custom_widget_area('widget_window_side');
+
+		register_sidebar(array(
+			'name' => __("Window Bottom", 'lang_theme'),
+			'id' => 'widget_window_bottom',
+			'before_widget' => "<div class='widget %s %s'>",
+			'before_title' => "<h3>",
+			'after_title' => "</h3>",
+			'after_widget' => "</div>",
+		));
+
+		$obj_theme_core->display_custom_widget_area('widget_window_bottom');
 
 		register_widget('widget_theme_menu');
 	}
