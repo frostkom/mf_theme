@@ -1166,7 +1166,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 				.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'logo_width_mobile'))
 			."}
 
-			#secondary_nav/*, header .searchform*/
+			#secondary_nav
 			{
 				display: none;
 			}

@@ -383,8 +383,8 @@ class mf_theme
 
 		$obj_theme_core->display_custom_widget_area('widget_header');
 
-		if(is_active_widget_area('widget_header'))
-		{
+		/*if(is_active_widget_area('widget_header'))
+		{*/
 			register_sidebar(array(
 				'name' => __("Before Header", 'lang_theme'),
 				'id' => 'widget_pre_header',
@@ -393,7 +393,7 @@ class mf_theme
 				'after_title' => "</h3>",
 				'after_widget' => "</div>",
 			));
-		}
+		//}
 
 		register_sidebar(array(
 			'name' => __("Header", 'lang_theme'),
@@ -404,8 +404,8 @@ class mf_theme
 			'after_widget' => "</div>",
 		));
 
-		if(is_active_widget_area('widget_header'))
-		{
+		/*if(is_active_widget_area('widget_header'))
+		{*/
 			register_sidebar(array(
 				'name' => __("After Header", 'lang_theme'),
 				'id' => 'widget_after_header',
@@ -427,7 +427,7 @@ class mf_theme
 			));
 
 			$obj_theme_core->display_custom_widget_area('widget_slide');
-		}
+		//}
 
 		register_sidebar(array(
 			'name' => __("Pre Content", 'lang_theme'),
