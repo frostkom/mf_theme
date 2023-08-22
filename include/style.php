@@ -78,8 +78,9 @@ $out = $obj_theme_core->show_font_face()
 			{
 				display: block;"
 				.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'slogan_font_size'))
-				."margin-bottom: 1em;
-			}
+				.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'slogan_margin'))
+				//."margin-bottom: 1em;"
+			."}
 
 			header .theme_logo, header > div > #site_logo
 			{"
