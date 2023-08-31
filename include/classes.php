@@ -550,16 +550,30 @@ class mf_theme
 
 class widget_theme_menu extends WP_Widget
 {
+	var $obj_theme = "";
+
+	var $widget_ops = array();
+
+	var $arr_default = array(
+		'theme_menu_title' => '',
+		'theme_menu_type' => '',
+		'theme_menu_display_mobile_version' => 'no',
+		'theme_menu_columns_desktop' => 1,
+		'theme_menu_columns_tablet' => 1,
+		'theme_menu_columns_mobile' => 1,
+		'theme_menu_height' => '',
+	);
+
 	function __construct()
 	{
 		$this->obj_theme = new mf_theme();
 
 		$this->widget_ops = array(
 			'classname' => 'theme_menu',
-			'description' => __("Display Menu", 'lang_theme')
+			'description' => __("Display Menu", 'lang_theme'),
 		);
 
-		$this->arr_default = array(
+		/*$this->arr_default = array(
 			'theme_menu_title' => '',
 			'theme_menu_type' => '',
 			'theme_menu_display_mobile_version' => 'no',
@@ -567,7 +581,7 @@ class widget_theme_menu extends WP_Widget
 			'theme_menu_columns_tablet' => 1,
 			'theme_menu_columns_mobile' => 1,
 			'theme_menu_height' => '',
-		);
+		);*/
 
 		parent::__construct(str_replace("_", "-", $this->widget_ops['classname']).'-widget', __("Menu", 'lang_theme'), $this->widget_ops);
 	}
