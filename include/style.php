@@ -466,6 +466,11 @@ $out = $obj_theme_core->show_font_face()
 						.$obj_theme_core->render_css(array('property' => 'line-height', 'value' => 'section_line_height'))
 					."}
 
+						.is_mobile #mf-pre-content p
+						{"
+							.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size_mobile'))
+						."}
+
 						#mf-pre-content p:not(:last-child)
 						{"
 							.$obj_theme_core->render_css(array('property' => 'margin', 'value' => 'section_margin'))
@@ -558,6 +563,11 @@ $out = $obj_theme_core->show_font_face()
 					transition: all 1s ease;
 				}
 
+					.is_mobile article .meta
+					{"
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size_mobile'))
+					."}
+
 					article:hover .meta
 					{
 						opacity: 1;
@@ -593,6 +603,11 @@ $out = $obj_theme_core->show_font_face()
 					."overflow: hidden;"
 					.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'section_padding'))
 				."}
+
+					.is_mobile article section
+					{"
+						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size_mobile'))
+					."}
 
 					article .aside.after_heading + section
 					{
@@ -727,6 +742,11 @@ $out = $obj_theme_core->show_font_face()
 							{"
 								.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
 							."}
+
+								.is_mobile #comments .comment-list, #comments .comment-respond
+								{"
+									.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size_mobile'))
+								."}
 
 							#comments ol
 							{

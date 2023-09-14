@@ -4,10 +4,7 @@ class mf_theme
 {
 	var $meta_prefix = 'mf_theme_';
 
-	function __construct()
-	{
-		//$this->meta_prefix = 'mf_theme_';
-	}
+	function __construct(){}
 
 	function get_search_page()
 	{
