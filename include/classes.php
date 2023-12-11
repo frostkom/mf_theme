@@ -8,7 +8,7 @@ class mf_theme
 
 	function get_search_page()
 	{
-		return "<article".(IS_ADMIN ? " class='get_search_page'" : "").">
+		return "<article".(IS_ADMINISTRATOR ? " class='get_search_page'" : "").">
 			<h1>".__("No results", 'lang_theme')."</h1>
 			<section>
 				<p>".sprintf(__("I could not find any results for %s", 'lang_theme'), check_var('s'))."</p>
@@ -205,7 +205,7 @@ class mf_theme
 					$post_thumbnail = get_the_post_thumbnail($post_id, 'full');
 				}
 
-				$out .= "<article class='post_type_post".(IS_ADMIN ? " get_more_posts post_".$post_id : "")."'>";
+				$out .= "<article class='post_type_post".(IS_ADMINISTRATOR ? " get_more_posts post_".$post_id : "")."'>";
 
 					if($post_thumbnail != '')
 					{
