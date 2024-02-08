@@ -329,7 +329,7 @@ class mf_theme
 		$template_url = get_bloginfo('template_url');
 		$theme_version = get_theme_version();
 
-		mf_enqueue_style('style', $template_url."/include/style.php", $theme_version);
+		mf_enqueue_style('theme_style', $template_url."/include/style.php", $theme_version);
 
 		$obj_theme_core->get_external_css($theme_version);
 
