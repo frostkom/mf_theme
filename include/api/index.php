@@ -9,8 +9,6 @@ if(!defined('ABSPATH'))
 	require_once($folder."wp-load.php");
 }
 
-do_action('run_cache', array('suffix' => 'json'));
-
 if(!isset($obj_theme))
 {
 	$obj_theme = new mf_theme();
