@@ -487,7 +487,6 @@ $out = $obj_theme_core->show_font_face()
 
 			#mf-content > div
 			{"
-				//."overflow: hidden;"
 				.$obj_theme_core->render_css(array('property' => 'overflow', 'value' => 'content_overflow'))
 				.$obj_theme_core->render_css(array('property' => 'padding', 'value' => 'content_padding'))
 			."}
