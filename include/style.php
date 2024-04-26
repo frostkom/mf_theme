@@ -555,19 +555,19 @@ $out = $obj_theme_core->show_font_face()
 					.$obj_theme_core->render_css(array('property' => 'font-weight', 'value' => 'heading_weight_h5'))
 				."}
 
-				article .meta
+				article > .meta
 				{"
 					.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size'))
 					."opacity: .2;
 					transition: all 1s ease;
 				}
 
-					.is_mobile article .meta
+					.is_mobile article > .meta
 					{"
 						.$obj_theme_core->render_css(array('property' => 'font-size', 'value' => 'section_size_mobile'))
 					."}
 
-					article:hover .meta
+					article:hover > .meta
 					{
 						opacity: 1;
 					}
