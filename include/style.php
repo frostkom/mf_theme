@@ -333,21 +333,12 @@ $out = $obj_theme_core->show_font_face()
 			// Wrap with flex box but does align every main menu item like flex do
 			/*$out .= ".theme_nav.has_menu_columns .menu
 			{
-				display: -webkit-box;
-				display: -ms-flexbox;
-				display: -webkit-flex;
 				display: flex;
-				-webkit-box-flex-wrap: wrap;
-				-webkit-flex-wrap: wrap;
-				-ms-flex-wrap: wrap;
 				flex-wrap: wrap;
 			}
 
 				.theme_nav.has_menu_columns .menu > li
 				{
-					-webkit-box-flex: 1 1 auto;
-					-webkit-flex: 1 1 auto;
-					-ms-flex: 1 1 auto;
 					flex: 1 1 auto;
 				}
 
@@ -364,38 +355,24 @@ $out = $obj_theme_core->show_font_face()
 			/* Wrap with column count but can sometimes split submenu items within a main menu item */
 			$out .= ".is_desktop .has_menu_columns.menu_columns_desktop_2 .menu, .is_tablet .has_menu_columns.menu_columns_tablet_2 .menu, .is_mobile .has_menu_columns.menu_columns_mobile_2 .menu
 			{
-				-webkit-column-count: 2;
 				column-count: 2;
 			}
 
 			.is_desktop .has_menu_columns.menu_columns_desktop_3 .menu, .is_tablet .has_menu_columns.menu_columns_tablet_3 .menu, .is_mobile .has_menu_columns.menu_columns_mobile_3 .menu
 			{
-				-webkit-column-count: 3;
 				column-count: 3;
 			}";
 
 			/* Wrap with column direction and if set, a height on the menu to adjust manually for column to contain wanted menu items */
 			$out .= ".theme_nav.has_menu_height .menu
 			{
-				display: -webkit-box;
-				display: -ms-flexbox;
-				display: -webkit-flex;
 				display: flex;
-				-webkit-box-flex-direction: column;
-				-webkit-flex-direction: column;
-				-ms-direction-wrap: column;
 				flex-direction: column;
-				-webkit-box-flex-wrap: wrap;
-				-webkit-flex-wrap: wrap;
-				-ms-flex-wrap: wrap;
 				flex-wrap: wrap;
 			}
 
 				.theme_nav.has_menu_height .menu > li
 				{
-					-webkit-box-flex: 0 0 auto;
-					-webkit-flex: 0 0 auto;
-					-ms-flex: 0 0 auto;
 					flex: 0 0 auto;
 				}
 
@@ -622,19 +599,16 @@ $out = $obj_theme_core->show_font_face()
 
 						article section.text_columns
 						{
-							-webkit-column-gap: 2em;
 							column-gap: 2em;
 						}
 
 							article section.columns_2
 							{
-								-webkit-column-count: 2;
 								column-count: 2;
 							}
 
 							article section.columns_3
 							{
-								-webkit-column-count: 3;
 								column-count: 3;
 							}
 
@@ -939,10 +913,7 @@ $out = $obj_theme_core->show_font_face()
 
 					if(isset($obj_theme_core->options['footer_widget_flex']) && $obj_theme_core->options['footer_widget_flex'] == 2)
 					{
-						$out .= "display: -webkit-box;
-						display: -ms-flexbox;
-						display: -webkit-flex;
-						display: flex;";
+						$out .= "display: flex;";
 					}
 
 				$out .= "}
@@ -956,10 +927,7 @@ $out = $obj_theme_core->show_font_face()
 
 						if(isset($obj_theme_core->options['footer_widget_flex']) && $obj_theme_core->options['footer_widget_flex'] == 2)
 						{
-							$out .= "-webkit-box-flex: 1;
-							-webkit-flex: 1;
-							-ms-flex: 1;
-							flex: 1;";
+							$out .= "flex: 1;";
 						}
 
 					$out .= "}
@@ -1028,7 +996,6 @@ $out = $obj_theme_core->show_font_face()
 				position: fixed;
 				right: 0;
 				top: 10vh;
-				-webkit-transform: translateX(50%);
 				transform: translateX(50%);
 				transition: all 1s ease;
 				z-index: 1001;
@@ -1036,7 +1003,6 @@ $out = $obj_theme_core->show_font_face()
 
 				#window_side:hover
 				{
-					-webkit-transform: translateX(20%);
 					transform: translateX(20%);
 				}
 
@@ -1056,7 +1022,6 @@ $out = $obj_theme_core->show_font_face()
 
 							#window_side img:hover, #window_side .fa:hover
 							{
-								-webkit-transform: translateX(-30%);
 								transform: translateX(-30%);
 							}";
 		}
@@ -1105,17 +1070,11 @@ $aside_right_width = (isset($obj_theme_core->options['aside_width']) && $obj_the
 
 $flex_content = "#mf-content > div
 {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
 	display: flex;
 }
 
 	#main
 	{
-		-webkit-box-flex: 2 1 0;
-		-webkit-flex: 2 1 0;
-		-ms-flex: 2 1 0;
 		flex: 2 1 0;
 		order: 2;
 		overflow: hidden;
@@ -1147,9 +1106,6 @@ $flex_content = "#mf-content > div
 		$flex_content .= ".aside.right
 		{
 			margin-left: 2%;
-			-webkit-box-flex: 0 0 ".$aside_right_width.";
-			-webkit-flex: 0 0 ".$aside_right_width.";
-			-ms-flex: 0 0 ".$aside_right_width.";
 			flex: 0 0 ".$aside_right_width.";
 			order: 3;"
 			.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'aside_width'))
@@ -1158,9 +1114,6 @@ $flex_content = "#mf-content > div
 		.aside.left
 		{
 			margin-right: 2%;
-			-webkit-box-flex: 0 0 ".$aside_left_width.";
-			-webkit-flex: 0 0 ".$aside_left_width.";
-			-ms-flex: 0 0 ".$aside_left_width.";
 			flex: 0 0 ".$aside_left_width.";
 			order: 1;"
 			.$obj_theme_core->render_css(array('property' => 'max-width', 'value' => 'aside_left_width'))
@@ -1193,7 +1146,6 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 			article section.text_columns
 			{
-				-webkit-column-count: 1;
 				column-count: 1;
 			}";
 
@@ -1235,7 +1187,6 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 			{
 				left: 50%;
 				position: absolute;
-				-webkit-transform: translateY(-50%);
 				transform: translateX(-50%);
 				z-index: 100;
 			}";
