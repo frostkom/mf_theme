@@ -1,5 +1,25 @@
 <?php
 
+function get_theme_version()
+{
+	$theme_version = $parent_version = 0;
+
+	if(function_exists('wp_get_theme'))
+	{
+		$arr_theme_data = wp_get_theme();
+		$theme_version = $arr_theme_data->get('Version');
+
+		$parent = $arr_theme_data->parent();
+
+		if(!empty($parent))
+		{
+			$parent_version = $parent->Version;
+		}
+	}
+
+	return int2point(point2int($theme_version, $arr_theme_data->get('Name')) + point2int($parent_version, $arr_theme_data->get('Name')." (parent)") + get_option_or_default('option_theme_version', 1));
+}
+
 include_once("include/classes.php");
 
 $obj_theme = new mf_theme();

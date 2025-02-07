@@ -330,28 +330,6 @@ $out = $obj_theme_core->show_font_face()
 
 		if($post_id > 0)
 		{
-			// Wrap with flex box but does align every main menu item like flex do
-			/*$out .= ".theme_nav.has_menu_columns .menu
-			{
-				display: flex;
-				flex-wrap: wrap;
-			}
-
-				.theme_nav.has_menu_columns .menu > li
-				{
-					flex: 1 1 auto;
-				}
-
-				.is_desktop .has_menu_columns.menu_columns_desktop_2 .menu > li, .is_tablet .has_menu_columns.menu_columns_tablet_2 .menu > li, .is_mobile .has_menu_columns.menu_columns_mobile_2 .menu > li
-				{
-					width: 50%;
-				}
-
-				.is_desktop .has_menu_columns.menu_columns_desktop_3 .menu > li, .is_tablet .has_menu_columns.menu_columns_tablet_3 .menu > li, .is_mobile .has_menu_columns.menu_columns_mobile_3 .menu > li
-				{
-					width: 33%;
-				}";*/
-
 			/* Wrap with column count but can sometimes split submenu items within a main menu item */
 			$out .= ".is_desktop .has_menu_columns.menu_columns_desktop_2 .menu, .is_tablet .has_menu_columns.menu_columns_tablet_2 .menu, .is_mobile .has_menu_columns.menu_columns_mobile_2 .menu
 			{
