@@ -326,7 +326,7 @@ $out = $obj_theme_core->show_font_face()
 									display: block;
 								}";
 
-		$post_id = apply_filters('get_widget_search', 'theme-menu-widget');
+		$post_id = (int)apply_filters('get_widget_search', 'theme-menu-widget');
 
 		if($post_id > 0)
 		{
