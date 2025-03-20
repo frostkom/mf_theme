@@ -329,15 +329,14 @@ class mf_theme
 		$template_url = get_bloginfo('template_url');
 		$theme_version = get_theme_version();
 
-		mf_enqueue_style('theme_style', $template_url."/include/style.php", $theme_version);
+		mf_enqueue_style('theme_style', $template_url."/include/style.php");
 
 		$obj_theme_core->get_external_css($theme_version);
 
 		mf_enqueue_script('script_theme', $template_url."/include/script.js", array(
 			'template_url' => $template_url,
-			'hamburger_collapse_if_no_space' => (isset($obj_theme_core->options['hamburger_collapse_if_no_space']) && $obj_theme_core->options['hamburger_collapse_if_no_space'] == 2),
-			//'slide_nav_fade' => (isset($obj_theme_core->options['slide_nav_fade_bg']) && $obj_theme_core->options['slide_nav_fade_bg'] != '')
-		), $theme_version);
+			//'hamburger_collapse_if_no_space' => (isset($obj_theme_core->options['hamburger_collapse_if_no_space']) && $obj_theme_core->options['hamburger_collapse_if_no_space'] == 2),
+		));
 	}
 
 	function body_class($classes)

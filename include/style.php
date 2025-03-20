@@ -98,11 +98,11 @@ $out = $obj_theme_core->show_font_face()
 			{
 				list-style: none;";
 
-				if(isset($obj_theme_core->options['hamburger_collapse_if_no_space']) && $obj_theme_core->options['hamburger_collapse_if_no_space'] == 2)
+				/*if(isset($obj_theme_core->options['hamburger_collapse_if_no_space']) && $obj_theme_core->options['hamburger_collapse_if_no_space'] == 2)
 				{
 					$out .= "overflow: hidden;
 					white-space: nowrap;";
-				}
+				}*/
 
 			$out .= "}
 
@@ -1022,25 +1022,6 @@ $out = $obj_theme_core->show_font_face()
 		$out .= $obj_theme_core->options['custom_css_all'];
 	}
 
-	/*if(is_plugin_active("css-hero-ce/css-hero-main.php"))
-	{
-		$arr_selectors = get_option('wpcss_current_settings_array_'.$obj_theme_core->get_theme_slug());
-
-		do_log(var_export($arr_selectors, true));
-
-		foreach($arr_selectors as $selector => $arr_properties)
-		{
-			$out .= $selector."{";
-
-				foreach($arr_properties as $key => $value)
-				{
-					$out .= $key.":".$value.";";
-				}
-
-			$out .= "}";
-		}
-	}*/
-
 $out .= "}";
 
 $aside_left_width = (isset($obj_theme_core->options['aside_left_width']) && $obj_theme_core->options['aside_left_width'] != '' ? $obj_theme_core->options['aside_left_width'] : "28%");
@@ -1104,7 +1085,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 	{
 		body:before
 		{
-			content: 'is_mobile'; /* is_size_palm */
+			content: 'is_mobile';
 		}
 
 		.hide_if_mobile
@@ -1147,7 +1128,7 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 	{
 		body:before
 		{
-			content: 'is_tablet'; /* is_size_lap */
+			content: 'is_tablet';
 			display: none;
 		}
 
@@ -1172,17 +1153,13 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 			if(isset($obj_theme_core->options['sub_nav_direction']) && $obj_theme_core->options['sub_nav_direction'] == 'vertical')
 			{
 				$out .= ".theme_nav.is_mobile_ready .sub-menu
-				{"
-					//.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
-					//."border-radius: .3em;"
-					//."overflow: hidden;"
-					."text-align: center;
+				{
+					text-align: center;
 				}
 
 					.theme_nav.is_mobile_ready .sub-menu li
-					{"
-						//.$obj_theme_core->render_css(array('property' => 'background', 'value' => 'sub_nav_bg'))
-						."display: block;
+					{
+						display: block;
 						margin-left: 0;
 					}
 
@@ -1206,7 +1183,6 @@ if(isset($obj_theme_core->options['mobile_breakpoint']) && $obj_theme_core->opti
 
 						.theme_nav.is_mobile_ready .sub-menu .sub-menu
 						{
-							/*left: 17em !important;*/
 							left: 100% !important;
 							top: 0;
 							transform: translateX(3%);
@@ -1288,7 +1264,7 @@ if(isset($obj_theme_core->options['website_max_width']) && $obj_theme_core->opti
 	{
 		body:before
 		{
-			content: 'is_desktop'; /* is_size_desk */
+			content: 'is_desktop';
 		}
 
 		#mf-pre-header > div, header > div, #mf-after-header > div, #mf-pre-content > div, #mf-content > div, #mf-pre-footer > div, footer > div, body:not(.is_mobile) nav.full_width:not(.is_hamburger) > div, .full_width > div > .widget .section, .full_width > div > .widget > div
