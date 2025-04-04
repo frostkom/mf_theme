@@ -157,7 +157,7 @@ get_header();
 			$stop = ($last > ($current + $range + 1) ? ($current + $range) : $last);
 
 			$base_url = preg_replace("/(?:&|(\?))"."paged"."=[^&]*(?(1)&|)?/i", "$1", $_SERVER['REQUEST_URI']);
-			$base_url .= (preg_match("/\?/", $base_url) ? "&" : "?")."paged=";
+			$base_url .= (strpos($base_url, "?") ? "&" : "?")."paged=";
 
 			echo "<ul class='pagination'>";
 
