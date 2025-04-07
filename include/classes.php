@@ -546,10 +546,8 @@ class mf_theme
 
 class widget_theme_menu extends WP_Widget
 {
-	var $obj_theme = "";
-
-	var $widget_ops = array();
-
+	var $obj_theme;
+	var $widget_ops;
 	var $arr_default = array(
 		'theme_menu_title' => '',
 		'theme_menu_type' => '',
@@ -569,23 +567,11 @@ class widget_theme_menu extends WP_Widget
 			'description' => __("Display Menu", 'lang_theme'),
 		);
 
-		/*$this->arr_default = array(
-			'theme_menu_title' => '',
-			'theme_menu_type' => '',
-			'theme_menu_display_mobile_version' => 'no',
-			'theme_menu_columns_desktop' => 1,
-			'theme_menu_columns_tablet' => 1,
-			'theme_menu_columns_mobile' => 1,
-			'theme_menu_height' => '',
-		);*/
-
 		parent::__construct(str_replace("_", "-", $this->widget_ops['classname']).'-widget', __("Menu", 'lang_theme'), $this->widget_ops);
 	}
 
 	function widget($args, $instance)
 	{
-		do_log(__CLASS__."->".__FUNCTION__."(): Add a block instead", 'publish', false);
-
 		extract($args);
 		$instance = wp_parse_args((array)$instance, $this->arr_default);
 
