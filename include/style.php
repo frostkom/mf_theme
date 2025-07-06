@@ -326,9 +326,7 @@ $out = $obj_theme_core->show_font_face()
 									display: block;
 								}";
 
-		$post_id = (int)apply_filters('get_widget_search', 'theme-menu-widget');
-
-		if($post_id > 0)
+		if((int)apply_filters('get_widget_search', 'theme-menu-widget') > 0)
 		{
 			/* Wrap with column count but can sometimes split submenu items within a main menu item */
 			$out .= ".is_desktop .has_menu_columns.menu_columns_desktop_2 .menu, .is_tablet .has_menu_columns.menu_columns_tablet_2 .menu, .is_mobile .has_menu_columns.menu_columns_mobile_2 .menu

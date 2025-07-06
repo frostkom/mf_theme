@@ -31,7 +31,7 @@ class mf_theme
 		}
 	}
 
-	function get_menu($data = array())
+	function get_menu($data = [])
 	{
 		if(!isset($data['where'])){				$data['where'] = "";}
 		if(!isset($data['type'])){				$data['type'] = "";}
@@ -167,7 +167,7 @@ class mf_theme
 		return $out;
 	}
 
-	function get_more_posts($data = array())
+	function get_more_posts($data = [])
 	{
 		global $wpdb;
 

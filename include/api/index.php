@@ -14,7 +14,7 @@ if(!isset($obj_theme))
 	$obj_theme = new mf_theme();
 }
 
-$json_output = array();
+$json_output = [];
 
 $type = check_var('type', 'char');
 $value = check_var('value', 'char');
