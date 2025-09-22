@@ -96,15 +96,8 @@ $out = $obj_theme_core->show_font_face()
 
 			.theme_nav ul
 			{
-				list-style: none;";
-
-				/*if(isset($obj_theme_core->options['hamburger_collapse_if_no_space']) && $obj_theme_core->options['hamburger_collapse_if_no_space'] == 2)
-				{
-					$out .= "overflow: hidden;
-					white-space: nowrap;";
-				}*/
-
-			$out .= "}
+				list-style: none;
+			}
 
 				.theme_nav.is_mobile_ready li
 				{
