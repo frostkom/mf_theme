@@ -640,7 +640,7 @@ class widget_theme_menu extends WP_Widget
 			if($instance['theme_menu_display_mobile_version'] == 'no')
 			{
 				echo "<h4>".__("Columns", 'lang_theme')."</h4>
-				<div class='flex_flow'>"
+				<div".apply_filters('get_flex_flow', "").">"
 					.show_select(array('data' => $this->get_columns_for_select(), 'name' => $this->get_field_name('theme_menu_columns_desktop'), 'text' => __("Desktop", 'lang_theme'), 'value' => $instance['theme_menu_columns_desktop']))
 					.show_select(array('data' => $this->get_columns_for_select(), 'name' => $this->get_field_name('theme_menu_columns_tablet'), 'text' => __("Tablet", 'lang_theme'), 'value' => $instance['theme_menu_columns_tablet']))
 					.show_select(array('data' => $this->get_columns_for_select(), 'name' => $this->get_field_name('theme_menu_columns_mobile'), 'text' => __("Mobile", 'lang_theme'), 'value' => $instance['theme_menu_columns_mobile']));
