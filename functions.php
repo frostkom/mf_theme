@@ -42,6 +42,25 @@ if(!function_exists('point2int'))
 	}
 }
 
+//main_version * 10000 + minor_version * 100 + sub_version. For example, 4.1.0 is returned as 40100
+function int2point($in)
+{
+	$out = "";
+	$in_orig = $in;
+
+	$main_version = floor($in / 10000);
+
+	$in -= $main_version * 10000;
+
+	$minor_version = floor($in / 100);
+
+	$in -= $minor_version * 100;
+
+	$sub_version = $in;
+
+	return $main_version.".".$minor_version.".".$sub_version;
+}
+
 function get_theme_version()
 {
 	$theme_version = $parent_version = 0;
