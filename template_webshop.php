@@ -3,7 +3,7 @@
 Template Name: Webshop
 */
 
-if(!function_exists('is_plugin_active') || function_exists('is_plugin_active') && is_plugin_active("mf_webshop/index.php"))
+if(!function_exists('is_plugin_active') || function_exists('is_plugin_active') && is_plugin_active("mf_rentals/index.php"))
 {
 	if(have_posts())
 	{
