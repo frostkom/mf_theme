@@ -302,7 +302,7 @@ if(is_plugin_active("mf_theme_core/index.php"))
 
 						.is_mobile .theme_nav.is_mobile_ready > div > ul > li, .theme_nav.is_mobile_ready.is_hamburger > div > ul > li
 						{"
-							.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg', 'header_bg_color', 'header_bg_image')))
+							//.$obj_theme_core->render_css(array('property' => 'background', 'value' => array('hamburger_menu_bg', 'header_bg', 'header_bg_color', 'header_bg_image')))
 							."display: none;
 						}
 
